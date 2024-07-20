@@ -1,0 +1,118 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
+# Environment variables
+set PATH "$PATH:/home/aljustiet/.local/bin"
+set PATH "$PATH:/home/aljustiet/Documents/platform-tools"
+set EDITOR nvim
+set -gx XDG_CURRENT_DESKTOP Hyprland
+set -gx PAGER "bat"
+set -gx BAT_CONFIG_PATH "/home/aljustiet/.config/bat/bat.conf"
+set -gx MANPAGER "bat -l man"
+set -gx SYSTEMD_PAGER "bat"
+set -gx SYSTEMD_PAGERSECURE "false"
+# set MERGETOOL vimdiff
+# set CALCURSE_EDITOR nvim
+
+# Key bindings
+bind \b "backward-kill-word"
+
+# Aliases
+alias yay=paru
+alias less="less --quit-if-one-screen"
+alias nh="nvim ~/.config/hypr/hyprland.conf"
+alias nk="nvim ~/Sync/Keyboard-Remapping/kanata.lsp"
+alias nf="nvim ~/.config/fish/config.fish"
+alias nz="nvim ~/.zshrc"
+alias nka="nvim ~/.config/kitty/kitty.conf"
+alias rk="doas systemctl restart kanata"
+alias ccp="pwd | wl-copy"
+alias ssso="doas systemctl start openvpn.service"
+alias ssto='doas systemctl stop openvpn.service'
+alias mip="/usr/local/bin/myip"
+alias myip="/usr/local/bin/myip"
+alias l="ls -lah"
+alias ll="ls -lah"
+alias oe='hyprctl dispatcher dpms off'
+alias eo='hyprctl dispatcher dpms on'
+alias las="hyprlock && doas systemctl suspend"
+alias timg=viu
+alias r="source ~/.config/fish/config.fish"
+alias v="nvim"
+alias codium="/usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
+alias rpd="doas pacman -Sy"
+alias fu="doas pacman -Syu"
+alias i="doas pacman --noconfirm -S"
+alias dl="echo 0 | doas tee /sys/class/leds/*/brightness"
+alias curious="echo 'Are you curious?'"
+alias rd="killall dunst && hyprctl dispatcher exec dunst"
+alias nt="notify-send 'Text' 'This is a text' "
+alias pm=pacman
+# alias sd=doas
+alias kd="pkill -f 'Discord --enable-features=UseOzonePlatform --ozone-platform=wayland'"
+alias ks="pkill -f '/usr/lib/signal-desktop/signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'"
+alias nwe="nmcli radio wifi on"
+alias nwd="nmcli radio wifi off"
+alias c="clear"
+alias rn="doas systemctl restart NetworkManager"
+alias hrw="hyprctl dispatcher exec waybar"
+alias kw="killall waybar"
+alias kg="killall gammastep"
+alias nb="nvim ~/.config/bat/bat.conf"
+alias mp="kill -STOP 2553837"
+alias mc="kill -CONT 2553837"
+alias sping="~/.local/bin/sping"
+alias stopd="systemctl --user stop docker"
+alias startd="systemctl --user stop docker"
+alias lc="docker ps -a"
+alias start="doas systemctl start"
+alias stop="doas systemctl stop"
+alias systus="doas systemctl status"
+alias restart="doas systemctl restart"
+alias sturt="systemctl --user start"
+alias stup="systemctl --user stop"
+alias stutus="systemctl --user status"
+alias resturt="systemctl --user restart"
+alias sfp="pacman -Ss"
+alias sfap="yay --aur -Ss"
+alias ddo="hyprctl dispatcher dpms off DP-1"
+alias edo="hyprctl dispatcher dpms on DP-1"
+alias gis="git status"
+alias aac="git add . && git commit"
+alias gliol="git log --oneline"
+alias hree='hyprctl dispatcher exec "easyeffects --gapplication-service &"'
+alias ssd="hyprlock && doas systemctl suspend"
+alias gss="hyprctl dispatcher exec 'gammastep -m wayland -O $argv'"
+alias rt="radeontop --color"
+alias radeontop="radeontop --color"
+alias cl="wc -l"
+alias kk="doas systemctl stop kanata"
+alias dha="hyprctl --batch 'keyword animations:enabled 0'"
+alias eha="hyprctl --batch 'keyword animations:enabled 1'"
+alias dal="echo 0 | doas tee /sys/class/leds/*/brightness"
+alias stor="doas systemctl start tor"
+alias stoptor="doas systemctl stop tor"
+alias gpgm="git push github main"
+alias gpom="git push origin main"
+alias ndwr="nmcli device wifi rescan"
+alias spi="doas pacman -S"
+alias spr="doas pacman -Rns"
+alias p="pacman"
+alias checkout="git checkout"
+alias branch="git branch"
+alias dd1="dust -d 1"
+alias yas="yay --aur -Syu"
+alias kl="pkill -f /usr/lib/librewolf/librewolf"
+alias hc="hyprctl clients"
+
+function man --description 'alias man="man $argv | bat -l man"'
+ command man $argv | bat -l man
+        
+end
+
+# alias bat="bat -n"
+# alias cd=z
+
+# Zoxide
+zoxide init fish --cmd cd | source
