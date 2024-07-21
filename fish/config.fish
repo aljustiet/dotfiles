@@ -108,6 +108,7 @@ alias hc="hyprctl clients"
 alias lad="doas udevadm info --attribute-walk"
 alias ald="adb devices"
 alias hde="hyprctl dispatcher exec"
+alias gp="git push -u github main && git push -u origin main"
 
 function man --description 'alias man="man $argv | bat -l man"'
  command man $argv | bat -l man
