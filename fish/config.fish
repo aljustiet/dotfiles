@@ -36,7 +36,7 @@ alias l="ls -lah"
 alias ll="ls -lah"
 alias oe='hyprctl dispatcher dpms off'
 alias eo='hyprctl dispatcher dpms on'
-alias las="hyprlock && doas systemctl suspend"
+alias las="doas systemctl suspend"
 alias timg=viu
 alias r="source ~/.config/fish/config.fish"
 alias v="nvim"
@@ -82,7 +82,7 @@ alias gis="git status"
 alias aac="git add . && git commit"
 alias gliol="git log --oneline"
 alias hree='hyprctl dispatcher exec "easyeffects --gapplication-service &"'
-alias ssd="hyprlock && doas systemctl suspend"
+alias ssd="doas systemctl suspend"
 alias gss="hyprctl dispatcher exec 'gammastep -m wayland -O $argv'"
 alias rt="radeontop --color"
 alias radeontop="radeontop --color"
@@ -105,6 +105,9 @@ alias dd1="dust -d 1"
 alias yas="yay --aur -Syu"
 alias kl="pkill -f /usr/lib/librewolf/librewolf"
 alias hc="hyprctl clients"
+alias lad="doas udevadm info --attribute-walk"
+alias ald="adb devices"
+alias hde="hyprctl dispatcher exec"
 
 function man --description 'alias man="man $argv | bat -l man"'
  command man $argv | bat -l man
