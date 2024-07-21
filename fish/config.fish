@@ -109,6 +109,9 @@ alias lad="doas udevadm info --attribute-walk"
 alias ald="adb devices"
 alias hde="hyprctl dispatcher exec"
 alias gp="git push -u github main && git push -u origin main"
+alias hs="hyprctl setcursor"
+alias kb="pkill -f '/usr/lib/electron30/electron --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=UseOzonePlatform --ozone-platform=wayland /usr/lib/obsidian/app.asar'"
+alias kt="pkill -f telegram-desktop"
 
 function man --description 'alias man="man $argv | bat -l man"'
  command man $argv | bat -l man
