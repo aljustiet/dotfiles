@@ -3,9 +3,10 @@ if status is-interactive
 end
 
 # Environment variables
-set PATH "$PATH:/home/aljustiet/.local/bin"
-set PATH "$PATH:/home/aljustiet/Documents/platform-tools"
-set EDITOR nvim
+set -gx PATH "$PATH:/home/aljustiet/.local/bin"
+set -gx PATH "$PATH:/home/aljustiet/Documents/platform-tools"
+set -gx VISUAL nvim
+set -gx EDITOR nvim
 set -gx XDG_CURRENT_DESKTOP Hyprland
 set -gx PAGER "bat"
 set -gx BAT_CONFIG_PATH "/home/aljustiet/.config/bat/bat.conf"
@@ -51,6 +52,7 @@ alias nt="notify-send 'Text' 'This is a text' "
 alias pm=pacman
 # alias sd=doas
 alias kd="pkill -f 'Discord --enable-features=UseOzonePlatform --ozone-platform=wayland'"
+alias kv="pkill -f 'vesktop.bin --enable-speech-dispatcher --ozone-platform-hint=auto'"
 alias ks="pkill -f '/usr/lib/signal-desktop/signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'"
 alias nwe="nmcli radio wifi on"
 alias nwd="nmcli radio wifi off"
@@ -107,7 +109,7 @@ alias p="pacman"
 alias checkout="git checkout"
 alias branch="git branch"
 alias dd1="dust -d 1"
-alias yas="yay --aur -Syu"
+alias yas="yay -Syu --aur"
 alias kl="pkill -f /usr/lib/librewolf/librewolf"
 alias hc="hyprctl clients"
 alias lad="doas udevadm info --attribute-walk"
@@ -133,10 +135,27 @@ alias mount="doas mount -o uid=aljustiet,gid=aljustiet"
 alias umount="doas umount"
 alias pacman="doas pacman"
 alias djfk="doas journalctl -feu kanata"
+alias cb="cargo build"
+alias ndwl="nmcli device wifi list"
+alias ts="tailscale"
+alias gsc="gsettings set org.gnome.desktop.interface cursor-theme \'catppuccin-frappe-sapphire-cursors\'"
+alias cdlb="cd ~/.local/bin"
+alias ect="crontab -e"
+
+function rse --description "evtest /dev/input/event$argv | grep --line-buffered 'EV_KEY.*value 1' | sed -n -e 's/.*KEY_\(.*\)), value 1/\1/p'"
+  evtest /dev/input/event$argv | grep --line-buffered 'EV_KEY.*value 1' | sed -n -e 's/.*KEY_\(.*\)), value 1/\1/p'
+end
+
+function rib --description 'nohup $argv 2>/dev/null 1>/dev/null &'
+ command nohup mpv $argv 2>/dev/null 1>/dev/null &
+end
+
+function rmib --description 'nohup mpv --no-video --audio-display=no --input-ipc-server=/tmp/mpv-socket $argv 2>/dev/null 1>/dev/null &'
+ command nohup mpv --no-video --audio-display=no --input-ipc-server=/tmp/mpv-socket $argv 2>/dev/null 1>/dev/null &
+end
 
 function man --description 'alias man="man $argv | bat -l man"'
  command man $argv | bat -l man
-        
 end
 
 # alias bat="bat -n"
