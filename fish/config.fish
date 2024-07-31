@@ -141,6 +141,7 @@ alias ts="tailscale"
 alias gsc="gsettings set org.gnome.desktop.interface cursor-theme \'catppuccin-frappe-sapphire-cursors\'"
 alias cdlb="cd ~/.local/bin"
 alias ect="crontab -e"
+alias ns="nvim ~/.ssh/config"
 
 function rse --description "evtest /dev/input/event$argv | grep --line-buffered 'EV_KEY.*value 1' | sed -n -e 's/.*KEY_\(.*\)), value 1/\1/p'"
   evtest /dev/input/event$argv | grep --line-buffered 'EV_KEY.*value 1' | sed -n -e 's/.*KEY_\(.*\)), value 1/\1/p'

@@ -1,0 +1,45 @@
+pl-create Avenged Sevenfold - City of Evil
+set start_view=playlist
+pl-create
+pl-create 100 Best of Mozart
+pl-create 3
+shell create
+bind common b pl-create
+pl-create Chillhop Essentials Spring 2024
+pl-rename Avenged Sevenfold - City of Evil
+pl-rename Avenged Sevenfold |
+pl-rename
+pl-create Avenged Sevenfold
+pl-create 
+pl-rename Git
+add ~/Podcasts
+add ~/Music
+pl
+shell crea
+bind -f common 3 view browser
+bind -f common 4 view queue
+bind -f common 5 view tree
+bind -f common 4 view browser
+bind -f common 5 view brow
+bind -f common 4 view tree
+bind -f common 3 view queue
+bind -f common 3 view tree
+bind -f common 2 view sorted
+bind -f common 2 view libra
+bind -f common 1 view playlist
+bind -f common playlist view tree
+bind common c win-toggle
+bind common ' win-add-p
+bind -f common z toggle show_remaining_time
+bind -f common w toggle repeat
+bind -f common w toggle repeat_current
+bind -f common y win-add-q
+bind -f common space player-pause
+bind -f common r player-prev
+bind -f common t player-next
+bind -f browser i toggle show_hidden
+bind common  win-sel-cur
+bind -f common i seek +5
+bind -f common e win-up
+bind -f common d win-add-q
+bind -f common a win-down
