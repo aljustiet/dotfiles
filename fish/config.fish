@@ -142,6 +142,8 @@ alias gsc="gsettings set org.gnome.desktop.interface cursor-theme \'catppuccin-f
 alias cdlb="cd ~/.local/bin"
 alias ect="crontab -e"
 alias ns="nvim ~/.ssh/config"
+alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
+alias rw="pkill -f waybar && hde waybar"
 
 function rse --description "evtest /dev/input/event$argv | grep --line-buffered 'EV_KEY.*value 1' | sed -n -e 's/.*KEY_\(.*\)), value 1/\1/p'"
   evtest /dev/input/event$argv | grep --line-buffered 'EV_KEY.*value 1' | sed -n -e 's/.*KEY_\(.*\)), value 1/\1/p'
