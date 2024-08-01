@@ -15,15 +15,22 @@
          "all-outputs": false,
          "format": "{id}",
          "format-icons": {
+             "active": "",
+             "default": "",
+             "empty": "",
+             "persistent": "",
+             "special": "",
+             "urgent": "",
+             "focused": "",
              "1": "",
              "2": "",
              "3": "",
              "4": "",
-             "5": "",
-             "urgent": "",
-             "focused": "",
-             "default": ""
+             "5": "", 
          },
+//       "persistent-workspaces": {
+//           "*": 3
+//       },
          "disable-scroll": true,
          "on-click": "activate",
          // "all-outputs": false,
