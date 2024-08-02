@@ -1,0 +1,298 @@
+(defcfg
+  linux-dev (
+  /dev/input/by-path/platform-i8042-serio-0-event-kbd
+  /dev/input/by-path/pci-0000:34:00.3-usbv2-0:1.1:1.0-event-kbd
+  /dev/input/by-path/pci-0000:33:00.4-usbv2-0:2:1.0-event-kbd
+  )
+  process-unmapped-keys yes
+)
+
+(defsrc
+  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+  grv  1     2    3    4    5    6     7    8    9    0    -    =    bspc
+  tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
+  caps a     s    d    f    g    h     j    k    l    ;    '    ret
+  lsft z     x    c    v    b  n     m    ,    .    /    rsft
+  lctl lmet  lalt          spc              ralt prtsc rctl
+)
+
+(deflayer graphite
+  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+  @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
+  tab  b     l    d    w    z    @'    f    o    u    j    ;    =    \
+  @ctresc n     r    t    s    g    y     h    a    e    i    @,   ret
+  lsft q     x    m    c    v    k     p    .    @-   @/   rsft
+  @laltg @lmet  @chlalt        spc             @chralt @nlayer lctl
+)
+
+(deflayer nothing_layer 
+  @grp  XX     XX   XX   XX   XX   XX   XX    XX   XX   XX   XX   XX  XX   XX  XX  XX 
+  XX    XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX   XX  
+  XX   XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX   XX
+  XX      XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX 
+  XX   XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX  
+  XX     XX     XX             XX              XX      XX      XX  
+)
+
+(deflayer qwerty
+  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 f13  f14 f15 f16
+  @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
+  tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
+  @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
+  lsft z     x    c    v    b    n     m    ,    .    /    rsft
+  @laltq lmet  @chlalt         spc              @chralt @nlayer rctl
+)
+
+(deflayer default
+  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+  @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
+  tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
+  caps a     s    d    f    g    h     j    k    l    ;    '    ret
+  lsft z     x    c    v    b  n     m    ,    .    /    rsft
+  lctl lmet  lalt          spc              ralt prtsc rctl
+)
+
+(deflayer use-fake-keys
+  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+  @grl  1     2     3     4      5       6     7    8    9    0    [    ]    bspc
+  tab  @psf  @rsf  @pal  @ral   @isf '    f    o    u    j    ;    =    \
+  @ctresc n     r    t    s    g    y     h    a    e    i    @,   ret
+  lsft q     x    m    c    v    k     p    .    @-   @/   rsft
+  lalt lmet  @laltb          spc              @nav @oneshot rctl
+)
+
+(deflayer layers
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    @grp @qwr @def lrld @ufk @nl  _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer symbol_layer
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    @ex  _    _    _    _    _    _    ;    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer numbers_layer
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    1    2    3    4    5    6    7    8    9    0    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer navigation
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+ lctl   _    _    _    _   lft rght @lft @down @up @rght  _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _   lctl            _              _    _    _
+)
+
+(deflayer scrolling_layer
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer selection_layer
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer lmet_layer
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  @scl _    _              _              _    _    _
+)
+
+(deflayer lalt_layer_g
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _  @ctl_g _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _            @spcq               @anav   _    _
+)
+
+(deflayer lalt_layer_q
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _  @ctl_g _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _            @spcg                 _    _    _
+)
+
+(deflayer mouse_actions
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _ @clft @mup @crght _    _    _    _    _    _    _    _    _    _
+  _ @mlft @mbck @mrght _    _    _    _    _    ;    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _          _    _
+)
+
+(deflayer alt_tweaks
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    @dline
+  _    b    l    d    w    z    '    f    o    u    j    ;    =    \ 
+  _    n    r    t    s @alft @arght h    a    e    i    ,    _
+ @sft  q    x   m     c    v    k    p    .    -    /    _    
+  _    _    _               spc           _    _    _
+)
+(deflayer input_change_q
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              @spcq          _    _    _
+)
+(deflayer input_change_g
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              @spcg          _    _    _
+)
+
+(deflayer navigate_channels
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _  @mad @mau   _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              @spcg          _    _    _
+)
+
+(deflayer diagonally_down_movement_layer
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _  @lrm   _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(defalias
+  mau (macro alt 500 up) 
+  mad (macro alt 500 down) 
+  anav (multi (release-key lctl) (layer-while-held navigate_channels))
+  nl (layer-switch nothing_layer)
+  cl (multi lctl (layer-while-held navigate_channels))
+  lwhnc (layer-while-held navigate_channels)
+  ctl_g (multi (release-key alt) C-g) 
+  laltg (multi lalt (layer-while-held lalt_layer_g))
+  laltq (multi lalt (layer-while-held lalt_layer_q))
+  sft (multi lsft lctl (layer-while-held graphite))
+  scl (layer-while-held scrolling_layer)
+  lmet (multi lmet (layer-while-held lmet_layer))
+  alft (multi (release-key ctl) A-lft)
+  arght (multi (release-key alt) A-rght)
+  lft (multi (release-key alt) lft) 
+  rght (multi (release-key alt) rght)
+  up (multi (release-key alt) up)
+  down (multi (release-key alt) down)
+  mup (multi (release-key lctl) (movemouse-up 16 5)) 
+  mbck (multi (release-key lctl) (movemouse-down 16 5)) 
+  mlft (multi (release-key lctl) (movemouse-left 16 5)) 
+  mrght (multi (release-key lctl) (movemouse-right 16 5))
+  addml (multi (release-key lctl) (movemouse-left 16 5) (layer-while-held diagonally_down_movement_layer))
+  lrm (multi (release-key lctl) (movemouse-left 16 5) (movemouse-down 16 5))
+  clft (multi (release-key lctl) mlft)
+  crght (multi (release-key lctl) mrgt)
+)
+(defalias
+  ex S-1
+  oneshot (multi rmet (one-shot-press 2000 (layer-while-held symbol_layer))) 
+  nlayer (multi (one-shot-press 2000 (layer-while-held numbers_layer))) 
+  ' (fork ' - (lsft rsft))
+  , (fork , / (lsft rsft))
+  - (fork - ' (lsft rsft))
+  / (fork / , (lsft rsft))
+)
+(defalias
+  spcq (multi (layer-switch qwerty) C-spc)
+  spcg (multi (layer-switch graphite) C-spc)
+  dline (multi (release-key ctl) lsft home bspc)
+  laltb (multi lctl (layer-while-held alt_tweaks))
+  ;; laltb (multi alt (layer-while-held alt_tweaks))
+  ;; laltb (layer-while-held alt_tweaks)
+  bspw (multi lctl (layer-while-held mouse_actions))
+  ctresc (tap-dance 200 (@bspw esc)) 
+  nav (layer-while-held navigation)
+  grl (tap-hold-press 3000 3000 grv (layer-toggle layers))
+  grp (layer-switch graphite)
+  def (layer-switch default)
+  qwr (layer-switch qwerty)
+  ufk (layer-switch use-fake-keys)
+)
+
+(defalias
+  chlalt (chord example lalt)
+  chralt (chord example ralt)
+  ;; chctresc (chord example caps)
+  dom_nav (multi lalt (layer-while-held navigation))
+)
+
+(defchords example 1
+  (lalt   ) @laltb
+  (ralt   ) @nav
+  (lalt ralt) @dom_nav
+)
+
+(deffakekeys
+  ctl lctl
+  sft lsft
+  met lmet
+  alt lalt
+  ;; bspw (multi lctl (layer-while-held mouse_actions))
+  ;; ctresc (tap-dance 200 (bspw esc)) 
+
+
+  ;; Press all modifiers
+  pal (multi
+        (on-press-fakekey ctl press)
+        (on-press-fakekey sft press)
+        (on-press-fakekey met press)
+        (on-press-fakekey alt press)
+      )
+
+  ;; Release all modifiers
+  ral (multi
+        (on-press-fakekey ctl release)
+        (on-press-fakekey sft release)
+        (on-press-fakekey met release)
+        (on-press-fakekey alt release)
+      )
+)
+
+(defalias
+  psf (on-press-fakekey sft press)
+  rsf (on-press-fakekey sft release)
+
+  pal (on-press-fakekey pal tap)
+  ral (on-press-fakekey ral tap)
+
+  isf (on-idle-fakekey sft tap 1000)
+)

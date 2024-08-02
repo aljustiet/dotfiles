@@ -1,0 +1,40 @@
+---
+keymap:
+- name: xremap-ruby
+  remap:
+    C-b: Left
+    C-f: Right
+    C-p: Up
+    C-n: Down
+- name: xremap-ruby
+  remap:
+    M-b: Ctrl-Left
+    M-f: Ctrl-Right
+    C-a: Alt-C-a
+    C-e: Alt-C-e
+    C-k: Alt-C-k
+    C-d: Delete
+    M-d: Ctrl-Delete
+    C-w:
+    - Ctrl-Shift-Left
+    - Delete
+  application:
+    not:
+    - slack
+    - google-chrome
+    - gnome-terminal-server
+    - urxvt
+    - Focus-Proxy-Window
+- name: xremap-ruby
+  remap:
+    M-b: Ctrl-Left
+    M-f: Ctrl-Right
+    C-a: Home
+    C-e: End
+    C-k:
+    - Shift-End
+    - Delete
+  application:
+    only:
+    - google-chrome
+    - slack
