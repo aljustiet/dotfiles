@@ -1,29 +1,29 @@
 (defcfg
-linux-dev (
-    /dev/input/event24
-/dev/input/by-id/usb-Keychron_Keychron_K2-event-kbd
-/dev/input/by-path/platform-i8042-serio-0-event-kbd
-/dev/input/by-path/pci-0000:33:00.4-usbv2-0:1:1.0-event-kbd
-/dev/input/by-path/pci-0000:33:00.4-usb-0:1:1.0-event-kbd
-/dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.4:1.0-event-kbd
-/dev/input/by-path/pci-0000:34:00.4-usb-0:1.4:1.0-event-kbd
-/dev/input/by-path/pci-0000:34:00.3-usbv2-0:1.2:1.0-event-kbd
-/dev/input/by-path/pci-0000:34:00.3-usb-0:1.2:1.0-event-kbd
-/dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.0-event-kbd
-;;  /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.1-event
-;;  /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.1-event-mouse
-;;  /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.1-mouse
-/dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.0-event-kbd
-;;  /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-event
-/dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-event-mouse
-;;  /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-mouse
-/dev/input/by-id/usb-Logitech_USB_Receiver-event-kbd
-/dev/input/by-id/usb-Logitech_USB_Receiver-event-if01
-/dev/input/by-id/usb-Logitech_USB_Receiver-if01-mouse
-/dev/input/by-id/usb-Logitech_USB_Receiver-if01-event-mouse
-/dev/input/by-id/usb-Keychron_Keychron_K2-event-kbd
-/dev/input/by-id/usb-Keychron_Keychron_K2-if01-event-mouse
-/dev/input/by-id/usb-Keychron_Keychron_K2-if01-mouse
+  linux-dev (
+  /dev/input/by-path/platform-i8042-serio-0-event-kbd
+  /dev/input/by-id/usb-Keychron_Keychron_K2-event-kbd
+;; /dev/input/by-path/platform-i8042-serio-0-event-kbd
+;; /dev/input/by-path/pci-0000:33:00.4-usbv2-0:1:1.0-event-kbd
+;; /dev/input/by-path/pci-0000:33:00.4-usb-0:1:1.0-event-kbd
+;; /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.4:1.0-event-kbd
+;; /dev/input/by-path/pci-0000:34:00.4-usb-0:1.4:1.0-event-kbd
+;; /dev/input/by-path/pci-0000:34:00.3-usbv2-0:1.2:1.0-event-kbd
+;; /dev/input/by-path/pci-0000:34:00.3-usb-0:1.2:1.0-event-kbd
+;; /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.0-event-kbd
+;; /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.1-event
+;; /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.1-event-mouse
+;; /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.1-mouse
+;; /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.0-event-kbd
+;; /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-event
+;; /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-event-mouse
+;; /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-mouse
+;; /dev/input/by-id/usb-Logitech_USB_Receiver-event-kbd
+;; /dev/input/by-id/usb-Logitech_USB_Receiver-event-if01
+;; /dev/input/by-id/usb-Logitech_USB_Receiver-if01-mouse
+;; /dev/input/by-id/usb-Logitech_USB_Receiver-if01-event-mouse
+;; /dev/input/by-id/usb-Keychron_Keychron_K2-event-kbd
+;; /dev/input/by-id/usb-Keychron_Keychron_K2-if01-event-mouse
+;; /dev/input/by-id/usb-Keychron_Keychron_K2-if01-mouse
 ;;  /dev/input/event27
 ;;  /dev/input/event24
 ;;  /dev/input/event25
@@ -34,7 +34,7 @@ linux-dev (
 ;;  /dev/input/event10
 ;;  /dev/input/event11
 ;;  /dev/input/event12
-)
+  )
 concurrent-tap-hold true
 process-unmapped-keys yes
 ;;log-layer-changes no
@@ -88,14 +88,14 @@ esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins d
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
 @lsftl z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
-@laltq @lmet @laltb         spc              @nav @nlayer rctl  lft down rght
+@laltq @lmetq @laltb         spc              @nav @nlayer rctl  lft down rght
 )
 
 (deflayer gaming_layout
 esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
-tab  b     l    d    w    z    '     f    o    u    j    ;    =    \
-@ctresc n  r    t    s    g    y     h    a    e    i    @,    ret
+tab  q     w    e    r    t    y     f    i    o    p    [    ]    \
+@ctresc a  s    d    f    .    h     j    k    l    ;    @,    ret
 @lsft x     m    c    v    q    k     p    .    @-    @/    rsft     pgup up pgdn
 @laltg @lmet  @galtb          spc              @nav    @nlayer rctl  lft down rght
 )
@@ -205,19 +205,34 @@ _    _    _    _    _    _    _    _    _    _    _    -    =    _
 _    b     l    d    w    z    @'    f    o    u    j  ;    =    _
 _    n     r    t    s    g    y     h    a    e    i  @,   _
 _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
-@scl   _    _              _              _    _    _      lft down rght
+@scl   _    _           @spcq             _    _    _      lft down rght
+)
+
+(deflayer lmetq_layer
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+_    _    _    _    _    _    _    _    _    _    _    -    =    _
+_    b     l    d    w    z    @'    f    o    u    j  ;    =    _
+_    n     r    t    s    g    y     h    a    e    i  @,   _
+_    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
+@scl   _    _           @spcg             _    _    _      lft down rght
 )
 
 (deflayer lalt_layer_g
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-grv  1  2  3  4  5  6  7  8  9  0   _    _   bspc
-tab   b     l    d  w    z    @'    f    o  u      j  ;     _    _
-_   n     r    t    s g    y  h   a  e   i        _     _
+grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
+tab  @A-b     l    d  w    z    @'    f    o  u      j  ;     _    _
+_   n     r  t  s g    y  h   a  e   i        _     _
 lsft     x     m    c  v    q    k   p    .    @-   @/ _     pgup up pgdn
 _   @ascl @alctl          @spcq               @anav   _   lalt lft down rght
 )
 
-(defalias laltg (multi lctl (layer-while-held lalt_layer_g)))
+(defalias
+    A-b (multi (release-key lctl) lalt b)
+    A-S-t (multi (release-key lctl) (release-key lsft) (release-key t) lalt lsft t)
+    laltg (multi lctl (layer-while-held lalt_layer_g))
+    A-- (multi (release-key ctl) alt -)
+    A-+ (multi (release-key ctl) alt +)
+)
 
 (deflayer lalt_layer_q
 _     _    _    _    _    _     _    _    _    _    _    _    _    _   _   _   _
@@ -247,11 +262,11 @@ _    _    _              _             @anav _ _            lft down rght
 ;; )
 
 (deflayer alt_tweaks
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-  _    1    2    3    4    5    6    7    8    9    0  @C-- @C-=  @dline
+  _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
+  _    1    2    3    4    5    6    7    8    9    0  @C-- @C-+ _
 tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u @C-j @C-; @C-= @C-\
-  _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a @C-e i @C-, ret
-@sft @C-q @C-x @C-c @C-v @C-b @C-k @C-p @C-. @C--    @C-/   @C-rsft pgup up pgdn
+  _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a @C-e i , ret
+@sft @C-q @C-x @C-c @C-v @C-b k p . @C--    @C-/   @C-rsft pgup up pgdn
 lalt  _    _               _            _    _    _      lft down rght
 )
 
@@ -291,6 +306,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   C-j (multi (release-key alt) C-j)
   C-; (multi (release-key alt) C-;)
   C-= (multi (release-key alt) C-=)
+  C-+ (multi (release-key alt) C-+)
   C-\ (multi (release-key alt) C-\)
   C-n (multi (release-key alt) C-n)
   C-r (multi (release-key alt) C-r)
@@ -324,8 +340,8 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 (deflayer salt_tweaks
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
   _    1    2    3    4    5    6    7    8    9    0   _    _    @dline
-@A-tab @C-S-q    l    d  @C-S-w z    @'    f    o    u    j    ;    =    \
-  _    n    r   @C-S-t s @alft @arght h    a    e    i    ,    _
+@A-tab b   l    d   w   z    @'    f    o    u    j    ;    =    \
+  _    n    r  @C-S-t   s   @alft @arght h    a    e    i    ,    _
  @sft  q @C-S-m @C-S-c @C-S-v    m    k    p    .    -    /    _ pgup up pgdn
 lalt  _    _               spc           _    _    _      lft down rght
 )
@@ -412,13 +428,13 @@ lctl   _  @lctl            _              _    _    _      lft down rght
 
 
 
-(defaliasenvcond (LAPTOP lp1)
-  met @lp1me
-)
-
-(defaliasenvcond (LAPTOP lp2)
-  met @lp2met
-)
+;; (defaliasenvcond (LAPTOP lp1)
+;;   met @lp1me
+;; )
+;; 
+;; (defaliasenvcond (LAPTOP lp2)
+;;   met @lp2met
+;; )
 
 (defalias
     C-S-m (multi (release-key alt) C-m)
@@ -483,10 +499,10 @@ lctl   _  @lctl            _              _    _    _      lft down rght
      A-0 (multi (release-key ctl) A-0)
       sdd (mwheel-down 200 308)
       sdu (mwheel-up 200 308)
-      su (multi (release-key lmet) (mwheel-up 200 768))
-      sd (multi (release-key lmet) (mwheel-down 200 768))
-      sl (multi (release-key lmet) (mwheel-left 200 768))
-      sr (multi (release-key lmet) (mwheel-right 200 768))
+      su (multi (mwheel-up    64 1024))
+      sd (multi (mwheel-down  64 1024))
+      sl (multi (mwheel-left  64 1024))
+      sr (multi (mwheel-right 64 1024))
     anav (multi (release-key lctl) (layer-while-held navigate_channels))
       nl (layer-switch nothing_layer)
       cl (multi lctl (layer-while-held navigate_channels))
@@ -496,10 +512,11 @@ lctl   _  @lctl            _              _    _    _      lft down rght
 ;; laltg (tap-dance 300 ((one-shot-press 1 (layer-while-held lalt_layer_g)) (multi lalt (layer-while-held graphite_angle_kp))))
 ;; laltq (multi lalt (one-shot-press 800 (layer-while-held lalt_layer_q)))
      sft (multi lsft (layer-while-held salt_tweaks))
-     scl (layer-while-held scrolling_layer)
+     scl (multi lctl lmet (layer-while-held scrolling_layer))
  ;; ascl (multi (release-key alt) (layer-while-held scrolling_layer))
     ascl (layer-while-held scrolling_layer)
     lmet (multi lmet (layer-while-held lmet_layer))
+    lmetq (multi lmet (layer-while-held lmetq_layer))
      mup (movemouse-up    16 16)
     mbck (movemouse-down  16 16)
     mlft (movemouse-left  16 16)
@@ -528,8 +545,8 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   / (fork / , (lsft rsft))
 )
 (defalias
-  spcq (multi (layer-switch qwerty) C-spc)
-  spcg (multi (layer-switch graphite_angle_kp) C-spc)
+  spcq (multi (layer-switch qwerty) M-spc)
+  spcg (multi (layer-switch graphite_angle_kp) M-spc)
   dline (multi (release-key alt) lsft home bspc)
 ;;laltb (tap-dance 300 ((multi lalt (layer-while-held alt_tweaks)) (multi lctl (layer-while-held graphite_angle_kp)) (one-shot-press 60000 lctl)))
   galtb (multi alt (layer-while-held galt_tweaks))
@@ -579,7 +596,8 @@ lctl   _  @lctl            _              _    _    _      lft down rght
 ;;)
 
 (defchordsv2-experimental
-  (lctl lsft ralt) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
+  (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
+  (lctl ralt lsft) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
   (lalt lsft ralt) (multi ctl sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
   (lctl ralt) (multi lalt (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
   (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)

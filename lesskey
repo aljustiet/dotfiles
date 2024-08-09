@@ -2,4 +2,4 @@
 a forw-line
 e back-line
 #env
-# LESS = --quit-if-one-screen
+#LESS = -F -X -R

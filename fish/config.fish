@@ -3,6 +3,7 @@ if status is-interactive
 end
 
 # Environment variables
+set -gx LESS "--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
 set -gx PATH "$PATH:/home/aljustiet/.local/bin"
 set -gx PATH "$PATH:/home/aljustiet/Documents/platform-tools"
 set -gx VISUAL nvim
@@ -10,8 +11,9 @@ set -gx EDITOR nvim
 set -gx XDG_CURRENT_DESKTOP Hyprland
 set -gx PAGER "bat"
 set -gx BAT_CONFIG_PATH "/home/aljustiet/.config/bat/bat.conf"
-set -gx MANPAGER "bat -l man"
-set -gx SYSTEMD_PAGER "bat"
+set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -gx MANROFFOPT "-c"
+set -gx SYSTEMD_PAGER "NAT"
 set -gx SYSTEMD_PAGERSECURE "false"
 # set MERGETOOL vimdiff
 # set CALCURSE_EDITOR nvim
@@ -21,9 +23,8 @@ bind \b "backward-kill-word"
 
 # Aliases
 alias yay=paru
-alias less="less --quit-if-one-screen"
 alias nh="nvim ~/.config/hypr/hyprland.conf"
-alias nk="nvim ~/Sync/Keyboard-Remapping/kanata.lsp"
+alias nk="nvim ~/.config/kanata/config.kbd"
 alias nf="nvim ~/.config/fish/config.fish"
 alias nz="nvim ~/.zshrc"
 alias nka="nvim ~/.config/kitty/kitty.conf"
@@ -52,6 +53,7 @@ alias nt="notify-send 'Text' 'This is a text' "
 alias pm=pacman
 # alias sd=doas
 alias kd="pkill -f 'Discord --enable-features=UseOzonePlatform --ozone-platform=wayland'"
+alias ktu="pkill -f '/opt/tutanota-desktop/tutanota-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'"
 alias kv="pkill -f 'vesktop.bin --enable-speech-dispatcher --ozone-platform-hint=auto'"
 alias ks="pkill -f '/usr/lib/signal-desktop/signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'"
 alias nwe="nmcli radio wifi on"
@@ -112,7 +114,7 @@ alias dd1="dust -d 1"
 alias yas="yay -Syu --aur"
 alias kl="pkill -f /usr/lib/librewolf/librewolf"
 alias hc="hyprctl clients"
-alias lad="doas udevadm info --attribute-walk"
+alias lda="doas udevadm info --attribute-walk"
 alias ald="adb devices"
 alias hde="hyprctl dispatcher exec"
 alias gp="git push -u github main && git push -u origin main"
@@ -144,22 +146,37 @@ alias ect="crontab -e"
 alias ns="nvim ~/.ssh/config"
 alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
 alias rw="pkill -f waybar && hde waybar"
+alias dr="doas systemctl daemon-reload"
+alias ef="doas nvim /etc/fstab"
+alias ma="doas mount -a"
+alias fwr="expac -S '%r'"
+alias ls=lsd
+alias dnvim="doas nvim"
+alias dn="doas nvim"
+alias em="doas nvim /etc/makepkg.conf"
+alias vpl="bat --pager='less -F -X -R +G' /var/log/pacman.log"
+alias bate="bat --pager='less -F -X -R +G'"
+alias gfp="git fetch && git pull"
 
 function rse --description "evtest /dev/input/event$argv | grep --line-buffered 'EV_KEY.*value 1' | sed -n -e 's/.*KEY_\(.*\)), value 1/\1/p'"
   evtest /dev/input/event$argv | grep --line-buffered 'EV_KEY.*value 1' | sed -n -e 's/.*KEY_\(.*\)), value 1/\1/p'
 end
 
-function rib --description 'nohup $argv 2>/dev/null 1>/dev/null &'
+function pib --description 'nohup $argv 2>/dev/null 1>/dev/null &'
  command nohup mpv $argv 2>/dev/null 1>/dev/null &
+end
+
+function rib --description 'nohup $argv 2>/dev/null 1>/dev/null &'
+ command nohup $argv 2>/dev/null 1>/dev/null &
 end
 
 function rmib --description 'nohup mpv --no-video --audio-display=no --input-ipc-server=/tmp/mpv-socket $argv 2>/dev/null 1>/dev/null &'
  command nohup mpv --no-video --audio-display=no --input-ipc-server=/tmp/mpv-socket $argv 2>/dev/null 1>/dev/null &
 end
 
-function man --description 'alias man="man $argv | bat -l man"'
- command man $argv | bat -l man
-end
+# function man --description 'alias man="man $argv | bat -l man"'
+#  command man $argv | bat -l man
+# end
 
 # alias bat="bat -n"
 # alias cd=z
