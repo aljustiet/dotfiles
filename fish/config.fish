@@ -167,12 +167,14 @@ alias mc="mullvad connect"
 alias md="mullvad disconnect"
 alias ms="mullvad status"
 
-function ll
-  lsd -lh $argv
+function rcu
+  set current_dir (pwd)
+  cd ..
+  rm -rf $current_dir
 end
 
 function lla --wraps='tar -tvf  --use-compress-program=lz4' --description 'alias lla=tar -tvf  --use-compress-program=lz4'
-  tar -tvf $argv --use-compress-program=lz4
+  tar -tf $argv --use-compress-program=lz4
 end
 
 function cap --wraps='git clone https://aur.archlinux.org/' --description 'git clone https://aur.archlinux.org/$argv'
