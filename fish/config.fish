@@ -13,7 +13,7 @@ set -gx PAGER "bat"
 set -gx BAT_CONFIG_PATH "/home/aljustiet/.config/bat/bat.conf"
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -gx MANROFFOPT "-c"
-set -gx SYSTEMD_PAGER "NAT"
+set -gx SYSTEMD_PAGER "bat"
 set -gx SYSTEMD_PAGERSECURE "false"
 # set MERGETOOL vimdiff
 # set CALCURSE_EDITOR nvim
@@ -35,7 +35,6 @@ alias ssto='doas systemctl stop openvpn.service'
 alias mip="/usr/local/bin/myip"
 alias myip="/usr/local/bin/myip"
 alias l="ls -lah"
-alias ll="ls -lah"
 alias oe='hyprctl dispatcher dpms off'
 alias eo='hyprctl dispatcher dpms on'
 alias las="doas systemctl suspend"
@@ -65,8 +64,8 @@ alias hrw="hyprctl dispatcher exec waybar"
 alias kw="killall waybar"
 alias kg="killall gammastep"
 alias nb="nvim ~/.config/bat/bat.conf"
-alias mp="kill -STOP 2553837"
-alias mc="kill -CONT 2553837"
+# alias mp="kill -STOP 2553837"
+# alias mc="kill -CONT 2553837"
 alias sping="~/.local/bin/sping"
 alias stopd="systemctl --user stop docker"
 alias startd="systemctl --user stop docker"
@@ -150,16 +149,44 @@ alias dr="doas systemctl daemon-reload"
 alias ef="doas nvim /etc/fstab"
 alias ma="doas mount -a"
 alias fwr="expac -S '%r'"
-alias ls=lsd
+alias s=lsd
 alias dnvim="doas nvim"
 alias dn="doas nvim"
 alias em="doas nvim /etc/makepkg.conf"
 alias vpl="bat --pager='less -F -X -R +G' /var/log/pacman.log"
 alias bate="bat --pager='less -F -X -R +G'"
 alias gfp="git fetch && git pull"
+alias cm="command"
+alias nd="nvim ~/.config/dunst/dunstrc"
+alias rhypridle="pkill -f hypridle && hyprctl dispatcher exec hypridle"
+alias ddm="dunstctl set-paused true"
+alias dm="dunstctl set-paused false"
+alias tree="tree -C"
+alias wsh="wiki-search-html"
+alias mc="mullvad connect"
+alias md="mullvad disconnect"
+alias ms="mullvad status"
+
+function ll
+  lsd -lh $argv
+end
+
+function lla --wraps='tar -tvf  --use-compress-program=lz4' --description 'alias lla=tar -tvf  --use-compress-program=lz4'
+  tar -tvf $argv --use-compress-program=lz4
+end
+
+function cap --wraps='git clone https://aur.archlinux.org/' --description 'git clone https://aur.archlinux.org/$argv'
+  for package in $argv
+    git clone https://aur.archlinux.org/$package
+  end
+end
 
 function rse --description "evtest /dev/input/event$argv | grep --line-buffered 'EV_KEY.*value 1' | sed -n -e 's/.*KEY_\(.*\)), value 1/\1/p'"
   evtest /dev/input/event$argv | grep --line-buffered 'EV_KEY.*value 1' | sed -n -e 's/.*KEY_\(.*\)), value 1/\1/p'
+end
+
+function rse --description "evtest /dev/input/event$argv"
+  evtest /dev/input/event$argv
 end
 
 function pib --description 'nohup $argv 2>/dev/null 1>/dev/null &'

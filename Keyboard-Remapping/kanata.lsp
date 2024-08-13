@@ -65,7 +65,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 (deflayer graphite_angle_kp
 esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home @endesc ins del
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
-tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
+tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  @t    s    g    y     h    a    e    i    @,   ret
 @lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
 @laltg @lmet  @laltb        spc             @nav @prtsc @rctl lft down rght
@@ -205,7 +205,7 @@ _    _    _    _    _    _    _    _    _    _    _    -    =    _
 _    b     l    d    w    z    @'    f    o    u    j  ;    =    _
 _    n     r    t    s    g    y     h    a    e    i  @,   _
 _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
-@scl   _    _           @spcq             _    _    _      lft down rght
+@scl   _    _           @spcq             _   prtsc _      lft down rght
 )
 
 (deflayer lmetq_layer
@@ -220,13 +220,15 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
 (deflayer lalt_layer_g
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
-tab  @A-b     l    d  w    z    @'    f    o  u      j  ;     _    _
+tab b   @A-l    d  w    z    @'    f    o  u      j  ;     _    _
 _   n     r  t  s g    y  h   a  e   i        _     _
-lsft     x     m    c  v    q    k   p    .    @-   @/ _     pgup up pgdn
-_   @ascl @alctl          @spcq               @anav   _   lalt lft down rght
+lsft     x     m    c  v    q    @A-k  p    .    @-   @/ _     pgup up pgdn
+_   @ascl @alctl          @spcq               @anav prtsc lalt lft down rght
 )
 
 (defalias
+    A-l (multi (release-key lctl) lmet l)
+    A-k (multi (release-key lctl) lalt k)
     A-b (multi (release-key lctl) lalt b)
     A-S-t (multi (release-key lctl) (release-key lsft) (release-key t) lalt lsft t)
     laltg (multi lctl (layer-while-held lalt_layer_g))
@@ -240,7 +242,7 @@ _     _    _    _    _    _     _    _    _    _    _    _    _    _
 @C-tab   b     l    d    w    z    @'    f    o    u    j  ;     _    _
 _     n     r    t    s @ctl_g    y     h    a    e    i  @,    _
 lsft    x     m    c    v    q    k     p    .    @-   @/ _     pgup   up pgdn
-_   @ascl   _            @spcg               @anav   _ lalt lft down rght
+_   @ascl   _            @spcg               @anav prtsc lalt lft down rght
 )
 
 (deflayer mouse_actions
@@ -264,10 +266,10 @@ _    _    _              _             @anav _ _            lft down rght
 (deflayer alt_tweaks
   _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-+ _
-tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u @C-j @C-; @C-= @C-\
-  _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a @C-e i , ret
-@sft @C-q @C-x @C-c @C-v @C-b k p . @C--    @C-/   @C-rsft pgup up pgdn
-lalt  _    _               _            _    _    _      lft down rght
+tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= @C-\
+  _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a e i , ret
+@sft x @C-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
+lalt  _    _               _            _  prtsc  _      lft down rght
 )
 
 (deflayer galt_tweaks
@@ -340,9 +342,9 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 (deflayer salt_tweaks
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
   _    1    2    3    4    5    6    7    8    9    0   _    _    @dline
-@A-tab b   l    d   w   z    @'    f    o    u    j    ;    =    \
-  _    n    r  @C-S-t   s   @alft @arght h    a    e    i    ,    _
- @sft  q @C-S-m @C-S-c @C-S-v    m    k    p    .    -    /    _ pgup up pgdn
+@A-tab b   l     d   w   z    @'    f    o    u    j    ;    =    \
+  _    n   r     t   s   @alft @arght h    a    e    i    ,    _
+ @sft  q   m    @C-S-c  @C-S-v    q    k    p    .    -    /    _ pgup up pgdn
 lalt  _    _               spc           _    _    _      lft down rght
 )
 
@@ -499,10 +501,10 @@ lctl   _  @lctl            _              _    _    _      lft down rght
      A-0 (multi (release-key ctl) A-0)
       sdd (mwheel-down 200 308)
       sdu (mwheel-up 200 308)
-      su (multi (mwheel-up    64 1024))
-      sd (multi (mwheel-down  64 1024))
-      sl (multi (mwheel-left  64 1024))
-      sr (multi (mwheel-right 64 1024))
+      su (multi (mwheel-up    128 256))
+      sd (multi (mwheel-down  128 256))
+      sl (multi (mwheel-left  128 256))
+      sr (multi (mwheel-right 128 256))
     anav (multi (release-key lctl) (layer-while-held navigate_channels))
       nl (layer-switch nothing_layer)
       cl (multi lctl (layer-while-held navigate_channels))
