@@ -1,56 +1,61 @@
-# dmyTRUEk's swayimg config
-
 [general]
+mode = viewer
+size = 1720,960
+
+[viewer]
+window = #282C34
+transparency = grid
+antialiasing = yes
 scale = fit
-fullscreen = yes
-antialiasing = no
-background = 000000
+
+[gallery]
+antialiasing = yes
 
 [list]
-order = alpha
+order = none
 loop = yes
 recursive = no
 all = yes
 
 [font]
-name = JetBrains Mono
+name = GoMono Nerd Font
 size = 16
-color = #ff00ff
+color = #0F319D
 
 [info]
-mode = off
+show = no
+info_timeout = 0
+status_timeout = 0
 
-[keys]
+[keys.viewer]
+f = fullscreen
 q = exit
-
 h = step_left
-j = step_down
-k = step_up
-l = step_right
+a = step_down
+e = step_up
+i = step_right
 Shift+h = step_left 50
-Shift+j = step_down 50
-Shift+k = step_up 50
-Shift+l = step_right 50
+Shift+a = step_down 50
+Shift+e = step_up 50
+Shift+i = step_right 50
 
-i = zoom 10
-o = zoom -10
-Shift+i = zoom 50
-Shift+o = zoom -50
+o = zoom 10
+u = zoom -10
+Shift+o = zoom 50
+Shift+u = zoom -50
 
-a = antialiasing
+s = antialiasing
 
-n = next_file
-p = prev_file
-bracketleft = next_dir
-bracketright = prev_dir
+y = next_file
+g = prev_file
+p = next_dir
+k = prev_dir
 
-# `b` mnemonics: about
-b = info
-s = zoom fix
+t = info
+r = zoom fix
 
 Shift+space = animation
 
 space = animation
 comma = next_frame
 period = prev_frame
-
