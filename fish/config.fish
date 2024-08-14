@@ -110,7 +110,7 @@ alias p="pacman"
 alias checkout="git checkout"
 alias branch="git branch"
 alias dd1="dust -d 1"
-alias yas="yay -Syu --aur"
+alias yas="paru -Sua"
 alias kl="pkill -f /usr/lib/librewolf/librewolf"
 alias hc="hyprctl clients"
 alias lda="doas udevadm info --attribute-walk"
@@ -166,6 +166,19 @@ alias wsh="wiki-search-html"
 alias mc="mullvad connect"
 alias md="mullvad disconnect"
 alias ms="mullvad status"
+
+function gedit
+  gnome-text-editor
+end
+
+function sl
+  /usr/bin/sl -a -d -e -c -G -5
+end
+
+set -gx "WATCH_INTERVAL" 1
+function watch
+  /usr/bin/watch --color --interval 1 --no-title $argv
+end
 
 function rcu
   set current_dir (pwd)
