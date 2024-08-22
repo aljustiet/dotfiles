@@ -31,7 +31,7 @@ confirm_os_window_close 0
 
 
 # BEGIN_KITTY_THEME
-# Doom One
+# Gruvbox Light
 include current-theme.conf
 # END_KITTY_THEME
 map ctrl+e scroll_line_up

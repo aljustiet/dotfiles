@@ -1,21 +1,25 @@
 [general]
 mode = viewer
+
 size = 1720,960
 
 [viewer]
-window = #282C34
+window = #000000
 transparency = grid
-antialiasing = yes
+antialiasing = no
 scale = fit
+slideshow = no
+history = 1
+preload = 1
 
 [gallery]
 antialiasing = yes
 
 [list]
 order = none
-loop = yes
+loop = no
 recursive = no
-all = yes
+all = no
 
 [font]
 name = GoMono Nerd Font
@@ -28,6 +32,15 @@ info_timeout = 0
 status_timeout = 0
 
 [keys.viewer]
+bracketright = zoom 10
+bracketleft = zoom -10
+Shift+bracketright = zoom 50
+Shift+bracketleft = zoom -50
+s = flip_vertical
+Shift+s = flip_horizontal
+
+9 = rotate_left
+0 = rotate_right
 f = fullscreen
 q = exit
 h = step_left
@@ -39,20 +52,17 @@ Shift+a = step_down 50
 Shift+e = step_up 50
 Shift+i = step_right 50
 
-o = zoom 10
-u = zoom -10
-Shift+o = zoom 50
-Shift+u = zoom -50
 
-s = antialiasing
+
+t = antialiasing
 
 y = next_file
 g = prev_file
 p = next_dir
 k = prev_dir
 
-t = info
-r = zoom fix
+apostrophe = info
+w = zoom fix
 
 Shift+space = animation
 

@@ -66,7 +66,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home @endesc ins del
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
-@ctresc n   r  @t    s    g    y     h    a    e    i    @,   ret
+@ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
 @lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
 @laltg @lmet  @laltb        spc             @nav @prtsc @rctl lft down rght
 )
@@ -163,13 +163,34 @@ lsft  _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
 _    _   lctl            _              _    _    _      lft down rght
 )
 
+(defalias
+  C-lft (multi (release-key lalt)  C-lft)
+  C-rght (multi (release-key lalt) C-rght)
+)
+
+(deflayer lalt_navigation
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   @grk
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+lctl M-lft M-up M-down M-rght lft rght @C-lft C-down C-up @C-rght _   _
+lsft  _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
+_    _   lctl            _              _    _    _      lft down rght
+)
+
 (deflayer navigation_keys_only
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
-lctl   lft up down rght   lft rght lft down up rght _   _
+lctl   lft up down rght   lft rght @A-lft @A-down @A-up @A-rght _   _
 _    _    _    _    _    _   A-n A-m    _    _    _    _ pgup up pgdn
 _    _  lctl             _              _    _    _      lft down rght
+)
+
+(defalias
+  A-lft (unmod lft)
+  A-down (unmod down)
+  A-up (unmod up)
+  A-rght (unmod rght)
 )
 
 (deflayer navigation_second
@@ -220,7 +241,7 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
 (deflayer lalt_layer_g
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
-tab b   @A-l    d  w    z    @'    f    o  u      j  ;     _    _
+tab b   l    d  w    z    @'    f    o  u      j  ;     _    _
 _   n     r  t  s g    y  h   a  e   i        _     _
 lsft     x     m    c  v    q    @A-k  p    .    @-   @/ _     pgup up pgdn
 _   @ascl @alctl          @spcq               @anav prtsc lalt lft down rght
@@ -292,7 +313,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 
 (defalias
   A-S-a (multi (release-key ctl) A-a)
-  dom_nav (multi ctl (layer-while-held navigation))
+  dom_nav (multi lalt ralt (layer-while-held lalt_navigation))
   lsftl (multi lsft (layer-while-held shift_layer))
   C-, (multi (release-key alt) C-,)
   C-- (multi (release-key alt) C--)
@@ -428,15 +449,19 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   @laltg @lmet @laltb        spc             @nav @prtsc @rctl lft down rght
 )
 
+(defalias
+    mwu (mwheel-up 128 256)
+    mwd (mwheel-down 128 256)
+    mwl (mwheel-left 128 256)
+    mwr (mwheel-right 128 256)
+)
 
-
-;; (defaliasenvcond (LAPTOP lp1)
-;;   met @lp1me
-;; )
-;; 
-;; (defaliasenvcond (LAPTOP lp2)
-;;   met @lp2met
-;; )
+(defalias
+    su (multi (unmod mwu))
+    sd (multi (unmod mwd))
+    sl (multi (unmod mwl))
+    sr (multi (unmod mwr))
+)
 
 (defalias
     C-S-m (multi (release-key alt) C-m)
@@ -501,10 +526,6 @@ lctl   _  @lctl            _              _    _    _      lft down rght
      A-0 (multi (release-key ctl) A-0)
       sdd (mwheel-down 200 308)
       sdu (mwheel-up 200 308)
-      su (multi (mwheel-up    128 256))
-      sd (multi (mwheel-down  128 256))
-      sl (multi (mwheel-left  128 256))
-      sr (multi (mwheel-right 128 256))
     anav (multi (release-key lctl) (layer-while-held navigate_channels))
       nl (layer-switch nothing_layer)
       cl (multi lctl (layer-while-held navigate_channels))
@@ -556,7 +577,7 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   ;; laltb (layer-while-held alt_tweaks)
   bspw (layer-while-held mouse_actions)
   ctresc (tap-dance 300 (@bspw esc))
-  nav (tap-dance 200 ((one-shot-press 2000 (layer-while-held navigation_keys_only)) (layer-switch vim_navigation) (layer-switch navigation) (multi ralt)))
+  nav (multi ralt (tap-dance 200 ((one-shot-press 2000 (layer-while-held navigation_keys_only)) (layer-switch vim_navigation) (layer-switch navigation) (multi ralt))))
   grl (tap-hold-press 3000 3000 grv (layer-toggle layers))
   grp (layer-switch graphite)
   sgl (layer-switch gaming_layout)
@@ -604,6 +625,7 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   (lctl ralt) (multi lalt (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
   (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
   (lalt ralt) @dom_nav 200 all-released (nothing_layer)
+  (lmet ralt) (multi lmet ralt (layer-while-held graphite_angle_kp)) 200 all-released (nothing_layer)
   (lalt lctl) @lca 200 all-released (nothing_layer)
   (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
   (lmet lctl) @scl 200 all-released (nothing_layer)

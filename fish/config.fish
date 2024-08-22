@@ -6,6 +6,7 @@ end
 set -gx LESS "--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
 set -gx PATH "$PATH:/home/aljustiet/.local/bin"
 set -gx PATH "$PATH:/home/aljustiet/Documents/platform-tools"
+set -gx PATH "$PATH:/home/aljustiet/go/bin"
 set -gx VISUAL nvim
 set -gx EDITOR nvim
 set -gx XDG_CURRENT_DESKTOP Hyprland
@@ -126,7 +127,6 @@ alias kee="pkill -f easyeffects"
 alias za="zathura"
 alias np="nvim ~/.config/paru/paru.conf"
 alias cpaif="cat /proc/acpi/ibm/fan"
-alias free="free --human"
 alias kq="pkill -f qbittorrent"
 alias kh="pkill -f '/usr/lib/jvm/java-21-openjdk//bin/java -XX:MaxRAM=4g --add-opens=javafx.controls/com.sun.javafx.scene.control.behavior=ALL-UNNAMED'"
 alias kel="pkill -f '/sbin/python3 /sbin/electrum-ltc'"
@@ -148,6 +148,7 @@ alias rw="pkill -f waybar && hde waybar"
 alias dr="doas systemctl daemon-reload"
 alias ef="doas nvim /etc/fstab"
 alias ma="doas mount -a"
+alias uma="doas umount /mnt/hdd /mnt/usb"
 alias fwr="expac -S '%r'"
 alias s=lsd
 alias dnvim="doas nvim"
@@ -166,6 +167,38 @@ alias wsh="wiki-search-html"
 alias mc="mullvad connect"
 alias md="mullvad disconnect"
 alias ms="mullvad status"
+
+function sr
+  wf-recorder -f $argv -c h264_vaapi -d /dev/dri/by-path/pci-0000:33:00.0-render
+end
+
+function tokei
+  /usr/bin/tokei --sort code
+end
+
+function nethogs
+  /usr/bin/nethogs -v 3 -b
+end
+
+function dbss
+  doas btrfs subvolume show /
+end
+
+function dbsl
+  doas btrfs subvolume list /
+end
+
+function dbqs
+  doas btrfs qgroup show /
+end
+
+function dbfu
+  doas btrfs filesystem usage /
+end
+
+function free
+  /usr/bin/free --human
+end
 
 function gedit
   gnome-text-editor

@@ -1,0 +1,6 @@
+[general]
+key_bindings = [
+  {keys = [ "a" ], command = ":scroll down 1"},
+  {keys = [ "e" ], command = ":scroll up 1"},
+  {keys = [ "i" ], command = ":scroll right 1"},
+]
