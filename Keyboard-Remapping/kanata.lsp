@@ -233,7 +233,7 @@ _    _    _    _    _    _    _    _    _    _    _    -    =    _
 _    b     l    d    w    z    @'    f    o    u    j  ;    =    _
 _    n     r    t    s    g    y     h    a    e    i  @,   _
 _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
-@scl   _    _           @spcq             _   prtsc _      lft down rght
+@scl   _    _           _             _   prtsc _      lft down rght
 )
 
 (deflayer lmetq_layer
@@ -242,7 +242,7 @@ _    _    _    _    _    _    _    _    _    _    _    -    =    _
 _    b     l    d    w    z    @'    f    o    u    j  ;    =    _
 _    n     r    t    s    g    y     h    a    e    i  @,   _
 _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
-@scl   _    _           @spcg             _    _    _      lft down rght
+@scl   _    _           _             _    _    _      lft down rght
 )
 
 (deflayer lalt_layer_g
