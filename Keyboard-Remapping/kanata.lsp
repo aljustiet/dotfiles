@@ -40,12 +40,8 @@ process-unmapped-keys yes
 ;;log-layer-changes no
 )
 
-;; (defchordsv2-experimental
-;;   (lsft lctl) (multi lsft lalt (layer-while-held shift_alt_layer)) 200 first-release (nothing_layer)
-;; )
-
 (defsrc
-esc f1       f2       f3      f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+esc f1 f2 f3 f4 f5 f6 f7 f8   f9   f10  f11  f12 home end ins del
 grv  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 caps a     s    d    f    g    h     j    k    l    ;    '    ret
@@ -63,7 +59,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 ;; )
 
 (deflayer graphite_angle_kp
-esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home @endesc ins del
+esc mute voldwn volu f4 f5   f6   f7    f8   f9   f10  f11  f12 home @endesc ins del
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
@@ -95,7 +91,7 @@ tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     f    i    o    p    [    ]    \
-@ctresc a  s    d    f    .    h     j    k    l    ;    @,    ret
+@ctresc a  s    d    .    ,    h     j    k    l    ;    @,    ret
 @lsft x     m    c    v    q    k     p    .    @-    @/    rsft     pgup up pgdn
 @laltg @lmet  @galtb          spc              @nav    @nlayer rctl  lft down rght
 )
@@ -164,17 +160,28 @@ _    _   lctl            _              _    _    _      lft down rght
 )
 
 (defalias
-  C-lft (multi (release-key lalt)  C-lft)
+  C-lft (multi (release-key lalt) C-lft)
   C-rght (multi (release-key lalt) C-rght)
+  C-down (multi (release-key lalt) C-down)
+  C-up (multi (release-key lalt) C-up)
 )
 
 (deflayer lalt_navigation
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   @grk
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
-lctl M-lft M-up M-down M-rght lft rght @C-lft C-down C-up @C-rght _   _
+lctl M-lft M-up M-down M-rght lft rght @C-lft @C-down @C-up @C-rght _   _
 lsft  _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
 _    _   lctl            _              _    _    _      lft down rght
+)
+
+(deflayer lsft_lalt_ralt_navigation_layer
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
+lctl   lft up down rght   lft rght lft down up rght _   _
+_    _    _    _    _    _   A-n A-m    _    _    _    _ pgup up pgdn
+_    _  lctl             _              _    _    _      lft down rght
 )
 
 (deflayer navigation_keys_only
@@ -287,7 +294,7 @@ _    _    _              _             @anav _ _            lft down rght
 (deflayer alt_tweaks
   _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-+ _
-tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= @C-\
+tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
   _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a e i , ret
 @sft x @C-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
 lalt  _    _               _            _  prtsc  _      lft down rght
@@ -364,7 +371,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
   _    1    2    3    4    5    6    7    8    9    0   _    _    @dline
 @A-tab b   l     d   w   z    @'    f    o    u    j    ;    =    \
-  _    n   r     t   s   @alft @arght h    a    e    i    ,    _
+  _    n   r @C-S-t  s   @alft @arght h    a    e    i    ,    _
  @sft  q   m    @C-S-c  @C-S-v    q    k    p    .    -    /    _ pgup up pgdn
 lalt  _    _               spc           _    _    _      lft down rght
 )
@@ -577,7 +584,7 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   ;; laltb (layer-while-held alt_tweaks)
   bspw (layer-while-held mouse_actions)
   ctresc (tap-dance 300 (@bspw esc))
-  nav (multi ralt (tap-dance 200 ((one-shot-press 2000 (layer-while-held navigation_keys_only)) (layer-switch vim_navigation) (layer-switch navigation) (multi ralt))))
+  nav (tap-dance 200 ((one-shot-press 2000 (layer-while-held navigation_keys_only)) (layer-switch vim_navigation) (layer-switch navigation) (multi ralt)))
   grl (tap-hold-press 3000 3000 grv (layer-toggle layers))
   grp (layer-switch graphite)
   sgl (layer-switch gaming_layout)
@@ -621,7 +628,7 @@ lctl   _  @lctl            _              _    _    _      lft down rght
 (defchordsv2-experimental
   (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
   (lctl ralt lsft) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
-  (lalt lsft ralt) (multi ctl sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
+  (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
   (lctl ralt) (multi lalt (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
   (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
   (lalt ralt) @dom_nav 200 all-released (nothing_layer)
@@ -630,6 +637,8 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
   (lmet lctl) @scl 200 all-released (nothing_layer)
 ;; (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 all-released (nothing_layer)
+;;(lsft lctl) (multi lctl @lsftl) 200 first_release (nothing_layer)
+;;(s d f) (macro b y e)     400 first-release (non-chord-layer)
 )
 
 (deffakekeys

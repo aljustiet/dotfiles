@@ -60,14 +60,136 @@ alias rk="doas systemctl restart kanata"
 alias ls="ls --color"
 alias dbfu="doas btrfs filesystem usage /"
 alias sl="sl -a -d -e -c -G -5"
+
+alias nethogs="nethogs -v 3 -b"
+alias yay=paru
+alias csap="makepkg -do --skippgpcheck" # clone source of AUR package
+alias dd1="dust -d1"
+
+alias pacgraph="pacgraph --svg --top=blue --dep=red"
+alias gliol="git log --oneline"
+alias cpaif="cat /proc/acpi/ibm/fan"
+alias nk="nvim ~/.dotfiles/Keyboard-Remapping/kanata.lsp"
+
+alias djfk="doas journalctl -feu kanata"
+alias kg="killall gammastep"
+alias nf="nvim ~/.config/fish/config.fish"
+alias kee="pkill -f easyeffects"
+
+alias yas="paru -Sua"
+alias hc="hyprctl clients"
+alias kk="doas systemctl stop kanata"
+alias rt="radeontop --color"
+
+alias dl="echo 0 | doas tee /sys/class/leds/*/brightness"
+alias cm="command"
+alias np="nvim ~/.config/paru/paru.conf"
+alias hde="hyprctl dispatcher exec"
+
+alias free="free --human"
+alias watch="watch --color --interval 1 --no-title"
+alias kl="pkill -f /usr/lib/librewolf/librewolf"
+alias hree="hyprctl dispatcher exec 'easyeffects --gapplication-service'"
+
+alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
 alias tokei="tokei --sort code"
-alias pacman="doas pacman"
+alias ma="doas mount -a"
+alias uma="doas umount /mnt/hdd /mnt/usb"
+
+alias ub="unbuffer"
+alias za="zathura"
+alias mount="doas mount -o uid=aljustiet,gid=aljustiet"
+alias kt="pkill -f telegram-desktop"
+
+alias hi="hyprctl dispatcher exec hypridle"
+alias kh="pkill hypridle"
+alias ff=fastfetch
+alias kw="pkill waybar"
+
+alias rw="hyprctl dispatcher exec waybar"
+alias kv="pkill -f 'vesktop.bin --enable-speech-dispatcher --ozone-platform-hint=auto'"
+alias kq="pkill -f qbittorrent"
+alias klb="pkill -f '/opt/LBRY/lbry --enable-crashpad'"
+
+alias ts="tailscale"
+
+# vnstat() {
+#   /usr/bin/vnstat -i enp51s0f4u2
+# }
+
+gss() {
+  hyprctl dispatcher exec "gammastep -m wayland -O $1"
+}
+
 sr() {
-  wf-recorder -f "$@" -c h264_vaapi -d /dev/dri/by-path/pci-0000:33:00.0-render
+  wl-screenrec -f "$@" --codec avc --dri-device /dev/dri/renderD128
+}
+
+lla() {
+  tar -tf $@ --use-compress-program=lz4
+}
+
+rcu() {
+  current_dir=$(pwd)
+  cd ..
+  rm -rf "$current_dir"
+}
+
+pib() {
+  nohup mpv $@ 2>/dev/null 1>/dev/null &
 }
 
 # Pacman
+alias pacman="doas pacman"
 alias fu="doas pacman -Syu"
+alias vpl="bat --pager='less -F -X -R +G' /var/log/pacman.log"
+alias i="doas pacman -S --noconfirm"
+alias r="doas pacman -R --noconfirm"
+alias sip="pacman -Si" # Sync information about package
+alias dip="pacman -Qi" # Database information about package
+vpf() {
+  unbuffer pacman -Fl $1 | bat
+}
+clean() {
+  pacman -Qttdq | pacman -Rns -
+  pacman -Qqd | pacman -Rsu -
+}
+cap() {
+  for package in "$@"; do
+    case $package in
+      aur)
+        git clone ssh://aur@aur.archlinux.org/$2.git
+        ;;
+      arch)
+        git clone git@gitlab.archlinux.org:archlinux/packaging/packages/$2.git
+        ;;
+      *)
+        echo "Unknown argument: $package"
+        ;;
+    esac
+  done
+}
+
+# NetworkManager
+alias ndwr="nmcli device wifi rescan"
+alias ndwl="nmcli device wifi list"
+alias nwe="nmcli radio wifi on"
+alias nwd="nmcli radio wifi off"
+
+# Quick editing
+alias nmpm="nvim ~/.config/mpv/mpv.conf"
+alias nmpi="nvim ~/.config/mpv/input.conf"
+
+# Mullvad
+alias ms="mullvad status"
+alias mc="mullvad connect"
+alias md="mullvad disconnect"
+
+# Systemd
+alias stytus="doas systemctl status"
+alias start="doas systemctl start"
+alias restart="doas systemctl restart"
+alias dr="doas systemctl daemon-reload"
 
 # Reloading
 alias rz="source ~/.zshrc"
@@ -79,6 +201,7 @@ alias nz="nvim ~/.zshrc"
 # Git aliases
 alias gis="git status"
 alias aac="git add . && git commit"
+alias gic="git clone"
 gp() {
     for remote in $(git remote); do
         git push $remote
