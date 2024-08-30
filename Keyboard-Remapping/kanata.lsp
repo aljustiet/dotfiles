@@ -2,38 +2,6 @@
   linux-dev (
   /dev/input/by-path/platform-i8042-serio-0-event-kbd
   /dev/input/by-id/usb-Keychron_Keychron_K2-event-kbd
-;; /dev/input/by-path/platform-i8042-serio-0-event-kbd
-;; /dev/input/by-path/pci-0000:33:00.4-usbv2-0:1:1.0-event-kbd
-;; /dev/input/by-path/pci-0000:33:00.4-usb-0:1:1.0-event-kbd
-;; /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.4:1.0-event-kbd
-;; /dev/input/by-path/pci-0000:34:00.4-usb-0:1.4:1.0-event-kbd
-;; /dev/input/by-path/pci-0000:34:00.3-usbv2-0:1.2:1.0-event-kbd
-;; /dev/input/by-path/pci-0000:34:00.3-usb-0:1.2:1.0-event-kbd
-;; /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.0-event-kbd
-;; /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.1-event
-;; /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.1-event-mouse
-;; /dev/input/by-path/pci-0000:34:00.4-usb-0:1.3:1.1-mouse
-;; /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.0-event-kbd
-;; /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-event
-;; /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-event-mouse
-;; /dev/input/by-path/pci-0000:34:00.4-usbv2-0:1.3:1.1-mouse
-;; /dev/input/by-id/usb-Logitech_USB_Receiver-event-kbd
-;; /dev/input/by-id/usb-Logitech_USB_Receiver-event-if01
-;; /dev/input/by-id/usb-Logitech_USB_Receiver-if01-mouse
-;; /dev/input/by-id/usb-Logitech_USB_Receiver-if01-event-mouse
-;; /dev/input/by-id/usb-Keychron_Keychron_K2-event-kbd
-;; /dev/input/by-id/usb-Keychron_Keychron_K2-if01-event-mouse
-;; /dev/input/by-id/usb-Keychron_Keychron_K2-if01-mouse
-;;  /dev/input/event27
-;;  /dev/input/event24
-;;  /dev/input/event25
-;;  /dev/input/event22
-;;  /dev/input/event23
-;;  /dev/input/event21
-;;  /dev/input/event9
-;;  /dev/input/event10
-;;  /dev/input/event11
-;;  /dev/input/event12
   )
 concurrent-tap-hold true
 process-unmapped-keys yes
@@ -48,15 +16,6 @@ caps a     s    d    f    g    h     j    k    l    ;    '    ret
 lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
 lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 )
-
-;; (defsrc
-;; esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
-;; grv  1     2    3    4    5    6     7    8    9    0    -    =    bspc
-;; tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
-;; caps a     s    d    f    g    h     j    k    l    ;    '    ret
-;; lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
-;; lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
-;; )
 
 (deflayer graphite_angle_kp
 esc mute voldwn volu f4 f5   f6   f7    f8   f9   f10  f11  f12 home @endesc ins del
@@ -575,8 +534,8 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   / (fork / , (lsft rsft))
 )
 (defalias
-  spcq (multi (layer-switch qwerty) M-spc)
-  spcg (multi (layer-switch graphite_angle_kp) M-spc)
+  spcq (multi (layer-switch qwerty) C-spc)
+  spcg (multi (layer-switch graphite_angle_kp) C-spc)
   dline (multi (release-key alt) lsft home bspc)
 ;;laltb (tap-dance 300 ((multi lalt (layer-while-held alt_tweaks)) (multi lctl (layer-while-held graphite_angle_kp)) (one-shot-press 60000 lctl)))
   galtb (multi alt (layer-while-held galt_tweaks))
@@ -636,9 +595,14 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   (lalt lctl) @lca 200 all-released (nothing_layer)
   (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
   (lmet lctl) @scl 200 all-released (nothing_layer)
+  (lsft ralt) @lsft_ralt_navigation 200 all-released (nothing_layer)
 ;; (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 all-released (nothing_layer)
 ;;(lsft lctl) (multi lctl @lsftl) 200 first_release (nothing_layer)
 ;;(s d f) (macro b y e)     400 first-release (non-chord-layer)
+)
+
+(defalias 
+  lsft_ralt_navigation (multi lsft (layer-while-held navigation))
 )
 
 (deffakekeys

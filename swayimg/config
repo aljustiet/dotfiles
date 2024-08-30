@@ -29,7 +29,7 @@ color = #0F319D
 [info]
 show = no
 info_timeout = 0
-status_timeout = 0
+status_timeout = 5
 
 [keys.viewer]
 bracketright = zoom 10

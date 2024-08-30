@@ -35,9 +35,18 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
+
+# Add in snippets
+zinit snippet OMZP::git
+zinit snippet OMZP::command-not-found
+zinit snippet OMZP::sudo
+zinit snippet OMZP::archlinux
 
 # Autoload completions
 autoload -U compinit && compinit
+
+zinit cdreplay -q
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -49,11 +58,12 @@ bindkey '^[[B' history-search-forward
 bindkey '^H' backward-kill-word
 
 # Shell integrations
-eval "$(zoxide init --cmd cd zsh)"
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias rk="doas systemctl restart kanata"
@@ -96,7 +106,11 @@ alias tokei="tokei --sort code"
 alias ma="doas mount -a"
 alias uma="doas umount /mnt/hdd /mnt/usb"
 
-alias ub="unbuffer"
+ub() {
+  unbuffer $@ | bat
+}
+
+# alias ub="unbuffer"
 alias za="zathura"
 alias mount="doas mount -o uid=aljustiet,gid=aljustiet"
 alias kt="pkill -f telegram-desktop"
@@ -112,14 +126,26 @@ alias kq="pkill -f qbittorrent"
 alias klb="pkill -f '/opt/LBRY/lbry --enable-crashpad'"
 
 alias ts="tailscale"
+alias nza="nvim ~/.config/zathura/zathurarc"
+alias rh="pkill hypridle && hyprctl dispatcher exec hypridle"
+alias ks="pkill -f '/usr/lib/signal-desktop/signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'"
+
+alias lda="doas udevadm info --attribute-walk"
+alias nn="nvim ~/.config/nvim/init.lua"
 
 # vnstat() {
 #   /usr/bin/vnstat -i enp51s0f4u2
 # }
 
-gss() {
-  hyprctl dispatcher exec "gammastep -m wayland -O $1"
+rib() {
+  nohup $@ 2>/dev/null 1>/dev/null &
 }
+
+# unalias gss
+
+# gss() {
+#   hyprctl dispatcher exec "gammastep -m wayland -O $1"
+# }
 
 sr() {
   wl-screenrec -f "$@" --codec avc --dri-device /dev/dri/renderD128
@@ -188,6 +214,7 @@ alias md="mullvad disconnect"
 # Systemd
 alias stytus="doas systemctl status"
 alias start="doas systemctl start"
+alias stop="doas systemctl stop"
 alias restart="doas systemctl restart"
 alias dr="doas systemctl daemon-reload"
 
@@ -202,17 +229,20 @@ alias nz="nvim ~/.zshrc"
 alias gis="git status"
 alias aac="git add . && git commit"
 alias gic="git clone"
+unalias gp
 gp() {
     for remote in $(git remote); do
         git push $remote
     done
 }
 
-# Environment variables
-export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
+# Path
 export PATH="$PATH:/home/aljustiet/.local/bin"
 export PATH="$PATH:/home/aljustiet/Documents/platform-tools"
 export PATH="$PATH:/home/aljustiet/go/bin"
+
+# Environment variables
+export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
 export VISUAL=nvim
 export EDITOR=nvim
 export XDG_CURRENT_DESKTOP=Hyprland
@@ -222,3 +252,9 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 export SYSTEMD_PAGER="bat"
 export SYSTEMD_PAGERSECURE="false"
+autoload bashcompinit
+bashcompinit
+source "/home/aljustiet/.bash_completion"
+
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(fzf --zsh)"
