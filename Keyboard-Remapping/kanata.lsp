@@ -17,8 +17,17 @@ lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
 lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 )
 
+;; (deflayer graphite_angle_kp
+;; esc mute voldwn volu f20 brdown brup f7    f8   f9   f10  f11  f12 home @endesc ins del
+;; @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
+;; tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
+;; @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
+;; @lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
+;; @laltg @lmet  @laltb        spc             @nav @prtsc @rctl lft down rght
+;; )
+
 (deflayer graphite_angle_kp
-esc mute voldwn volu f4 f5   f6   f7    f8   f9   f10  f11  f12 home @endesc ins del
+esc f1 f2 f3 f4 f5 f6 f7    f8   f9   f10  f11  f12 home @endesc ins del
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
@@ -146,6 +155,15 @@ _    _  lctl             _              _    _    _      lft down rght
 (deflayer navigation_keys_only
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
+_    _    _   pgdn pgup  _    _  pgup pgdn   _    _    _    _    _
+lctl   lft up down rght   lft rght lft down up rght _   _
+_    _    _    _    _    _   A-n A-m    _    _    _    _ pgup up pgdn
+_    _  lctl             _              _    _    _      lft down rght
+)
+
+(deflayer navigation_keys_only_without_modifier_keys
+_    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
+_    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 lctl   lft up down rght   lft rght @A-lft @A-down @A-up @A-rght _   _
 _    _    _    _    _    _   A-n A-m    _    _    _    _ pgup up pgdn
@@ -208,12 +226,13 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
 tab b   l    d  w    z    @'    f    o  u      j  ;     _    _
-_   n     r  t  s g    y  h   a  e   i        _     _
+_   n     r  t  s g    y  h @A-a  e   i        _     _
 lsft     x     m    c  v    q    @A-k  p    .    @-   @/ _     pgup up pgdn
 _   @ascl @alctl          @spcq               @anav prtsc lalt lft down rght
 )
 
 (defalias
+    A-a (multi (unmod alt) a)
     A-l (multi (release-key lctl) lmet l)
     A-k (multi (release-key lctl) lalt k)
     A-b (multi (release-key lctl) lalt b)
@@ -596,7 +615,7 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
   (lmet lctl) @scl 200 all-released (nothing_layer)
   (lsft ralt) @lsft_ralt_navigation 200 all-released (nothing_layer)
-;; (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 all-released (nothing_layer)
+  (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
 ;;(lsft lctl) (multi lctl @lsftl) 200 first_release (nothing_layer)
 ;;(s d f) (macro b y e)     400 first-release (non-chord-layer)
 )
