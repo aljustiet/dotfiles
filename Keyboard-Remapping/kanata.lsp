@@ -129,9 +129,9 @@ _    _   lctl            _              _    _    _      lft down rght
 
 (defalias
   C-lft (multi (release-key lalt) C-lft)
-  C-rght (multi (release-key lalt) C-rght)
-  C-down (multi (release-key lalt) C-down)
-  C-up (multi (release-key lalt) C-up)
+  C-rght (multi (unmod lctl) rght)
+  C-down (multi (release-key lalt) (release-key ralt) C-down)
+  C-up (multi (release-key lalt) (release-key ralt) C-up)
 )
 
 (deflayer lalt_navigation
@@ -271,7 +271,7 @@ _    _    _              _             @anav _ _            lft down rght
 
 (deflayer alt_tweaks
   _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
-  _    1    2    3    4    5    6    7    8    9    0  @C-- @C-+ _
+  _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
 tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
   _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a e i , ret
 @sft x @C-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
@@ -291,7 +291,7 @@ lalt  _    _               _            _    _    _      lft down rght
 esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home @endesc ins del
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
-@ctresc n   r  @t    s    g    y     h    @A-S-a    e    i    @,   ret
+@ctresc n   r  @t    s    g    y     h    a    e    i    @,   ret
 @lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
 @laltg @lmet  @laltb        spc             @nav @prtsc @rctl lft down rght
 )

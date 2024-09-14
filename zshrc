@@ -33,7 +33,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Essential zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
+# zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
@@ -52,7 +52,7 @@ zinit cdreplay -q
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keyndings
-# bindkey -v
+bindkey -v
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 bindkey '^H' backward-kill-word
@@ -66,6 +66,17 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias pm=pulsemixer
+
+alias stutus="systemctl --user status"
+alias nka="nvim ~/.config/kitty/kitty.conf"
+alias nt="notify-send 'Text' 'This is a text' "
+alias pk=pkill
+rs() {
+  pkill solaar
+  hyprctl dispatcher exec "solaar -w hide"
+}
+
 alias rk="doas systemctl restart kanata"
 alias ls="ls --color"
 alias dbfu="doas btrfs filesystem usage /"
@@ -93,7 +104,8 @@ alias rt="radeontop --color"
 
 alias dl="echo 0 | doas tee /sys/class/leds/*/brightness"
 alias cm="command"
-alias np="nvim ~/.config/paru/paru.conf"
+alias np="doas nvim /etc/pacman.conf"
+alias npa="nvim ~/.config/paru/paru.conf"
 alias hde="hyprctl dispatcher exec"
 
 alias free="free --human"
@@ -111,7 +123,8 @@ ub() {
 }
 
 # alias ub="unbuffer"
-alias za="zathura"
+alias zathura="zathura -l error"
+alias za="zathura -l error"
 alias mount="doas mount -o uid=aljustiet,gid=aljustiet"
 alias kt="pkill -f telegram-desktop"
 
@@ -132,13 +145,16 @@ alias ks="pkill -f '/usr/lib/signal-desktop/signal-desktop --enable-features=Use
 
 alias lda="doas udevadm info --attribute-walk"
 alias nn="nvim ~/.config/nvim/init.lua"
+alias oe='hyprctl dispatcher dpms off'
+alias eo='hyprctl dispatcher dpms on'
+
 
 # vnstat() {
 #   /usr/bin/vnstat -i enp51s0f4u2
 # }
 
 rib() {
-  nohup $@ 2>/dev/null 1>/dev/null &
+  nohup $@ 2>/dev/null >/dev/null &
 }
 
 # unalias gss
@@ -165,9 +181,13 @@ pib() {
   nohup mpv $@ 2>/dev/null 1>/dev/null &
 }
 
+rmib() {
+ nohup mpv --no-video --audio-display=no --input-ipc-server=/tmp/mpv-socket $@ 2>/dev/null 1>/dev/null &
+}
+
 # Pacman
 alias pacman="doas pacman"
-alias fu="doas pacman -Syu"
+alias fu="topgrade"
 alias vpl="bat --pager='less -F -X -R +G' /var/log/pacman.log"
 alias i="doas pacman -S --noconfirm"
 alias r="doas pacman -R --noconfirm"
@@ -242,6 +262,7 @@ export PATH="$PATH:/home/aljustiet/Documents/platform-tools"
 export PATH="$PATH:/home/aljustiet/go/bin"
 
 # Environment variables
+export TERM=xterm-256color
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
 export VISUAL=nvim
 export EDITOR=nvim
@@ -258,3 +279,6 @@ source "/home/aljustiet/.bash_completion"
 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
+autoload bashcompinit
+bashcompinit
+source "/home/aljustiet/.local/share/bash-completion/completions/am"

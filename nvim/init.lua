@@ -74,3 +74,5 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     pattern = {"*.yuck", "*.kdb"},
     command = "set filetype=lisp"
 })
+
+vim.o.wrap = false
