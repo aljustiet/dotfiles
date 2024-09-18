@@ -1,6 +1,8 @@
 (defcfg
   linux-dev (
   /dev/input/by-path/platform-i8042-serio-0-event-kbd
+  /dev/input/event4
+  /dev/input/by-path/platform-thinkpad_acpi-event
   /dev/input/by-id/usb-Keychron_Keychron_K2-event-kbd
   )
 concurrent-tap-hold true
@@ -8,8 +10,12 @@ process-unmapped-keys yes
 ;;log-layer-changes no
 )
 
+(deflocalkeys-linux
+  svm   227
+)
+
 (defsrc
-esc f1 f2 f3 f4 f5 f6 f7 f8   f9   f10  f11  f12 home end ins del
+esc mute voldwn volu f20 brdown brup svm f8   f9   f10  f11  f12 home end ins del
 grv  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 caps a     s    d    f    g    h     j    k    l    ;    '    ret
@@ -17,17 +23,8 @@ lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
 lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 )
 
-;; (deflayer graphite_angle_kp
-;; esc mute voldwn volu f20 brdown brup f7    f8   f9   f10  f11  f12 home @endesc ins del
-;; @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
-;; tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
-;; @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
-;; @lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
-;; @laltg @lmet  @laltb        spc             @nav @prtsc @rctl lft down rght
-;; )
-
 (deflayer graphite_angle_kp
-esc f1 f2 f3 f4 f5 f6 f7    f8   f9   f10  f11  f12 home @endesc ins del
+esc mute voldwn volu f20 brdown brup svm f8   f9   f10  f11  f12 home @endesc ins del
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
@@ -232,6 +229,7 @@ _   @ascl @alctl          @spcq               @anav prtsc lalt lft down rght
 )
 
 (defalias
+    A-x (multi (unmod ctl) A-m )
     A-a (multi (unmod alt) a)
     A-l (multi (release-key lctl) lmet l)
     A-k (multi (release-key lctl) lalt k)
@@ -274,7 +272,7 @@ _    _    _              _             @anav _ _            lft down rght
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
 tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
   _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a e i , ret
-@sft x @C-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
+@sft x @C-x @C-c @C-v q @C-k p . - /   @C-rsft pgup up pgdn
 lalt  _    _               _            _  prtsc  _      lft down rght
 )
 
@@ -350,7 +348,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   _    1    2    3    4    5    6    7    8    9    0   _    _    @dline
 @A-tab b   l     d   w   z    @'    f    o    u    j    ;    =    \
   _    n   r @C-S-t  s   @alft @arght h    a    e    i    ,    _
- @sft  q   m    @C-S-c  @C-S-v    q    k    p    .    -    /    _ pgup up pgdn
+ @sft  q   m @C-S-c  @C-S-v    q    k    p    .    -    /    _ pgup up pgdn
 lalt  _    _               spc           _    _    _      lft down rght
 )
 

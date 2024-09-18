@@ -52,7 +52,7 @@ zinit cdreplay -q
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keyndings
-bindkey -v
+# bindkey
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 bindkey '^H' backward-kill-word
@@ -66,6 +66,12 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias grep="grep --color=always"
+alias diff="diff --color=always"
+alias timg="timg -C -U --threads=16"
+
+alias hlo="hyprctl dispatch exit"
+alias tree="tree -C"
 alias pm=pulsemixer
 
 alias stutus="systemctl --user status"
@@ -243,6 +249,8 @@ alias rz="source ~/.zshrc"
 
 # Editing
 alias nh="nvim ~/.dotfiles/hypr/hyprland.conf"
+alias nhw="nvim ~/.dotfiles/hypr/window\ rules.conf"
+alias nhe="nvim ~/.dotfiles/hypr/env.conf"
 alias nz="nvim ~/.zshrc"
 
 # Git aliases
@@ -279,6 +287,7 @@ source "/home/aljustiet/.bash_completion"
 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
+bindkey -r "^[c"
 autoload bashcompinit
 bashcompinit
 source "/home/aljustiet/.local/share/bash-completion/completions/am"

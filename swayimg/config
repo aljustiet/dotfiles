@@ -7,7 +7,7 @@ size = 1720,960
 window = #000000
 transparency = grid
 antialiasing = no
-scale = height
+scale = fit
 slideshow = no
 history = 1
 preload = 1
@@ -51,8 +51,7 @@ Shift+h = step_left 50
 Shift+a = step_down 50
 Shift+e = step_up 50
 Shift+i = step_right 50
-
-
+Shift+s = zoom fit
 
 t = antialiasing
 
