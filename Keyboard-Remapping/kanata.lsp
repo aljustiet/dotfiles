@@ -1,12 +1,13 @@
 (defcfg
   linux-dev (
-  /dev/input/by-path/platform-i8042-serio-0-event-kbd
-  /dev/input/event4
-  /dev/input/by-path/platform-thinkpad_acpi-event
-  /dev/input/by-id/usb-Keychron_Keychron_K2-event-kbd
+    /dev/input/by-path/platform-i8042-serio-0-event-kbd
+    /dev/input/event4
+    /dev/input/by-path/platform-thinkpad_acpi-event
+    /dev/input/by-id/usb-Keychron_Keychron_K2-event-kbd
   )
-concurrent-tap-hold true
-process-unmapped-keys yes
+;;override-release-on-activation yes
+  concurrent-tap-hold true
+  process-unmapped-keys yes
 ;;log-layer-changes no
 )
 
@@ -15,7 +16,7 @@ process-unmapped-keys yes
 )
 
 (defsrc
-esc mute voldwn volu f20 brdown brup svm f8   f9   f10  f11  f12 home end ins del
+esc mute voldwn volu f20 brdown brup f7 f8 f9 f10 f11 f12 home end ins del
 grv  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 caps a     s    d    f    g    h     j    k    l    ;    '    ret
@@ -24,7 +25,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 )
 
 (deflayer graphite_angle_kp
-esc mute voldwn volu f20 brdown brup svm f8   f9   f10  f11  f12 home @endesc ins del
+esc mute voldwn volu f20 brdown brup f7 f8 f9 f10 f11 f12 home @endesc ins del
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
@@ -187,7 +188,7 @@ _    _    _              _              _    _    _      lft down rght
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
-_    _    _    _    _    _    _   @sl  @sd  @su  @sr   _    _
+_    _   @su @sd    _    _    _   @sl  @su  @sd  @sr   _    _
 _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
 _    _    _              _              _    _    _      lft down rght
 )
@@ -219,13 +220,30 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
 @scl   _    _           _             _    _    _      lft down rght
 )
 
+(defoverrides
+  (lalt lsft t) (lctl lsft t)
+  (lctl n) (lalt n)
+  (lalt n) (lctl n)
+  (lctl ]) (lalt =)
+  (lctl [) (lalt -)
+  (lctl home) (lalt home)
+;;(ralt h) (left)
+;;(ralt a) (down)
+;;(ralt e) (up)
+;;(ralt i) (right)
+;;(ralt u) (pgup)
+;;(ralt o) (pgdn)
+;;(ralt l) (pgup)
+;;(ralt d) (pgdn)
+)
+
 (deflayer lalt_layer_g
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
 tab b   l    d  w    z    @'    f    o  u      j  ;     _    _
 _   n     r  t  s g    y  h @A-a  e   i        _     _
 lsft     x     m    c  v    q    @A-k  p    .    @-   @/ _     pgup up pgdn
-_   @ascl @alctl          @spcq               @anav prtsc lalt lft down rght
+_   @ascl @alctl          @spcq               @nav prtsc lalt lft down rght
 )
 
 (defalias
@@ -271,8 +289,8 @@ _    _    _              _             @anav _ _            lft down rght
   _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
 tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
-  _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a e i , ret
-@sft x @C-x @C-c @C-v q @C-k p . - /   @C-rsft pgup up pgdn
+  _ n @C-r @C-t @C-s @alft @arght @C-h @C-a e i , ret
+@sft x @C-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
 lalt  _    _               _            _  prtsc  _      lft down rght
 )
 
@@ -347,7 +365,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
   _    1    2    3    4    5    6    7    8    9    0   _    _    @dline
 @A-tab b   l     d   w   z    @'    f    o    u    j    ;    =    \
-  _    n   r @C-S-t  s   @alft @arght h    a    e    i    ,    _
+  _    n   r     t  s   @alft @arght h    a    e    i    ,    _
  @sft  q   m @C-S-c  @C-S-v    q    k    p    .    -    /    _ pgup up pgdn
 lalt  _    _               spc           _    _    _      lft down rght
 )
@@ -605,7 +623,8 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
   (lctl ralt lsft) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
   (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
-  (lctl ralt) (multi lalt (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
+;; (lctl ralt) (multi lalt (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
+  (lctl ralt) (multi lctl (layer-while-held navigation)) 200 all-released (nothing_layer)
   (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
   (lalt ralt) @dom_nav 200 all-released (nothing_layer)
   (lmet ralt) (multi lmet ralt (layer-while-held graphite_angle_kp)) 200 all-released (nothing_layer)
