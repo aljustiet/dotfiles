@@ -66,6 +66,22 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias lkp="dbus-run-session startplasma-wayland"
+alias sps="swapon --show"
+alias kb="pkill -f '/usr/lib/electron30/electron --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=UseOzonePlatform --ozone-platform=wayland /usr/lib/obsidian/app.asar'"
+alias ssp="systemctl suspend"
+alias td="termdown"
+alias op="rib zathura"
+alias oi="rib swayimg"
+alias cu=currencyConverter
+df () {
+  command df -x tmpfs -x efivarfs -h | rg -v -e "dev.*7\.2G"
+}
+alias umount="doas umount"
+alias btrfs="doas btrfs"
+alias lofi="rmib 'https://www.youtube.com/watch?v=jfKfPfyJRdk'"
+
+alias z=cd
 alias grep="grep --color=always"
 alias diff="diff --color=always"
 alias timg="timg -C -U --threads=16"
@@ -114,9 +130,10 @@ alias np="doas nvim /etc/pacman.conf"
 alias npa="nvim ~/.config/paru/paru.conf"
 alias hde="hyprctl dispatcher exec"
 
-alias free="free --human"
+alias free="free --human --wide"
 alias watch="watch --color --interval 1 --no-title"
 alias kl="pkill -f /usr/lib/librewolf/librewolf"
+alias kf="pkill -f /usr/lib/firefox/firefox"
 alias hree="hyprctl dispatcher exec 'easyeffects --gapplication-service'"
 
 alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
@@ -268,6 +285,7 @@ gp() {
 export PATH="$PATH:/home/aljustiet/.local/bin"
 export PATH="$PATH:/home/aljustiet/Documents/platform-tools"
 export PATH="$PATH:/home/aljustiet/go/bin"
+export PATH="$PATH:/home/aljustiet/.cargo/bin"
 
 # Environment variables
 export TERM=xterm-256color
@@ -288,6 +306,10 @@ source "/home/aljustiet/.bash_completion"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
 bindkey -r "^[c"
+bindkey -r "^T"
 autoload bashcompinit
 bashcompinit
 source "/home/aljustiet/.local/share/bash-completion/completions/am"
+autoload bashcompinit
+bashcompinit
+source "/home/aljustiet/.local/share/bash-completion/completions/appman"

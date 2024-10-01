@@ -1,7 +1,13 @@
 " Set no highlight search by default
+syntax on
 set nohlsearch
+set number
 
 " Key mappings
+nnoremap T I
+nnoremap S A
+vnoremap T I
+vnoremap S A
 nnoremap .h :set hlsearch<CR>
 nnoremap .n :set nohlsearch<CR>
 nnoremap .r :source ~/.config/nvim/init.vim<CR>
