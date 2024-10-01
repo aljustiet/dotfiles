@@ -77,4 +77,4 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     command = "set filetype=lisp"
 })
 
-vim.o.wrap = false
+-- vim.o.wrap = false
