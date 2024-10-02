@@ -50,7 +50,25 @@ esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins d
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
 @lsftl z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
-@laltq @lmetq @laltb         spc              @nav @nlayer rctl  lft down rght
+@laltr @lmetq @laltb         spc              @nav @nlayer rctl  lft down rght
+)
+
+(deflayer russian
+esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+@grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
+tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
+@ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
+@lsftl z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
+@laltr @lmetq @laltb         spc              @nav @nlayer rctl  lft down rght
+)
+
+(deflayer uzbek
+esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+@grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
+tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
+@ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
+@lsftl z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
+@laltu @lmetq @laltb         spc              @nav @nlayer rctl  lft down rght
 )
 
 (deflayer gaming_layout
@@ -227,6 +245,7 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
   (lctl ]) (lalt =)
   (lctl [) (lalt -)
   (lctl home) (lalt home)
+;;(lalt lsft a) (lctl lsft a)
 ;;(ralt h) (left)
 ;;(ralt a) (down)
 ;;(ralt e) (up)
@@ -243,7 +262,7 @@ grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
 tab b   l    d  w    z    @'    f    o  u      j  ;     _    _
 _   n     r  t  s g    y  h @A-a  e   i        _     _
 lsft     x     m    c  v    q    @A-k  p    .    @-   @/ _     pgup up pgdn
-_   @ascl @alctl          @spcq               @nav prtsc lalt lft down rght
+_   @ascl @alctl          @spcr               @nav prtsc lalt lft down rght
 )
 
 (defalias
@@ -258,7 +277,16 @@ _   @ascl @alctl          @spcq               @nav prtsc lalt lft down rght
     A-+ (multi (release-key ctl) alt +)
 )
 
-(deflayer lalt_layer_q
+(deflayer lalt_layer_r
+_     _    _    _    _    _     _    _    _    _    _    _    _    _   _   _   _
+_     _    _    _    _    _     _    _    _    _    _    _    _    _
+@C-tab   b     l    d    w    z    @'    f    o    u    j  ;     _    _
+_     n     r    t    s @ctl_g    y     h    a    e    i  @,    _
+lsft    x     m    c    v    q    k     p    .    @-   @/ _     pgup   up pgdn
+_   @ascl   _            @spcg               @anav prtsc lalt lft down rght
+)
+
+(deflayer lalt_layer_u
 _     _    _    _    _    _     _    _    _    _    _    _    _    _   _   _   _
 _     _    _    _    _    _     _    _    _    _    _    _    _    _
 @C-tab   b     l    d    w    z    @'    f    o    u    j  ;     _    _
@@ -288,7 +316,7 @@ _    _    _              _             @anav _ _            lft down rght
 (deflayer alt_tweaks
   _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
-tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
+tab @C-q @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
   _ n @C-r @C-t @C-s @alft @arght @C-h @C-a e i , ret
 @sft x @C-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
 lalt  _    _               _            _  prtsc  _      lft down rght
@@ -376,7 +404,7 @@ lalt  _    _               spc           _    _    _      lft down rght
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
-  _    _    _              @spcq          _    _    _      lft down rght
+  _    _    _              @spcr          _    _    _      lft down rght
 )
 (deflayer input_change_g
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
@@ -532,7 +560,8 @@ lctl   _  @lctl            _              _    _    _      lft down rght
       cl (multi lctl (layer-while-held navigate_channels))
    lwhnc (layer-while-held navigate_channels)
    ctl_g (multi (release-key alt) C-g)
-   laltq (layer-while-held lalt_layer_q)
+   laltr (layer-while-held lalt_layer_r)
+   laltu (layer-while-held lalt_layer_u)
 ;; laltg (tap-dance 300 ((one-shot-press 1 (layer-while-held lalt_layer_g)) (multi lalt (layer-while-held graphite_angle_kp))))
 ;; laltq (multi lalt (one-shot-press 800 (layer-while-held lalt_layer_q)))
      sft (multi lsft (layer-while-held salt_tweaks))
@@ -569,7 +598,8 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   / (fork / , (lsft rsft))
 )
 (defalias
-  spcq (multi (layer-switch qwerty) C-spc)
+  spcr (multi (layer-switch russian) C-spc)
+  spcu (multi (layer-switch uzbek) C-spc)
   spcg (multi (layer-switch graphite_angle_kp) C-spc)
   dline (multi (release-key alt) lsft home bspc)
 ;;laltb (tap-dance 300 ((multi lalt (layer-while-held alt_tweaks)) (multi lctl (layer-while-held graphite_angle_kp)) (one-shot-press 60000 lctl)))
