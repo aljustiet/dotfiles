@@ -26,7 +26,13 @@ require("lazy").setup({
       require "options"
     end,
   },
-
+  {
+    "andrewferrier/wrapping.nvim",
+    lazy = false,
+    config = function()
+    require("wrapping").setup()
+    end
+  },
   { import = "plugins" },
 }, lazy_config)
 
