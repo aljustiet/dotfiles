@@ -66,6 +66,16 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias ars="command doas mount -t tmpfs -o size=4G -m tmpfs"
+alias ts="doas timeshift"
+alias timeshift="doas timeshift"
+alias am=appman
+alias ip="ip -c=always"
+alias nhs="nvim ~/.dotfiles/hypr/startup.conf"
+alias shst="rib swayimg ~/Documents/School/Timetable3.jpg"
+alias rs="rib scrcpy --fullscreen --keyboard=uhid --stay-awake --window-title Honor"
+alias pkw="pkill wshowkeys"
+alias shk="wshowkeys -F \"GoMono Nerd Font 32\" -t 1 -a bottom"
 alias lkp="dbus-run-session startplasma-wayland"
 alias sps="swapon --show"
 alias kb="pkill -f '/usr/lib/electron30/electron --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=UseOzonePlatform --ozone-platform=wayland /usr/lib/obsidian/app.asar'"
@@ -94,10 +104,10 @@ alias stutus="systemctl --user status"
 alias nka="nvim ~/.config/kitty/kitty.conf"
 alias nt="notify-send 'Text' 'This is a text' "
 alias pk=pkill
-rs() {
-  pkill solaar
-  hyprctl dispatcher exec "solaar -w hide"
-}
+# rs() {
+#   pkill solaar
+#   hyprctl dispatcher exec "solaar -w hide"
+# }
 
 alias rk="doas systemctl restart kanata"
 alias ls="ls --color"
@@ -153,7 +163,7 @@ alias kt="pkill -f telegram-desktop"
 
 alias hi="hyprctl dispatcher exec hypridle"
 alias kh="pkill hypridle"
-alias ff=fastfetch
+alias ff="fastfetch --color green"
 alias kw="pkill waybar"
 
 alias rw="hyprctl dispatcher exec waybar"
@@ -161,7 +171,7 @@ alias kv="pkill -f 'vesktop.bin --enable-speech-dispatcher --ozone-platform-hint
 alias kq="pkill -f qbittorrent"
 alias klb="pkill -f '/opt/LBRY/lbry --enable-crashpad'"
 
-alias ts="tailscale"
+# alias ts="tailscale"
 alias nza="nvim ~/.config/zathura/zathurarc"
 alias rh="pkill hypridle && hyprctl dispatcher exec hypridle"
 alias ks="pkill -f '/usr/lib/signal-desktop/signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'"
@@ -222,6 +232,7 @@ vpf() {
 clean() {
   pacman -Qttdq | pacman -Rns -
   pacman -Qqd | pacman -Rsu -
+  flatpak remove --unused
 }
 cap() {
   for package in "$@"; do
@@ -257,8 +268,12 @@ alias md="mullvad disconnect"
 # Systemd
 alias stytus="doas systemctl status"
 alias start="doas systemctl start"
+alias sturt="systemctl --user start"
 alias stop="doas systemctl stop"
+alias stup="systemctl --user stop"
 alias restart="doas systemctl restart"
+alias scu="systemctl --user"
+alias ds="doas systemctl"
 alias dr="doas systemctl daemon-reload"
 
 # Reloading

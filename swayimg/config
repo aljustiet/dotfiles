@@ -5,15 +5,15 @@ size = 1720,960
 
 [viewer]
 window = #000000
-transparency = grid
+transparency = #000000FF
 antialiasing = no
 scale = fit
+resize_reset = no
 slideshow = no
 history = 1
 preload = 1
 
 [gallery]
-antialiasing = yes
 
 [list]
 order = none
@@ -32,6 +32,9 @@ info_timeout = 0
 status_timeout = 5
 
 [keys.viewer]
+Shift+w = zoom width
+Shift+y = zoom width
+Shift+h = zoom fit
 bracketright = zoom 10
 bracketleft = zoom -10
 Shift+bracketright = zoom 50
