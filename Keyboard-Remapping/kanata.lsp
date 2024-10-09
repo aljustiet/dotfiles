@@ -1,7 +1,4 @@
 (defcfg
-  macos-dev-names-include (
-    "Apple Internal Keyboard / Trackpad"
-  )
 ;;override-release-on-activation yes
   concurrent-tap-hold true
   process-unmapped-keys yes
