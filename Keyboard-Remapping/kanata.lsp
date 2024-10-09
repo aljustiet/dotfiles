@@ -1,4 +1,7 @@
 (defcfg
+  macos-dev-names-include (
+    "Apple Internal Keyboard / Trackpad"
+  )
 ;;override-release-on-activation yes
   concurrent-tap-hold true
   process-unmapped-keys yes
@@ -278,7 +281,7 @@ _   @ascl   _            @spcg               @anav lalt lft down rght
 
 (deflayer mouse_actions
 _    _    _    _    _    _    _    _    _    _    _    _    _
-_    _    _    _    _    _    _    _    _    _    _    _    _   C-bspc
+_    _    _    _    _    _    _    _    _    _    _    _    _   A-bspc
 _ @clft @mup @crght _    _    _    [    ]    _    _    _    _    _
 _ @mlft @mbck @mrght @mmid _    _   S-;    =    @%  @@    _     _
 _    _    _   C-c  C-v   _    _    _    _    _    _    _ up
@@ -297,9 +300,9 @@ _    _    _              _             @anav _            lft down rght
 (deflayer command_tweaks
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
-tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
+tab q @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
   _ n @C-r @C-t @C-s @alft @arght @C-h @C-a e i , ret
-@sft x @C-x @C-c @C-v q @C-k @C-p . - /   @C-rsft up
+@sft x @C-x @C-c @C-v b @C-k @C-p . - /   @C-rsft up
 lalt  _    _               _            _  _      lft down rght
 )
 
@@ -333,9 +336,9 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   C-l (multi (release-key alt) C-l)
   C-d (multi (release-key lmet) C-d)
   C-w (multi (release-key lmet) M-w)
-  C-z (multi (release-key alt) C-z)
+  C-z (multi (release-key lmet) M-z)
   C-f (multi (release-key alt) C-f)
-  C-o (multi (release-key alt) C-o)
+  C-o (multi (release-key lmet) M-o)
   C-u (multi (release-key alt) C-u)
   C-j (multi (release-key alt) C-j)
   C-; (multi (release-key alt) C-;)
@@ -549,7 +552,7 @@ lctl   _  @lctl            _              _    _      lft down rght
      scl (multi lctl lmet (layer-while-held scrolling_layer))
  ;; ascl (multi (release-key alt) (layer-while-held scrolling_layer))
     ascl (layer-while-held scrolling_layer)
-    lmet (multi lmet (layer-while-held lmet_layer))
+    lmet (multi lalt (layer-while-held lmet_layer))
     lmetq (multi lmet (layer-while-held lmetq_layer))
      mup (movemouse-up    16 16)
     mbck (movemouse-down  16 16)
