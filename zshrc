@@ -66,10 +66,11 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias viu=timg
 alias ars="command doas mount -t tmpfs -o size=4G -m tmpfs"
 alias ts="doas timeshift"
 alias timeshift="doas timeshift"
-alias am=appman
+# alias am=appman
 alias ip="ip -c=always"
 alias nhs="nvim ~/.dotfiles/hypr/startup.conf"
 alias shst="rib swayimg ~/Documents/School/Timetable3.jpg"

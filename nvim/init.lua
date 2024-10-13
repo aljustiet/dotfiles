@@ -72,6 +72,8 @@ keymap('v', 'i', 'l', opts)
 keymap('v', 'a', 'j', opts)
 keymap('v', 'e', 'k', opts)
 
+
+
 -- Auto commands
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
     pattern = {"*.conf"},
