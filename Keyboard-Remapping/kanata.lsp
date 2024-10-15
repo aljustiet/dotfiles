@@ -11,9 +11,9 @@
 ;;log-layer-changes no
 )
 
-(deflocalkeys-linux
-  svm   227
-)
+;; (deflocalkeys-linux
+;;   svm   227
+;; )
 
 (defsrc
 esc mute voldwn volu f20 brdown brup f7 f8 f9 f10 f11 f12 home end ins del
@@ -266,8 +266,8 @@ _   @ascl @alctl          @spcr               @nav prtsc lalt lft down rght
 )
 
 (defalias
+    A-a (multi (release-key lctl) lalt a)
     A-x (multi (unmod ctl) A-m )
-    A-a (multi (unmod alt) a)
     A-l (multi (release-key lctl) lmet l)
     A-k (multi (release-key lctl) lalt k)
     A-p (multi (release-key lctl) lalt p)
