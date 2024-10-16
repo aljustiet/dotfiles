@@ -259,13 +259,14 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
 (deflayer lalt_layer_g
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
-tab @A-b   l    d  w    z    @'    f    o  u      j  ;     _    _
+tab @A-b   l    d  w    z    @'    f    o @A-u      j  ;     _    _
 _   n     r  t  s g    y  h @A-a  e   i        _     _
 lsft     x     m    c  v    b    @A-k @A-p    .    @-   @/ _     pgup up pgdn
 _   @ascl @alctl          @spcr               @nav prtsc lalt lft down rght
 )
 
 (defalias
+    A-u (multi (release-key lctl) lalt u)
     A-a (multi (release-key lctl) lalt a)
     A-x (multi (unmod ctl) A-m )
     A-l (multi (release-key lctl) lmet l)

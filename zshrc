@@ -78,6 +78,7 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias iao="cat /sys/class/power_supply/AC/online"
 alias viu=timg
 alias ars="command doas mount -t tmpfs -o size=4G -m tmpfs"
 alias ts="doas timeshift"
@@ -323,6 +324,7 @@ export EDITOR=nvim
 export XDG_CURRENT_DESKTOP=Hyprland
 export PAGER="bat"
 export BAT_CONFIG_PATH="/home/aljustiet/.config/bat/bat.conf"
+export BATSIGNAL_CONFIG="/home/aljustiet/.config/batsignal"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 export SYSTEMD_PAGER="bat"
