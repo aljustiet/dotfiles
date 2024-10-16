@@ -9,7 +9,6 @@
 )
 
 (defsrc
-esc brdown brup f3 f4 f5 f6 f7 f8 f9 mute voldwn volu
 grv  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 caps a     s    d    f    g    h     j    k    l    ;    '    ret
@@ -18,7 +17,6 @@ lctl lalt lmet         spc              rmet ralt   lft down rght
 )
 
 (deflayer graphite_angle_kp
-esc brdown brup f3 f4 f5 f6 f7 f8 f9 mute voldwn volu
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
@@ -27,7 +25,6 @@ tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 )
 
 (deflayer graphite_angle_kp_default
-esc brdown brup f3 f4 f5 f6 f7 f8 f9 mute voldwn volu
 grv  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 caps n   r  t   s    g    y     h    a    e    i    @,   ret
@@ -48,7 +45,6 @@ lctl lalt lmet        spc             rmet ralt lft down rght
 (defalias endesc (tap-dance 200 (end esc)))
 
 (deflayer graphite
-esc brdown brup f3 f4 f5 f6 f7 f8 f9 mute voldwn volu
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n     r   @t_key    s    g    y     h    a    e    i    @,   ret
@@ -57,7 +53,6 @@ tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
 )
 
 (deflayer qwerty
-esc brdown brup f3 f4 f5 f6 f7 f8 f9 mute voldwn volu
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
@@ -66,7 +61,6 @@ tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 )
 
 (deflayer gaming_layout
-esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     f    i    o    p    [    ]    \
 @ctresc a  s    d    .    ,    h     j    k    l    ;    @,    ret
@@ -75,7 +69,6 @@ tab  q     w    e    r    t    y     f    i    o    p    [    ]    \
 )
 
 (deflayer graphite_vim_layer
-esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
 esc n     r    t    s    g    y     h    a    e    i    @,   ret
@@ -84,7 +77,6 @@ lsft    q     x    m    c    v    k     p    .    @-   @/   rsft up
 )
 
 (deflayer nothing_layer
-XX    XX     XX   XX   XX   XX   XX   XX    XX   XX   XX   XX   XX
 XX    XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX   XX
 XX   XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX   XX
 XX      XX    XX   XX   XX   XX   XX    XX   XX   XX   XX   XX   XX
@@ -93,7 +85,6 @@ XX     XX     XX             XX              XX XX XX XX XX
 )
 
 (deflayer default
-esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 caps a     s    d    f    g    h     j    k    l    ;    '    ret
@@ -102,7 +93,6 @@ lctl lalt  lmet          spc              rmet ralt   lft down rght
 )
 
 (deflayer layers
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    @grk @grp @qwr lrld @sgl @sgvl @nl  _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -111,7 +101,6 @@ _    _    _              _              _    _      lft down rght
 )
 
 (deflayer symbol_layer
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    @ex  _    _    _    _    ;    =    @%   @@   _    _
@@ -120,7 +109,6 @@ _    _    _              _              _    _      lft down rght
 )
 
 (deflayer vim_navigation
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _   C-w   _    _    _      A-lft _  _    _    _    _
 _    lft up down rght        lft A-rght  lft @sdd @sdu rght _   _
@@ -129,7 +117,6 @@ _    _     _             _              _    _      lft down rght
 )
 
 (deflayer navigation
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 lctl M-lft M-up M-down M-rght lft rght lft down up rght _   _
@@ -145,7 +132,6 @@ _    _   lctl            _              _    _      lft down rght
 )
 
 (deflayer lalt_navigation
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 lctl M-lft M-up M-down M-rght lft rght @C-lft @C-down @C-up @C-rght _   _
@@ -154,7 +140,6 @@ _    _   lctl            _              _    _      lft down rght
 )
 
 (deflayer lsft_lalt_ralt_navigation_layer
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 lctl   lft up down rght   lft rght lft down up rght _   _
@@ -163,7 +148,6 @@ _    _  lctl             _              _    _      lft down rght
 )
 
 (deflayer navigation_keys_only
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _   pgdn pgup  _    _  pgup pgdn   _    _    _    _    _
 lctl   lft up down rght   lft rght lft down up rght _   _
@@ -172,7 +156,6 @@ _    _  lctl             _              _    _      lft down rght
 )
 
 (deflayer navigation_keys_only_without_modifier_keys
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 lctl   lft up down rght   lft rght @A-lft @A-down @A-up @A-rght _   _
@@ -188,7 +171,6 @@ _    _  lctl             _              _    _      lft down rght
 )
 
 (deflayer navigation_second
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    M-n M-r M-t  M-s    _    _    _    _    _    _    _    _
@@ -197,7 +179,6 @@ _    _    _              _              _    _      lft down rght
 )
 
 (deflayer scrolling_layer
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _   @su @sd    _    _    _   @sl  @su  @sd  @sr   _    _
@@ -206,7 +187,6 @@ _    _    _              _              _    _      lft down rght
 )
 
 ;; (deflayer selection_layer
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _
 ;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _
 ;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _
 ;;   _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -215,7 +195,6 @@ _    _    _              _              _    _      lft down rght
 ;; )
 
 (deflayer lmet_layer
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    -    =    _
 _    b     l    d    w    z    @'    f    o    u    j  ;    =    _
 _    n     r    t    s    g    y     h    a    e    i  @,   _
@@ -224,7 +203,6 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ up
 )
 
 (deflayer lmetq_layer
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    -    =    _
 _    b     l    d    w    z    @'    f    o    u    j  ;    =    _
 _    n     r    t    s    g    y     h    a    e    i  @,   _
@@ -250,7 +228,6 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ up
 )
 
 (deflayer lalt_layer_g
-_     _    _    _    _    _    _    _    _    _    _    _    _
 grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
 tab b   l    d  w    z    @'    f    o  u      j  ;     _    _
 _   n     r  t  s g    y  h @A-a  e   i        _     _
@@ -271,7 +248,6 @@ _   @ascl @alctl          @spcq               @nav lalt lft down rght
 )
 
 (deflayer lalt_layer_q
-_     _    _    _    _    _     _    _    _    _    _    _    _
 _     _    _    _    _    _     _    _    _    _    _    _    _    _
 @C-tab   b     l    d    w    z    @'    f    o    u    j  ;     _    _
 _     n     r    t    s @ctl_g    y     h    a    e    i  @,    _
@@ -280,7 +256,6 @@ _   @ascl   _            @spcg               @anav lalt lft down rght
 )
 
 (deflayer mouse_actions
-_    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _   A-bspc
 _ @clft @mup @crght _    _    _    [    ]    _    _    _    _    _
 _ @mlft @mbck @mrght @mmid _    _   S-;    =    @%  @@    _     _
@@ -289,7 +264,6 @@ _    _    _              _             @anav _            lft down rght
 )
 
 ;; (deflayer cmouse_actions
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _
 ;;   _    _    _    _    _    _    _    _    _    _    _    _    _   C-bspc
 ;;   _ @clft @mup @crght _    _    _    _    _    _    _    _    _    _
 ;;   _ @mlft @mbck @mrght @mmid _    _   ;    =    @%   _    _     _
@@ -298,7 +272,6 @@ _    _    _              _             @anav _            lft down rght
 ;; )
 
 (deflayer command_tweaks
-  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
 tab q @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
   _ n @C-r @C-t @C-s @alft @arght @C-h @C-a e i , ret
@@ -307,16 +280,14 @@ lalt  _    _               _            _  _      lft down rght
 )
 
 (deflayer galt_tweaks
-  _    _    _    _    _    _    _    _    _    _    _    _    _
   _   @C-- @C-=  3    4    5    6    7    8    9    0  @C-- @C-=  @dline
-tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u @C-j @C-; @C-= @C-\
+tab @C-b l @C-d w @C-z    @' @C-f @C-o @C-u @C-j @C-; @C-= @C-\
   _ @C-n @C-r @C-t @C-s @alft @arght @C-h @C-a @C-e i @C-, ret
 @sft @C-q @C-x @C-c @C-v @C-b @C-k @C-p @C-. @C--    @C-/   @C-rsft up
 lalt  _    _               _            _    _      lft down rght
 )
 
 (deflayer shift_control_layer
-esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n   r  @t    s    g    y     h    a    e    i    @,   ret
@@ -330,10 +301,10 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   dom_nav (multi lalt ralt (layer-while-held lalt_navigation))
   lsftl (multi lsft (layer-while-held shift_layer))
   C-, (multi (release-key alt) C-,)
-  C-- (multi (release-key alt) C--)
+  C-- (multi (release-key alt) M--)
   C-/ (multi (release-key alt) C-/)
   C-b (multi (release-key alt) C-b)
-  C-l (multi (release-key alt) C-l)
+  C-l (multi (release-key alt) M-l)
   C-d (multi (release-key lmet) C-d)
   C-w (multi (release-key lmet) M-w)
   C-z (multi (release-key lmet) M-z)
@@ -342,7 +313,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   C-u (multi (release-key alt) C-u)
   C-j (multi (release-key alt) C-j)
   C-; (multi (release-key alt) C-;)
-  C-= (multi (release-key alt) C-=)
+  C-= (multi (release-key alt) M-=)
   C-+ (multi (release-key alt) C-+)
   C-\ (multi (release-key alt) C-\)
   C-n (multi (release-key alt) C-n)
@@ -366,7 +337,6 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 )
 
 ;; (deflayer alt_tweaks
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _
 ;;   _ @A-1 @A-2 @A-3 @A-4 @A-5 @A-6 @A-7 @A-8 @A-9 @A-0   g    y    @dline
 ;; @A-tab b    l    d    w    z    @'    f    o    u    j    ;    =    \
 ;;   _    n    r    t    s @alft @arght  h   a    e i @,  _
@@ -375,7 +345,6 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 ;; )
 
 (deflayer salt_tweaks
-  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    1    2    3    4    5    6    7    8    9    0   _    _    @dline
 @A-tab b   l     d   w   z    @'    f    o    u    j    ;    =    \
   _    n   r     t  s   @alft @arght h    a    e    i    ,    _
@@ -384,7 +353,6 @@ lalt  _    _               spc           _    _      lft down rght
 )
 
 (deflayer input_change_q
-  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -392,7 +360,6 @@ lalt  _    _               spc           _    _      lft down rght
   _    _    _              @spcq          _    _      lft down rght
 )
 (deflayer input_change_g
-  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -401,7 +368,6 @@ lalt  _    _               spc           _    _      lft down rght
 )
 
 (deflayer navigate_channels
-  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _   C-left  @mad @mau C-rght _    _
@@ -410,7 +376,6 @@ lalt  _    _               spc           _    _      lft down rght
 )
 
 ;; (deflayer diagonally_down_movement_layer
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _
 ;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _
 ;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _
 ;;   _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -419,7 +384,6 @@ lalt  _    _               spc           _    _      lft down rght
 ;; )
 
 (deflayer shift_layer
-  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -428,7 +392,6 @@ lctl   _  @lctl            _              _    _      lft down rght
 )
 
 (deflayer shift_alt_layer
-  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
 @C-S-tab _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    a    _    _    _    _
@@ -437,7 +400,6 @@ lctl   _  @lctl            _              _    _      lft down rght
 )
 
 ;; (deflayer lc_layer
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _
 ;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _
 ;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _
 ;;   _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -446,7 +408,6 @@ lctl   _  @lctl            _              _    _      lft down rght
 ;; )
 
 (deflayer c_v
-  _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
 @A-tab _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -455,7 +416,6 @@ lctl   _  @lctl            _              _    _      lft down rght
 )
 
 (deflayer caps_layer
-  esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12
   @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
   tab   S-b  S-l  S-d  S-w  S-z    @'  S-f  S-o  S-u  S-j  S-;  S-=  S-\
 @ctresc S-n S-r S-t  S-s  S-g  S-y   S-h  S-a  S-e  S-i    @,   ret
