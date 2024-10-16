@@ -52,7 +52,19 @@ zinit cdreplay -q
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keyndings
+# Vim mode
+bindkey -v
+bindkey -M vicmd i vi-forward-char
+bindkey -M vicmd t vi-insert
+bindkey -M vicmd s vi-add-next
+bindkey -M vicmd a down-line-or-history
+bindkey -M vicmd e up-line-or-history
+bindkey -M vicmd m vi-delete-char
+bindkey -M vicmd c vi-set-mark
+bindkey -M vicmd l vi-backward-word
 # bindkey
+
+
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 bindkey '^H' backward-kill-word
@@ -164,7 +176,7 @@ alias kt="pkill -f telegram-desktop"
 
 alias hi="hyprctl dispatcher exec hypridle"
 alias kh="pkill hypridle"
-alias ff="fastfetch --color green"
+alias ff="fastfetch"
 alias kw="pkill waybar"
 
 alias rw="hyprctl dispatcher exec waybar"
