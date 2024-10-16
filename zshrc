@@ -52,7 +52,19 @@ zinit cdreplay -q
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keyndings
+# Vim mode
+bindkey -v
+bindkey -M vicmd i vi-forward-char
+bindkey -M vicmd t vi-insert
+bindkey -M vicmd s vi-add-next
+bindkey -M vicmd a down-line-or-history
+bindkey -M vicmd e up-line-or-history
+bindkey -M vicmd m vi-delete-char
+bindkey -M vicmd c vi-set-mark
+bindkey -M vicmd l vi-backward-word
 # bindkey
+
+
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 bindkey '^H' backward-kill-word
@@ -66,6 +78,33 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias viu=timg
+alias ars="command doas mount -t tmpfs -o size=4G -m tmpfs"
+alias ts="doas timeshift"
+alias timeshift="doas timeshift"
+# alias am=appman
+alias ip="ip -c=always"
+alias nhs="nvim ~/.dotfiles/hypr/startup.conf"
+alias shst="rib swayimg ~/Documents/School/Timetable3.jpg"
+alias rs="rib scrcpy --fullscreen --keyboard=uhid --stay-awake --window-title Honor"
+alias pkw="pkill wshowkeys"
+alias shk="wshowkeys -F \"GoMono Nerd Font 32\" -t 1 -a bottom"
+alias lkp="dbus-run-session startplasma-wayland"
+alias sps="swapon --show"
+alias kb="pkill -f '/usr/lib/electron30/electron --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=UseOzonePlatform --ozone-platform=wayland /usr/lib/obsidian/app.asar'"
+alias ssp="systemctl suspend"
+alias td="termdown"
+alias op="rib zathura"
+alias oi="rib swayimg"
+alias cu=currencyConverter
+df () {
+  command df -x tmpfs -x efivarfs -h | rg -v -e "dev.*7\.2G"
+}
+alias umount="doas umount"
+alias btrfs="doas btrfs"
+alias lofi="rmib 'https://www.youtube.com/watch?v=jfKfPfyJRdk'"
+
+alias z=cd
 alias grep="grep --color=always"
 alias diff="diff --color=always"
 alias timg="timg -C -U --threads=16"
@@ -78,10 +117,10 @@ alias stutus="systemctl --user status"
 alias nka="nvim ~/.config/kitty/kitty.conf"
 alias nt="notify-send 'Text' 'This is a text' "
 alias pk=pkill
-rs() {
-  pkill solaar
-  hyprctl dispatcher exec "solaar -w hide"
-}
+# rs() {
+#   pkill solaar
+#   hyprctl dispatcher exec "solaar -w hide"
+# }
 
 alias rk="doas systemctl restart kanata"
 alias ls="ls --color"
@@ -114,9 +153,10 @@ alias np="doas nvim /etc/pacman.conf"
 alias npa="nvim ~/.config/paru/paru.conf"
 alias hde="hyprctl dispatcher exec"
 
-alias free="free --human"
+alias free="free --human --wide"
 alias watch="watch --color --interval 1 --no-title"
 alias kl="pkill -f /usr/lib/librewolf/librewolf"
+alias kf="pkill -f /usr/lib/firefox/firefox"
 alias hree="hyprctl dispatcher exec 'easyeffects --gapplication-service'"
 
 alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
@@ -136,7 +176,7 @@ alias kt="pkill -f telegram-desktop"
 
 alias hi="hyprctl dispatcher exec hypridle"
 alias kh="pkill hypridle"
-alias ff=fastfetch
+alias ff="fastfetch"
 alias kw="pkill waybar"
 
 alias rw="hyprctl dispatcher exec waybar"
@@ -144,7 +184,7 @@ alias kv="pkill -f 'vesktop.bin --enable-speech-dispatcher --ozone-platform-hint
 alias kq="pkill -f qbittorrent"
 alias klb="pkill -f '/opt/LBRY/lbry --enable-crashpad'"
 
-alias ts="tailscale"
+# alias ts="tailscale"
 alias nza="nvim ~/.config/zathura/zathurarc"
 alias rh="pkill hypridle && hyprctl dispatcher exec hypridle"
 alias ks="pkill -f '/usr/lib/signal-desktop/signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'"
@@ -205,6 +245,7 @@ vpf() {
 clean() {
   pacman -Qttdq | pacman -Rns -
   pacman -Qqd | pacman -Rsu -
+  flatpak remove --unused
 }
 cap() {
   for package in "$@"; do
@@ -240,8 +281,12 @@ alias md="mullvad disconnect"
 # Systemd
 alias stytus="doas systemctl status"
 alias start="doas systemctl start"
+alias sturt="systemctl --user start"
 alias stop="doas systemctl stop"
+alias stup="systemctl --user stop"
 alias restart="doas systemctl restart"
+alias scu="systemctl --user"
+alias ds="doas systemctl"
 alias dr="doas systemctl daemon-reload"
 
 # Reloading
@@ -268,6 +313,7 @@ gp() {
 export PATH="$PATH:/home/aljustiet/.local/bin"
 export PATH="$PATH:/home/aljustiet/Documents/platform-tools"
 export PATH="$PATH:/home/aljustiet/go/bin"
+export PATH="$PATH:/home/aljustiet/.cargo/bin"
 
 # Environment variables
 export TERM=xterm-256color
@@ -288,6 +334,10 @@ source "/home/aljustiet/.bash_completion"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
 bindkey -r "^[c"
+bindkey -r "^T"
 autoload bashcompinit
 bashcompinit
 source "/home/aljustiet/.local/share/bash-completion/completions/am"
+autoload bashcompinit
+bashcompinit
+source "/home/aljustiet/.local/share/bash-completion/completions/appman"
