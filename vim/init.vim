@@ -21,9 +21,9 @@ nnoremap s a
 nnoremap f d
 nnoremap l e
 nnoremap m x
-vnoremap m x
 nnoremap i l
 nnoremap a j
+vnoremap m x
 vnoremap i l
 vnoremap a j
 vnoremap e k
