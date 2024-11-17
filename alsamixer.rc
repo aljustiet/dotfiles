@@ -1,2 +1,13 @@
-bind a textbox_up
-bind e textbox_down
+bind a mixer control_down
+bind A mixer control_down_5
+bind e mixer control_up
+bind E mixer control_up_5
+bind f mixer control_down_left_1
+bind o mixer control_up_left_1
+bind u mixer control_down_right_1
+bind j mixer control_up_right_1
+
+bind a textbox down
+bind e textbox down
+bind i textbox right
+bind q mixer close
