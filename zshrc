@@ -322,14 +322,14 @@ export VISUAL=nvim
 export EDITOR=nvim
 export XDG_CURRENT_DESKTOP=Hyprland
 export PAGER="bat"
-export BAT_CONFIG_PATH="/home/aljustiet/.config/bat/bat.conf"
+export BAT_CONFIG_PATH="/Users/aljustiet/.config/bat/bat.conf"
+export LESSKEY="Users/aljustiet/.config/lesskey"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 export SYSTEMD_PAGER="bat"
 export SYSTEMD_PAGERSECURE="false"
 autoload bashcompinit
 bashcompinit
-source "/home/aljustiet/.bash_completion"
 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
@@ -337,7 +337,5 @@ bindkey -r "^[c"
 bindkey -r "^T"
 autoload bashcompinit
 bashcompinit
-source "/home/aljustiet/.local/share/bash-completion/completions/am"
 autoload bashcompinit
 bashcompinit
-source "/home/aljustiet/.local/share/bash-completion/completions/appman"
