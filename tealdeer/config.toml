@@ -1,0 +1,19 @@
+[display]
+use_pager = true
+compact = false
+
+[style.command_name]
+foreground = "green"
+
+[style.example_text]
+foreground = "purple"
+
+[style.example_code]
+foreground = "blue"
+
+[style.example_variable]
+foreground = "blue"
+underline = true
+
+[directories]
+custom_pages_dir = "/home/aljustiet/.local/share/tealdeer/pages/"
