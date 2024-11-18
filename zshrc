@@ -122,7 +122,7 @@ alias pk=pkill
 #   hyprctl dispatcher exec "solaar -w hide"
 # }
 
-alias rk="doas systemctl restart kanata"
+alias rk="sudo nohup kanata --nodelay --cfg ~/Documents/dotfiles/Keyboard-Remapping/kanata.lsp >/dev/null 2>/dev/null &"
 alias ls="ls --color"
 alias dbfu="doas btrfs filesystem usage /"
 alias sl="sl -a -d -e -c -G -5"
@@ -135,7 +135,7 @@ alias dd1="dust -d1"
 alias pacgraph="pacgraph --svg --top=blue --dep=red"
 alias gliol="git log --oneline"
 alias cpaif="cat /proc/acpi/ibm/fan"
-alias nk="nvim ~/.dotfiles/Keyboard-Remapping/kanata.lsp"
+alias nk="nvim ~/Documents/dotfiles/Keyboard-Remapping/kanata.lsp"
 
 alias djfk="doas journalctl -feu kanata"
 alias kg="killall gammastep"
@@ -144,7 +144,7 @@ alias kee="pkill -f easyeffects"
 
 alias yas="paru -Sua"
 alias hc="hyprctl clients"
-alias kk="doas systemctl stop kanata"
+alias kk="sudo pkill kanata"
 alias rt="radeontop --color"
 
 alias dl="echo 0 | doas tee /sys/class/leds/*/brightness"
@@ -324,7 +324,7 @@ export XDG_CURRENT_DESKTOP=Hyprland
 export PAGER="bat"
 export BAT_CONFIG_PATH="/Users/aljustiet/.config/bat/bat.conf"
 export LESSKEY="Users/aljustiet/.config/lesskey"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="dash -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 export SYSTEMD_PAGER="bat"
 export SYSTEMD_PAGERSECURE="false"
