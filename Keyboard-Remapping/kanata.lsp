@@ -620,7 +620,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 ;;  (lctl lalt) @lca
 ;;)
 
-(defchordsv2-experimental
+(defchordsv2
   (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
   (lctl ralt lsft) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
   (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
