@@ -1,6 +1,7 @@
 (defcfg
   macos-dev-names-include (
     "Apple Internal Keyboard / Trackpad"
+    "Keychron K2"
   )
 ;;override-release-on-activation yes
   concurrent-tap-hold true
@@ -18,7 +19,7 @@ lctl lalt lmet         spc              rmet ralt   lft down rght
 )
 
 (deflayer graphite_angle_kp
-brdn brup C-up A-spc @dictation C-M-d prev pp next mute vold volu
+brdn brup C-up A-spc @dictation C-M-d prev pp next vold volu mute
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
@@ -57,7 +58,7 @@ tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
 )
 
 (deflayer qwerty
-brdn brup _ _ _ _ prev pp next mute vold volu
+brdn brup _ _ _ _ prev pp next vold volu mute
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
@@ -167,7 +168,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _   pgdn pgup  _    _  pgup pgdn   _    _    _    _    _
 lctl   lft up down rght   lft rght lft down up rght _   _
-_    _    _    _    _    _   A-n A-m    _    _    _    _ up
+_    _    _    _    _    _   A-n home C-S-tab C-tab end  _ up
 _    _  lctl             _              _    _      lft down rght
 )
 
@@ -300,7 +301,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
 tab q @C-l @C-d @C-w @C-z    @' f @C-o @C-u j @C-; @C-= \
   _ n @C-r @C-t @C-s @alft @arght @C-h @C-a e i , ret
-@sft x @C-x @C-c @C-v b @C-k @C-p . - /   @C-rsft up
+@sft @C-m @C-x @C-c @C-v b @C-k @C-p . - /   @C-rsft up
 lalt  _    _               _            _  _      lft down rght
 )
 
@@ -337,14 +338,14 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   C-z (multi (release-key lmet) M-z)
   C-f (multi (release-key alt) C-f)
   C-o (multi (release-key lmet) M-o)
-  C-u (multi (release-key alt) C-u)
+  C-u (multi (release-key alt) M-u)
   C-j (multi (release-key alt) C-j)
   C-; (multi (release-key alt) C-;)
   C-= (multi (release-key alt) M-=)
   C-+ (multi (release-key alt) C-+)
   C-\ (multi (release-key alt) C-\)
   C-n (multi (release-key alt) C-n)
-  C-r (multi (release-key alt) C-r)
+  C-r (multi (release-key alt) M-r)
   C-t (multi (release-key alt) M-t)
   C-s (multi (release-key lmet) C-s)
   C-h (multi (release-key alt) C-h)
@@ -353,12 +354,12 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   C-i (multi (release-key alt) C-i)
   C-ret (multi (release-key alt) C-ret)
   C-x (multi (release-key lmet) M-x)
-  C-m (multi (release-key lmet) C-m)
+  C-m (multi (release-key lmet) M-m)
   C-c (multi (release-key lmet) M-c)
   C-v (multi (release-key lmet) M-v)
   C-q (multi (release-key lmet) C-q)
   C-k (multi (release-key lmet) M-k)
-  C-p (multi (release-key lmet) C-p)
+  C-p (multi (release-key lmet) M-p)
   C-rsft (multi (release-key alt) C-rsft)
   C-. (multi (release-key alt) C-.)
 )
@@ -372,7 +373,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 ;; )
 
 (deflayer salt_tweaks
-brdn brup _ _ _ _ prev pp next mute vold volu
+brdn brup _ _ _ _ prev pp next vold volu mute 
   _    1    2    3    4    5    6    7    8    9    0   _    _    @dline
 @A-tab b   l     d   w   z    @'    f    o    u    j    ;    =    \
   _    n   r     t  s   @alft @arght h    a    e    i    ,    _
@@ -550,10 +551,10 @@ brdn brup _ _ _ _ prev pp next mute vold volu
     ascl (layer-while-held scrolling_layer)
     lmet (multi lalt (layer-while-held lmet_layer))
     lmetq (multi lmet (layer-while-held lmetq_layer))
-     mup (movemouse-up    16 16)
-    mbck (movemouse-down  16 16)
-    mlft (movemouse-left  16 16)
-   mrght (movemouse-right 16 16)
+     mup (movemouse-up    16 8)
+    mbck (movemouse-down  16 8)
+    mlft (movemouse-left  16 8)
+   mrght (movemouse-right 16 8)
 ;; addml (multi (movemouse-left 16 5) (layer-while-held diagonally_down_movement_layer))
   ;; lrm (multi (release-key lctl) (movemouse-left 16 5) (movemouse-down 16 5))
     clft mlft
