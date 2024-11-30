@@ -51,6 +51,7 @@
             "zen-browser"
             "tuta-mail"
             "tidal"
+            "alex313031-thorium"
           ];
           onActivation.cleanup = "zap";
         };
