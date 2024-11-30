@@ -122,7 +122,7 @@ alias pk=pkill
 #   hyprctl dispatcher exec "solaar -w hide"
 # }
 
-alias rk="sudo nohup kanata --nodelay --cfg ~/Documents/dotfiles/Keyboard-Remapping/kanata.lsp >/dev/null 2>/dev/null &"
+alias rk="sudo nohup kanata --quiet --nodelay --cfg ~/Documents/dotfiles/Keyboard-Remapping/kanata.lsp >/dev/null 2>/dev/null &"
 alias ls="ls --color"
 alias dbfu="doas btrfs filesystem usage /"
 alias sl="sl -a -d -e -c -G -5"
@@ -309,12 +309,6 @@ gp() {
     done
 }
 
-# Path
-export PATH="$PATH:/home/aljustiet/.local/bin"
-export PATH="$PATH:/home/aljustiet/Documents/platform-tools"
-export PATH="$PATH:/home/aljustiet/go/bin"
-export PATH="$PATH:/home/aljustiet/.cargo/bin"
-
 # Environment variables
 export TERM=xterm-256color
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
@@ -340,3 +334,4 @@ autoload bashcompinit
 bashcompinit
 autoload bashcompinit
 bashcompinit
+eval "$(/opt/homebrew/bin/brew shellenv)"
