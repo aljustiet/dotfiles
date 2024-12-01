@@ -38,6 +38,9 @@
           vesktop
           gnupg
           calcurse
+          zoom-us
+          tokei
+          exiftool
         ];
 
         homebrew = {
