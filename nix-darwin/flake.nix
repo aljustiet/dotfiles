@@ -37,6 +37,7 @@
           helix
           vesktop
           gnupg
+          calcurse
         ];
 
         homebrew = {
