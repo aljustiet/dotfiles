@@ -16,26 +16,27 @@
       
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-        [ pkgs.neovim
-          pkgs.zathura
-          pkgs.zoxide
-          pkgs.fzf
-          pkgs.fd
-          pkgs.ripgrep
-          pkgs.lsd
-          pkgs.keepassxc
-          pkgs.btop
-          pkgs.htop
-          pkgs.texlivePackages.gofonts
-          pkgs.fastfetch
-          pkgs.obsidian
-          pkgs.mkalias
-          pkgs.gh
-          pkgs.tealdeer
-          pkgs.bat
-          pkgs.helix
-          pkgs.vesktop
+      environment.systemPackages = with pkgs;
+        [ neovim
+          zathura
+          zoxide
+          fzf
+          fd
+          ripgrep
+          lsd
+          keepassxc
+          btop
+          htop
+          texlivePackages.gofonts
+          fastfetch
+          obsidian
+          mkalias
+          gh
+          tealdeer
+          bat
+          helix
+          vesktop
+          gnupg
         ];
 
         homebrew = {
@@ -52,6 +53,8 @@
             "tuta-mail"
             "tidal"
             "alex313031-thorium"
+            "middleclick"
+            "intellij-idea-ce"
           ];
           onActivation.cleanup = "zap";
         };
