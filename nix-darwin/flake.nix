@@ -66,7 +66,7 @@
             "tor-browser"
             "spotify"
             "arc"
-            "brave@nightly"
+            "brave-browser@nightly"
           ];
           onActivation.cleanup = "zap";
         };
