@@ -49,6 +49,7 @@
           brews = [
             "syncthing"
             "mas"
+            "spicetify-cli"
           ];
           casks = [
             "firefox"
@@ -63,6 +64,8 @@
             "mpv"
             "tor-browser"
             "spotify"
+            "arc"
+            "brave@nightly"
           ];
           onActivation.cleanup = "zap";
         };
