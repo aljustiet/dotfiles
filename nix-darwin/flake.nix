@@ -41,6 +41,7 @@
           zoom-us
           tokei
           exiftool
+          qbittorrent
         ];
 
         homebrew = {
