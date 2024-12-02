@@ -42,7 +42,6 @@
           tokei
           exiftool
           qbittorrent
-          tor-browser
         ];
 
         homebrew = {
@@ -62,6 +61,8 @@
             "middleclick"
             "intellij-idea-ce"
             "mpv"
+            "tor-browser"
+            "spotify"
           ];
           onActivation.cleanup = "zap";
         };
