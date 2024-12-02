@@ -42,6 +42,7 @@
           tokei
           exiftool
           qbittorrent
+          tor-browser
         ];
 
         homebrew = {
