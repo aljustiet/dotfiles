@@ -60,6 +60,7 @@
             "alex313031-thorium"
             "middleclick"
             "intellij-idea-ce"
+            "mpv"
           ];
           onActivation.cleanup = "zap";
         };
