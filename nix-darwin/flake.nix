@@ -73,6 +73,8 @@
             "Plain Text Editor" = 1572202501;
           };
           onActivation.cleanup = "zap";
+          onActivation.autoUpdate = true;
+          onActivation.upgrade = true;
         };
 
         system.activationScripts.applications.text = let
