@@ -23,6 +23,7 @@ set -gx SYSTEMD_PAGERSECURE "false"
 bind \b "backward-kill-word"
 
 # Aliases
+alias oi="rib swayimg"
 alias yay=paru
 alias nh="nvim ~/.config/hypr/hyprland.conf"
 alias nk="nvim ~/.config/kanata/config.kbd"

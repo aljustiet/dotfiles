@@ -4,7 +4,7 @@ mode = viewer
 size = 1720,960
 
 [viewer]
-window = #000000
+window = #000000FF
 transparency = #000000FF
 antialiasing = no
 scale = fit
@@ -45,6 +45,7 @@ Shift+s = flip_horizontal
 9 = rotate_left
 0 = rotate_right
 f = fullscreen
+escape = fullscreen
 q = exit
 h = step_left
 a = step_down
