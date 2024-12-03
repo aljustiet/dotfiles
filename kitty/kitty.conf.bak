@@ -1,3 +1,5 @@
+enable_audio_bell yes
+
 font_family      GoMono Nerd Font
 font_size 16
 
@@ -10,10 +12,6 @@ scrollback_lines 2000
 mouse_hide_wait 0
 
 select_by_word_characters @-./_~?&=%+#a
-
-enable_audio_bell no
-bell_on_tab "🔔 "
-
 
 remember_window_size  no
 window_border_width 1pt
@@ -38,3 +36,6 @@ map ctrl+a scroll_line_down
 map alt+e scroll_line_up
 map alt+shift+t new_tab
 map alt+shift+w close_tab
+
+# Match any word pattern as a hint
+map ctrl+shift+e
