@@ -44,6 +44,7 @@
           qbittorrent
           audacity
           expect
+          rectangle
         ];
 
         homebrew = {
