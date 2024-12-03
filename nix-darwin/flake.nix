@@ -68,6 +68,10 @@
             "arc"
             "brave-browser@nightly"
           ];
+          masApps = {
+            "Plain Text Editor" = 1572202501
+            "Yoink" = 457622435
+          }
           onActivation.cleanup = "zap";
         };
 
