@@ -45,6 +45,7 @@
           audacity
           expect
           rectangle
+          davinci-resolve
         ];
 
         homebrew = {
