@@ -51,20 +51,22 @@ zinit cdreplay -q
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Keyndings
+# Keybinds
 # Vim mode
 bindkey -v
-bindkey -M vicmd i vi-forward-char
-bindkey -M vicmd t vi-insert
-bindkey -M vicmd s vi-add-next
 bindkey -M vicmd a down-line-or-history
 bindkey -M vicmd e up-line-or-history
+bindkey -M vicmd i vi-forward-char
+bindkey -M visual a down-line-or-history
+bindkey -M visual e up-line-or-history
+bindkey -M visual i vi-forward-char
+bindkey -M visual m vi-delete
+bindkey -M vicmd t vi-insert
+bindkey -M vicmd s vi-add-next
 bindkey -M vicmd m vi-delete-char
 bindkey -M vicmd c vi-set-mark
 bindkey -M vicmd l vi-backward-word
 # bindkey
-
-
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 bindkey '^H' backward-kill-word
@@ -78,6 +80,14 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias e=$EDITOR
+alias edit=$EDITOR
+alias wl="wl-screenrec --codec avc --low-power=off"
+alias pm=pulsemixer
+alias am=alsamixer
+alias ef="nvim ~/.config/foot/foot.ini"
+alias rsn="pkill swaync && hde swaync"
+alias sc=systemctl
 alias iao="cat /sys/class/power_supply/AC/online"
 alias viu=timg
 alias ars="command doas mount -t tmpfs -o size=4G -m tmpfs"
@@ -85,8 +95,7 @@ alias ts="doas timeshift"
 alias timeshift="doas timeshift"
 # alias am=appman
 alias ip="ip -c=always"
-alias nhs="nvim ~/.dotfiles/hypr/startup.conf"
-alias shst="rib swayimg ~/Documents/School/Timetable3.jpg"
+alias shst="nohup swayimg ~/Documents/School/Timetable.png 2>/dev/null 1>/dev/null &"
 alias rs="rib scrcpy --fullscreen --keyboard=uhid --stay-awake --window-title Honor"
 alias pkw="pkill wshowkeys"
 alias shk="wshowkeys -F \"GoMono Nerd Font 32\" -t 1 -a bottom"
@@ -162,6 +171,7 @@ alias hree="hyprctl dispatcher exec 'easyeffects --gapplication-service'"
 
 alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
 alias tokei="tokei --sort code"
+alias scc="scc --sort code"
 alias ma="doas mount -a"
 alias uma="doas umount /mnt/hdd /mnt/usb"
 
@@ -244,8 +254,9 @@ vpf() {
   unbuffer pacman -Fl $1 | bat
 }
 clean() {
-  pacman -Qttdq | pacman -Rns -
-  pacman -Qqd | pacman -Rsu -
+  paru -Sc
+  paru -Qttdq | paru -Rns -
+  paru -Qqd | paru -Rsu -
   flatpak remove --unused
 }
 cap() {
@@ -294,9 +305,17 @@ alias dr="doas systemctl daemon-reload"
 alias rz="source ~/.zshrc"
 
 # Editing
-alias nh="nvim ~/.dotfiles/hypr/hyprland.conf"
-alias nhw="nvim ~/.dotfiles/hypr/window\ rules.conf"
-alias nhe="nvim ~/.dotfiles/hypr/env.conf"
+alias nh="nvim ~/.config/hypr/hyprland.conf"
+alias nhi="nvim ~/.config/hypr/input.conf"
+alias nhb="nvim ~/.config/hypr/binds.conf"
+alias nhg="nvim ~/.config/hypr/general.conf"
+alias nhx="nvim ~/.config/hypr/xwayland.conf"
+alias nhd="nvim ~/.config/hypr/decorations.conf"
+alias nhl="nvim ~/.config/hypr/layout.conf"
+alias nhm="nvim ~/.config/hypr/monitors_vertical.conf"
+alias nhw="nvim ~/.config/hypr/window\ rules.conf"
+alias nhe="nvim ~/.config/hypr/environment.conf"
+alias nhs="nvim ~/.config/hypr/autostart.conf"
 alias nz="nvim ~/.zshrc"
 
 # Git aliases
@@ -314,9 +333,10 @@ gp() {
 export PATH="$PATH:/home/aljustiet/.local/bin"
 export PATH="$PATH:/home/aljustiet/Documents/platform-tools"
 export PATH="$PATH:/home/aljustiet/go/bin"
-export PATH="$PATH:/home/aljustiet/.cargo/bin"
+export PATH="/home/aljustiet/.cargo/bin:$PATH"
 
 # Environment variables
+export HYPRSHOTGUN_SCREENSHOTS="/home/aljustiet/Pictures/Screenshots"
 export TERM=xterm-256color
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
 export VISUAL=nvim
@@ -339,7 +359,7 @@ bindkey -r "^[c"
 bindkey -r "^T"
 autoload bashcompinit
 bashcompinit
-source "/home/aljustiet/.local/share/bash-completion/completions/am"
+# source "/home/aljustiet/.local/share/bash-completion/completions/am"
 autoload bashcompinit
 bashcompinit
-source "/home/aljustiet/.local/share/bash-completion/completions/appman"
+# source "/home/aljustiet/.local/share/bash-completion/completions/appman"
