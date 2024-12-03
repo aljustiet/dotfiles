@@ -45,7 +45,6 @@
           audacity
           expect
           rectangle
-          davinci-resolve
         ];
 
         homebrew = {
@@ -74,6 +73,7 @@
           ];
           masApps = {
             "Plain Text Editor" = 1572202501;
+            "DaVinci Resolve" = 571213070;
           };
           onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
