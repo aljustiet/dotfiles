@@ -43,6 +43,7 @@
           exiftool
           qbittorrent
           audacity
+          expect
         ];
 
         homebrew = {
