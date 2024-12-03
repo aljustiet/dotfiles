@@ -310,19 +310,18 @@ gp() {
 }
 
 # Environment variables
-export TERM=xterm-256color
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
+export LESSKEY="Users/aljustiet/.config/lesskey"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
+export PAGER="bat"
+export BAT_CONFIG_PATH="/Users/aljustiet/.config/bat/bat.conf"
+export TERM=xterm-256color
 export HOMEBREW_NO_ENV_HINTS
 export VISUAL=nvim
 export EDITOR=nvim
 export XDG_CURRENT_DESKTOP=Hyprland
-export PAGER="bat"
-export BAT_CONFIG_PATH="/Users/aljustiet/.config/bat/bat.conf"
 export TEALDEER_CONFIG_DIR="/Users/aljustiet/.config/tealdeer"
-export LESSKEY="Users/aljustiet/.config/lesskey"
-export MANPAGER="dash -c 'col -bx | bat -l man -p'"
-export MANROFFOPT="-c"
-export SYSTEMD_PAGER="bat"
 export SYSTEMD_PAGERSECURE="false"
 autoload bashcompinit
 bashcompinit
