@@ -69,8 +69,7 @@
             "brave-browser@nightly"
           ];
           masApps = {
-            "Plain Text Editor" = 1572202501
-            "Yoink" = 457622435
+            "Plain Text Editor" = 1572202501;
           };
           onActivation.cleanup = "zap";
         };
