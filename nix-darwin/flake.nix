@@ -67,6 +67,7 @@
             "spotify"
             "arc"
             "brave-browser@nightly"
+            "windscribe"
           ];
           masApps = {
             "Plain Text Editor" = 1572202501;
