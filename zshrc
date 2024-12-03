@@ -312,6 +312,7 @@ gp() {
 # Environment variables
 export TERM=xterm-256color
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
+export HOMEBREW_NO_ENV_HINTS
 export VISUAL=nvim
 export EDITOR=nvim
 export XDG_CURRENT_DESKTOP=Hyprland
