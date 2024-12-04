@@ -80,6 +80,7 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias sudo=doas
 alias e=$EDITOR
 alias edit=$EDITOR
 alias wl="wl-screenrec --codec avc --low-power=off"
