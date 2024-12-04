@@ -45,7 +45,7 @@
           audacity
           expect
           rectangle
-          telegram-desktop
+          tdesktop
         ];
 
         homebrew = {
