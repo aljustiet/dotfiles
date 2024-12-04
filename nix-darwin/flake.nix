@@ -45,6 +45,7 @@
           audacity
           expect
           rectangle
+          telegram-desktop
         ];
 
         homebrew = {
@@ -78,6 +79,7 @@
           masApps = {
             "Plain Text Editor" = 1572202501;
             "DaVinci Resolve" = 571213070;
+            "Pure Paste" = 1611378436;
           };
           onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
