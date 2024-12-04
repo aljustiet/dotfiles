@@ -72,7 +72,6 @@
             "windscribe"
             "cog"
             "middleclick"
-            "doppler"
             "nuclear"
             
           ];
