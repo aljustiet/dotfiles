@@ -71,6 +71,7 @@
             "brave-browser@nightly"
             "windscribe"
             "cog"
+            "middleclick"
           ];
           masApps = {
             "Plain Text Editor" = 1572202501;
