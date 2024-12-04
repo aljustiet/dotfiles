@@ -73,6 +73,7 @@
             "cog"
             "middleclick"
             "doppler"
+            "nuclear"
             
           ];
           masApps = {
