@@ -73,7 +73,7 @@
             "cog"
             "middleclick"
             "nuclear"
-            
+            "telegram"
           ];
           masApps = {
             "Plain Text Editor" = 1572202501;
