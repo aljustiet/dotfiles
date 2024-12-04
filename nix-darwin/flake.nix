@@ -72,6 +72,8 @@
             "windscribe"
             "cog"
             "middleclick"
+            "doppler"
+            
           ];
           masApps = {
             "Plain Text Editor" = 1572202501;
