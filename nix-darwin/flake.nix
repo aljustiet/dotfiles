@@ -70,6 +70,7 @@
             "arc"
             "brave-browser@nightly"
             "windscribe"
+            "cog"
           ];
           masApps = {
             "Plain Text Editor" = 1572202501;
