@@ -18,7 +18,7 @@
   concurrent-tap-hold true
   process-unmapped-keys yes
   danger-enable-cmd yes
-;;log-layer-changes no
+  log-layer-changes no
 ;;override-release-on-activation yes
 )
 
