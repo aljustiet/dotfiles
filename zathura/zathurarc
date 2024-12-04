@@ -10,28 +10,28 @@ set selection-clipboard clipboard
 set font "Roboto Regular"
 include reading-theme
 set guioptions none
-# map <C-j> guioptions c
+# map <C-j> guioptions
 
-
-set recolor-reverse-video "true"
-
-set scroll-wrap "true"
-set statusbar-home-tilde "true"
-set scroll-wrap "false"
+set recolor-reverse-video true
+set statusbar-home-tilde true
+set scroll-wrap false
 
 # My mappings
 
 # Navigation
 
 # Right, down, up, left
+map <Button3> quit
+map [fullscreen] <Button3> quit
+
 map h scroll left
 map a scroll down
 map e scroll up
 map i scroll right
-map <Left> left
-map <Right> left
-map [fullscreen] <Left> left
-map [fullscreen] <Right> left
+map <Left> scroll left
+map <Right> scroll left
+map [fullscreen] <Left> scroll left
+map [fullscreen] <Right> scroll left
 map [fullscreen] h scroll left
 map [fullscreen] a scroll down
 map [fullscreen] e scroll up
@@ -111,17 +111,25 @@ map u follow
 map [fullscreen] u follow
 map <Return> toggle_presentation
 map o toggle_index
+map [fullscreen] o toggle_index
 map Q quit
 
-map [presentation] <Return> toggle_presentation
+map [index] h navigate_index collapse
+map [index] a navigate_index down
+map [index] e navigate_index up
+map [index] i navigate_index expand
+map [index] A scroll half-down
+map [index] E scroll half-up
+map [index] <C-e> scroll full-up
+map [index] <C-a> scroll full-down
+map [index] g goto top
+map [index] G goto bottom
 
 # Index mode
-map [index] i toggle_index
-map [index] . navigate_index up
-map [index] e navigate_index down
-map [index] u navigate_index select
-map [index] + navigate_index expand
-map [index] - navigate_index collapse
+map [index] o toggle_index
+map [index] <Return> navigate_index select
+map [index] ] navigate_index expand
+map [index] [ navigate_index collapse
 map [index] <Tab> navigate_index toggle
 # Unfortunately, there is no "toggle-all":
 map [index] <ShiftTab> navigate_index expand-all
