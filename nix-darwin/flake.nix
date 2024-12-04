@@ -45,7 +45,6 @@
           audacity
           expect
           rectangle
-          tdesktop
         ];
 
         homebrew = {
@@ -81,7 +80,7 @@
             "DaVinci Resolve" = 571213070;
             "Pure Paste" = 1611378436;
           };
-          onActivation.cleanup = "zap";
+#         onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
           onActivation.upgrade = true;
         };
