@@ -74,6 +74,7 @@
             "middleclick"
             "nuclear"
             "telegram"
+            "prismlauncher"
           ];
           masApps = {
             "Plain Text Editor" = 1572202501;
