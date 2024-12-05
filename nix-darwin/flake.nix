@@ -74,13 +74,13 @@
             "cog"
             "middleclick"
             "nuclear"
-            "telegram"
             "prismlauncher"
           ];
           masApps = {
             "Plain Text Editor" = 1572202501;
             "DaVinci Resolve" = 571213070;
             "Pure Paste" = 1611378436;
+            "Telegram" = 747648890;
           };
 #         onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
