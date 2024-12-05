@@ -45,6 +45,7 @@
           audacity
           expect
           rectangle
+          zulu8
         ];
 
         homebrew = {
