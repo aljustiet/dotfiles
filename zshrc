@@ -83,6 +83,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 alias sudo=doas
 alias e=$EDITOR
 alias edit=$EDITOR
+alias nano=$EDITOR
 alias wl="wl-screenrec --codec avc --low-power=off"
 alias pm=pulsemixer
 alias am=alsamixer
