@@ -316,13 +316,10 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 export PAGER="bat"
 export BAT_CONFIG_PATH="/Users/aljustiet/.config/bat/bat.conf"
-export TERM=xterm-256color
 export HOMEBREW_NO_ENV_HINTS
 export VISUAL=nvim
 export EDITOR=nvim
-export XDG_CURRENT_DESKTOP=Hyprland
 export TEALDEER_CONFIG_DIR="/Users/aljustiet/.config/tealdeer"
-export SYSTEMD_PAGERSECURE="false"
 autoload bashcompinit
 bashcompinit
 
