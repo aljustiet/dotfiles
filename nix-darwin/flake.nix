@@ -76,6 +76,7 @@
             "middleclick"
             "nuclear"
             "prismlauncher"
+            "alt-tab"
           ];
           masApps = {
             "Plain Text Editor" = 1572202501;
