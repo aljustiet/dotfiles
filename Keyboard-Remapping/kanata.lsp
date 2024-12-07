@@ -167,7 +167,7 @@ _    _  lctl             _              _    _      lft down rght
 brdn brup _ _ _ _ prev pp next mute vold volu
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _   pgdn pgup  _    _  pgup pgdn   _    _    _    _    _
-lctl   lft up down rght   lft rght lft down up rght _   _
+lctl   lft up down rght   ] rght lft down up rght _   _
 _    _    _    _    _    _   A-n home C-S-tab C-tab end  _ up
 _    _  lctl             _              _    _      lft down rght
 )
@@ -546,7 +546,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 ;; laltg (tap-dance 300 ((one-shot-press 1 (layer-while-held lalt_layer_g)) (multi lalt (layer-while-held graphite_angle_kp))))
 ;; laltq (multi lalt (one-shot-press 800 (layer-while-held lalt_layer_q)))
      sft (multi lsft (layer-while-held salt_tweaks))
-     scl (multi lctl lmet (layer-while-held scrolling_layer))
+     scl (multi lctl lalt (layer-while-held scrolling_layer))
  ;; ascl (multi (release-key alt) (layer-while-held scrolling_layer))
     ascl (layer-while-held scrolling_layer)
     lmet (multi lalt (layer-while-held lmet_layer))
