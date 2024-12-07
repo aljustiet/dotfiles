@@ -46,6 +46,7 @@
           expect
           rectangle
           zulu8
+          yt-dlp
         ];
 
         homebrew = {
