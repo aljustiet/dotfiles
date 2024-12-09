@@ -77,6 +77,7 @@
             "nuclear"
             "prismlauncher"
             "alt-tab"
+            "horos"
           ];
           masApps = {
             "Plain Text Editor" = 1572202501;
