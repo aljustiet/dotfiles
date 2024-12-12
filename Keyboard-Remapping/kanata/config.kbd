@@ -18,7 +18,7 @@
   concurrent-tap-hold true
   process-unmapped-keys yes
   danger-enable-cmd yes
-  log-layer-changes no
+;;log-layer-changes no
 ;;override-release-on-activation yes
 )
 
@@ -436,12 +436,13 @@ esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home @endesc i
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n   r  @t    s    g    y     h    a    e    i    @,   ret
-@lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
+@lsftl    x    @A-S-m    @A-S-c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
 @laltg @lmet  @laltb        spc             @nav @prtsc @rctl lft down rght
 )
 
 (defalias
-  A-S-a (multi (release-key ctl) A-a)
+  A-S-m (multi (release-key ctl) A-m)
+  A-S-c (multi (release-key ctl) A-c)
   dom_nav (multi lalt ralt (layer-while-held lalt_navigation))
   lsftl (multi lsft (layer-while-held shift_layer))
   C-, (multi (release-key alt) C-,)

@@ -1,3 +1,8 @@
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+  exec Hyprland
+fi
+# Load colors
+(cat ~/.cache/wal/sequences &)
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -25,6 +30,8 @@ if [ ! -d "$ZINIT_HOME" ]; then
   git clone git@github.com:zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
+
+
 # Source/Load Zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
@@ -39,7 +46,7 @@ zinit light Aloxaf/fzf-tab
 
 # Add in snippets
 zinit snippet OMZP::git
-zinit snippet OMZP::command-not-found
+# zinit snippet OMZP::command-not-found
 zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
 
@@ -98,7 +105,7 @@ alias timeshift="doas timeshift"
 # alias am=appman
 alias ip="ip -c=always"
 alias shst="nohup swayimg ~/Documents/School/Timetable.png 2>/dev/null 1>/dev/null &"
-alias rs="rib scrcpy --fullscreen --keyboard=uhid --stay-awake --window-title Honor"
+alias rs="rib scrcpy --fullscreen --keyboard=uhid --stay-awake --window-title Honor --no-mouse-hover"
 alias pkw="pkill wshowkeys"
 alias shk="wshowkeys -F \"GoMono Nerd Font 32\" -t 1 -a bottom"
 alias lkp="dbus-run-session startplasma-wayland"
@@ -147,7 +154,7 @@ alias dd1="dust -d1"
 alias pacgraph="pacgraph --svg --top=blue --dep=red"
 alias gliol="git log --oneline"
 alias cpaif="cat /proc/acpi/ibm/fan"
-alias nk="nvim ~/.dotfiles/Keyboard-Remapping/kanata.lsp"
+alias nk="nvim ~/.dotfiles/Keyboard-Remapping/kanata/config.kbd"
 
 alias djfk="doas journalctl -feu kanata"
 alias kg="killall gammastep"
@@ -338,6 +345,7 @@ export PATH="$PATH:/home/aljustiet/go/bin"
 export PATH="/home/aljustiet/.cargo/bin:$PATH"
 
 # Environment variables
+export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
 export HYPRSHOTGUN_SCREENSHOTS="/home/aljustiet/Pictures/Screenshots"
 export TERM=xterm-256color
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"

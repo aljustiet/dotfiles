@@ -8,6 +8,6 @@ bind u mixer control_down_right_1
 bind j mixer control_up_right_1
 
 bind a textbox down
-bind e textbox down
+bind e textbox up
 bind i textbox right
 bind q mixer close
