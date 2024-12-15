@@ -85,6 +85,7 @@
             "DaVinci Resolve" = 571213070;
             "Pure Paste" = 1611378436;
             "Telegram" = 747648890;
+            "Numbers" = 409203825;
           };
 #         onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
