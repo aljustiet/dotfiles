@@ -47,6 +47,7 @@
           rectangle
           zulu8
           yt-dlp
+          libqalculate
         ];
 
         homebrew = {
