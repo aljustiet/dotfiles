@@ -1,8 +1,11 @@
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
   exec Hyprland
 fi
+#if uwsm check may-start; then
+#    exec uwsm start hyprland.desktop
+#fi
 # Load colors
-(cat ~/.cache/wal/sequences &)
+#(cat ~/.cache/wal/sequences &)
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -48,7 +51,8 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git
 # zinit snippet OMZP::command-not-found
 zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
+# zinit snippet OMZP::archlinux
+# unfunction paclist
 
 # Autoload completions
 autoload -U compinit && compinit
@@ -87,6 +91,10 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias lpbd="expac --timefmt='%Y-%m-%d %T' '%l %n' | sort"
+alias nlf="nvim ~/.config/lf/lfrc"
+alias p=pacman
+alias hwp="pacman -Qq | wc -l"
 alias sudo=doas
 alias e=$EDITOR
 alias edit=$EDITOR
@@ -98,7 +106,6 @@ alias ef="nvim ~/.config/foot/foot.ini"
 alias rsn="pkill swaync && hde swaync"
 alias sc=systemctl
 alias iao="cat /sys/class/power_supply/AC/online"
-alias viu=timg
 alias ars="command doas mount -t tmpfs -o size=4G -m tmpfs"
 alias ts="doas timeshift"
 alias timeshift="doas timeshift"
@@ -256,8 +263,8 @@ alias pacman="doas pacman"
 alias fu="topgrade"
 alias vpl="bat --pager='less -F -X -R +G' /var/log/pacman.log"
 alias i="doas pacman -S --noconfirm"
-alias r="doas pacman -R --noconfirm"
-alias sip="pacman -Si" # Sync information about package
+alias r="doas pacman -Rns --noconfirm"
+alias sip="paru -Si" # Sync information about package
 alias dip="pacman -Qi" # Database information about package
 vpf() {
   unbuffer pacman -Fl $1 | bat
@@ -345,7 +352,9 @@ export PATH="$PATH:/home/aljustiet/go/bin"
 export PATH="/home/aljustiet/.cargo/bin:$PATH"
 
 # Environment variables
-export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
+#export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
+#export TIMEFMT=$'=============\nUser\t%*U\nSystem\t%*S\nTotal\t%*E'
+export TIMEFMT=$'Kernel:\t    %S\nUser:\t    %U\nTotal:\t    %E\nPercentage: %P'
 export HYPRSHOTGUN_SCREENSHOTS="/home/aljustiet/Pictures/Screenshots"
 export TERM=xterm-256color
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
