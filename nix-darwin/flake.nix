@@ -48,6 +48,7 @@
           zulu8
           yt-dlp
           libqalculate
+          gdu
         ];
 
         homebrew = {
