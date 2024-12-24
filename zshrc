@@ -1,6 +1,6 @@
-if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-  exec Hyprland
-fi
+#if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+#  exec Hyprland
+#fi
 #if uwsm check may-start; then
 #    exec uwsm start hyprland.desktop
 #fi
@@ -91,14 +91,14 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias hs=hyprshade
 alias lpbd="expac --timefmt='%Y-%m-%d %T' '%l %n' | sort"
 alias nlf="nvim ~/.config/lf/lfrc"
 alias p=pacman
 alias hwp="pacman -Qq | wc -l"
-alias sudo=doas
-alias e=$EDITOR
-alias edit=$EDITOR
-alias nano=$EDITOR
+alias e=\$EDITOR
+alias edit=\$EDITOR
+alias nano=\$EDITOR
 alias wl="wl-screenrec --codec avc --low-power=off"
 alias pm=pulsemixer
 alias am=alsamixer
@@ -161,7 +161,7 @@ alias dd1="dust -d1"
 alias pacgraph="pacgraph --svg --top=blue --dep=red"
 alias gliol="git log --oneline"
 alias cpaif="cat /proc/acpi/ibm/fan"
-alias nk="nvim ~/.dotfiles/Keyboard-Remapping/kanata/config.kbd"
+alias nk="helix ~/.dotfiles/Keyboard-Remapping/kanata/config.kbd"
 
 alias djfk="doas journalctl -feu kanata"
 alias kg="killall gammastep"
@@ -321,18 +321,19 @@ alias dr="doas systemctl daemon-reload"
 alias rz="source ~/.zshrc"
 
 # Editing
-alias nh="nvim ~/.config/hypr/hyprland.conf"
-alias nhi="nvim ~/.config/hypr/input.conf"
-alias nhb="nvim ~/.config/hypr/binds.conf"
-alias nhg="nvim ~/.config/hypr/general.conf"
-alias nhx="nvim ~/.config/hypr/xwayland.conf"
-alias nhd="nvim ~/.config/hypr/decorations.conf"
-alias nhl="nvim ~/.config/hypr/layout.conf"
-alias nhm="nvim ~/.config/hypr/monitors_vertical.conf"
-alias nhw="nvim ~/.config/hypr/window\ rules.conf"
-alias nhe="nvim ~/.config/hypr/environment.conf"
-alias nhs="nvim ~/.config/hypr/autostart.conf"
-alias nz="nvim ~/.zshrc"
+alias nh="\$EDITOR ~/.config/hypr/hyprland.conf"
+alias nhi="\$EDITOR ~/.config/hypr/input.conf"
+alias nhb="\$EDITOR ~/.config/hypr/binds.conf"
+alias nhg="\$EDITOR ~/.config/hypr/general.conf"
+alias nhx="\$EDITOR ~/.config/hypr/xwayland.conf"
+alias nhd="\$EDITOR ~/.config/hypr/decorations.conf"
+alias nhl="\$EDITOR ~/.config/hypr/layout.conf"
+alias nhm="\$EDITOR ~/.config/hypr/monitors_vertical.conf"
+alias nhw="\$EDITOR ~/.config/hypr/window\ rules.conf"
+alias nhe="\$EDITOR ~/.config/hypr/environment.conf"
+alias nhs="\$EDITOR ~/.config/hypr/autostart.conf"
+alias nz="\$EDITOR ~/.zshrc"
+alias eh="\$EDITOR ~/.config/helix/config.toml"
 
 # Git aliases
 alias gis="git status"
@@ -354,12 +355,13 @@ export PATH="/home/aljustiet/.cargo/bin:$PATH"
 # Environment variables
 #export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
 #export TIMEFMT=$'=============\nUser\t%*U\nSystem\t%*S\nTotal\t%*E'
-export TIMEFMT=$'Kernel:\t    %S\nUser:\t    %U\nTotal:\t    %E\nPercentage: %P'
+#export TIMEFMT=$'Kernel:\t    %S\nUser:\t    %U\nTotal:\t    %E\nPercentage: %P'
+export TIMEFMT=$'=============\nKernel:\t%S\nUser:\t%U\nTotal:\t%E'
 export HYPRSHOTGUN_SCREENSHOTS="/home/aljustiet/Pictures/Screenshots"
 export TERM=xterm-256color
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
-export VISUAL=nvim
-export EDITOR=nvim
+export VISUAL="helix"
+export EDITOR="helix"
 export XDG_CURRENT_DESKTOP=Hyprland
 export PAGER="bat"
 export BAT_CONFIG_PATH="/home/aljustiet/.config/bat/bat.conf"

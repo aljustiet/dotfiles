@@ -5,10 +5,10 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "custom/updates"],
+    "modules-left": ["hyprland/workspaces", "custom/updates", ],
 //  "modules-left": ["wlogout","hyprland/workspaces", "idle_inhibitor", "pulseaudio", "custom/updates"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["hyprland/language", "cpu", "memory", "temperature", "battery", "tray", "clock"],
+    "modules-right": ["hyprland/language", "cpu", "memory", "mic", "pulseaudio", "temperature", "battery", "tray", "clock"],
     // Modules configuration
      "hyprland/workspaces": {
          "active-only": false,
@@ -155,12 +155,10 @@
     },
     "pulseaudio": {
         // "scroll-step": 10, // %, can be a float
-        "format": "{volume}%{icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format": "{volume}%{icon} ",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "󰝟 {icon}",
+        "format-muted": " {icon}󰝟 ",
         "format-icons": {
             "headphone": "",
             "hands-free": "",

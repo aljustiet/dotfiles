@@ -305,7 +305,7 @@ power
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
-_    _   @su @sd    _    _    _   @sl  @su  @sd  @sr   _    _
+_    _    _    _    _    _    _   @sl  @su  @sd  @sr   _    _
 _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
 _    _    _              _              _    _    _      lft down rght
 )
@@ -843,14 +843,3 @@ _    _    _              _             @anav _ _            lft down rght
 
   isf (on-idle-fakekey sft tap 1000)
 )
-
-;; (defalias
-;;   swt (switch
-;;     ;; case 1
-;;     ((and a b (or c d) (or e f))) @ac1 break
-;;     ;; case 2
-;;     (a b c) @ac2 fallthrough
-;;     ;; case 3
-;;     () @ac3 break
-;;   )
-;; )
