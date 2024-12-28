@@ -81,7 +81,10 @@
             "alt-tab"
             "horos"
             "libreoffice"
+            "weasis"
+            "handbrake"
           ];
+
           masApps = {
             "Plain Text Editor" = 1572202501;
             "DaVinci Resolve" = 571213070;
