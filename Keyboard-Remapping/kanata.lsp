@@ -6,7 +6,7 @@
 ;;override-release-on-activation yes
   concurrent-tap-hold true
   process-unmapped-keys no
-;;log-layer-changes no
+  log-layer-changes no
 )
 
 (defsrc
@@ -24,7 +24,7 @@ brdn brup C-up A-spc @dictation C-M-d prev pp next vold volu mute
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
 @lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft up
-@laltg @lmet @lcomb        spc             @nav @rctl lft down rght
+@laltg @lalt @lcomb        spc             @nav @rctl lft down rght
 )
 
 (deflayer graphite_angle_kp_default
@@ -54,7 +54,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n     r   @t_key    s    g    y     h    a    e    i    @,   ret
 @lsftl     q     x    m    c    v    k     p    .    @-   @/   rsft up
-@laltg @lmet @lcomb         spc             @nav @rctl lft down rght
+@laltg @lalt @lcomb         spc             @nav @rctl lft down rght
 )
 
 (deflayer qwerty
@@ -72,7 +72,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 tab  q     w    e    r    t    y     f    i    o    p    [    ]    \
 @ctresc a  s    d    .    ,    h     j    k    l    ;    @,    ret
 @lsft x     m    c    v    q    k     p    .    @-    @/    rsft up
-@laltg @lmet  @galtb          spc              @nav rctl  lft down rght
+@laltg @lalt  @galtb          spc              @nav rctl  lft down rght
 )
 
 (deflayer graphite_vim_layer
@@ -81,7 +81,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
 esc n     r    t    s    g    y     h    a    e    i    @,   ret
 lsft    q     x    m    c    v    k     p    .    @-   @/   rsft up
-@laltg @lmet  @lcomb        spc             @nav rctl lft down rght
+@laltg @lalt  @lcomb        spc             @nav rctl lft down rght
 )
 
 (deflayer nothing_layer
@@ -168,7 +168,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _   pgdn pgup  _    _  pgup pgdn   _    _    _    _    _
 lctl   lft up down rght   ] rght lft down up rght _   _
-_    _    _    _    _    _   A-n home C-S-tab C-tab end  _ up
+_    _    _    _    _    _   A-n M-lft C-S-tab C-tab M-rght _ up
 _    _  lctl             _              _    _      lft down rght
 )
 
@@ -320,7 +320,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n   r  @t    s    g    y     h    a    e    i    @,   ret
 @lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft up
-@laltg @lmet  @lcomb        spc             @nav @rctl lft down rght
+@laltg @lalt  @lcomb        spc             @nav @rctl lft down rght
 )
 
 (defalias
@@ -347,7 +347,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   C-n (multi (release-key alt) C-n)
   C-r (multi (release-key alt) M-r)
   C-t (multi (release-key alt) M-t)
-  C-s (multi (release-key lmet) C-s)
+  C-s (multi (release-key lmet) M-s)
   C-h (multi (release-key alt) C-h)
   C-a (multi (release-key alt) M-a)
   C-e (multi (release-key alt) C-e)
@@ -456,7 +456,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   tab   S-b  S-l  S-d  S-w  S-z    @'  S-f  S-o  S-u  S-j  S-;  S-=  S-\
 @ctresc S-n S-r S-t  S-s  S-g  S-y   S-h  S-a  S-e  S-i    @,   ret
  @lsft  S-x   S-m  S-c  S-v  S-q  S-k   S-p  S-.   S-'   @/   rsft up
-  @laltg @lmet @lcomb        spc             @nav @rctl lft down rght
+  @laltg @lalt @lcomb        spc             @nav @rctl lft down rght
 )
 
 (defalias
@@ -506,7 +506,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
     dwc (multi (release-key ctl) S-2)
  ;; spc (tap-hold-press 600 200 spc (layer-while-held mouse_actions))
     spc spc
-    lalt (multi lalt (layer-while-held graphite_angle_kp))
+ ;; lalt (multi lalt (layer-while-held graphite_angle_kp))
  ;; oat (tap-hold-press-timeout   200 200 o @arr bspc)
  ;; ect (tap-hold-release-timeout 200 200 e @chr esc)
     t_key t
@@ -549,7 +549,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
      scl (multi lctl lalt (layer-while-held scrolling_layer))
  ;; ascl (multi (release-key alt) (layer-while-held scrolling_layer))
     ascl (layer-while-held scrolling_layer)
-    lmet (multi lalt (layer-while-held lmet_layer))
+    lalt (multi lalt (layer-while-held lmet_layer))
     lmetq (multi lmet (layer-while-held lmetq_layer))
      mup (movemouse-up    16 8)
     mbck (movemouse-down  16 8)
@@ -630,11 +630,15 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
   (lalt ralt) @dom_nav 200 all-released (nothing_layer)
   (lmet ralt) (multi lmet ralt (layer-while-held graphite_angle_kp)) 200 all-released (nothing_layer)
-  (lalt lctl) @lca 200 all-released (nothing_layer)
-  (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
-  (lmet lctl) @scl 200 all-released (nothing_layer)
+  (lctl lalt) @lca 200 all-released (nothing_layer)
+  (lsft lmet) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
+  (lctl lmet) @scl 200 all-released (nothing_layer)
+  (lctl lmet) (multi lctl lmet) 200 all-released (nothing_layer)
+  (lctl lalt) @scl 200 all-released (nothing_layer)
   (lsft ralt) @lsft_ralt_navigation 200 all-released (nothing_layer)
-  (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
+  (lsft lctl) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
+  (lmet lalt) (multi lalt lmet) 200 first-release (nothing_layer)
+  (lsft lmet) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
 ;;(lsft lctl) (multi lctl @lsftl) 200 first_release (nothing_layer)
 ;;(s d f) (macro b y e)     400 first-release (non-chord-layer)
 )
