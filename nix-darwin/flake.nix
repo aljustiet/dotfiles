@@ -92,7 +92,7 @@
             "Telegram" = 747648890;
             "Numbers" = 409203825;
           };
-#         onActivation.cleanup = "zap";
+          onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
           onActivation.upgrade = true;
         };
