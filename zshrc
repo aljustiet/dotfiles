@@ -1,6 +1,6 @@
-#if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-#  exec Hyprland
-#fi
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+  exec Hyprland
+fi
 #if uwsm check may-start; then
 #    exec uwsm start hyprland.desktop
 #fi
@@ -73,7 +73,9 @@ bindkey -M visual e up-line-or-history
 bindkey -M visual i vi-forward-char
 bindkey -M visual m vi-delete
 bindkey -M vicmd t vi-insert
+bindkey -M vicmd T vi-insertbol
 bindkey -M vicmd s vi-add-next
+bindkey -M vicmd S vi-add-eol
 bindkey -M vicmd m vi-delete-char
 bindkey -M vicmd c vi-set-mark
 bindkey -M vicmd l vi-backward-word
@@ -91,6 +93,7 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias rfs="flatpak run --command=sh"
 alias hs=hyprshade
 alias lpbd="expac --timefmt='%Y-%m-%d %T' '%l %n' | sort"
 alias nlf="nvim ~/.config/lf/lfrc"
@@ -105,6 +108,7 @@ alias am=alsamixer
 alias ef="nvim ~/.config/foot/foot.ini"
 alias rsn="pkill swaync && hde swaync"
 alias sc=systemctl
+alias jc=journalctl
 alias iao="cat /sys/class/power_supply/AC/online"
 alias ars="command doas mount -t tmpfs -o size=4G -m tmpfs"
 alias ts="doas timeshift"
@@ -148,7 +152,8 @@ alias pk=pkill
 #   hyprctl dispatcher exec "solaar -w hide"
 # }
 
-alias rk="doas systemctl restart kanata"
+alias rk="systemctl --user restart kanata"
+alias kk="systemctl --user stop kanata"
 alias ls="ls --color"
 alias dbfu="doas btrfs filesystem usage /"
 alias sl="sl -a -d -e -c -G -5"
@@ -161,16 +166,15 @@ alias dd1="dust -d1"
 alias pacgraph="pacgraph --svg --top=blue --dep=red"
 alias gliol="git log --oneline"
 alias cpaif="cat /proc/acpi/ibm/fan"
-alias nk="helix ~/.dotfiles/Keyboard-Remapping/kanata/config.kbd"
+alias nk="\$EDITOR ~/.dotfiles/Keyboard-Remapping/kanata/config.kbd"
 
-alias djfk="doas journalctl -feu kanata"
+alias djfk="journalctl --user -feu kanata"
 alias kg="killall gammastep"
 alias nf="nvim ~/.config/fish/config.fish"
 alias kee="pkill -f easyeffects"
 
 alias yas="paru -Sua"
 alias hc="hyprctl clients"
-alias kk="doas systemctl stop kanata"
 alias rt="radeontop --color"
 
 alias dl="echo 0 | doas tee /sys/class/leds/*/brightness"
@@ -361,7 +365,7 @@ export HYPRSHOTGUN_SCREENSHOTS="/home/aljustiet/Pictures/Screenshots"
 export TERM=xterm-256color
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
 export VISUAL="helix"
-export EDITOR="helix"
+export EDITOR="nvim"
 export XDG_CURRENT_DESKTOP=Hyprland
 export PAGER="bat"
 export BAT_CONFIG_PATH="/home/aljustiet/.config/bat/bat.conf"
@@ -384,3 +388,6 @@ bashcompinit
 autoload bashcompinit
 bashcompinit
 # source "/home/aljustiet/.local/share/bash-completion/completions/appman"
+autoload bashcompinit
+bashcompinit
+source "/home/aljustiet/.local/state/bash-completion/completions/appman"
