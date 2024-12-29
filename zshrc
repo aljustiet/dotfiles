@@ -320,6 +320,7 @@ export HOMEBREW_NO_ENV_HINTS
 export VISUAL=nvim
 export EDITOR=nvim
 export TEALDEER_CONFIG_DIR="/Users/aljustiet/.config/tealdeer"
+export TIMEFMT=$'=============\nKernel:\t%S\nUser:\t%U\nTotal:\t%E'
 autoload bashcompinit
 bashcompinit
 
