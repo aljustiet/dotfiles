@@ -3,6 +3,7 @@
     "AT Translated Set 2 keyboard"
     "ThinkPad Extra Buttons"
     "Video Bus"
+    "Power Button"
     "Keychron Keychron K2"
   )
   linux-output-device-bus-type USB
@@ -14,8 +15,9 @@
 )
 
 (defalias 
-   cm1 (cmd /usr/bin/doas -u aljustiet env DISPLAY=:0 /usr/bin/notify-send "Text" "This is a text")
+   cm1 (cmd /usr/bin/notify-send "Text" "This is a text")
    cm2 (cmd systemctl suspend)
+   touchpad (cmd /home/aljustiet/.config/hypr/scripts/touchpad.sh)
 )
 
 (deflocalkeys-linux
@@ -50,8 +52,8 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 )
 
 (deflayer graphite_angle_kp
-@cm2
-esc brdown brup volu f20 prev brup display next pp voldwn volu mute home @endesc ins del
+@cm1
+esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute home @endesc ins del
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
@@ -128,7 +130,7 @@ lalt @lmetq @laltb         spc              @nav @nlayer rctl  lft down rght
 
 (deflayer russian
 power
-esc brdown brup volu f20 prev brup display next pp voldwn volu mute home @endesc ins del
+esc brdown brup prev next @touchpad f20 brup airplane pp voldwn volu mute home @endesc ins del
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
@@ -305,7 +307,7 @@ power
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
-_    _    _    _    _    _    _   @sl  @su  @sd  @sr   _    _
+_    _    _    t    _    _    _   @sl  @su  @sd  @sr   _    _
 _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
 _    _    _              _              _    _    _      lft down rght
 )
@@ -361,7 +363,7 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
 power
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
-tab @A-b   l    d  w    z    @'    f    o @A-u      j  ;     _    _
+tab @A-b   l    d  w    z    @'    f  o @A-u      j  ;     _    _
 _   A-n A-r t s g y left @A-a e i _     _
 lsft     x     m    c  v    b    @A-k @A-p    .    @-   @/ _     pgup up pgdn
 _   @ascl @alctl          @spcr               @nav prtsc lalt lft down rght
@@ -731,9 +733,10 @@ power
   galtb (multi alt (layer-while-held galt_tweaks))
   laltb (multi alt (layer-while-held alt_tweaks))
   ;; laltb (layer-while-held alt_tweaks)
-  bspw (layer-while-held mouse_actions)
 ;;ctresc (tap-dance 200 (@bspw caps))
-  ctresc (tap-hold-press 200 200 (tap-dance 200 (esc caps)) @bspw)
+;;ctresc (tap-hold-press 200 200 (tap-dance 200 (esc caps)) @bspw)
+  bspw (layer-while-held mouse_actions)
+  ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
   nav (layer-while-held navigation_keys_only)
 )
 
@@ -769,7 +772,7 @@ power
 ;;  (lctl lalt) @lca
 ;;)
 
-(defchordsv2-experimental
+(defchordsv2
   (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
   (lctl ralt lsft) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
   (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
