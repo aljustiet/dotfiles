@@ -49,6 +49,7 @@
           yt-dlp
           libqalculate
           gdu
+          glow
         ];
 
         homebrew = {

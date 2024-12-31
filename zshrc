@@ -122,7 +122,7 @@ alias pk=pkill
 #   hyprctl dispatcher exec "solaar -w hide"
 # }
 
-alias rk="sudo nohup kanata --quiet --nodelay --cfg ~/.dotfiles/Keyboard-Remapping/kanata.lsp >/dev/null 2>/dev/null &"
+alias rk="sudo nohup kanata --quiet --nodelay --cfg ~/.dotfiles/Keyboard-Remapping/kanata/config.kbd >/dev/null 2>/dev/null &"
 alias ls="ls --color"
 alias dbfu="doas btrfs filesystem usage /"
 alias sl="sl -a -d -e -c -G -5"
