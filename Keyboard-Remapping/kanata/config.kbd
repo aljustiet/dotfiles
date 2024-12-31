@@ -579,7 +579,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   lcomb (multi lmet (layer-while-held command_tweaks))
   ;; lcomb (layer-while-held command_tweaks)
   bspw (layer-while-held mouse_actions)
-  ctresc (tap-dance 300 (@bspw esc))
+  ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
   nav (tap-dance 200 ((one-shot-press 2000 (layer-while-held navigation_keys_only)) (layer-switch vim_navigation) (layer-switch navigation) (multi ralt)))
   grl (tap-hold-press 3000 3000 grv (layer-toggle layers))
   grp (layer-switch graphite)
