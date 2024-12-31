@@ -78,7 +78,7 @@ bindkey -M vicmd s vi-add-next
 bindkey -M vicmd S vi-add-eol
 bindkey -M vicmd m vi-delete-char
 bindkey -M vicmd c vi-set-mark
-bindkey -M vicmd l vi-backward-word
+bindkey -M vicmd l vi-forward-word-end
 # bindkey
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
