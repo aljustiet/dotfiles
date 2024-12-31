@@ -32,19 +32,20 @@ info_timeout = 0
 status_timeout = 5
 
 [keys.viewer]
-Shift+w = zoom width
-Shift+y = zoom width
-Shift+h = zoom fit
+s = zoom width
+t = zoom fit
 bracketright = zoom 10
 bracketleft = zoom -10
 Shift+bracketright = zoom 50
 Shift+bracketleft = zoom -50
-s = flip_vertical
-Shift+s = flip_horizontal
+f = flip_vertical
+Shift+f = flip_horizontal
 
 9 = rotate_left
 0 = rotate_right
-f = fullscreen
+r = rotate_left
+Shift+r = rotate_right
+#Shift+f = fullscreen
 escape = fullscreen
 q = exit
 h = step_left
@@ -55,14 +56,15 @@ Shift+h = step_left 50
 Shift+a = step_down 50
 Shift+e = step_up 50
 Shift+i = step_right 50
-Shift+s = zoom fit
 
-t = antialiasing
+n = antialiasing
 
 y = next_file
 g = prev_file
-p = next_dir
-k = prev_dir
+p = rotate_left
+Shift+p = rotate_right
+Shift+k = prev_dir
+k = next_dir 
 
 apostrophe = info
 w = zoom fix
