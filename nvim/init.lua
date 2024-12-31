@@ -73,7 +73,7 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 })
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
-    pattern = {"*.yuck", "*.kdb"},
+    pattern = {"*.yuck", "*.kbd"},
     command = "set filetype=lisp"
 })
 
