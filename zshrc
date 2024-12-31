@@ -135,7 +135,7 @@ alias dd1="dust -d1"
 alias pacgraph="pacgraph --svg --top=blue --dep=red"
 alias gliol="git log --oneline"
 alias cpaif="cat /proc/acpi/ibm/fan"
-alias nk="nvim ~/.dotfiles/Keyboard-Remapping/kanata.lsp"
+alias nk="nvim ~/.dotfiles/Keyboard-Remapping/kanata/config.kbd"
 
 alias djfk="doas journalctl -feu kanata"
 alias kg="killall gammastep"
