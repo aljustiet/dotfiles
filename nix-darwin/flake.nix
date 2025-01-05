@@ -84,6 +84,7 @@
             "libreoffice"
             "weasis"
             "handbrake"
+            "discord"
           ];
 
           masApps = {
