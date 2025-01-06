@@ -5,7 +5,8 @@ if [ "$HYPRGAMEMODE" = 1 ] ; then
         keyword animations:enabled 0;\
         keyword decoration:inactive_opacity 1;\
         keyword decoration:dim_inactive false;\
-        keyword decoration:blur:enabled 0;\
+        keyword decoration:blur:enabled false;\
+        keyword decoration:shadow:enabled false;\
         keyword general:gaps_in 0;\
         keyword general:gaps_out 0;\
         keyword general:border_size 0;\
