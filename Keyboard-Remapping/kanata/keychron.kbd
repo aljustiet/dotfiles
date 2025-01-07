@@ -4,7 +4,7 @@ esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute hom
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
 @lsftl    x     m    c    v    q    k     p    .    @-   @/ rsft pgup up pgdn
-@lctg @lmet @laltb        spc             @ngr @prtsc @rctl lft down rght
+@lctg @lmet @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
 (deflayer qwerty
@@ -13,7 +13,7 @@ esc brdown brup volu f20 prev brup display next pp voldwn volu mute home end ins
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
 @lsftl z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
-@lctq @lmet @laltb         spc              @ngr @nlayer rctl  lft down rght
+@lctq @lmet @lalt         spc              @ngr @nlayer rctl  lft down rght
 )
 
 (defsrc
@@ -26,7 +26,7 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
 )
 
 (defalias 
-   laltb (multi alt (layer-while-held alt_tweaks))
+   lalt (multi lalt (layer-while-held alt_tweaks))
    lmet (multi lmet (layer-while-held lmet_layer))
    lctg (multi lctl (layer-while-held lctl_graphite-angle-kp))
    lctq (multi lctl (layer-while-held lctl_qwerty))
@@ -120,7 +120,7 @@ _   @ascl @alctl          @spcr               @ng prtsc lalt lft down rght
 (deflayer lctl_qwerty
 _     _    _    _    _    _     _    _    _    _    _    _    _    _   _   _   _
 _     _    _    _    _    _     _    _    _    _    _    _    _    _
-@C-tab   b     l    d    w    z    @'    f    o    u    j  ;     _    _
+C-tab   b     l    d    w    z    @'    f    o    u    j  ;     _    _
 _     n     r    t    s @ctl_g    y     h    a    e    i  @,    _
 lsft    x     m    c    v    q    k     p    .    @-   @/ _     pgup   up pgdn
 _   @ascl   _            @spcg               @ng prtsc lalt lft down rght
@@ -177,7 +177,7 @@ esc brdown brup volu f20 prev brup display next pp voldwn volu mute home end ins
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
 @lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
-@lctg @lmet  @laltb        spc             @ngr @prtsc @rctl lft down rght
+@lctg @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
 (deflayer gaming_layout
@@ -260,7 +260,7 @@ _    _  lctl             _              _    _    _      lft down rght
 (deflayer lalt_layer_u
 _     _    _    _    _    _     _    _    _    _    _    _    _    _   _   _   _
 _     _    _    _    _    _     _    _    _    _    _    _    _    _
-@C-tab   b     l    d    w    z    @'    f    o    u    j  ;     _    _
+C-tab   b     l    d    w    z    @'    f    o    u    j  ;     _    _
 _     n     r    t    s @ctl_g    y     h    a    e    i  @,    _
 lsft    x     m    c    v    q    k     p    .    @-   @/ _     pgup   up pgdn
 _   @ascl   _            @spcg               @anav prtsc lalt lft down rght
@@ -292,7 +292,7 @@ esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins d
 tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n   r   t    s    g    y     h    a    e    i    @,   ret
 @lsftl    x    m    @A-S-c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
-@lctg @lmet  @laltb        spc             @ngr @prtsc @rctl lft down rght
+@lctg @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
 (defalias
@@ -405,7 +405,7 @@ lctl   _  @lctl            _              _    _    _      lft down rght
   tab   S-b  S-l  S-d  S-w  S-z    @'  S-f  S-o  S-u  S-j  S-;  S-=  S-\
 @ctresc S-n S-r S-t  S-s  S-g  S-y   S-h  S-a  S-e  S-i    @,   ret
  @lsft  S-x   S-m  S-c  S-v  S-q  S-k   S-p  S-.   S-'   @/   rsft  pgup up pgdn
-  @lctg @lmet @laltb        spc             @ngr @prtsc @rctl lft down rght
+  @lctg @lmet @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
 (defalias
@@ -449,8 +449,6 @@ lctl   _  @lctl            _              _    _    _      lft down rght
     pwa (multi (release-key alt) S-5)
     dwa (multi (release-key alt) S-2)
     dwc (multi (release-key ctl) S-2)
-    lalt (multi lalt (layer-while-held graphite_angle_kp))
-    C-tab C-tab
     A-tab (multi (release-key ctl) A-tab)
     rctl (multi rctl (layer-while-held c_v))
     C-g C-g
