@@ -5,7 +5,7 @@ esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute hom
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
 @lsl    x     m    c    v    q    k     p    .    @-   @/ rsft pgup up pgdn
-lctl @lmet  @lalt        @spcg             @ngr @prtsc @rctl lft down rght
+@lctl @lmet  @lalt        @spcg             @ngr @prtsc @rctl lft down rght
 )
 
 (deflayer qwerty
@@ -15,7 +15,7 @@ esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute hom
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
 @lsl z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
-lctl @lmet @lalt         @spcq              @ngr @nlayer rctl  lft down rght
+@lctl @lmet @lalt         @spcq              @ngr @nlayer rctl  lft down rght
 )
 
 (defsrc
@@ -31,8 +31,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 (defalias
   lalt (multi lalt (layer-while-held alt_tweaks))
   lmet (multi lmet (layer-while-held lmet_layer))
-  lctg (tap-dance 500 ((multi lctl (layer-while-held lctl_graphite-angle-kp)) lctl))
-  lctq (multi lctl (layer-while-held lctl_qwerty))
+  lctl (tap-dance 500 ((multi lctl (layer-while-held lctl_layer)) lctl))
   ngr (layer-while-held navigation_right)
   lsl (multi lsft (layer-while-held shift_layer))
   spcg (fork spc (layer-switch qwerty) (lctl))
@@ -164,17 +163,7 @@ lsft  _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
 _    _   lctl            _              _    _    _      lft down rght
 )
 
-(deflayer lctl_qwerty
-power
-_     _    _    _    _    _     _    _    _    _    _    _    _    _   _   _   _
-_     _    _    _    _    _     _    _    _    _    _    _    _    _
-@C-tab   b     l    d    w    z    @'    f    o    u    j  ;     _    _
-_     n     r    t    s @ctl_g    y     h    a    e    i  @,    _
-lsft    x     m    c    v    q    k     p    .    @-   @/ _     pgup   up pgdn
-_   @ascl   _            spc               @anav prtsc lalt lft down rght
-)
-
-(deflayer lctl_graphite-angle-kp
+(deflayer lctl_layer
 power
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
@@ -191,7 +180,7 @@ esc brdown brup volu f20 prev brup display next pp voldwn volu mute home esc ins
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    enter   ret
 @lsl    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
-@lctg @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
+@lctl @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
 (defalias 
@@ -207,7 +196,7 @@ esc brdown brup volu f20 prev brup display next pp voldwn volu mute home esc ins
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
 @lsl    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
-@lctg @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
+@lctl @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
 (deflayer graphite
@@ -217,7 +206,7 @@ esc brdown brup volu f20 prev brup display next pp voldwn volu mute home esc ins
 tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n     r   @t_key    s    g    y     h    a    e    i    @,   ret
 @lsl     q     x    m    c    v    k     p    .    @-   @/   rsft  pgup up pgdn
-@lctg @lmet  @lalt         spc             @ngr @nav_layer @rctl lft down rght
+@lctl @lmet  @lalt         spc             @ngr @nav_layer @rctl lft down rght
 )
 
 (deflayer gaming_layout
@@ -227,7 +216,7 @@ esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins d
 tab  q     w    e    r    t    y     f    i    o    p    [    ]    \
 @ctresc a  s    d    .    ,    h     j    k    l    ;    @,    ret
 lctl x     m    c    v    q    k     p    .    @-    @/    rsft     pgup up pgdn
-@lctg @lmet  @galtb          spc              @ngr    @nlayer rctl  lft down rght
+@lctl @lmet  @galtb          spc              @ngr    @nlayer rctl  lft down rght
 )
 
 (deflayer counter_layout 
@@ -237,7 +226,7 @@ esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins d
 tab  q     w    e    r    t    y     f    i    o    p    [    ]    \
 @ctresc a  s    d    b    ,    h     j    k    l    ;    @,    ret
 lctl z     x    c    v    q    k     p    ,    .    /    rsft     pgup up pgdn
-@lctg @lmet  @galtb          spc              @ngr    @nlayer rctl  lft down rght
+@lctl @lmet  @galtb          spc              @ngr    @nlayer rctl  lft down rght
 )
 
 (deflayer nothing_layer
@@ -423,7 +412,7 @@ esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home esc ins d
 tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n   r  @t    s    g    y     h    a    e    i    @,   ret
 @lsl    x    m    @A-S-c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
-@lctg @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
+@lctl @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
 (defalias
@@ -543,7 +532,7 @@ power
   tab   S-b  S-l  S-d  S-w  S-z    @'  S-f  S-o  S-u  S-j  S-;  S-=  S-\
 @ctresc S-n S-r S-t  S-s  S-g  S-y   S-h  S-a  S-e  S-i    @,   ret
  @lsft  S-x   S-m  S-c  S-v  S-q  S-k   S-p  S-.   S-'   @/   rsft  pgup up pgdn
- @lctg @lmet @lalt        spc             @ngr @prtsc @rctl lft down rght
+ @lctl @lmet @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
 (defalias
@@ -592,7 +581,6 @@ power
     A-tab (multi (release-key ctl) A-tab)
     rctl (multi rctl (layer-while-held c_v))
     C-g C-g
-    lctl (multi lctl (layer-while-held c_v))
     lsft lsft
       to (macro C-t C-v ret)
   lwhsat (multi lsft lctl (layer-while-held salt_tweaks))
