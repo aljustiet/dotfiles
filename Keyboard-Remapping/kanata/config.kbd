@@ -38,11 +38,9 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   spcq (fork spc (layer-switch graphite-angle-kp) (lctl))
   grk (multi (cmd hyprctl switchxkblayout kanata 0) (layer-switch graphite-angle-kp))
   qwr (multi (cmd hyprctl switchxkblayout kanata 1) (layer-switch qwerty))
-  def (layer-switch default)
-  ' (fork ' - (lsft rsft))
-  , (fork , / (lsft rsft))
-  - (fork - ' (lsft rsft))
-  / (fork / , (lsft rsft))
+  def (multi (cmd hyprctl switchxkblayout kanata 0) (layer-switch default))
+  ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
+  
 )
 
 (defalias 
@@ -68,7 +66,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   (lsft ralt) (multi lsft (layer-while-held navigation)) 200 all-released (nothing_layer)
   (ralt rctl) (multi ralt rctl (layer-while-held mouse_actions)) 200 first-release (nothing_layer)
   (ralt caps) (layer-while-held navigate_channels) 200 first-release (nothing_layer)
-  (lalt lsft ralt) (multi lalt lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
+  (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
   (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
   (lctl ralt lsft) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
 )
@@ -94,6 +92,13 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
    pickup 445
    hangup 446
    favorites 156
+)
+
+(defalias
+  ' (fork ' - (lsft rsft))
+  , (fork , / (lsft rsft))
+  - (fork - ' (lsft rsft))
+  / (fork / , (lsft rsft))
 )
 
 (defvar
@@ -241,15 +246,13 @@ XX     XX     XX             XX              XX      XX      XX  XX XX XX
 
 (deflayer default
 power
-esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins del
+esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute home end ins del
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 caps a     s    d    f    g    h     j    k    l    ;    '    ret
 lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
 lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 )
-
-
 
 (deflayer symbol_layer
 power
@@ -632,7 +635,6 @@ power
   dline (multi (release-key alt) lsft home bspc)
   galtb (multi alt (layer-while-held galt_tweaks))
   bspw (layer-while-held mouse_actions)
-  ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
 )
 
 
