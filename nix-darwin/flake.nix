@@ -50,6 +50,7 @@
           libqalculate
           gdu
           glow
+          
         ];
 
         homebrew = {
@@ -93,6 +94,7 @@
             "Pure Paste" = 1611378436;
             "Telegram" = 747648890;
             "Numbers" = 409203825;
+            "LINE" = 539883307;
           };
           onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
