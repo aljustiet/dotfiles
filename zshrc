@@ -78,6 +78,7 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
+alias enf="nvim ~/.dotfiles/nix-darwin/flake.nix"
 alias viu=timg
 alias ars="command doas mount -t tmpfs -o size=4G -m tmpfs"
 alias ts="doas timeshift"

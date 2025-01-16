@@ -50,7 +50,6 @@
           libqalculate
           gdu
           glow
-          
         ];
 
         homebrew = {
@@ -95,6 +94,7 @@
             "Telegram" = 747648890;
             "Numbers" = 409203825;
             "LINE" = 539883307;
+            "Bluebook Exams" = 1645016851;
           };
           onActivation.cleanup = "zap";
           onActivation.autoUpdate = true;
