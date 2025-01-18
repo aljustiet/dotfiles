@@ -97,9 +97,13 @@
             "LINE" = 539883307;
             "Bluebook Exams" = 1645016851;
           };
-          onActivation.cleanup = "zap";
-          onActivation.autoUpdate = true;
-          onActivation.upgrade = true;
+          onActivation = {
+            cleanup = "zap";
+            autoUpdate = true;
+            upgrade = true;
+          };
+          global.autoUpdate = false;
+          caskArgs.no_quarantine = true;
         };
 
         system.activationScripts.applications.text = let
@@ -147,13 +151,11 @@
     };
   in
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#mac
     darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
       modules = [
       configuration
-      nix-homebrew.darwinModules.nix-homebrew
-      {
+      nix-homebrew.darwinModules.nix-homebrew {
         nix-homebrew = {
           enable = true;
           user = "aljustiet";
