@@ -55,6 +55,7 @@
         homebrew = {
           enable = true;
           brews = [
+            "im-select"
             "syncthing"
             "mas"
             "spicetify-cli"
