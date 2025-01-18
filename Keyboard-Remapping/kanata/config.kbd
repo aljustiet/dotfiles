@@ -1,12 +1,19 @@
-(defcfg
-  macos-dev-names-include (
-    "Apple Internal Keyboard / Trackpad"
-    "Keychron K2"
-  )
-;;override-release-on-activation yes
-  concurrent-tap-hold true
-  process-unmapped-keys no
-  log-layer-changes no
+(deflayer graphite_angle_kp
+brdn brup C-up A-spc @dictation C-M-d prev pp next vold volu mute
+@grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
+tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
+@ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
+@lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft up
+@laltg @lalt @lmet        spc             @nav @rctl lft down rght
+)
+
+(deflayer qwerty
+brdn brup _ _ _ _ prev pp next vold volu mute
+@grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
+tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
+@ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
+@lsftl z     x    c    v    b    n     m    ,    .    /    rsft up
+@laltq @lmetq @lmet         spc              @nav rctl lft down rght
 )
 
 (defsrc
@@ -18,13 +25,20 @@ lsft z     x    c    v    b  n     m    ,    .    /    rsft up
 lctl lalt lmet         spc              rmet ralt   lft down rght
 )
 
-(deflayer graphite_angle_kp
-brdn brup C-up A-spc @dictation C-M-d prev pp next vold volu mute
-@grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
-tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
-@ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
-@lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft up
-@laltg @lalt @lcomb        spc             @nav @rctl lft down rght
+(defalias
+  lmet (multi lmet (layer-while-held command_tweaks))
+)
+
+(defcfg
+  macos-dev-names-include (
+    "Apple Internal Keyboard / Trackpad"
+    "Keychron K2"
+  )
+;;override-release-on-activation yes
+  concurrent-tap-hold true
+  process-unmapped-keys no
+  danger-enable-cmd yes
+  log-layer-changes no
 )
 
 (deflayer graphite_angle_kp_default
@@ -54,17 +68,10 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n     r   @t_key    s    g    y     h    a    e    i    @,   ret
 @lsftl     q     x    m    c    v    k     p    .    @-   @/   rsft up
-@laltg @lalt @lcomb         spc             @nav @rctl lft down rght
+@laltg @lalt @lmet         spc             @nav @rctl lft down rght
 )
 
-(deflayer qwerty
-brdn brup _ _ _ _ prev pp next vold volu mute
-@grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
-tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
-@ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
-@lsftl z     x    c    v    b    n     m    ,    .    /    rsft up
-@laltq @lmetq @lcomb         spc              @nav rctl lft down rght
-)
+
 
 (deflayer gaming_layout
 brdn brup _ _ _ _ prev pp next mute vold volu
@@ -81,7 +88,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
 esc n     r    t    s    g    y     h    a    e    i    @,   ret
 lsft    q     x    m    c    v    k     p    .    @-   @/   rsft up
-@laltg @lalt  @lcomb        spc             @nav rctl lft down rght
+@laltg @lalt  @lmet        spc             @nav rctl lft down rght
 )
 
 (deflayer nothing_layer
@@ -320,7 +327,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n   r  @t    s    g    y     h    a    e    i    @,   ret
 @lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft up
-@laltg @lalt  @lcomb        spc             @nav @rctl lft down rght
+@laltg @lalt  @lmet        spc             @nav @rctl lft down rght
 )
 
 (defalias
@@ -456,7 +463,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   tab   S-b  S-l  S-d  S-w  S-z    @'  S-f  S-o  S-u  S-j  S-;  S-=  S-\
 @ctresc S-n S-r S-t  S-s  S-g  S-y   S-h  S-a  S-e  S-i    @,   ret
  @lsft  S-x   S-m  S-c  S-v  S-q  S-k   S-p  S-.   S-'   @/   rsft up
-  @laltg @lalt @lcomb        spc             @nav @rctl lft down rght
+  @laltg @lalt @lmet        spc             @nav @rctl lft down rght
 )
 
 (defalias
@@ -576,7 +583,6 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   dline (multi (release-key alt) lsft home bspc)
 ;;lcomb (tap-dance 300 ((multi lalt (layer-while-held alt_tweaks)) (multi lctl (layer-while-held graphite_angle_kp)) (one-shot-press 60000 lctl)))
   galtb (multi alt (layer-while-held galt_tweaks))
-  lcomb (multi lmet (layer-while-held command_tweaks))
   ;; lcomb (layer-while-held command_tweaks)
   bspw (layer-while-held mouse_actions)
   ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
@@ -643,50 +649,3 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 (defalias 
   lsft_ralt_navigation (multi lsft (layer-while-held navigation))
 )
-
-(deffakekeys
-  ctl lctl
-  sft lsft
-  met lmet
-  alt lalt
-  ;; bspw (multi lctl (layer-while-held mouse_actions))
-  ;; ctresc (tap-dance 200 (bspw esc))
-
-
-  ;; Press all modifiers
-  pal (multi
-        (on-press-fakekey ctl press)
-        (on-press-fakekey sft press)
-        (on-press-fakekey met press)
-        (on-press-fakekey alt press)
-      )
-
-  ;; Release all modifiers
-  ral (multi
-        (on-press-fakekey ctl release)
-        (on-press-fakekey sft release)
-        (on-press-fakekey met release)
-        (on-press-fakekey alt release)
-      )
-)
-
-(defalias
-  psf (on-press-fakekey sft press)
-  rsf (on-press-fakekey sft release)
-
-  pal (on-press-fakekey pal tap)
-  ral (on-press-fakekey ral tap)
-
-  isf (on-idle-fakekey sft tap 1000)
-)
-
-;; (defalias
-;;   swt (switch
-;;     ;; case 1
-;;     ((and a b (or c d) (or e f))) @ac1 break
-;;     ;; case 2
-;;     (a b c) @ac2 fallthrough
-;;     ;; case 3
-;;     () @ac3 break
-;;   )
-;; )
