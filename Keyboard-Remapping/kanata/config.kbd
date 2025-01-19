@@ -8,7 +8,7 @@ tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 )
 
 (deflayer qwerty
-brdn brup _ _ _ _ prev pp next vold volu mute
+brdn brup C-up A-spc @dictation C-M-d prev pp next vold volu mute
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
@@ -111,7 +111,7 @@ lctl lalt  lmet          spc              rmet ralt   lft down rght
 
 (deflayer layers
 brdn brup _ _ _ _ prev pp next mute vold volu
-_    @grk @grp @qwr lrld @sgl @sgvl @nl  _    _    _    _    _    _
+_    @grk @qwr @qwr lrld @sgl @sgvl @nl  _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _ up
@@ -588,7 +588,6 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
   nav (tap-dance 200 ((one-shot-press 2000 (layer-while-held navigation_keys_only)) (layer-switch vim_navigation) (layer-switch navigation) (multi ralt)))
   grl (tap-hold-press 3000 3000 grv (layer-toggle layers))
-  grp (layer-switch graphite)
   sgl (layer-switch gaming_layout)
   grk (layer-switch graphite_angle_kp)
   def (layer-switch default)

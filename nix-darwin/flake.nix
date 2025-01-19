@@ -74,7 +74,7 @@
             "tor-browser"
             "spotify"
             "arc"
-            "brave-browser@nightly"
+            "brave-browser"
             "windscribe"
             "cog"
             "middleclick"
@@ -98,7 +98,7 @@
             "Bluebook Exams" = 1645016851;
           };
           onActivation = {
-            cleanup = "zap";
+            cleanup = "uninstall";
             autoUpdate = true;
             upgrade = true;
           };
