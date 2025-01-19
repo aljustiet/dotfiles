@@ -5,7 +5,7 @@ esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute hom
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
 @lsl    x     m    c    v    q    k     p    .    @-   @/ rsft pgup up pgdn
-@lctl @lmet  @lalt        @spcg             @ngr @prtsc @rctl lft down rght
+@lctl @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
 (deflayer qwerty
@@ -15,7 +15,7 @@ esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute hom
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
 @lsl z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
-@lctl @lmet @lalt         @spcq              @ngr @nlayer rctl  lft down rght
+@lctl @lmet @lalt         spc              @ngr @nlayer rctl  lft down rght
 )
 
 (defsrc
@@ -34,13 +34,11 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   lctl (tap-dance 500 ((multi lctl (layer-while-held lctl_layer)) lctl))
   ngr (layer-while-held navigation_right)
   lsl (multi lsft (layer-while-held shift_layer))
-  spcg (fork spc (layer-switch qwerty) (lctl))
-  spcq (fork spc (layer-switch graphite-angle-kp) (lctl))
   grk (multi (cmd hyprctl switchxkblayout kanata 0) (layer-switch graphite-angle-kp))
   ru (multi (cmd hyprctl switchxkblayout kanata 1) (layer-switch qwerty))
   def (multi (cmd hyprctl switchxkblayout kanata 0) (layer-switch default))
+  jp (multi (cmd hyprctl switchxkblayout kanata 2) (layer-switch qwerty))
   ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
-  
 )
 
 (defalias 
@@ -82,7 +80,8 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   concurrent-tap-hold true
   process-unmapped-keys yes
   danger-enable-cmd yes
-;;log-layer-changes no
+  allow-hardware-repeat false
+  log-layer-changes no
 )
 
 (deflocalkeys-linux
@@ -383,7 +382,7 @@ _     _    _    _    _    _     _    _    _    _    _    _    _    _
 @C-tab   b     l    d    w    z    @'    f    o    u    j  ;     _    _
 _     n     r    t    s @ctl_g    y     h    a    e    i  @,    _
 lsft    x     m    c    v    q    k     p    .    @-   @/ _     pgup   up pgdn
-_   @ascl   _            @spcg               @anav prtsc lalt lft down rght
+_   @ascl   _            spc               @anav prtsc lalt lft down rght
 )
 
 (deflayer mouse_actions
@@ -475,7 +474,7 @@ power
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
-  _    _    _              @spcq          _    _    _      lft down rght
+  _    _    _              spc          _    _    _      lft down rght
 )
 
 (deflayer input_change_g
@@ -485,7 +484,7 @@ power
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
-  _    _    _              @spcg          _    _    _      lft down rght
+  _    _    _              spc          _    _    _      lft down rght
 )
 
 (deflayer navigate_channels
@@ -495,7 +494,7 @@ power
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _   C-left  @mad @mau C-rght _    _
   _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
-  _    _    _              @spcg          _    _    _      lft down rght
+  _    _    _              spc          _    _    _      lft down rght
 )
 
 (deflayer shift_layer
@@ -607,10 +606,10 @@ power
      sft (multi lsft (layer-while-held salt_tweaks))
      scl (multi lctl lmet (layer-while-held scrolling_layer))
     ascl (layer-while-held scrolling_layer)
-     mup (movemouse-up    16 16)
-    mbck (movemouse-down  16 16)
-    mlft (movemouse-left  16 16)
-   mrght (movemouse-right 16 16)
+     mup (movemouse-up    16 8)
+    mbck (movemouse-down  16 8)
+    mlft (movemouse-left  16 8)
+   mrght (movemouse-right 16 8)
     clft mlft
    crght mrgt
     mmid mmid
