@@ -61,6 +61,9 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
   (lctl ]) (lalt =)
   (lctl [) (lalt -)
   (lctl home) (lalt home)
+  (lctl lalt prev) (lctl lalt f3)
+  (lctl lalt brup) (lctl lalt f2)
+  (lctl lalt brdown) (lctl lalt f1)
 )
 
 (defcfg
@@ -71,6 +74,8 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
   concurrent-tap-hold true
   process-unmapped-keys yes
   danger-enable-cmd yes
+  allow-hardware-repeat false
+  override-release-on-activation yes
 ;;log-layer-changes no
 )
 
@@ -403,10 +408,10 @@ lctl   _  @lctl            _              _    _    _      lft down rght
 )
 
 (defalias
-    mwu (mwheel-up 128 256)
-    mwd (mwheel-down 128 256)
-    mwl (mwheel-left 128 256)
-    mwr (mwheel-right 128 256)
+    mwu (mwheel-up 128 128)
+    mwd (mwheel-down 128 128)
+    mwl (mwheel-left 128 128)
+    mwr (mwheel-right 128 128)
 )
 
 (defalias
@@ -469,10 +474,10 @@ lctl   _  @lctl            _              _    _    _      lft down rght
     sft (multi lsft (layer-while-held salt_tweaks))
     scl (multi lctl lmet (layer-while-held scrolling_layer))
     ascl (layer-while-held scrolling_layer)
-    mup (movemouse-up    16 16)
-    mbck (movemouse-down  16 16)
-    mlft (movemouse-left  16 16)
-    mrght (movemouse-right 16 16)
+    mup (movemouse-up    16 8)
+    mbck (movemouse-down  16 8)
+    mlft (movemouse-left  16 8)
+    mrght (movemouse-right 16 8)
     clft mlft
     crght mrgt
     mmid mmid
