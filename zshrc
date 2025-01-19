@@ -1,4 +1,4 @@
-if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ] && ! pidof Hyprland > /dev/null; then
   exec Hyprland
 fi
 #if uwsm check may-start; then
