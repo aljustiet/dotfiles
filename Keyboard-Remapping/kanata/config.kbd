@@ -37,7 +37,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   spcg (fork spc (layer-switch qwerty) (lctl))
   spcq (fork spc (layer-switch graphite-angle-kp) (lctl))
   grk (multi (cmd hyprctl switchxkblayout kanata 0) (layer-switch graphite-angle-kp))
-  qwr (multi (cmd hyprctl switchxkblayout kanata 1) (layer-switch qwerty))
+  ru (multi (cmd hyprctl switchxkblayout kanata 1) (layer-switch qwerty))
   def (multi (cmd hyprctl switchxkblayout kanata 0) (layer-switch default))
   ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
   
@@ -121,7 +121,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 (deflayer layers
 power
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-_    @grk @qwr @def _    _    _    _    _    _    _    _    _   @nl
+_    @grk @ru @def _    _    _    _    _    _    _    _    _   @nl
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _   lrld  _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
