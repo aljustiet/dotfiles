@@ -50,6 +50,7 @@
           libqalculate
           gdu
           glow
+          geogebra6
         ];
 
         homebrew = {

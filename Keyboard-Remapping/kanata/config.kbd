@@ -41,14 +41,24 @@ lctl lalt lmet         spc              rmet ralt   lft down rght
   log-layer-changes no
 )
 
-(deflayer graphite_angle_kp_default
-brdn brup _ _ _ _ prev pp next mute vold volu
-grv  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
-tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
-caps n   r  t   s    g    y     h    a    e    i    @,   ret
-lsft x     m    c    v    q    k     p    .    @-   @/   rsft up
-lctl lalt lmet        spc             rmet ralt lft down rght
- )
+(defchordsv2
+  (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
+  (lctl ralt lsft) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
+  (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
+  (lctl ralt) (multi lctl (layer-while-held navigation)) 200 all-released (nothing_layer)
+  (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
+  (lalt ralt) @dom_nav 200 all-released (nothing_layer)
+  (lmet ralt) (multi lmet ralt (layer-while-held graphite_angle_kp)) 200 all-released (nothing_layer)
+  (lctl lmet) @scl 200 all-released (nothing_layer)
+  (lctl lalt) @scl 200 all-released (nothing_layer)
+  (lsft ralt) @lsft_ralt_navigation 200 all-released (nothing_layer)
+  (lsft lctl) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
+  (lmet lalt) (multi lalt lmet) 200 first-release (nothing_layer)
+  (lsft lmet) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
+;; (lctl ralt) (multi lalt (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
+;;(lsft lctl) (multi lctl @lsftl) 200 first_release (nothing_layer)
+;;(s d f) (macro b y e)     400 first-release (non-chord-layer)
+)
 
 (defalias
   ex S-1
@@ -70,8 +80,6 @@ tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
 @lsftl     q     x    m    c    v    k     p    .    @-   @/   rsft up
 @laltg @lalt @lmet         spc             @nav @rctl lft down rght
 )
-
-
 
 (deflayer gaming_layout
 brdn brup _ _ _ _ prev pp next mute vold volu
@@ -592,57 +600,6 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   grk (layer-switch graphite_angle_kp)
   def (layer-switch default)
   qwr (layer-switch qwerty)
-)
-
-;; (defalias
-;;   chlalt (chord example lalt)
-;;   chralt (chord example ralt)
-;;   chlctl (chord example lctl)
-;;chlsft (chord example lsft)
-;;chlmet (chord example lmet)
-;;  chlft  ( chord example lft)
-;;  chdown ( chord example down)
-;;  chup   ( chord example up)
-;;  chrght ( chord example rght)
-  ;; chctresc (chord example caps)
-;;)
-
-;;(defchords example 200
-;;  (lft           ) lft
-;;  (down          ) down
-;;  (up            ) up
-;;  (rght          ) rght
-;;  (ralt ralt down)
-;;(lalt          ) @lcomb
-;;(ralt          ) @nav
-;;(lctl          ) @laltg
-;;(lmet          ) @lmet
-;;(lsft          ) (multi lsft (layer-while-held shift_layer))
-;;(lsft lctl     ) (multi lsft lalt (layer-while-held shift_alt_layer))
-;;  (lsft lmet) (multi lsft lmet (layer-while-held lmet_layer))
-;;  (lsft lalt) (multi lsft lctl (layer-while-held salt_tweaks))
-;;  (lalt ralt) @dom_nav
-;;  (lctl lmet) @scl
-;;  (lctl lalt) @lca
-;;)
-
-(defchordsv2
-  (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
-  (lctl ralt lsft) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
-  (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
-;; (lctl ralt) (multi lalt (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
-  (lctl ralt) (multi lctl (layer-while-held navigation)) 200 all-released (nothing_layer)
-  (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
-  (lalt ralt) @dom_nav 200 all-released (nothing_layer)
-  (lmet ralt) (multi lmet ralt (layer-while-held graphite_angle_kp)) 200 all-released (nothing_layer)
-  (lctl lmet) @scl 200 all-released (nothing_layer)
-  (lctl lalt) @scl 200 all-released (nothing_layer)
-  (lsft ralt) @lsft_ralt_navigation 200 all-released (nothing_layer)
-  (lsft lctl) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
-  (lmet lalt) (multi lalt lmet) 200 first-release (nothing_layer)
-  (lsft lmet) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
-;;(lsft lctl) (multi lctl @lsftl) 200 first_release (nothing_layer)
-;;(s d f) (macro b y e)     400 first-release (non-chord-layer)
 )
 
 (defalias 
