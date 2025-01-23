@@ -311,6 +311,7 @@ gp() {
 }
 
 # Environment variables
+export JAVA_HOME="$(/usr/libexec/java_home -v 23.0.2)"
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
 export LESSKEY="Users/aljustiet/.config/lesskey"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"

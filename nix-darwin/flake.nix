@@ -51,6 +51,7 @@
           gdu
           glow
           geogebra6
+          jdk23
         ];
 
         homebrew = {
