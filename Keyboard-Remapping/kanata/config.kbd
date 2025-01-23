@@ -1,4 +1,4 @@
-(deflayer graphite_angle_kp
+(deflayer graphite-angle-kp
 brdn brup C-up A-spc @dictation C-M-d prev pp next vold volu mute
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
@@ -48,7 +48,7 @@ lctl lalt lmet         spc              rmet ralt   lft down rght
   (lctl ralt) (multi lctl (layer-while-held navigation)) 200 all-released (nothing_layer)
   (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
   (lalt ralt) @dom_nav 200 all-released (nothing_layer)
-  (lmet ralt) (multi lmet ralt (layer-while-held graphite_angle_kp)) 200 all-released (nothing_layer)
+  (lmet ralt) (multi lmet ralt (layer-while-held graphite-angle-kp)) 200 all-released (nothing_layer)
   (lctl lmet) (multi lctl lmet) 200 all-released (nothing_layer)
   (lctl lalt) @scl 200 all-released (nothing_layer)
   (lsft ralt) @lsft_ralt_navigation 200 all-released (nothing_layer)
@@ -77,7 +77,7 @@ grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
 tab b   l    d  w    z    @'    f    o  u      j  ;     _    _
 _   n     r  t  s g    y  h @A-a  e   i        _     _
 lsft     x     m    c  v    q    @A-k  p    .    @-   @/ _     up
-_   @ascl @alctl          @spcq               @nav lalt lft down rght
+_   @ascl @alctl          spc               @nav lalt lft down rght
 )
 
 (deflayer graphite
@@ -393,7 +393,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _ up
-  _    _    _              @spcq          _    _      lft down rght
+  _    _    _              spc          _    _      lft down rght
 )
 (deflayer input_change_g
 brdn brup _ _ _ _ prev pp next mute vold volu
@@ -401,7 +401,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _ up
-  _    _    _              @spcg          _    _      lft down rght
+  _    _    _              spc          _    _      lft down rght
 )
 
 (deflayer navigate_channels
@@ -410,7 +410,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _   C-left  @mad @mau C-rght _    _
   _    _    _    _    _    _    _    _    _    _    _    _ up
-  _    _    _              @spcg          _    _      lft down rght
+  _    _    _              spc          _    _      lft down rght
 )
 
 ;; (deflayer diagonally_down_movement_layer
@@ -512,7 +512,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
     dwc (multi (release-key ctl) S-2)
  ;; spc (tap-hold-press 600 200 spc (layer-while-held mouse_actions))
     spc spc
- ;; lalt (multi lalt (layer-while-held graphite_angle_kp))
+ ;; lalt (multi lalt (layer-while-held graphite-angle-kp))
  ;; oat (tap-hold-press-timeout   200 200 o @arr bspc)
  ;; ect (tap-hold-release-timeout 200 200 e @chr esc)
     t_key t
@@ -524,7 +524,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
     A-tab (multi (release-key ctl) A-tab)
     rctl (multi rctl (layer-while-held c_v))
     C-g C-g
-    lctl (multi lctl (layer-while-held c_v))
+    lctl (multi lctl (layer-while-held lctl_layer))
  ;; lsft (tap-dance 300 ((multi lsft (layer-while-held shift_layer)) (layer-toggle caps_layer)))
     lsft lsft
     sgvl (layer-toggle graphite_vim_layer)
@@ -574,10 +574,8 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 )
 
 (defalias
-  spcq (multi (layer-switch qwerty) C-spc)
-  spcg (multi (layer-switch graphite_angle_kp) C-spc)
   dline (multi (release-key alt) lsft home bspc)
-;;lcomb (tap-dance 300 ((multi lalt (layer-while-held alt_tweaks)) (multi lctl (layer-while-held graphite_angle_kp)) (one-shot-press 60000 lctl)))
+;;lcomb (tap-dance 300 ((multi lalt (layer-while-held alt_tweaks)) (multi lctl (layer-while-held graphite-angle-kp)) (one-shot-press 60000 lctl)))
   galtb (multi alt (layer-while-held galt_tweaks))
   ;; lcomb (layer-while-held command_tweaks)
   bspw (layer-while-held mouse_actions)
@@ -585,9 +583,9 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   nav (tap-dance 200 ((one-shot-press 2000 (layer-while-held navigation_keys_only)) (layer-switch vim_navigation) (layer-switch navigation) (multi ralt)))
   grl (tap-hold-press 3000 3000 grv (layer-toggle layers))
   sgl (layer-switch gaming_layout)
-  grk (layer-switch graphite_angle_kp)
+  grk (multi (cmd sudo -u aljustiet /opt/homebrew/bin/im-select com.apple.keylayout.ABC) (layer-switch graphite-angle-kp))
   def (layer-switch default)
-  qwr (layer-switch qwerty)
+  qwr (multi (cmd sudo -u aljustiet /opt/homebrew/bin/im-select com.apple.keylayout.Russian) (layer-switch qwerty))
 )
 
 (defalias 
