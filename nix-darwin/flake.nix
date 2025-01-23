@@ -87,6 +87,7 @@
             "weasis"
             "handbrake"
             "discord"
+            "android-studio"
           ];
 
           masApps = {
