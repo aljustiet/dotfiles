@@ -16,6 +16,7 @@
 @define-color base0F #a16946;
 
 * {
+  font-family: "GoMono Nerd Font";
   transition: none;
   box-shadow: none;
 }
