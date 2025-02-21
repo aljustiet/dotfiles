@@ -39,17 +39,15 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   def (multi (cmd hyprctl switchxkblayout kanata 0) (layer-switch default))
   jp (multi (cmd hyprctl switchxkblayout kanata 2) (layer-switch qwerty))
   ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
+  grl (tap-hold-press 200 200 grv (layer-toggle layers))
 )
 
 (defalias 
    cm1 (cmd /usr/bin/notify-send "Text" "This is a text")
    cm2 (cmd systemctl suspend)
    touchpad (cmd /home/aljustiet/.config/hypr/scripts/touchpad.sh)
-   en (cmd hyprctl switchxkbalyout 0)
-   ru (cmd hyprctl switchxkbalyout 1)
+   telegram (cmd hyprctl dispatch togglespecialworkspace telegram-desktop)
 )
-
-
 
 (defchordsv2
   (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
@@ -58,7 +56,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
   (lmet lctl) @scl 200 all-released (nothing_layer)
   (lmet caps) (multi lctl lalt (layer-while-held capsmet)) 200 first-release (nothing_layer)
-  (lctl lalt) @lca 200 all-released (nothing_layer)
+  (lctl lalt) (multi lctl lalt (layer-while-held lclal)) 200 all-released (nothing_layer)
   (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
   (lctl ralt) (multi lctl (layer-while-held navigation)) 200 all-released (nothing_layer)
   (lsft ralt) (multi lsft (layer-while-held navigation)) 200 all-released (nothing_layer)
@@ -67,6 +65,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
   (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
   (lctl ralt lsft) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
+  (lctl lsft lalt) (multi lctl lsft lalt) 200 all-released (nothing_layer)
 )
 
 (defcfg
@@ -80,8 +79,8 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   concurrent-tap-hold true
   process-unmapped-keys yes
   danger-enable-cmd yes
-  allow-hardware-repeat false
-  log-layer-changes no
+  allow-hardware-repeat true
+;;log-layer-changes no
 )
 
 (deflocalkeys-linux
@@ -125,6 +124,16 @@ _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _   lrld  _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
 _    _    _              _              _    _    _      lft down rght
+)
+
+(deflayer lclal
+@cm1
+esc f1 f2 f3 f4 f5 f6 display airplane pp voldwn volu mute home end ins del
+@grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
+tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
+@ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
+@lsl    x     m    c    v    q    k     p    .    @-   @/ rsft pgup up pgdn
+@lctl @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
 (deflayer alt_tweaks
@@ -248,9 +257,9 @@ power
 esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute home end ins del
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
-caps a     s    d    f    g    h     j    k    l    ;    '    ret
+@ctresc a     s    d    f    g    h     j    k    l    ;    '    ret
 lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
-lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
+@lctl @lmet @lalt          spc              @ngr prtsc rctl   lft down rght
 )
 
 (deflayer symbol_layer
@@ -461,7 +470,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 power
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
   _    1    2    3    4    5    6    7    8    9    0   _    _    @dline
-@A-tab b   l     d   w   z    @'    f    o    u    j    ;    =    \
+@A-tab b   l     d   w @C-S-z @'    f    o    u    j    ;    =    \
   _    n   r     t  s   lft rght h    a    e    i    ,    _
  @sft  q   m @C-S-c  @C-S-v    q    k    p    .    -    /    _ pgup up pgdn
 lalt  _    _               spc           _    _    _      lft down rght
@@ -554,11 +563,11 @@ power
 (defalias
     C-S-m (multi (release-key alt) C-m)
     C-S-v (multi (release-key alt) C-v)
+    C-S-z (multi (release-key alt) C-z)
     C-S-c (multi (release-key alt) C-c)
     C-S-q (multi (release-key alt) C-q)
     C-S-w (multi (release-key alt) C-w)
     C-S-t (multi (release-key alt) C-t)
-    lca (multi lctl lalt)
     alctl (multi lalt lctl)
     al_lft (multi (release-key ctl) lft)
     al_down (multi (release-key ctl) down)
@@ -625,7 +634,6 @@ power
   
 )
 (defalias
-  grl (tap-hold-press 3000 3000 grv (layer-toggle layers))
   
   grp (layer-switch graphite)
   sgl (layer-switch gaming_layout)
