@@ -34,10 +34,11 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   lctl (tap-dance 500 ((multi lctl (layer-while-held lctl_layer)) lctl))
   ngr (layer-while-held navigation_right)
   lsl (multi lsft (layer-while-held shift_layer))
-  grk (multi (cmd hyprctl switchxkblayout kanata 0) (layer-switch graphite-angle-kp))
+  grk (multi (cmd hyprctl switchxkblayout kanata 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle-kp))
   ru (multi (cmd hyprctl switchxkblayout kanata 1) (layer-switch qwerty))
   def (multi (cmd hyprctl switchxkblayout kanata 0) (layer-switch default))
-  jp (multi (cmd hyprctl switchxkblayout kanata 2) (layer-switch qwerty))
+  jp (multi (cmd hyprctl switchxkblayout kanata 2) (cmd fcitx5-remote -s mozc))
+  uz (multi (cmd hyprctl switchxkblayout kanata 2) (layer-switch qwerty))
   ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
   grl (tap-hold-press 200 200 grv (layer-toggle layers))
 )
@@ -80,7 +81,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   process-unmapped-keys yes
   danger-enable-cmd yes
   allow-hardware-repeat true
-;;log-layer-changes no
+  log-layer-changes no
 )
 
 (deflocalkeys-linux
@@ -119,7 +120,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 (deflayer layers
 power
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-_    @grk @ru @def _    _    _    _    _    _    _    _    _   @nl
+_    @grk @ru @def @jp  _    _    _    _    _    _    _    _   @nl
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _   lrld  _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
