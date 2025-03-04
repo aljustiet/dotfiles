@@ -3,7 +3,7 @@ brdn brup C-up A-spc @dictation C-M-d prev pp next vold volu mute
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
-@lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft up
+@lsl    x     m    c    v    q    k     p    .    @-   @/   rsft up
 @lctl @lalt @lmet        spc             @nav @rctl lft down rght
 )
 
@@ -12,8 +12,8 @@ brdn brup C-up A-spc @dictation C-M-d prev pp next vold volu mute
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
-@lsftl z     x    c    v    b    n     m    ,    .    /    rsft up
-@lctl @lmetq @lmet         spc              @nav rctl lft down rght
+@lsl z     x    c    v    b    n     m    ,    .    /    rsft up
+@lctl @lmet @lmet         spc              @nav @rctl lft down rght
 )
 
 (defsrc
@@ -38,7 +38,7 @@ lctl lalt lmet         spc              rmet ralt   lft down rght
   concurrent-tap-hold true
   process-unmapped-keys no
   danger-enable-cmd yes
-  log-layer-changes no
+;;log-layer-changes no
 )
 
 (defchordsv2
@@ -85,7 +85,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b     l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n     r   @t_key    s    g    y     h    a    e    i    @,   ret
-@lsftl     q     x    m    c    v    k     p    .    @-   @/   rsft up
+@lsl     q     x    m    c    v    k     p    .    @-   @/   rsft up
 @lctl @lalt @lmet         spc             @nav @rctl lft down rght
 )
 
@@ -127,9 +127,9 @@ lctl lalt  lmet          spc              rmet ralt   lft down rght
 
 (deflayer layers
 brdn brup _ _ _ _ prev pp next mute vold volu
-_    @grk @qwr @qwr lrld @sgl @sgvl @nl  _    _    _    _    _    _
+_    @grk @ru @qwr  _  @sgl @sgvl @nl  _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
-_    _    _    _    _    _    _    _    _    _    _    _    _
+_    _  lrld   _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _ up
 _    _    _              _              _    _      lft down rght
 )
@@ -325,7 +325,7 @@ brdn brup _ _ _ _ prev pp next mute vold volu
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n   r  @t    s    g    y     h    a    e    i    @,   ret
-@lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft up
+@lsl    x     m    c    v    q    k     p    .    @-   @/   rsft up
 @lctl @lalt  @lmet        spc             @nav @rctl lft down rght
 )
 
@@ -333,7 +333,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   nlayer (one-shot-press 2000 (layer-while-held mouse_actions))
   A-S-a (multi (release-key ctl) A-a)
   dom_nav (multi lalt ralt (layer-while-held lalt_navigation))
-  lsftl (multi lsft (layer-while-held shift_layer))
+  lsl (multi lsft (layer-while-held shift_layer))
   C-, (multi (release-key alt) C-,)
   C-- (multi (release-key alt) M--)
   C-/ (multi (release-key alt) C-/)
@@ -585,7 +585,8 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   sgl (layer-switch gaming_layout)
   grk (multi (cmd sudo -u aljustiet /opt/homebrew/bin/im-select com.apple.keylayout.ABC) (layer-switch graphite-angle-kp))
   def (layer-switch default)
-  qwr (multi (cmd sudo -u aljustiet /opt/homebrew/bin/im-select com.apple.keylayout.Russian) (layer-switch qwerty))
+  ru (multi (cmd sudo -u aljustiet /opt/homebrew/bin/im-select com.apple.keylayout.Russian) (layer-switch qwerty))
+  qwr (layer-switch qwerty)
 )
 
 (defalias 
