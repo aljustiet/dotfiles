@@ -38,7 +38,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   ru (multi (cmd hyprctl switchxkblayout kanata 1) (layer-switch qwerty))
   def (multi (cmd hyprctl switchxkblayout kanata 0) (layer-switch default))
   jp (multi (cmd hyprctl switchxkblayout kanata 2) (cmd fcitx5-remote -s mozc))
-  uz (multi (cmd hyprctl switchxkblayout kanata 2) (layer-switch qwerty))
+  uz (multi (cmd hyprctl switchxkblayout kanata 2) (layer-switch graphite-angle-kp) (cmd fcitx5-remote -s keyboard-us))
   ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
   grl (tap-hold-press 200 200 grv (layer-toggle layers))
 )
@@ -120,7 +120,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 (deflayer layers
 power
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-_    @grk @ru @def @jp  _    _    _    _    _    _    _    _   @nl
+_    @grk @ru @def @jp @uz   _    _    _    _    _    _    _   @nl
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _   lrld  _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
