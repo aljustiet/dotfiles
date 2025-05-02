@@ -1,22 +1,25 @@
-if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ] && ! pidof Hyprland > /dev/null; then
-  exec Hyprland
+if uwsm check may-start; then
+# systemctl --user start niri.service
+  exec uwsm start hyprland.desktop
 fi
 #if uwsm check may-start; then
 #    exec uwsm start hyprland.desktop
 #fi
-# Load colors
+# Load coloss
 #(cat ~/.cache/wal/sequences &)
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+stty -ixon
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 HISTFILE=~/.zsh_history
-HISTSIZE=5000
-SAVEHIST=$HISTSIZE
+HISTSIZE=10000
+SAVEHIST=999999999999999
 HISTDUP=erase
+setopt AUTO_CD
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_space
@@ -45,12 +48,14 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 # zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+zinit load 'zsh-users/zsh-history-substring-search'
+zinit ice wait atload '_history_substring_search_config'
+zinit ice silent; zinit light Aloxaf/fzf-tab
 
 # Add in snippets
 zinit snippet OMZP::git
-# zinit snippet OMZP::command-not-found
 zinit snippet OMZP::sudo
+# zinit snippet OMZP::command-not-found
 # zinit snippet OMZP::archlinux
 # unfunction paclist
 
@@ -68,8 +73,8 @@ bindkey -v
 bindkey -M vicmd a down-line-or-history
 bindkey -M vicmd e up-line-or-history
 bindkey -M vicmd i vi-forward-char
-bindkey -M visual a down-line-or-history
-bindkey -M visual e up-line-or-history
+bindkey -M vicmd 'a' history-substring-search-up
+bindkey -M vicmd 'e' history-substring-search-down
 bindkey -M visual i vi-forward-char
 bindkey -M visual m vi-delete
 bindkey -M vicmd t vi-insert
@@ -79,9 +84,10 @@ bindkey -M vicmd S vi-add-eol
 bindkey -M vicmd m vi-delete-char
 bindkey -M vicmd c vi-set-mark
 bindkey -M vicmd l vi-forward-word-end
+bindkey -M vicmd L vi-forward-blank-word-end
 # bindkey
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 bindkey '^H' backward-kill-word
 
 # Shell integrations
@@ -92,7 +98,17 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
+# Suffix aliases
+alias -s sh=nvim
+alias -s txt=nvim
+alias -s html=nvim
+alias -s conf=nvim
+
 # Aliases
+alias cfn="nvim ~/.config/newsboat/config"
+alias cfu="nvim ~/.config/newsboat/urls"
+alias nb=newsboat
+alias lc=leetcode
 alias rfs="flatpak run --command=sh"
 alias hs=hyprshade
 alias lpbd="expac --timefmt='%Y-%m-%d %T' '%l %n' | sort"
@@ -116,7 +132,7 @@ alias timeshift="doas timeshift"
 # alias am=appman
 alias ip="ip -c=always"
 alias shst="nohup swayimg ~/Documents/School/Timetable.png 2>/dev/null 1>/dev/null &"
-alias rs="rib scrcpy --fullscreen --keyboard=uhid --stay-awake --window-title Honor --no-mouse-hover"
+alias rs="rib scrcpy --fullscreen --keyboard=uhid --stay-awake --window-title Honor --no-mouse-hover --no-audio"
 alias pkw="pkill wshowkeys"
 alias shk="wshowkeys -F \"GoMono Nerd Font 32\" -t 1 -a bottom"
 alias lkp="dbus-run-session startplasma-wayland"
@@ -296,6 +312,7 @@ cap() {
 }
 
 # NetworkManager
+alias ndwc="nmcli device wifi connect"
 alias ndwr="nmcli device wifi rescan"
 alias ndwl="nmcli device wifi list"
 alias nwe="nmcli radio wifi on"
@@ -336,7 +353,7 @@ alias nhm="\$EDITOR ~/.config/hypr/monitors_vertical.conf"
 alias nhw="\$EDITOR ~/.config/hypr/window\ rules.conf"
 alias nhe="\$EDITOR ~/.config/hypr/environment.conf"
 alias nhs="\$EDITOR ~/.config/hypr/autostart.conf"
-alias nz="\$EDITOR ~/.zshrc"
+alias nz="\$EDITOR ~/.config/zshrc/zshrc"
 alias eh="\$EDITOR ~/.config/helix/config.toml"
 
 # Git aliases
@@ -349,6 +366,12 @@ gp() {
         git push $remote
     done
 }
+
+export ZDOTDIR=$HOME/.config/zshrc
+export LANG=C.UTF-8
+
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 
 # Path
 export PATH=$PATH:/home/aljustiet/.local/bin
@@ -364,9 +387,9 @@ export TIMEFMT=$'=============\nKernel:\t%S\nUser:\t%U\nTotal:\t%E'
 export HYPRSHOTGUN_SCREENSHOTS=/home/aljustiet/Pictures/Screenshots
 export TERM=xterm-256color
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
-export VISUAL=helix
+export VISUAL=nvim
 export EDITOR=nvim
-export XDG_CURRENT_DESKTOP=Hyprland
+#export XDG_CURRENT_DESKTOP=Hyprland
 export PAGER=bat
 export BAT_CONFIG_PATH=/home/aljustiet/.config/bat/bat.conf
 export TEALDEER_CONFIG_DIR=/home/aljustiet/.config/tealdeer
@@ -381,6 +404,7 @@ source "/home/aljustiet/.bash_completion"
 
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(fzf --zsh)"
+eval "$(leetcode completions zsh)"
 bindkey -r "^[c"
 bindkey -r "^T"
 autoload bashcompinit
