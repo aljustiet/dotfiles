@@ -34,10 +34,11 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   lctl (tap-dance 500 ((multi lctl (layer-while-held lctl_layer)) lctl))
   ngr (layer-while-held navigation_right)
   lsl (multi lsft (layer-while-held shift_layer))
-  grk (multi (cmd hyprctl switchxkblayout kanata 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle-kp))
-  ru (multi (cmd hyprctl switchxkblayout kanata 1) (layer-switch qwerty))
-  def (multi (cmd hyprctl switchxkblayout kanata 0) (layer-switch default))
-  jp (multi (cmd hyprctl switchxkblayout kanata 2) (cmd fcitx5-remote -s mozc))
+  grk (multi (cmd $set-layout 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle-kp))
+  ru (multi (cmd $set-layout 1) (layer-switch qwerty))
+  ara (multi (layer-switch graphite-angle-kp) (cmd hyprctl switchxkblayout kanata 0) (cmd fcitx5-remote -s keyboard-ara))
+  def (multi (cmd hyprctl switchxkblayout kanata 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch default))
+  jp (multi (layer-switch graphite-angle-kp)(cmd hyprctl switchxkblayout kanata 0) (cmd fcitx5-remote -s mozc))
   uz (multi (cmd hyprctl switchxkblayout kanata 2) (layer-switch graphite-angle-kp) (cmd fcitx5-remote -s keyboard-us))
   ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
   grl (tap-hold-press 200 200 grv (layer-toggle layers))
@@ -101,6 +102,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 )
 
 (defvar
+  set-layout /home/aljustiet/.local/bin/set-layout.sh
   tap-timeout 200
   hold-timeout 200
   tap-dance-timeout 200
@@ -120,7 +122,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 (deflayer layers
 power
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-_    @grk @ru @def @jp @uz   _    _    _    _    _    _    _   @nl
+_    @grk @ru @def @jp @uz @ara   _    _    _    _    _    _   @nl
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _   lrld  _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
@@ -141,7 +143,7 @@ tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 power
   _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
-tab @C-q @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
+tab b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
   _ n @C-r @C-t @C-s lft rght @C-h @C-a e i , ret
 @sft x @C-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
 lalt  _    _               _            _  prtsc  _      lft down rght
@@ -181,9 +183,9 @@ _    _   lctl            _              _    _    _      lft down rght
 power
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
-tab @A-b   l    d  w    z    @'    f  o @A-u      j  ;     _    _
+tab b   l    d  w    z    @'    f  o @A-u      j  ;     _    _
 _   A-n A-r t s g y left @A-a e i _     _
-lsft     x     m    c  v    b    @A-k @A-p    .    @-   @/ _     pgup up pgdn
+lsft     x     m    c  v    q    @A-k @A-p    .    @-   @/ _     pgup up pgdn
 _   @ascl @alctl          spc               @ngr prtsc lalt lft down rght
 )
 
@@ -356,7 +358,7 @@ _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 _    _    _    _    _    _    _    _    _    _    _    -    =    _
 _    b     l    d    w    z    @'    f    o    u    j  ;    =    _
 _    n     r    t    s    g    y     h    a    e    i  @,   _
-_    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
+_    x     m    c    v    q    k     p    .    @- / _ pgup up pgdn
 @scl   _    _           _             _   prtsc _      lft down rght
 )
 

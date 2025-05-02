@@ -6,7 +6,7 @@ size = 1720,960
 [viewer]
 window = #000000FF
 transparency = #000000FF
-antialiasing = no
+# antialiasing = no
 scale = fit
 # resize_reset = no
 slideshow = no
@@ -32,20 +32,20 @@ info_timeout = 0
 status_timeout = 5
 
 [keys.viewer]
-s = scale height
-t = scale fit
+Home = scale fit
+w = scale width
 bracketright = zoom 10
 bracketleft = zoom -10
 Shift+bracketright = zoom 50
 Shift+bracketleft = zoom -50
-f = flip_vertical
-Shift+f = flip_horizontal
+s = flip_vertical
+Shift+s = flip_horizontal
 
 9 = rotate_left
 0 = rotate_right
 r = rotate_left
 Shift+r = rotate_right
-#Shift+f = fullscreen
+f = fullscreen
 escape = fullscreen
 q = exit
 h = step_left
@@ -57,7 +57,8 @@ Shift+a = step_down 50
 Shift+e = step_up 50
 Shift+i = step_right 50
 
-n = antialiasing
+n = antialiasing next
+Shift+n = antialiasing prev
 
 y = next_file
 g = prev_file
@@ -67,7 +68,6 @@ Shift+k = prev_dir
 k = next_dir 
 
 apostrophe = info
-w = zoom fix
 
 Shift+space = animation
 
