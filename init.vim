@@ -30,6 +30,8 @@ vnoremap m x
 vnoremap i l
 vnoremap a j
 vnoremap e k
+vnoremap t i
+vnoremap s a
 
 " Auto commands
 autocmd BufRead,BufNewFile *.conf set filetype=conf
