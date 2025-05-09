@@ -1,38 +1,40 @@
 #show-read-feeds no
 auto-reload yes
+reload-threads 16
 
 external-url-viewer "urlscan -dc -r 'linkhandler {}'"
 
-bind-key a down
-bind-key e up
-bind-key a next articlelist
-bind-key e prev articlelist
-bind-key A next-feed articlelist
-bind-key E prev-feed articlelist
-bind-key G end
-bind-key g home
-bind-key o pagedown
-bind-key u pageup
-bind-key i open
-bind-key h quit
-bind-key r toggle-article-read
-bind-key k next-unread
-bind-key K prev-unread
-bind-key D pb-download
-bind-key U show-urls
-bind-key m pb-delete
+bind a everywhere down
+bind e everywhere up
+bind a everywhere next articlelist
+bind e everywhere prev articlelist
+bind A everywhere next-feed articlelist
+bind E everywhere prev-feed articlelist
+bind G everywhere end
+bind g everywhere home
+bind o everywhere pagedown
+bind u everywhere pageup
+bind i everywhere open
+bind h everywhere quit
+bind r everywhere toggle-article-read
+bind n everywhere next-unread
+bind N everywhere prev-unread
+bind D everywhere pb-download
+bind U everywhere show-urls
+bind m everywhere pb-delete
 
 color listnormal cyan default
 color listfocus black yellow standout bold
 color listnormal_unread blue default
 color listfocus_unread yellow default bold
-color info red black bold
+#color info red black bold
+color info green black bold
 color article white default bold
 
 browser linkhandler
 macro . open-in-browser
-macro t set browser "qndl" ; open-in-browser ; set browser linkhandler
-macro a set browser "tsp yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser linkhandler
+macro z set browser "qndl" ; open-in-browser ; set browser linkhandler
+macro k set browser "tsp yt-dlp --embed-metadata -xic -f bestaudio/best --restrict-filenames" ; open-in-browser ; set browser linkhandler
 macro v set browser "setsid -f mpv" ; open-in-browser ; set browser linkhandler
 macro w set browser "lynx" ; open-in-browser ; set browser linkhandler
 macro d set browser "dmenuhandler" ; open-in-browser ; set browser linkhandler

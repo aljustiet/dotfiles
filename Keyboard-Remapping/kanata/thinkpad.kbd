@@ -5,7 +5,7 @@ esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute hom
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
 @lsl    x     m    c    v    q    k     p    .    @-   @/ rsft pgup up pgdn
-@lctl @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
+@lctl @lmet  @lalt        spc             @ngr prtsc @rctl lft down rght
 )
 
 (deflayer qwerty
@@ -185,7 +185,7 @@ _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
 tab b   l    d  w    z    @'    f  o @A-u      j  ;     _    _
 _   A-n A-r t s g y left @A-a e i _     _
-lsft     x     m    c  v    q    @A-k @A-p    .    @-   @/ _     pgup up pgdn
+lsft     x     m    c  v    q    k @A-p    .    @-   @/ _     pgup up pgdn
 _   @ascl @alctl          spc               @ngr prtsc lalt lft down rght
 )
 
