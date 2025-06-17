@@ -32,9 +32,9 @@ info_timeout = 0
 status_timeout = 5
 
 [keys.viewer]
-Home = scale fit
-w = scale width
-bracketright = zoom 10
+#Home = scale fit
+#w = scale width
+bracketright = zoom +10
 bracketleft = zoom -10
 Shift+bracketright = zoom 50
 Shift+bracketleft = zoom -50

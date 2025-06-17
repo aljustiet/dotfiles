@@ -36,13 +36,13 @@ vim.schedule(function()
   require "mappings"
 end)
 
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
 -- Options
 vim.opt.wrapscan = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 
 -- Key mappings
 keymap('n', '.h', ':set hlsearch<CR>', opts)
