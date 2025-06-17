@@ -1,5 +1,5 @@
 # Suffix aliases
-alias -s sh=nvim
+# alias -s sh=nvim
 alias -s txt=nvim
 alias -s html=nvim
 alias -s conf=nvim
@@ -69,7 +69,7 @@ alias pk=pkill
 
 alias rk="systemctl --user restart kanata"
 alias kk="systemctl --user stop kanata"
-alias ls="ls --color"
+alias ls="uu-ls --color=always"
 alias dbfu="doas btrfs filesystem usage /"
 alias sl="sl -a -d -e -c -G -5"
 
@@ -201,7 +201,7 @@ cap() {
         git clone ssh://aur@aur.archlinux.org/$2.git
         ;;
       arch)
-        git clone git@gitlab.archlinux.org:archlinux/packaging/packages/$2.git
+        git clone https://gitlab.archlinux.org/archlinux/packaging/packages/$2.git
         ;;
       *)
         echo "Unknown argument: $package"

@@ -11,27 +11,35 @@ nnoremap .n :set nohlsearch<CR>
 nnoremap .r :source ~/.config/nvim/init.vim<CR>
 nnoremap .y "+y
 vnoremap .y "+y
-nnoremap T I
-nnoremap S A
-vnoremap T I
-vnoremap S A
+" Key mappings
+
+" Remap movement keys (colemak-style or custom layout)
+nnoremap a j
 nnoremap e k
 nnoremap i l
-nnoremap a j
 nnoremap t i
 nnoremap s a
+nnoremap T I
+nnoremap S A
+nnoremap l w
+nnoremap L W
+nnoremap w e
+nnoremap W E
+
+" Other remaps
 nnoremap f d
-nnoremap l e
-nnoremap L E
 nnoremap m x
-nnoremap i l
-nnoremap a j
 vnoremap m x
+nnoremap ; :
+nnoremap dl de
+nnoremap cl ce
+
+" Visual mode movement remaps
 vnoremap i l
 vnoremap a j
 vnoremap e k
-vnoremap t i
-vnoremap s a
+vnoremap T I
+vnoremap S A
 
 " Auto commands
 autocmd BufRead,BufNewFile *.conf set filetype=conf

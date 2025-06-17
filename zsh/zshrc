@@ -35,8 +35,6 @@ if [ ! -d "$ZINIT_HOME" ]; then
   git clone git@github.com:zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-
-
 # Source/Load Zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
