@@ -106,7 +106,6 @@ alias hree="hyprctl dispatcher exec 'easyeffects --gapplication-service'"
 
 alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
 alias tokei="tokei --sort code"
-alias scc="scc --sort code"
 alias ma="doas mount -a"
 alias uma="doas umount /mnt/hdd /mnt/usb"
 
