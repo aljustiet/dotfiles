@@ -14,7 +14,12 @@ export PATH=/home/aljustiet/.cargo/bin:$PATH
 #export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
 #export TIMEFMT=$'=============\nUser\t%*U\nSystem\t%*S\nTotal\t%*E'
 #export TIMEFMT=$'Kernel:\t    %S\nUser:\t    %U\nTotal:\t    %E\nPercentage: %P'
-export TIMEFMT=$'=============\nKernel:\t%S\nUser:\t%U\nTotal:\t%E'
+# Add this to your ~/.zshrc file
+export TIMEFMT=$'-----------------------------------
+  Total:\t%E
+  Program:\t%U
+  Kernel:\t%S
+  CPU Total:\t%*U'
 export HYPRSHOTGUN_SCREENSHOTS=/home/aljustiet/Pictures/Screenshots
 export TERM=xterm-256color
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
