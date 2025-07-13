@@ -9,7 +9,7 @@ transparency = #000000FF
 # antialiasing = no
 scale = fit
 # resize_reset = no
-slideshow = no
+#slideshow = no
 history = 1
 preload = 1
 
@@ -17,7 +17,7 @@ preload = 1
 
 [list]
 order = none
-loop = no
+#loop = no
 recursive = no
 all = no
 
@@ -57,7 +57,7 @@ Shift+a = step_down 50
 Shift+e = step_up 50
 Shift+i = step_right 50
 
-n = antialiasing next
+n = antialiasing
 Shift+n = antialiasing prev
 
 y = next_file
