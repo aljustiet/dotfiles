@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Directly extract the monitor name using minimal parsing
+monitorName=$(hyprctl activeworkspace | sed -n 's/.*on monitor \([^:]*\):.*/\1/p' 2>/dev/null || echo "unknown")
+
+# Exit early if monitorName is invalid
+[ "$monitorName" = "unknown" ] && exit 1
+
+# Adjust brightness based on the monitor name
+case "$monitorName" in
+  eDP-1)
+    brightnessctl --quiet s +2% ;; # Adjust brightness for eDP-1
+  DP-2)
+    ddcutil -b 13 setvcp 10 + 2 ;; # Adjust brightness for DP-2
+  DP-1)
+    ddcutil -b 12 setvcp 10 + 2 ;; # Adjust brightness for DP-1
+  HDMI-A-1)
+    ddcutil -b 4 setvcp 10 + 2 ;;
+  *)
+    echo "Monitor $monitorName not handled." ;;
+esac
