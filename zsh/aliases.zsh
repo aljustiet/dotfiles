@@ -43,9 +43,9 @@ alias td="termdown"
 alias op="rib zathura"
 alias oi="rib swayimg"
 alias cu=currencyConverter
-df () {
-  command df -x tmpfs -x efivarfs -h | rg -v -e "dev.*7\.2G"
-}
+#df () {
+#  command df -x tmpfs -x efivarfs -h | rg -v -e "dev.*7\.2G"
+#}
 alias umount="doas umount"
 alias btrfs="doas btrfs"
 alias lofi="rmib 'https://www.youtube.com/watch?v=jfKfPfyJRdk'"
@@ -69,7 +69,6 @@ alias pk=pkill
 
 alias rk="systemctl --user restart kanata"
 alias kk="systemctl --user stop kanata"
-alias ls="uu-ls --color=always"
 alias dbfu="doas btrfs filesystem usage /"
 alias sl="sl -a -d -e -c -G -5"
 

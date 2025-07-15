@@ -5,10 +5,10 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
 # Path
-export PATH=$PATH:/home/aljustiet/.local/bin
 export PATH=$PATH:/home/aljustiet/Documents/platform-tools
 export PATH=$PATH:/home/aljustiet/go/bin
 export PATH=/home/aljustiet/.cargo/bin:$PATH
+export PATH=/home/aljustiet/.local/bin:$PATH
 
 # Environment variables
 #export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
