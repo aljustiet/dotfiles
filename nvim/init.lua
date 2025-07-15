@@ -1044,7 +1044,7 @@ vim.opt.wrapscan = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.g.have_nerd_font = true
-vim.opt.showcmd = false
+-- vim.opt.showcmd = false
 
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -1071,6 +1071,9 @@ keymap('n', 'dl', 'de', opts)
 keymap('n', 'cl', 'ce', opts)
 keymap('n', 'ga', 'gj', opts)
 keymap('n', 'ge', 'gk', opts)
+keymap('n', 'ca', 'cj', opts)
+keymap('n', 'ce', 'ck', opts)
+keymap('n', 'ci', 'cl', opts)
 
 keymap('v', 'm', 'x', opts)
 keymap('v', 'i', 'l', opts)
