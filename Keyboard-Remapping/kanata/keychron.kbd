@@ -71,6 +71,7 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
 (defcfg
   linux-dev-names-include (
     "Keychron Keychron K2"
+	"Keychron K2"
   )
   linux-device-detect-mode keyboard-only
   concurrent-tap-hold true
