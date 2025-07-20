@@ -97,7 +97,6 @@ alias np="doas nvim /etc/pacman.conf"
 alias npa="nvim ~/.config/paru/paru.conf"
 alias hde="hyprctl dispatcher exec"
 
-alias free="free --human --wide"
 alias watch="watch --color --interval 1 --no-title"
 alias kl="pkill -f /usr/lib/librewolf/librewolf"
 alias kf="pkill -f /usr/lib/firefox/firefox"
