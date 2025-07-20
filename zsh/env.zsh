@@ -9,6 +9,7 @@ export PATH=$PATH:/home/aljustiet/Documents/platform-tools
 export PATH=$PATH:/home/aljustiet/go/bin
 export PATH=/home/aljustiet/.cargo/bin:$PATH
 export PATH=/home/aljustiet/.local/bin:$PATH
+export PATH=/usr/bin/vendor_perl:$PATH
 
 # Environment variables
 #export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
@@ -30,7 +31,5 @@ export PAGER=bat
 export BAT_CONFIG_PATH=/home/aljustiet/.config/bat/bat.conf
 export TEALDEER_CONFIG_DIR=/home/aljustiet/.config/tealdeer
 export BATSIGNAL_CONFIG=/home/aljustiet/.config/batsignal
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANROFFOPT="-c"
 export SYSTEMD_PAGER="bat"
 export SYSTEMD_PAGERSECURE="false"
