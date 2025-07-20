@@ -314,6 +314,7 @@ require('lazy').setup({
 
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
+    enabled = false,
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
       -- delay between pressing a key and opening which-key (milliseconds)
@@ -361,6 +362,7 @@ require('lazy').setup({
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { 'd', name = 'Delete' },
       },
     },
   },
@@ -1038,13 +1040,13 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
-vim.opt.smartindent = true
+-- vim.opt.smartindent = true
 
 vim.opt.wrapscan = false
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.g.have_nerd_font = true
--- vim.opt.showcmd = false
+vim.opt.showcmd = false
 
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
