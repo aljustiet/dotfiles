@@ -10,6 +10,7 @@ export PATH=$PATH:/home/aljustiet/go/bin
 export PATH=/home/aljustiet/.cargo/bin:$PATH
 export PATH=/home/aljustiet/.local/bin:$PATH
 export PATH=/usr/bin/vendor_perl:$PATH
+export PATH=/usr/bin/site_perl:$PATH
 
 # Environment variables
 #export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
