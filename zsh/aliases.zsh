@@ -135,8 +135,7 @@ alias ks="pkill -f '/usr/lib/signal-desktop/signal-desktop --enable-features=Use
 
 alias lda="doas udevadm info --attribute-walk"
 alias nn="nvim ~/.config/nvim/init.lua"
-alias oe='hyprctl dispatcher dpms off'
-alias eo='hyprctl dispatcher dpms on'
+
 
 
 # vnstat() {
