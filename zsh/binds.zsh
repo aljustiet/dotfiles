@@ -24,3 +24,4 @@ bindkey -M vicmd db backward-delete-word
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^H' backward-kill-word
+bindkey -M viins '\e\r' 'vi-open-line-below'
