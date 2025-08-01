@@ -6,6 +6,10 @@
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+spawn-at-startup "dash" "-c" "wl-paste --type text --watch cliphist store"
+spawn-at-startup "dash" "-c" "wl-paste --type image --watch cliphist store"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "solaar --window=hide"
 input {
     keyboard {
         xkb {
@@ -13,7 +17,7 @@ input {
             // For more information, see xkeyboard-config(7).
 
             // For example:
-            // layout "us,ru"
+            layout "us,ru(mac)"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
         }
 
@@ -26,30 +30,31 @@ input {
     touchpad {
         // off
         tap
-        // dwt
+        dwt
         // dwtp
         // drag false
         // drag-lock
+        scroll-factor 0.2
         natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
+        accel-speed 0.0
+        accel-profile "flat"
         // scroll-method "two-finger"
         // disabled-on-external-mouse
     }
 
     mouse {
         // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
+        natural-scroll
+        accel-speed 0.0
+        accel-profile "flat"
         // scroll-method "no-scroll"
     }
 
     trackpoint {
         // off
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
+        natural-scroll
+        accel-speed 0.0
+        accel-profile "flat"
         // scroll-method "on-button-down"
         // scroll-button 273
         // middle-emulation
@@ -60,7 +65,7 @@ input {
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    // focus-follows-mouse max-scroll-amount="0%"
+    focus-follows-mouse max-scroll-amount="0%"
 }
 
 // You can configure outputs by their name, which you can find
@@ -69,6 +74,19 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
+output "eDP-1" {
+  mode "1920x1200"
+  scale 1.6
+  position x=280 y=900
+}
+output "HDMI-A-1" {
+  mode "3840x2160"
+  scale 2.4
+  position x=0 y=0
+}
+output "DP-1" {
+  off
+}
 /-output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
@@ -132,7 +150,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.9; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
@@ -255,14 +273,14 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
+prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -341,36 +359,34 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Alt+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
+    Super+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Super+K hotkey-overlay-title="Launch the browser: zen" { spawn "zen-browser"; }
+    Alt+Shift+M hotkey-overlay-title="Show the clipboard history: rofi + cliphist" { spawn "dash" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy" ;}
+    Super+Space hotkey-overlay-title="Search for windows: rofi" { spawn "rofi" "-show" "window" ;}
 
-    // You can also use a shell. Do this if you need pipes, multiple commands, etc.
-    // Note: the entire command goes as a single argument in the end.
-    // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
-
-    // Example volume keys mappings for PipeWire & WirePlumber.
-    // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-
-    // Open/close the Overview: a zoomed-out view of workspaces and windows.
-    // You can also move the mouse into the top-left hot corner,
-    // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
-
-    Mod+Q { close-window; }
-
+    Super+H { focus-column-left; }
+    Super+A { focus-window-down; }
+    Super+E { focus-window-up; }
+    Super+I { focus-column-right; }
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
-    Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+L     { focus-column-right; }
+    Mod+O   { focus-workspace-down; }
+    Mod+U   { focus-workspace-up; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "dash" "-c" "brightnessctl --quiet s 2%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "dash" "-c" "brightnessctl --quiet s 2%+"; }
+
+    Mod+Q repeat=false { toggle-overview; }
+
+    Mod+B { close-window; }
 
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
@@ -380,6 +396,7 @@ binds {
     Mod+Ctrl+J     { move-window-down; }
     Mod+Ctrl+K     { move-window-up; }
     Mod+Ctrl+L     { move-column-right; }
+    
 
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
@@ -421,8 +438,7 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
+    
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
@@ -581,4 +597,30 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+}
+environment {
+  DISPLAY ":0"
+  QT_AUTO_SCREEN_SCALE_FACTOR "1"
+  QT_QPA_PLATFORM "wayland;xcb"
+  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+  QT_QPA_PLATFORMTHEME "qt5ct"
+  QT_IM_MODULES "wayland;fcitx;ibus"
+  XDG_DATA_DIRS "/home/aljustiet/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/"
+  XCURSOR_SIZE "32"
+  XDG_BACKEND "wayland"
+  XDG_CURRENT_DESKTOP "Niri"
+  XDG_SESSION_TYPE "wayland"
+  XDG_SESSION_DESKTOP "Niri"
+  SDL_VIDEODRIVER "wayland,x11"
+  CLUTTER_BACKEND "wayland"
+  ELECTRON_OZONE_PLATFORM_HINT "wayland"
+  // SHELL "/usr/bin/zsh"
+  // MOZ_ENABLE_WAYLAND "1"
+  // LANG "C.UTF-8"
+}
+cursor {
+  xcursor-theme "Bibata-Modern-Classic"
+  xcursor-size 32
+  hide-when-typing
+  hide-after-inactive-ms 60000
 }
