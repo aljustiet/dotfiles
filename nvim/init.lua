@@ -1037,8 +1037,8 @@ require('lazy').setup({
 
 -- Options
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.expandtab = false
 
 -- vim.opt.smartindent = true
 
@@ -1119,4 +1119,12 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = { '*.yuck', '*.kbd' },
   command = 'set filetype=lisp',
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "kdl",
+  callback = function()
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true -- use spaces, not tabs
+  end,
 })
