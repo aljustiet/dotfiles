@@ -1,6 +1,5 @@
 if uwsm check may-start; then
-# systemctl --user start niri.service
-  exec uwsm start niri.desktop
+  systemctl --user start niri.service
 fi
 #if uwsm check may-start; then
 #    exec uwsm start hyprland.desktop
