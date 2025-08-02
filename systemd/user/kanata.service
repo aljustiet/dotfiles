@@ -1,0 +1,13 @@
+[Unit]
+Description=Kanata keyboard remapper
+Documentation=https://github.com/jtroo/kanata
+Requires=graphical-session.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/aljustiet/.dotfiles/Keyboard-Remapping/kanata
+ExecStart=kanata --nodelay --port 10000 --cfg config.kbd
+Restart=no
+
+[Install]
+WantedBy=graphical-session.target
