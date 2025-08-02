@@ -1,0 +1,13 @@
+[Unit]
+Description=Kanata Layer Switcher
+After=graphical-session.target
+After=kanata.service
+
+[Service]
+ExecStart=/home/aljustiet/.local/bin/hyprkan --port 10000
+Restart=on-failure
+RestartSec=5
+Type=simple
+
+[Install]
+WantedBy=graphical-session.target
