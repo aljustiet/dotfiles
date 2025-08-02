@@ -2,5 +2,6 @@ mpv/watch_later
 newsboat/urls
 nvim.bak
 btop/btop.conf
-htop/htoprc
+htop/
 fish/fish_variables
+.bak
