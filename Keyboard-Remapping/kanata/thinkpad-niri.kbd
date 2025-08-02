@@ -98,7 +98,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
   (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
   (lctl ralt lsft) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
-  (lctl lsft lalt) (multi lctl lsft lalt) 200 all-released (nothing_layer)
+  ;; (lctl lsft lalt) (multi lctl lsft lalt) 200 all-released (nothing_layer)
 )
 
 (defcfg
@@ -218,7 +218,7 @@ grv  1  2  3  4  5  6  7  8  9  0   -    +  bspc
 tab b   l    d  w    z    @'  f  o @A-u      j  ;     _    _
 _   n   r t s g y    h    a   e  i _     _
 lsft     x     m    c    v    q    k    p    .    @-   @/ _     pgup up pgdn
-_   @ascl @alctl       @A-spc               @ngr prtsc lalt lft down rght
+_   @ascl @alctl          spc               @ngr prtsc lalt lft down rght
 )
 
 (deflayer space_layer
@@ -235,7 +235,6 @@ tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
   t (tap-hold-release $tt $ht t lalt)
   a (tap-hold-release $tt $ht a lalt)
   spc (tap-hold-press $tt $ht spc (layer-while-held space_layer))
-  A-spc (multi (release-key lctl) A-spc)
 )
 
 (deflayer aoe2de
