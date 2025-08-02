@@ -10,6 +10,7 @@ spawn-at-startup "dash" "-c" "wl-paste --type text --watch cliphist store"
 spawn-at-startup "dash" "-c" "wl-paste --type image --watch cliphist store"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "solaar --window=hide"
+spawn-at-startup "foot --server"
 input {
     keyboard {
         xkb {
@@ -78,14 +79,28 @@ output "eDP-1" {
   mode "1920x1200"
   scale 1.6
   position x=280 y=900
+  variable-refresh-rate
 }
 output "HDMI-A-1" {
   mode "3840x2160"
   scale 2.4
   position x=0 y=0
+  focus-at-startup
+  variable-refresh-rate
+}
+output "DP-2" {
+  mode "3840x2160"
+  scale 2.4
+  position x=0 y=0
+  focus-at-startup
+  variable-refresh-rate
 }
 output "DP-1" {
-  off
+  mode "3840x2160"
+  scale 2.4
+  position x=0 y=0
+  focus-at-startup
+  variable-refresh-rate
 }
 /-output "eDP-1" {
     // Uncomment this line to disable this output.
@@ -294,10 +309,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // The wiki explains how to configure individual animations:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
-    // Uncomment to turn off all animations.
-    // off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    off
     // slowdown 3.0
 }
 
@@ -360,10 +372,10 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Alt+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
-    Super+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
+    Super+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+K hotkey-overlay-title="Launch the browser: zen" { spawn "zen-browser"; }
-    Alt+Shift+M hotkey-overlay-title="Show the clipboard history: rofi + cliphist" { spawn "dash" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy" ;}
+    Ctrl+Shift+M hotkey-overlay-title="Show the clipboard history: rofi + cliphist" { spawn "dash" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy" ;}
     Super+Space hotkey-overlay-title="Search for windows: rofi" { spawn "rofi" "-show" "window" ;}
 
     Super+H { focus-column-left; }
@@ -521,13 +533,9 @@ binds {
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
     // If the window is already in a column, they will expel it out.
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
 
-    // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
-    // Expel the bottom window from the focused column to the right.
-    Mod+Period { expel-window-from-column; }
+    Mod+Period repeat=true { consume-window-into-column; }
+    Mod+Comma repeat=true { expel-window-from-column; }
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
