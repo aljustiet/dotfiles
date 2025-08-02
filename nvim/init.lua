@@ -314,7 +314,7 @@ require('lazy').setup({
 
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
-    enabled = false,
+    enabled = true,
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
       -- delay between pressing a key and opening which-key (milliseconds)
@@ -1038,7 +1038,7 @@ require('lazy').setup({
 -- Options
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 
 -- vim.opt.smartindent = true
 
@@ -1056,8 +1056,8 @@ keymap('n', '.r', ':source ~/.config/nvim/init.lua<CR>', opts)
 keymap('n', '.y', '"+y', opts)
 keymap('v', '.y', '"+y', opts)
 
-keymap('n', 'a', 'j', opts)
-keymap('n', 'e', 'k', opts)
+keymap('n', 'a', 'gj', opts)
+keymap('n', 'e', 'gk', opts)
 keymap('n', 'i', 'l', opts)
 keymap('n', 't', 'i', opts)
 keymap('n', 's', 'a', opts)
@@ -1079,8 +1079,8 @@ keymap('n', 'ci', 'cl', opts)
 
 keymap('v', 'm', 'x', opts)
 keymap('v', 'i', 'l', opts)
-keymap('v', 'a', 'j', opts)
-keymap('v', 'e', 'k', opts)
+keymap('v', 'a', 'gj', opts)
+keymap('v', 'e', 'gk', opts)
 keymap('v', 'T', 'I', opts)
 keymap('v', 'S', 'A', opts)
 keymap('n', 'ya', 'yj', opts)
@@ -1091,6 +1091,10 @@ keymap('v', 's', 'a', opts)
 
 keymap('o', 't', 'i', opts)
 keymap('v', 't', 'i', opts)
+vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>gi', { noremap = true, silent = true })
+vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv', { noremap = true, silent = true })
+
 
 -- File: ~/.config/nvim/init.lua
 
@@ -1121,10 +1125,10 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   command = 'set filetype=lisp',
 })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "kdl",
+  pattern = { "kdl" },
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2
-    vim.opt_local.expandtab = true -- use spaces, not tabs
+    vim.opt_local.expandtab = true
   end,
 })
