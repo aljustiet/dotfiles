@@ -67,8 +67,6 @@ alias pk=pkill
 #   hyprctl dispatcher exec "solaar -w hide"
 # }
 
-alias rk="systemctl --user restart kanata"
-alias kk="systemctl --user stop kanata"
 alias dbfu="doas btrfs filesystem usage /"
 alias sl="sl -a -d -e -c -G -5"
 
@@ -82,7 +80,6 @@ alias gliol="git log --oneline"
 alias cpaif="cat /proc/acpi/ibm/fan"
 alias nk="\$EDITOR ~/.dotfiles/Keyboard-Remapping/kanata/config.kbd"
 
-alias djfk="journalctl --user -feu kanata"
 alias kg="killall gammastep"
 alias nf="nvim ~/.config/fish/config.fish"
 alias kee="pkill -f easyeffects"

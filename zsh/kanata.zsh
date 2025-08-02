@@ -1,2 +1,3 @@
-alias rk="niri msg action spawn -- 'dash' '-c' 'kanata --nodelay --cfg ~/.dotfiles/Keyboard-Remapping/kanata/config.kbd' "
-alias kk="pkill kanata"
+alias rk="systemctl --user start kanata.service"
+alias kk="systemctl --user stop kanata.service"
+alias djfk="journalctl --user -feu kanata.service"
