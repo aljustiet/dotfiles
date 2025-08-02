@@ -59,20 +59,20 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 )
 
 (defalias
-  lalt (multi lalt (layer-while-held alt_tweaks))
+  lctl (multi lctl (layer-while-held lctl_layer))
   lmet (multi lmet (layer-while-held lmet_layer))
-  lctl (tap-dance 500 ((multi lctl (layer-while-held lctl_layer)) lctl))
+  lalt (multi lalt (layer-while-held lalt_layer))
   ngr (layer-while-held navigation_right)
   lsl (multi lsft (layer-while-held shift_layer))
+  grl (tap-hold-press 200 200 grv (layer-toggle layers))
   grk (multi (cmd $set-layout 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle-kp))
   grkwt (multi (cmd $set-layout 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle-kp_without_tweaks))
   ru (multi (cmd $set-layout 1) (layer-switch qwerty))
   ara (multi (layer-switch graphite-angle-kp) (cmd hyprctl switchxkblayout kanata 0) (cmd fcitx5-remote -s keyboard-ara))
   def (multi (cmd hyprctl switchxkblayout kanata 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch qwerty))
-  jp (multi (layer-switch graphite-angle-kp)(cmd hyprctl switchxkblayout kanata 0) (cmd fcitx5-remote -s mozc))
+  jp (multi (layer-switch graphite-angle-kp)(cmd $set-layout 0) (cmd fcitx5-remote -s mozc))
   uz (multi (cmd hyprctl switchxkblayout kanata 2) (layer-switch graphite-angle-kp) (cmd fcitx5-remote -s keyboard-us))
   ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
-  grl (tap-hold-press 200 200 grv (layer-toggle layers))
 )
 
 (defalias 
@@ -83,7 +83,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 )
 
 (defchordsv2
-  (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
+  ;;(lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
   (lalt ralt) (multi lalt ralt (layer-while-held lalt_ralt_navigation)) 200 all-released (nothing_layer)
   (lmet ralt) (multi lmet ralt (layer-while-held graphite-angle-kp)) 200 all-released (nothing_layer)
   (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
@@ -107,13 +107,14 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
     "ThinkPad Extra Buttons"
     "Video Bus"
     "Power Button"
+;;  "TPPS/2 Synaptics TrackPoint"
   )
   linux-device-detect-mode keyboard-only
   concurrent-tap-hold true
   process-unmapped-keys yes
   danger-enable-cmd yes
   allow-hardware-repeat true
-  log-layer-changes no
+;;log-layer-changes no
 )
 
 (deflocalkeys-linux
@@ -170,13 +171,13 @@ tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @lctl @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
-(deflayer alt_tweaks
+(deflayer lalt_layer
 power
   _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
 tab b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
-  _ @C-n @C-r @C-t @C-s lft rght @C-h @C-a e i , ret
-@sft x @C-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
+  _ @C-n    r @C-t @C-s lft rght @C-h @C-a e i , ret
+@sft x @C-S-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
 lalt  _    _               _            _  prtsc  _      lft down rght
 )
 
@@ -213,11 +214,11 @@ _    _   lctl            _              _    _    _      lft down rght
 (deflayer lctl_layer
 power
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
-tab b   l    d  w    z    @'    f  o @A-u      j  ;     _    _
-_   @A-n A-r t s g y left @A-a e i _     _
-lsft     x     m    c  @A-v    q    k @A-p    .    @-   @/ _     pgup up pgdn
-_   @ascl @alctl          spc               @ngr prtsc lalt lft down rght
+grv  1  2  3  4  5  6  7  8  9  0   -    +  bspc
+tab b   l    d  w    z    @'  f  o @A-u      j  ;     _    _
+_   n   r t s g y    h    a   e  i _     _
+lsft     x     m    c    v    q    k    p    .    @-   @/ _     pgup up pgdn
+_   @ascl @alctl       @A-spc               @ngr prtsc lalt lft down rght
 )
 
 (deflayer space_layer
@@ -234,6 +235,7 @@ tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
   t (tap-hold-release $tt $ht t lalt)
   a (tap-hold-release $tt $ht a lalt)
   spc (tap-hold-press $tt $ht spc (layer-while-held space_layer))
+  A-spc (multi (release-key lctl) A-spc)
 )
 
 (deflayer aoe2de
@@ -379,7 +381,7 @@ _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 _    _    _    _    _    _    _    _    _    _    _    -    =    _
 _    b     l    d    w    z    @'    f    o    u    j  ;    =    _
 _    n     r    t    s    g    y     h    a    e    i  @,   _
-_    x     m    c    v    q    k     p    .    @- / _ pgup up pgdn
+_    x     m    c    v    q    k     p    .    ,    /  _ pgup up pgdn
 @scl   _    _           _             _   prtsc _      lft down rght
 )
 
@@ -437,7 +439,7 @@ power
   _   @C-- @C-=  3    4    5    6    7    8    9    0  @C-- @C-=  @dline
 tab @C-b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u @C-j @C-; @C-= @C-\
   _ @C-n @C-r @C-t @C-s lft rght @C-h @C-a @C-e i @C-, ret
-@sft @C-q @C-x @C-c @C-v @C-b @C-k @C-p @C-. @C--    @C-/   @C-rsft pgup up pgdn
+@sft @C-q @C-S-x @C-c @C-v @C-b @C-k @C-p @C-. @C--    @C-/   @C-rsft pgup up pgdn
 lalt  _    _               _            _    _    _      lft down rght
 )
 
@@ -479,7 +481,7 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   C-e (multi (release-key alt) C-e)
   C-i (multi (release-key alt) C-i)
   C-ret (multi (release-key alt) C-ret)
-  C-x (multi (release-key alt) C-x)
+  C-S-x (multi (release-key alt) C-S-x)
   C-m (multi (release-key alt) C-m)
   C-c (multi (release-key alt) C-c)
   C-v (multi (release-key alt) C-v)
