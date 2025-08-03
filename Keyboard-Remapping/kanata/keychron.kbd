@@ -28,7 +28,7 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
 (defalias 
    lctl (multi lctl (layer-while-held lctl_layer))
    lmet (multi lmet (layer-while-held lmet_layer))
-   lalt (multi lalt (layer-while-held alt_tweaks))
+   lalt (multi lalt (layer-while-held lalt_layer))
    ngr (layer-while-held navigation_right)
    ng (layer-while-held navigation)
    grk (multi (cmd hyprctl switchxkblayout kanata-2 0) (layer-switch graphite-angle-kp))
@@ -43,7 +43,7 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
 (defchordsv2
   (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
   (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
-  (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
+  ;; (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
   (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
   (lctl ralt lsft) (multi alt sft (layer-while-held navigation_right)) 200 all-released (nothing_layer)
   (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
@@ -101,7 +101,7 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
   tdt $tap-dance-timeout
 )
 
-(deflayer alt_tweaks
+(deflayer lalt_layer
   _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
 tab @C-q @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
@@ -115,7 +115,7 @@ _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 _    _    _    _    _    _    _    _    _    _    _    -    =    _
 _    b     l    d    w    z    @'    f    o    u    j  ;    =    _
 _    n     r    t    s    g    y     h    a    e    i  @,   _
-_    x     m    c    v    q    k     p    .    @-   @/ _ pgup up pgdn
+_    x     m    c    v    q    k     p    .    ,   @/ _ pgup up pgdn
 @scl   _    _           _             _   prtsc _      lft down rght
 )
 
@@ -124,7 +124,7 @@ _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
 tab @A-b   l    d  w    z    @'    f  o @A-u      j  ;     _    _
 _   A-n A-r t s g y left a e i _     _
-lsft     x     m    c  v    b    @A-k @A-p    .    @-   @/ _     pgup up pgdn
+lsft     x     m    c  v    b    k   @A-p    .    @-   @/ _     pgup up pgdn
 _   @ascl @alctl          spc               @ng prtsc lalt lft down rght
 )
 
