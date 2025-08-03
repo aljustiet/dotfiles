@@ -3,7 +3,7 @@ esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute hom
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
-@lsftl    x     m    c    v    q    k     p    .    @-   @/ rsft pgup up pgdn
+@lsft    x     m    c    v    q    k     p    .    @-   @/ rsft pgup up pgdn
 @lalt @lmet @lctl         spc             @ngr @prtsc @rctl lft down rght
 )
 
@@ -12,7 +12,7 @@ esc brdown brup volu f20 prev brup display next pp voldwn volu mute home end ins
 @grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
-@lsftl z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
+@lsft z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
 @lctl @lmet @lalt         spc              @ngr @nlayer rctl  lft down rght
 )
 
@@ -31,17 +31,17 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
    lalt (multi lalt (layer-while-held lalt_layer))
    ngr (layer-while-held navigation_right)
    ng (layer-while-held navigation)
-   grk (multi (cmd hyprctl switchxkblayout kanata-2 0) (layer-switch graphite-angle-kp))
+   grk (multi (cmd $set-layout 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle-kp))
    jp (multi (cmd hyprctl switchxkblayout kanata 2) (cmd fcitx5-remote -s mozc))
    uz (multi (cmd hyprctl switchxkblayout kanata 2) (layer-switch graphite-angle-kp) (cmd fcitx5-remote -s keyboard-us))
-   ru (multi (cmd hyprctl switchxkblayout kanata-2 1) (layer-switch qwerty))
+   ru (multi (cmd $set-layout 1) (layer-switch qwerty))
    def (multi (cmd hyprctl switchxkblayout kanata-2 0) (layer-switch default))
    ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
    touchpad (cmd /home/aljustiet/.config/hypr/scripts/touchpad.sh)
 )
 
 (defchordsv2
-  (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
+  ;; (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
   (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
   ;; (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
   (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
@@ -105,8 +105,8 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
   _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
 tab @C-q @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
-  _ n @C-r @C-t @C-s @alft @arght @C-h @C-a e i , ret
-@sft x @C-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
+  _ n @C-r @C-t @C-s @alft @arght @C-h a e i , ret
+lsft x @C-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
 lalt  _    _               _            _  prtsc  _      lft down rght
 )
 
@@ -121,9 +121,9 @@ _    x     m    c    v    q    k     p    .    ,   @/ _ pgup up pgdn
 
 (deflayer lctl_layer
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-grv  1  2  3  4  5  6  7  8  9  0 @A-- @A-+ bspc
+grv  1  2  3  4  5  6  7  8  9  0   -    +  bspc
 tab @A-b   l    d  w    z    @'    f  o @A-u      j  ;     _    _
-_   A-n A-r t s g y left a e i _     _
+_     n   r   t   s   g   y   left  a   e   i   _     _
 lsft     x     m    c  v    b    k   @A-p    .    @-   @/ _     pgup up pgdn
 _   @ascl @alctl          spc               @ng prtsc lalt lft down rght
 )
@@ -187,7 +187,7 @@ esc brdown brup volu f20 prev brup display next pp voldwn volu mute home end ins
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
-@lsftl    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
+@lsft    x     m    c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
 @lctl @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
@@ -293,14 +293,14 @@ esc f1     f2   f3   f4   f5   f6   f7    f8   f9   f10  f11  f12 home end ins d
 @grl  1     2    3    4    5    6     7    8    9    0    [    ]    bspc
 tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
 @ctresc n   r   t    s    g    y     h    a    e    i    @,   ret
-@lsftl    x    m    @A-S-c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
+@lsft    x    m    @A-S-c    v    q    k     p    .    @-   @/   rsft  pgup up pgdn
 @lctl @lmet  @lalt        spc             @ngr @prtsc @rctl lft down rght
 )
 
 (defalias
   A-S-m (multi (release-key ctl) A-m)
   A-S-c (multi (release-key ctl) A-c)
-  lsftl (multi lsft (layer-while-held shift_layer))
+  lsft (multi lsft (layer-while-held lsft_layer))
   C-, (multi (release-key alt) C-,)
   C-- (multi (release-key alt) C--)
   C-/ (multi (release-key alt) C-/)
@@ -374,7 +374,7 @@ lalt  _    _               spc           _    _    _      lft down rght
   _    _    _              spc          _    _    _      lft down rght
 )
 
-(deflayer shift_layer
+(deflayer lsft_layer
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -454,7 +454,6 @@ lctl   _  @lctl            _              _    _    _      lft down rght
     A-tab (multi (release-key ctl) A-tab)
     rctl (multi rctl (layer-while-held c_v))
     C-g C-g
-    lsft lsft
     to (macro C-t C-v ret)
     lwhsat (multi lsft lctl (layer-while-held salt_tweaks))
     A-1 (multi (release-key ctl) A-1)
