@@ -4,7 +4,7 @@ esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute hom
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
 @lsftl    x     m    c    v    q    k     p    .    @-   @/ rsft pgup up pgdn
-@lctl @lmet @lalt        spc             @ngr @prtsc @rctl lft down rght
+@lalt @lmet @lctl         spc             @ngr @prtsc @rctl lft down rght
 )
 
 (deflayer qwerty
@@ -26,9 +26,9 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
 )
 
 (defalias 
-   lalt (multi lalt (layer-while-held alt_tweaks))
-   lmet (multi lmet (layer-while-held lmet_layer))
    lctl (multi lctl (layer-while-held lctl_layer))
+   lmet (multi lmet (layer-while-held lmet_layer))
+   lalt (multi lalt (layer-while-held alt_tweaks))
    ngr (layer-while-held navigation_right)
    ng (layer-while-held navigation)
    grk (multi (cmd hyprctl switchxkblayout kanata-2 0) (layer-switch graphite-angle-kp))

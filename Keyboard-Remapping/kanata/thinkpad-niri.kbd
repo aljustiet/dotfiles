@@ -90,7 +90,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   (lmet lctl) @scl 200 all-released (nothing_layer)
   (lmet caps) (multi lctl lalt (layer-while-held capsmet)) 200 first-release (nothing_layer)
   (lctl lalt) (multi lctl lalt (layer-while-held lclal)) 200 all-released (nothing_layer)
-  (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
+  ;; (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
   (lctl ralt) (multi lctl (layer-while-held navigation)) 200 all-released (nothing_layer)
   (lsft ralt) (multi lsft (layer-while-held navigation)) 200 all-released (nothing_layer)
   (ralt rctl) (multi ralt rctl (layer-while-held mouse_actions)) 200 first-release (nothing_layer)
@@ -98,7 +98,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
   (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
   (lctl ralt lsft) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
-  ;; (lctl lsft lalt) (multi lctl lsft lalt) 200 all-released (nothing_layer)
+  (lctl lsft lalt) (multi lctl lsft lalt) 200 all-released (nothing_layer)
 )
 
 (defcfg
@@ -177,7 +177,7 @@ power
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
 tab b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
   _ @C-n    r @C-t @C-s lft rght @C-h @C-a e i , ret
-@sft x @C-S-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
+lsft x @C-S-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
 lalt  _    _               _            _  prtsc  _      lft down rght
 )
 
@@ -539,7 +539,7 @@ power
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
-lctl   _  @lctl            _              _    _    _      lft down rght
+lctl   _   lctl            _              _    _    _      lft down rght
 )
 
 (deflayer shift_alt_layer
