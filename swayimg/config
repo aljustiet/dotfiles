@@ -33,6 +33,7 @@ status_timeout = 5
 
 [keys.viewer]
 #Home = scale fit
+#Shift+h = scale fit
 #w = scale width
 bracketright = zoom +10
 bracketleft = zoom -10
