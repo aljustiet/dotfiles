@@ -34,3 +34,4 @@ export TEALDEER_CONFIG_DIR=/home/aljustiet/.config/tealdeer
 export BATSIGNAL_CONFIG=/home/aljustiet/.config/batsignal
 export SYSTEMD_PAGER="bat"
 export SYSTEMD_PAGERSECURE="false"
+export TERMINAL="foot"
