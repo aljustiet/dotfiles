@@ -22,14 +22,14 @@ grv  1     2    3    4    5    6     7    8    9    0    -    =    bspc
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 caps a     s    d    f    g    h     j    k    l    ;    '    ret
 lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
-lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
+lctl lalt lmet       spc              rmet fn rctl   lft down rght
 )
 
 (defalias 
    lctl (multi lctl (layer-while-held lctl_layer))
    lmet (multi lmet (layer-while-held lmet_layer))
    lalt (multi lalt (layer-while-held lalt_layer))
-   ngr (layer-while-held navigation_right)
+   ngr (layer-while-held nav-r)
    ng (layer-while-held navigation)
    grk (multi (cmd $set-layout 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle-kp))
    jp (multi (cmd hyprctl switchxkblayout kanata 2) (cmd fcitx5-remote -s mozc))
@@ -42,15 +42,15 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
 
 (defchordsv2
   ;; (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
-  (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
+  ;; (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
   ;; (lalt lsft) (multi lsft lalt (layer-while-held salt_tweaks)) 200 all-released (nothing_layer)
   (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
-  (lctl ralt lsft) (multi alt sft (layer-while-held navigation_right)) 200 all-released (nothing_layer)
+  (lctl ralt lsft) (multi alt sft (layer-while-held nav-r)) 200 all-released (nothing_layer)
   (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
   (lctl ralt) (multi lctl (layer-while-held navigation)) 200 all-released (nothing_layer)
   (lmet ralt) (multi lmet ralt (layer-while-held graphite-angle-kp)) 200 all-released (nothing_layer)
-  (lalt lctl) @lca 200 all-released (nothing_layer)
-  (lmet lctl) @scl 200 all-released (nothing_layer)
+  ;; (lalt lctl) @lca 200 all-released (nothing_layer)
+  ;; (lmet lctl) @scl 200 all-released (nothing_layer)
   (lsft ralt) (multi lsft (layer-while-held navigation)) 200 all-released (nothing_layer)
   (lmet caps) (multi lctl lalt (layer-while-held capsmet)) 200 first-release (nothing_layer)
   (ralt rctl) (multi ralt rctl (layer-while-held mouse_actions)) 200 first-release (nothing_layer)
@@ -58,7 +58,6 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
 
 (defoverrides
   (lalt lsft t) (lctl lsft t)
-  (lctl n) (lalt n)
   (lalt n) (lctl n)
   (lctl ]) (lalt =)
   (lctl [) (lalt -)
@@ -70,7 +69,6 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
 
 (defcfg
   linux-dev-names-include (
-    "Keychron Keychron K2"
 	"Keychron K2"
   )
   linux-device-detect-mode keyboard-only
@@ -89,9 +87,11 @@ lctl lmet lalt       spc              ralt prtsc rctl   lft down rght
    pickup 445
    hangup 446
    favorites 156
+   fn 464
 )
 
 (defvar
+  set-layout /home/aljustiet/.local/bin/set-layout.sh
   tap-timeout 200
   hold-timeout 200
   tap-dance-timeout 200
@@ -115,17 +115,17 @@ _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 _    _    _    _    _    _    _    _    _    _    _    -    =    _
 _    b     l    d    w    z    @'    f    o    u    j  ;    =    _
 _    n     r    t    s    g    y     h    a    e    i  @,   _
-_    x     m    c    v    q    k     p    .    ,   @/ _ pgup up pgdn
-@scl   _    _           _             _   prtsc _      lft down rght
+_    x     m    c    v    q    k     p    .    ,    / _ pgup up pgdn
+_    _    _           _             _   prtsc _      lft down rght
 )
 
 (deflayer lctl_layer
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 grv  1  2  3  4  5  6  7  8  9  0   -    +  bspc
-tab @A-b   l    d  w    z    @'    f  o @A-u      j  ;     _    _
+tab    b   l    d  w    z    @'    f  o  u  j  ;     _    _
 _     n   r   t   s   g   y   left  a   e   i   _     _
-lsft     x     m    c  v    b    k   @A-p    .    @-   @/ _     pgup up pgdn
-_   @ascl @alctl          spc               @ng prtsc lalt lft down rght
+lsft     x     m    c  v    q    k   @A-p    .    @-   @/ _     pgup up pgdn
+_    _    _              spc               @ng prtsc lalt lft down rght
 )
 
 (deflayer default
@@ -218,7 +218,7 @@ lsft  _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
 _    _   lctl            _              _    _    _      lft down rght
 )
 
-(deflayer navigation_right
+(deflayer nav-r
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
 _   A-1  A-2  A-3  A-4  A-5  A-6  A-7  A-8  A-9  A-0  _    _    _
 _    _    _   pgdn pgup  _    _  pgup pgdn pgup   _    _    _    _
@@ -445,7 +445,7 @@ lctl   _  @lctl            _              _    _    _      lft down rght
     ewm (multi (release-key met) =)
     pwm (multi (release-key met) S-5)
     dwm (multi (release-key met) S-2)
-    prtsc (layer-while-held navigation_right)
+    prtsc (layer-while-held nav-r)
     swa (multi (release-key alt) ;)
     ewa (multi (release-key alt) =)
     pwa (multi (release-key alt) S-5)
