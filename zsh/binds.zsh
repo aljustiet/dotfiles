@@ -24,4 +24,6 @@ bindkey -M vicmd db backward-delete-word
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^H' backward-kill-word
-bindkey -M viins '\e\r' 'vi-open-line-below'
+#bindkey -M viins '\e\r' 'vi-open-line-below'
+bindkey -M viins "^[[27;5;13~" 'autosuggest-execute'
+bindkey -M viins "^[[27;2;13~" "vi-open-line-below"
