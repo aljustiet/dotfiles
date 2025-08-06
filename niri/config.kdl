@@ -9,8 +9,9 @@
 spawn-at-startup "dash" "-c" "wl-paste --type text --watch cliphist store"
 spawn-at-startup "dash" "-c" "wl-paste --type image --watch cliphist store"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "solaar --window=hide"
-spawn-at-startup "foot --server"
+spawn-at-startup "solaar" "--window=hide"
+spawn-at-startup "foot" "--server"
+spawn-at-startup "gammastep"
 input {
     keyboard {
         xkb {
@@ -29,7 +30,7 @@ input {
     // Next sections include libinput settings.
     // Omitting settings disables them, or leaves them at their default values.
     touchpad {
-        // off
+        //off
         tap
         dwt
         // dwtp
@@ -76,31 +77,32 @@ input {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
-  mode "1920x1200"
-  scale 1.6
-  position x=280 y=900
-  variable-refresh-rate
+    //off
+    mode "1920x1200"
+    scale 1.6
+    position x=280 y=900
+    variable-refresh-rate
 }
 output "HDMI-A-1" {
-  mode "3840x2160"
-  scale 2.4
-  position x=0 y=0
-  focus-at-startup
-  variable-refresh-rate
+    mode "3840x2160"
+    scale 2.4
+    position x=0 y=0
+    focus-at-startup
+    variable-refresh-rate
 }
 output "DP-2" {
-  mode "3840x2160"
-  scale 2.4
-  position x=0 y=0
-  focus-at-startup
-  variable-refresh-rate
+    mode "3840x2160"
+    scale 2.4
+    position x=0 y=0
+    focus-at-startup
+    variable-refresh-rate
 }
 output "DP-1" {
-  mode "3840x2160"
-  scale 2.4
-  position x=0 y=0
-  focus-at-startup
-  variable-refresh-rate
+    mode "3840x2160"
+    scale 2.4
+    position x=0 y=0
+    focus-at-startup
+    variable-refresh-rate
 }
 /-output "eDP-1" {
     // Uncomment this line to disable this output.
@@ -371,12 +373,14 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Alt+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
+    Ctrl+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
     Super+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+K hotkey-overlay-title="Launch the browser: zen" { spawn "zen-browser"; }
     Ctrl+Shift+M hotkey-overlay-title="Show the clipboard history: rofi + cliphist" { spawn "dash" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy" ;}
     Super+Space hotkey-overlay-title="Search for windows: rofi" { spawn "rofi" "-show" "window" ;}
+    Super+N hotkey-overlay-title="Toggle Notification panel: swaync" { spawn "swaync-client" "-t" "-sw" ;}
+    Ctrl+Apostrophe hotkey-overlay-title="Open Emoji List: bemoji" { spawn "bemoji" "--noline" "--type" "--clip" ;}
 
     Super+H { focus-column-left; }
     Super+A { focus-window-down; }
@@ -404,10 +408,10 @@ binds {
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
+    Mod+Alt+H     { move-column-left; }
+    Mod+Alt+A     { move-window-down; }
+    Mod+Alt+E     { move-window-up; }
+    Mod+Alt+I     { move-column-right; }
     
 
     // Alternative commands that move across workspaces when reaching
@@ -427,18 +431,20 @@ binds {
     Mod+Shift+Up    { focus-monitor-up; }
     Mod+Shift+Right { focus-monitor-right; }
     Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    Mod+Shift+A     { focus-monitor-down; }
+    Mod+Shift+E     { focus-monitor-up; }
+    Mod+Shift+I     { focus-monitor-right; }
+    Mod+Shift+O     { focus-monitor-down; }
+    Mod+Shift+U     { focus-monitor-up; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    Mod+Shift+Alt+H     { move-column-to-monitor-left; }
+    Mod+Shift+Alt+A     { move-column-to-monitor-down; }
+    Mod+Shift+Alt+E     { move-column-to-monitor-up; }
+    Mod+Shift+Alt+I     { move-column-to-monitor-right; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
@@ -451,10 +457,10 @@ binds {
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
     
-    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
-    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
-    Mod+Ctrl+U         { move-column-to-workspace-down; }
-    Mod+Ctrl+I         { move-column-to-workspace-up; }
+    Mod+Alt+Page_Down { move-column-to-workspace-down; }
+    Mod+Alt+Page_Up   { move-column-to-workspace-up; }
+    Mod+Alt+O         { move-column-to-workspace-down; }
+    Mod+Alt+U         { move-column-to-workspace-up; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
@@ -462,8 +468,8 @@ binds {
 
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
-    Mod+Shift+U         { move-workspace-down; }
-    Mod+Shift+I         { move-workspace-up; }
+    // Mod+Shift+O         { move-workspace-down; }
+    // Mod+Shift+U         { move-workspace-up; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.
@@ -473,20 +479,20 @@ binds {
     // You can set a cooldown on any bind, but it's most useful for the wheel.
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+    Mod+Alt+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Alt+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
     Mod+WheelScrollRight      { focus-column-right; }
     Mod+WheelScrollLeft       { focus-column-left; }
-    Mod+Ctrl+WheelScrollRight { move-column-right; }
-    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+    Mod+Alt+WheelScrollRight { move-column-right; }
+    Mod+Alt+WheelScrollLeft  { move-column-left; }
 
     // Usually scrolling up and down with Shift in applications results in
     // horizontal scrolling; these binds replicate that.
     Mod+Shift+WheelScrollDown      { focus-column-right; }
     Mod+Shift+WheelScrollUp        { focus-column-left; }
-    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+    Mod+Alt+Shift+WheelScrollDown { move-column-right; }
+    Mod+Alt+Shift+WheelScrollUp   { move-column-left; }
 
     // Similarly, you can bind touchpad scroll "ticks".
     // Touchpad scrolling is continuous, so for these binds it is split into
@@ -528,7 +534,7 @@ binds {
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
     // Switches focus between the current and the previous workspace.
-    // Mod+Tab { focus-workspace-previous; }
+    Mod+Tab { focus-workspace-previous; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
@@ -599,7 +605,6 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
@@ -607,28 +612,29 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 environment {
-  DISPLAY ":0"
-  QT_AUTO_SCREEN_SCALE_FACTOR "1"
-  QT_QPA_PLATFORM "wayland;xcb"
-  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-  QT_QPA_PLATFORMTHEME "qt5ct"
-  QT_IM_MODULES "wayland;fcitx;ibus"
-  XDG_DATA_DIRS "/home/aljustiet/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/"
-  XCURSOR_SIZE "32"
-  XDG_BACKEND "wayland"
-  XDG_CURRENT_DESKTOP "Niri"
-  XDG_SESSION_TYPE "wayland"
-  XDG_SESSION_DESKTOP "Niri"
-  SDL_VIDEODRIVER "wayland,x11"
-  CLUTTER_BACKEND "wayland"
-  ELECTRON_OZONE_PLATFORM_HINT "wayland"
-  // SHELL "/usr/bin/zsh"
-  // MOZ_ENABLE_WAYLAND "1"
-  // LANG "C.UTF-8"
+    DISPLAY ":0"
+    QT_AUTO_SCREEN_SCALE_FACTOR "1"
+    QT_QPA_PLATFORM "wayland;xcb"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_QPA_PLATFORMTHEME "qt5ct"
+    QT_IM_MODULES "wayland;fcitx;ibus"
+    XDG_DATA_DIRS "/home/aljustiet/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/"
+    XCURSOR_SIZE "32"
+    XDG_BACKEND "wayland"
+    XDG_CURRENT_DESKTOP "Niri"
+    XDG_SESSION_TYPE "wayland"
+    XDG_SESSION_DESKTOP "Niri"
+    SDL_VIDEODRIVER "wayland,x11"
+    CLUTTER_BACKEND "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    BEMOJI_PICKER_CMD "rofi -dmenu"
+    // SHELL "/usr/bin/zsh"
+    // MOZ_ENABLE_WAYLAND "1"
+    // LANG "C.UTF-8"
 }
 cursor {
-  xcursor-theme "Bibata-Modern-Classic"
-  xcursor-size 32
-  hide-when-typing
-  hide-after-inactive-ms 60000
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 32
+    hide-when-typing
+    hide-after-inactive-ms 60000
 }
