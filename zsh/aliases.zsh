@@ -183,8 +183,8 @@ vpf() {
 }
 clean() {
   paru -Sc
-  paru -Qttdq | paru -Rns -
-  paru -Qqd | paru -Rsu -
+  pacman -Qttdq | pacman -Rns -
+  pacman -Qqd | pacman -Rsu -
   flatpak remove --unused
 }
 cap() {
