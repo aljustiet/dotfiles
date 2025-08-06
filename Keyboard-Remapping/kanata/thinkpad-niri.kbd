@@ -8,6 +8,16 @@ tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @lalt @lmet  @lctl        spc             @ngr prtsc @rctl lft down rght
 )
 
+(deflayer qwerty
+power
+esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute home end ins del
+@grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
+tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
+@ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
+@lsl z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
+@lalt @lmet @lctl         spc              @ngr prtsc @rctl  lft down rght
+)
+
 (deflayer graphite-angle-kp_without_tweaks
 @cm1
 esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute home end ins del
@@ -37,16 +47,6 @@ _ _ _          _      _ _ _ _ _ _
 ;; lsft z     x    c    v    b  n     m    ,    .    /    rsft pgup up pgdn
 ;; lctl lmet lalt          spc              @ngr prtsc rctl   lft down rght
 ;; )
-
-(deflayer qwerty
-power
-esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute home end ins del
-@grl  1     2    3    4    5    6     7    8    9    0    -    =    bspc
-tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
-@ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
-@lsl z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
-@lctl @lmet @lalt         spc              @ngr @nlayer rctl  lft down rght
-)
 
 (defsrc
 power                                                                                                     
@@ -87,7 +87,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   (lalt ralt) (multi lalt ralt (layer-while-held lalt_ralt_navigation)) 200 all-released (nothing_layer)
   (lmet ralt) (multi lmet ralt (layer-while-held graphite-angle-kp)) 200 all-released (nothing_layer)
   (lmet lsft) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
-  (lmet lctl) @scl 200 all-released (nothing_layer)
+  ;; (lmet lctl) @scl 200 all-released (nothing_layer)
   (lmet caps) (multi lctl lalt (layer-while-held capsmet)) 200 first-release (nothing_layer)
   (lctl lalt) (multi lctl lalt (layer-while-held lclal)) 200 all-released (nothing_layer)
   ;; (lctl lsft) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
@@ -154,7 +154,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 (deflayer layers
 power
 _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-_    @grk @ru @def @grkwt @uz @ara   _    _    _    _    _    _   @nl
+_    @grk @ru @jp @ara   @uz @ara   _    _    _    @def _    _   @nl
 _    _    _    _    _    _    _    _    _    _    _    _    _    _
 _    _   lrld  _    _    _    _    _    _    _    _    _    _
 _    _    _    _    _    _    _    _    _    _    _    _ pgup up pgdn
@@ -176,7 +176,7 @@ power
   _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
 tab b @C-l @C-d @C-w @C-z    @' @C-f @C-o @C-u j @C-; @C-= \
-  _ @C-n    r @C-t @C-s lft rght @C-h @C-a e i , ret
+  _ @C-n    r @C-t @C-s lft rght @C-h  a e i , ret
 lsft x @C-S-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
 lalt  _    _               _            _  prtsc  _      lft down rght
 )
@@ -381,7 +381,7 @@ _    _    _    _    _    _    _    _    _    _    _    -    =    _
 _    b     l    d    w    z    @'    f    o    u    j  ;    =    _
 _    n     r    t    s    g    y     h    a    e    i  @,   _
 _    x     m    c    v    q    k     p    .    ,    /  _ pgup up pgdn
-@scl   _    _           _             _   prtsc _      lft down rght
+_      _    _           _             _   prtsc _      lft down rght
 )
 
 (defoverrides
