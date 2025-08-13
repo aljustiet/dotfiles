@@ -195,6 +195,7 @@ only = [
 # See: https://docs.rs/tracing-subscriber/latest/tracing_subscriber/filter/struct.EnvFilter.html#directives
 # log_filters = ["topgrade::command=debug", "warn"]
 
+show_distribution_summary = false
 
 # Commands to run before anything
 [pre_commands]

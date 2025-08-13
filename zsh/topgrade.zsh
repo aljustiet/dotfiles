@@ -1,0 +1,1 @@
+alias fu="topgrade --yes"

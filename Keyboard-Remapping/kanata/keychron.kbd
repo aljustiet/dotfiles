@@ -4,7 +4,7 @@ esc brdown brup prev next @touchpad f20 display airplane pp voldwn volu mute hom
 tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 @ctresc n   r  t   s    g    y     h    a    e    i    @,   ret
 @lsft    x     m    c    v    q    k     p    .    @-   @/ rsft pgup up pgdn
-@lalt @lmet @lctl         spc             @ngr @prtsc @rctl lft down rght
+@lalt @lmet @lctl         spc             @ngr prtsc @rctl lft down rght
 )
 
 (deflayer qwerty
@@ -13,7 +13,7 @@ esc brdown brup volu f20 prev brup display next pp voldwn volu mute home end ins
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
 @lsft z     x    c    v    b    n     m    ,    .    /    rsft     pgup up pgdn
-@lctl @lmet @lalt         spc              @ngr @nlayer rctl  lft down rght
+@lalt @lmet @lctl         spc              @ngr @nlayer rctl  lft down rght
 )
 
 (defsrc
@@ -69,7 +69,8 @@ lctl lalt lmet       spc              rmet fn rctl   lft down rght
 
 (defcfg
   linux-dev-names-include (
-	"Keychron K2"
+	"Keychron K2 Keyboard"
+	"Keychron Keychron K2"
   )
   linux-device-detect-mode keyboard-only
   concurrent-tap-hold true
@@ -77,7 +78,7 @@ lctl lalt lmet       spc              rmet fn rctl   lft down rght
   danger-enable-cmd yes
   allow-hardware-repeat false
   override-release-on-activation yes
-;;log-layer-changes no
+  log-layer-changes no
 )
 
 (deflocalkeys-linux
@@ -121,11 +122,11 @@ _    _    _           _             _   prtsc _      lft down rght
 
 (deflayer lctl_layer
 _     _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
-grv  1  2  3  4  5  6  7  8  9  0   -    +  bspc
+grv  1  2  3  4  5  6  7  8  9  0   -    =  bspc
 tab    b   l    d  w    z    @'    f  o  u  j  ;     _    _
-_     n   r   t   s   g   y   left  a   e   i   _     _
-lsft     x     m    c  v    q    k   @A-p    .    @-   @/ _     pgup up pgdn
-_    _    _              spc               @ng prtsc lalt lft down rght
+_     n   r   t   s   g   y   h     a   e   i   _     _
+lsft     x     m    c  v    q    k      p    .    @-   @/ _     pgup up pgdn
+lalt _    _              spc               @ng prtsc lalt lft down rght
 )
 
 (deflayer default

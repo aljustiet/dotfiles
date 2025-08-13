@@ -907,7 +907,7 @@ require('lazy').setup({
         },
       }
       vim.cmd.colorscheme 'gruvbox'
-      vim.o.background = 'dark'
+      vim.o.background = 'light'
     end,
   },
 --  opts = {
