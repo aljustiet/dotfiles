@@ -99,7 +99,8 @@ alias kl="pkill -f /usr/lib/librewolf/librewolf"
 alias kf="pkill -f /usr/lib/firefox/firefox"
 alias hree="hyprctl dispatcher exec 'easyeffects --gapplication-service'"
 
-alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
+#alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
+alias ssoa="adb shell /data/app/~~EOh7a9xbXguULq9tbHCr3A==/moe.shizuku.privileged.api-7CGqOIF4ejSauvhdJTP_Bw==/lib/arm64/libshizuku.so"
 alias tokei="tokei --sort code"
 alias ma="doas mount -a"
 alias uma="doas umount /mnt/hdd /mnt/usb"
@@ -172,7 +173,6 @@ rmib() {
 
 # Pacman
 alias pacman="doas pacman"
-alias fu="topgrade"
 alias vpl="bat --pager='less -F -X -R +G' /var/log/pacman.log"
 alias i="doas pacman -S --noconfirm"
 alias r="doas pacman -Rns --noconfirm"

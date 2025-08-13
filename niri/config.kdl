@@ -8,10 +8,13 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 spawn-at-startup "dash" "-c" "wl-paste --type text --watch cliphist store"
 spawn-at-startup "dash" "-c" "wl-paste --type image --watch cliphist store"
-spawn-at-startup "xwayland-satellite"
+// spawn-at-startup "xwayland-satellite"
 spawn-at-startup "solaar" "--window=hide"
 spawn-at-startup "foot" "--server"
 spawn-at-startup "gammastep"
+spawn-at-startup "dash" "-c" "pidof batsignal && batsignal"
+spawn-at-startup "kdeconnectd"
+spawn-at-startup "sh" "-c" "/home/aljustiet/go/bin/niri-screen-time -daemon >> niri-screen-time.log 2>&1"
 input {
     keyboard {
         xkb {
@@ -395,6 +398,8 @@ binds {
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
+    Shift+XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    Shift+XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "dash" "-c" "brightnessctl --quiet s 2%-"; }

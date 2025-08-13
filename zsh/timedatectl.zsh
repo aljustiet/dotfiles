@@ -1,0 +1,1 @@
+alias timedatectl="doas timedatectl"
