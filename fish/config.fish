@@ -1,7 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
-
+set fish_greeting
 # Environment variables
 set -gx LESS "--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
 set -gx PATH "$PATH:/home/aljustiet/.local/bin"
