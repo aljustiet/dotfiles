@@ -97,7 +97,7 @@ alias hde="hyprctl dispatcher exec"
 alias watch="watch --color --interval 1 --no-title"
 alias kl="pkill -f /usr/lib/librewolf/librewolf"
 alias kf="pkill -f /usr/lib/firefox/firefox"
-alias hree="hyprctl dispatcher exec 'easyeffects --gapplication-service'"
+alias hree="niri msg action spawn -- 'sh' '-c' 'easyeffects --gapplication-service'"
 
 #alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
 alias ssoa="adb shell /data/app/~~EOh7a9xbXguULq9tbHCr3A==/moe.shizuku.privileged.api-7CGqOIF4ejSauvhdJTP_Bw==/lib/arm64/libshizuku.so"

@@ -87,9 +87,9 @@ output "eDP-1" {
     variable-refresh-rate
 }
 output "HDMI-A-1" {
-    mode "3840x2160"
-    scale 2.4
-    position x=0 y=0
+    mode "1920x1080"
+    scale 1.6
+    position x=-1200 y=500
     focus-at-startup
     variable-refresh-rate
 }
