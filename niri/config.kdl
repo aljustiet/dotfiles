@@ -380,7 +380,7 @@ binds {
     Super+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+K hotkey-overlay-title="Launch the browser: zen" { spawn "zen-browser"; }
-    Ctrl+Shift+M hotkey-overlay-title="Show the clipboard history: rofi + cliphist" { spawn "dash" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy" ;}
+    Ctrl+Shift+M hotkey-overlay-title="Show the clipboard history: rofi + cliphist" { spawn "dash" "-c" "cliphist list | rofi -dmenu -i | cliphist decode | wl-copy" ;}
     Super+Space hotkey-overlay-title="Search for windows: rofi" { spawn "rofi" "-show" "window" ;}
     Super+N hotkey-overlay-title="Toggle Notification panel: swaync" { spawn "swaync-client" "-t" "-sw" ;}
     Ctrl+Apostrophe hotkey-overlay-title="Open Emoji List: bemoji" { spawn "bemoji" "--noline" "--type" "--clip" ;}
