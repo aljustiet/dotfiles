@@ -96,6 +96,8 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   (lsft ralt) (multi lsft (layer-while-held navigation)) 200 all-released (nothing_layer)
   (ralt rctl) (multi ralt rctl (layer-while-held mouse_actions)) 200 first-release (nothing_layer)
   (ralt caps) (layer-while-held navigate_channels) 200 first-release (nothing_layer)
+  (lalt lsft) (multi lctl lsft (layer-while-held lctl_layer)) 200 first-release (nothing_layer)
+  (lctl lsft) (multi lalt lsft (layer-while-held lalt_layer)) 200 first-release (nothing_layer)
   (lalt lsft ralt) (multi lctl lsft (layer-while-held lsft_lalt_ralt_navigation_layer)) 200 all-released (nothing_layer)
   (lmet lalt lsft) (multi lmet lalt lsft) 200 all-released (nothing_layer)
   (lctl ralt lsft) (multi alt sft (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
@@ -115,7 +117,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   process-unmapped-keys yes
   danger-enable-cmd yes
   allow-hardware-repeat true
-  log-layer-changes no
+;;log-layer-changes no
 )
 
 (deflocalkeys-linux
@@ -177,7 +179,7 @@ power
   _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
 tab b @C-l @C-d @C-w @C-z    @' @C-f @C-o    u j @C-; @C-= \
-  _ @C-n    r @C-t @C-s lft rght @C-h  a e i , ret
+  _ @C-n    r @C-t @C-s g   y    @C-h  a e i , ret
 lsft x @C-S-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
 lalt  _    _               _            _  prtsc  _      lft down rght
 )
