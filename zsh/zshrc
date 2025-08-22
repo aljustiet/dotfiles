@@ -70,10 +70,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 autoload bashcompinit
 bashcompinit
-source "/home/aljustiet/.bash_completion"
 
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(scc completion --shell zsh)"
 eval "$(fzf --zsh)"
 eval "$(leetcode completions zsh)"
 bindkey -r "^[c"

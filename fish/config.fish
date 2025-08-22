@@ -1,6 +1,8 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+bind ctrl-enter accept-autosuggestion 
+bind shift-enter insert-line-under
 set fish_greeting
 # Environment variables
 set -gx LESS "--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
