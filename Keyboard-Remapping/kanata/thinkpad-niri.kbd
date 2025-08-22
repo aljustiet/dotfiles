@@ -63,7 +63,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   lmet (multi lmet (layer-while-held lmet_layer))
   lalt (multi lalt (layer-while-held lalt_layer))
   ngr (layer-while-held navigation_right)
-  rctl (multi rctl (layer-while-held rctl_layer))
+  rctl (layer-while-held rctl_layer)
   lsl (multi lsft (layer-while-held shift_layer))
   grl (tap-hold-press 200 200 grv (layer-toggle layers))
   grk (multi (cmd $set-layout 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle-kp))
@@ -77,10 +77,14 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
 )
 
 (defalias 
-   cm1 (cmd niri msg action power-off-monitors)
-   cm2 (cmd systemctl suspend)
-   touchpad (cmd /home/aljustiet/.config/hypr/scripts/touchpad.sh)
-   telegram (cmd hyprctl dispatch togglespecialworkspace telegram-desktop)
+  cm1 (cmd niri msg action power-off-monitors)
+  cm2 (cmd systemctl suspend)
+  touchpad (cmd /home/aljustiet/.config/hypr/scripts/touchpad.sh)
+  telegram (cmd hyprctl dispatch togglespecialworkspace telegram-desktop)
+)
+
+(defalias
+  email (macro a l j u s t i e t S-2 t u t a m a i l . c o m)
 )
 
 (defchordsv2
@@ -560,7 +564,7 @@ power
   _    _    _    _    _    _    _    _    _    _    _    _    _    _   _   _   _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
 @A-tab _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _  @email    _    _    _
   _    _    x    c    v    m    _    _    _    _    _    _ pgup up pgdn
   _    _    _              _              _    _    _      lft down rght
 )
