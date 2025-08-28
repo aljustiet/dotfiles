@@ -1094,6 +1094,9 @@ keymap('v', 't', 'i', opts)
 vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>gi', { noremap = true, silent = true })
 vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-a>', 'ggVG', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-a>', '<Esc>ggVG', { noremap = true, silent = true })
+vim.keymap.set('v', '<C-a>', '<Esc>ggVG', { noremap = true, silent = true })
 
 
 -- File: ~/.config/nvim/init.lua

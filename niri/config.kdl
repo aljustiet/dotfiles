@@ -14,7 +14,7 @@ spawn-at-startup "foot" "--server"
 spawn-at-startup "gammastep"
 spawn-at-startup "dash" "-c" "pidof batsignal && batsignal"
 spawn-at-startup "kdeconnectd"
-spawn-at-startup "sh" "-c" "/home/aljustiet/go/bin/niri-screen-time -daemon >> niri-screen-time.log 2>&1"
+spawn-at-startup "sh" "-c" "/home/aljustiet/documents/go/bin/niri-screen-time -daemon >/dev/null 2>&1"
 input {
     keyboard {
         xkb {
@@ -87,9 +87,9 @@ output "eDP-1" {
     variable-refresh-rate
 }
 output "HDMI-A-1" {
-    mode "1920x1080"
+    mode "2560x1440"
     scale 1.6
-    position x=-1200 y=500
+    position x=-1600 y=300
     focus-at-startup
     variable-refresh-rate
 }
@@ -191,7 +191,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 4
+        width 3
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -633,6 +633,9 @@ environment {
     CLUTTER_BACKEND "wayland"
     ELECTRON_OZONE_PLATFORM_HINT "wayland"
     BEMOJI_PICKER_CMD "rofi -dmenu"
+    MOZ_ENABLE_WAYLAND "1"
+    GDK_BACKEND "wayland,x11"
+    GDK_SCALE "2.4"
     // SHELL "/usr/bin/zsh"
     // MOZ_ENABLE_WAYLAND "1"
     // LANG "C.UTF-8"
