@@ -121,7 +121,7 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   process-unmapped-keys yes
   danger-enable-cmd yes
   allow-hardware-repeat true
-;;log-layer-changes no
+  log-layer-changes no
 )
 
 (deflocalkeys-linux
@@ -182,7 +182,7 @@ tab     b    l    d    w    z    @'    f    o    u  j    ;    =    \
 power
   _    _    _    _    _    _    _    _    _    _    _    _    _   @dline _   _   _
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
-tab b @C-l @C-d @C-w @C-z    @' @C-f @C-o    u j @C-; @C-= \
+tab b @C-l  _   @C-w @C-z    @' @C-f @C-o    u j @C-; @C-= \
   _ @C-n    r @C-t @C-s g   y    @C-h  a e i , ret
 lsft x @C-S-x @C-c @C-v q @C-k @C-p . - /   @C-rsft pgup up pgdn
 lalt  _    _               _            _  prtsc  _      lft down rght
