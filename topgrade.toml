@@ -1,4 +1,4 @@
-# Include any additional configuration file(s)
+# Inclue any additional configuration file(s)
 # [include] sections are processed in the order you write them
 # Files in $CONFIG_DIR/topgrade.d/ are automatically included before this file
 [include]
@@ -175,7 +175,7 @@ sudo_command = "doas"
 # Run specific steps - same options as the command line flag
 only = [
   "system",
-  "tldr",
+  "home_manager",
   "config_update"
 ]
 
@@ -190,8 +190,6 @@ only = [
 # These are prepended to the `--log-filter` argument
 # See: https://docs.rs/tracing-subscriber/latest/tracing_subscriber/filter/struct.EnvFilter.html#directives
 # log_filters = ["topgrade::command=debug", "warn"]
-
-show_distribution_summary = false
 
 # Commands to run before anything
 [pre_commands]
