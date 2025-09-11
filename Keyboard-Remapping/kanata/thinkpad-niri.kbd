@@ -66,9 +66,9 @@ lctl lmet  lalt          spc              ralt prtsc rctl   lft down rght
   rctl (layer-while-held rctl_layer)
   lsl (multi lsft (layer-while-held shift_layer))
   grl (tap-hold-press 200 200 grv (layer-toggle layers))
-  grk (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle-kp))
+  grk (multi (cmd $set-layout 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle-kp))
   grkwt (multi (cmd $set-layout 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle-kp_without_tweaks))
-  ru (multi (cmd niri msg action switch-layout 1) (layer-switch qwerty))
+  ru (multi (cmd $set-layout 1) (layer-switch qwerty))
   ara (multi (layer-switch graphite-angle-kp) (cmd hyprctl switchxkblayout kanata 0) (cmd fcitx5-remote -s keyboard-ara))
   def (multi (cmd hyprctl switchxkblayout kanata 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch qwerty))
   jp (multi (layer-switch graphite-angle-kp)(cmd $set-layout 0) (cmd fcitx5-remote -s mozc))
@@ -682,5 +682,3 @@ power
   hw (multi (release-key lctl) (release-key lalt) M-mlft)
   hr (multi (release-key lctl) (release-key lalt) M-mrgt)
 )
-
-
