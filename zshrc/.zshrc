@@ -20,6 +20,7 @@ source ~/.config/zshrc/timedatectl.zsh
 source ~/.config/zshrc/go.zsh
 source ~/.config/zshrc/path.zsh
 source ~/.config/zshrc/nixos.zsh
+source ~/.config/zshrc/doas.zsh
 #for file in ~/.config/zsh/**/*; do
 #    if [[ -f $file ]]; then
 #        source "$file"
