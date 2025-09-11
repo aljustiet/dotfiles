@@ -6,7 +6,7 @@ Requires=graphical-session.target
 [Service]
 Type=simple
 WorkingDirectory=/home/aljustiet/.dotfiles/Keyboard-Remapping/kanata
-ExecStart=kanata --nodelay --port 10000 --cfg config.kbd
+ExecStart=kanata --quiet --nodelay --port 10000 --cfg config.kbd
 Restart=no
 
 [Install]

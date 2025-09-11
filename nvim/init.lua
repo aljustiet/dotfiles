@@ -205,10 +205,10 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
@@ -1046,57 +1046,63 @@ vim.opt.wrapscan = false
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.g.have_nerd_font = true
-vim.opt.showcmd = false
+vim.opt.showcmd = true
 
-local keymap = vim.api.nvim_set_keymap
+local set = vim.keymap.set
+local del = vim.keymap.del
 local opts = { noremap = true, silent = true }
 
 -- Key mappings
-keymap('n', '.r', ':source ~/.config/nvim/init.lua<CR>', opts)
-keymap('n', '.y', '"+y', opts)
-keymap('v', '.y', '"+y', opts)
+set('n', '.r', ':source ~/.config/nvim/init.lua<CR>', opts)
+set('n', '.y', '"+y', opts)
+set('v', '.y', '"+y', opts)
 
-keymap('n', 'a', 'gj', opts)
-keymap('n', 'e', 'gk', opts)
-keymap('n', 'i', 'l', opts)
-keymap('n', 't', 'i', opts)
-keymap('n', 's', 'a', opts)
-keymap('n', 'T', 'I', opts)
-keymap('n', 'S', 'A', opts)
-keymap('n', 'l', 'w', opts)
-keymap('n', 'L', 'W', opts)
-keymap('n', 'w', 'e', opts)
-keymap('n', 'W', 'E', opts)
-keymap('n', 'm', 'x', opts)
-keymap('n', ';', ':', opts)
-keymap('n', 'dl', 'de', opts)
-keymap('n', 'cl', 'ce', opts)
-keymap('n', 'ga', 'gj', opts)
-keymap('n', 'ge', 'gk', opts)
-keymap('n', 'ca', 'cj', opts)
-keymap('n', 'ce', 'ck', opts)
-keymap('n', 'ci', 'cl', opts)
+set('n', 'a', 'gj', opts)
+set('n', 'e', 'gk', opts)
+set('n', 'i', 'l', opts)
+set('n', 't', 'i', opts)
+set('n', 's', 'a', opts)
+set('n', 'T', 'I', opts)
+set('n', 'S', 'A', opts)
+set('n', 'l', 'w', opts)
+set('n', 'L', 'W', opts)
+set('n', 'w', 'e', opts)
+set('n', 'W', 'E', opts)
+set('n', 'm', 'x', opts)
+set('n', ';', ':')
+set('n', 'dl', 'de', opts)
+set('n', 'cl', 'ce', opts)
+set('n', 'ga', 'gj', opts)
+set('n', 'ge', 'gk', opts)
+set('n', 'ca', 'cj', opts)
+set('n', 'ce', 'ck', opts)
+set('n', 'ci', 'cl', opts)
 
-keymap('v', 'm', 'x', opts)
-keymap('v', 'i', 'l', opts)
-keymap('v', 'a', 'gj', opts)
-keymap('v', 'e', 'gk', opts)
-keymap('v', 'T', 'I', opts)
-keymap('v', 'S', 'A', opts)
-keymap('n', 'ya', 'yj', opts)
-keymap('n', 'ye', 'yk', opts)
+set('v', 'm', 'x', opts)
+set('v', 'i', 'l', opts)
+set('v', 'a', 'gj', opts)
+set('v', 'e', 'gk', opts)
+set('v', 'T', 'I', opts)
+set('v', 'S', 'A', opts)
+set('n', 'ya', 'yj', opts)
+set('n', 'ye', 'yk', opts)
 
-keymap('o', 's', 'a', opts)
-keymap('v', 's', 'a', opts)
+set('o', 's', 'a', opts)
+set('v', 's', 'a', opts)
 
-keymap('o', 't', 'i', opts)
-keymap('v', 't', 'i', opts)
-vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>gi', { noremap = true, silent = true })
-vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-a>', 'ggVG', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-a>', '<Esc>ggVG', { noremap = true, silent = true })
-vim.keymap.set('v', '<C-a>', '<Esc>ggVG', { noremap = true, silent = true })
+set('o', 't', 'i', opts)
+set('v', 't', 'i', opts)
+set('n', '<C-s>', ':w<CR>', opts)
+set('i', '<C-s>', '<Esc>:w<CR>gi', opts)
+set('v', '<C-s>', '<Esc>:w<CR>gv', opts)
+set('n', '<C-a>', 'ggVG', opts)
+set('i', '<C-a>', '<Esc>ggVG', opts)
+set('v', '<C-a>', '<Esc>ggVG', opts)
+set('n', '<Tab>', ':tabnext<CR>', opts)
+set('n', '<S-Tab>', ':tabprevious<CR>', opts)
+set('n', '<C-t>', ':tabnew<CR>', opts)
+set('n', '<C-x>', ':tabclose<CR>', opts)
+set('i', '<C-BS>', '<C-w>', opts)
 
 
 -- File: ~/.config/nvim/init.lua

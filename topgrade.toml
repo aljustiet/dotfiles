@@ -174,12 +174,10 @@ sudo_command = "doas"
 
 # Run specific steps - same options as the command line flag
 only = [
-  "app_man",
-  "flatpak",
-  "firmware",
-  "rustup",
   "system",
-  "tldr",
+  "app_man",
+  "firmware",
+  "flatpak",
   "config_update"
 ]
 

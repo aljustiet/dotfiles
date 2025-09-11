@@ -112,7 +112,7 @@ ub() {
 # alias ub="unbuffer"
 alias zathura="zathura -l error"
 alias za="zathura -l error"
-alias mount="doas mount -o uid=aljustiet,gid=aljustiet"
+alias mount="doas mount"
 alias kt="pkill -f telegram-desktop"
 
 alias hi="hyprctl dispatcher exec hypridle"

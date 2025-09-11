@@ -3,12 +3,9 @@ if status is-interactive
 end
 bind ctrl-enter accept-autosuggestion 
 bind shift-enter insert-line-under
-set fish_greeting
+set -U fish_greeting
 # Environment variables
 set -gx LESS "--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
-set -gx PATH "$PATH:/home/aljustiet/.local/bin"
-set -gx PATH "$PATH:/home/aljustiet/Documents/platform-tools"
-set -gx PATH "$PATH:/home/aljustiet/go/bin"
 set -gx VISUAL nvim
 set -gx EDITOR nvim
 set -gx XDG_CURRENT_DESKTOP Hyprland
@@ -32,7 +29,7 @@ alias nk="nvim ~/.config/kanata/config.kbd"
 alias nf="nvim ~/.config/fish/config.fish"
 alias nz="nvim ~/.zshrc"
 alias nka="nvim ~/.config/kitty/kitty.conf"
-alias rk="doas systemctl restart kanata"
+alias rk="systemctl --user restart kanata"
 alias ccp="pwd | wl-copy"
 alias ssso="doas systemctl start openvpn.service"
 alias ssto='doas systemctl stop openvpn.service'
@@ -47,13 +44,12 @@ alias rf="source ~/.config/fish/config.fish"
 alias v="nvim"
 alias codium="/usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
 alias rpd="doas pacman -Sy"
-alias fu="doas pacman -Syu"
+alias fu="topgrade --yes"
 alias i="paru --noconfirm -S"
 alias dl="echo 0 | doas tee /sys/class/leds/*/brightness"
 alias curious="echo 'Are you curious?'"
 alias rd="killall dunst && hyprctl dispatcher exec dunst"
 alias nt="notify-send 'Text' 'This is a text' "
-alias pm=pacman
 # alias sd=doas
 alias kd="pkill -f 'Discord --enable-features=UseOzonePlatform --ozone-platform=wayland'"
 alias ktu="pkill -f '/opt/tutanota-desktop/tutanota-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'"
