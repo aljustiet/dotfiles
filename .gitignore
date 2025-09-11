@@ -6,3 +6,4 @@ htop/
 fish/fish_variables
 .bak
 helix/runtime
+zshrc/.zcompdump*
