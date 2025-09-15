@@ -21,7 +21,6 @@ alias nano=\$EDITOR
 alias wl="wl-screenrec --codec avc --low-power=off"
 alias pm=pulsemixer
 alias am=alsamixer
-alias ef="nvim ~/.config/foot/foot.ini"
 alias rsn="pkill swaync && hde swaync"
 alias sc=systemctl
 alias jc=journalctl
@@ -88,7 +87,7 @@ alias yas="paru -Sua"
 alias hc="hyprctl clients"
 alias rt="radeontop --color"
 
-alias dl="echo 0 | doas tee /sys/class/leds/*/brightness"
+alias dl="echo 0 | sudo tee /sys/class/leds/*/brightness"
 alias cm="command"
 alias np="doas nvim /etc/pacman.conf"
 alias npa="nvim ~/.config/paru/paru.conf"
@@ -112,7 +111,7 @@ ub() {
 # alias ub="unbuffer"
 alias zathura="zathura -l error"
 alias za="zathura -l error"
-alias mount="doas mount -o uid=aljustiet,gid=aljustiet"
+alias mount="doas mount"
 alias kt="pkill -f telegram-desktop"
 
 alias hi="hyprctl dispatcher exec hypridle"
@@ -234,17 +233,6 @@ alias dr="doas systemctl daemon-reload"
 alias rz="source ~/.zshrc"
 
 # Editing
-alias nh="\$EDITOR ~/.config/hypr/hyprland.conf"
-alias nhi="\$EDITOR ~/.config/hypr/input.conf"
-alias nhb="\$EDITOR ~/.config/hypr/binds.conf"
-alias nhg="\$EDITOR ~/.config/hypr/general.conf"
-alias nhx="\$EDITOR ~/.config/hypr/xwayland.conf"
-alias nhd="\$EDITOR ~/.config/hypr/decorations.conf"
-alias nhl="\$EDITOR ~/.config/hypr/layout.conf"
-alias nhm="\$EDITOR ~/.config/hypr/monitors_vertical.conf"
-alias nhw="\$EDITOR ~/.config/hypr/window\ rules.conf"
-alias nhe="\$EDITOR ~/.config/hypr/environment.conf"
-alias nhs="\$EDITOR ~/.config/hypr/autostart.conf"
 alias nz="\$EDITOR ~/.config/zsh/zshrc"
 alias eh="\$EDITOR ~/.config/helix/config.toml"
 
