@@ -1,1 +1,1 @@
-alias s="cd ~/.local/bin"
+#alias s="cd ~/.local/bin"
