@@ -247,3 +247,4 @@ gp() {
         git push $remote
     done
 }
+alias s=sudo
