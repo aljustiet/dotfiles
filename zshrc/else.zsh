@@ -66,7 +66,7 @@ alias pk=pkill
 #   hyprctl dispatcher exec "solaar -w hide"
 # }
 
-alias dbfu="doas btrfs filesystem usage /"
+alias dbfu="sudo btrfs filesystem usage /"
 alias sl="sl -a -d -e -c -G -5"
 
 alias nethogs="nethogs -v 3 -b"
