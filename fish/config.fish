@@ -32,29 +32,29 @@ alias nk="nvim ~/.config/kanata/config.kbd"
 alias nf="nvim ~/.config/fish/config.fish"
 alias nz="nvim ~/.zshrc"
 alias nka="nvim ~/.config/kitty/kitty.conf"
-alias rk="doas systemctl restart kanata"
+alias rk="sudo systemctl restart kanata"
 alias ccp="pwd | wl-copy"
-alias ssso="doas systemctl start openvpn.service"
-alias ssto='doas systemctl stop openvpn.service'
+alias ssso="sudo systemctl start openvpn.service"
+alias ssto='sudo systemctl stop openvpn.service'
 alias mip="/usr/local/bin/myip"
 alias myip="/usr/local/bin/myip"
 alias l="ls -lah"
 alias oe='hyprctl dispatcher dpms off'
 alias eo='hyprctl dispatcher dpms on'
-alias las="doas systemctl suspend"
+alias las="sudo systemctl suspend"
 alias timg=viu
 alias rf="source ~/.config/fish/config.fish"
 alias v="nvim"
 alias codium="/usr/bin/codium --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland"
-alias rpd="doas pacman -Sy"
-alias fu="doas pacman -Syu"
+alias rpd="sudo pacman -Sy"
+alias fu="sudo pacman -Syu"
 alias i="paru --noconfirm -S"
-alias dl="echo 0 | doas tee /sys/class/leds/*/brightness"
+alias dl="echo 0 | sudo tee /sys/class/leds/*/brightness"
 alias curious="echo 'Are you curious?'"
 alias rd="killall dunst && hyprctl dispatcher exec dunst"
 alias nt="notify-send 'Text' 'This is a text' "
-alias pm=pacman
-# alias sd=doas
+alias pm=pulsemixer
+# alias sd=sudo
 alias kd="pkill -f 'Discord --enable-features=UseOzonePlatform --ozone-platform=wayland'"
 alias ktu="pkill -f '/opt/tutanota-desktop/tutanota-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'"
 alias kv="pkill -f 'vesktop.bin --enable-speech-dispatcher --ozone-platform-hint=auto'"
@@ -63,7 +63,7 @@ alias nwe="nmcli radio wifi on"
 alias nwd="nmcli radio wifi off"
 alias c="clear"
 alias cl="clear"
-alias rn="doas systemctl restart NetworkManager"
+alias rn="sudo systemctl restart NetworkManager"
 alias hrw="hyprctl dispatcher exec waybar"
 alias kw="killall waybar"
 alias kg="killall gammastep"
@@ -74,12 +74,12 @@ alias sping="~/.local/bin/sping"
 alias stopd="systemctl --user stop docker"
 alias startd="systemctl --user stop docker"
 alias lc="docker ps -a"
-alias start="doas systemctl start"
-alias stop="doas systemctl stop"
-alias disable="doas systemctl disable"
-alias enable="doas systemctl enable"
-alias stytus="doas systemctl status"
-alias restart="doas systemctl restart"
+alias start="sudo systemctl start"
+alias stop="sudo systemctl stop"
+alias disable="sudo systemctl disable"
+alias enable="sudo systemctl enable"
+alias stytus="sudo systemctl status"
+alias restart="sudo systemctl restart"
 alias sturt="systemctl --user start"
 alias stup="systemctl --user stop"
 alias stutus="systemctl --user status"
@@ -92,24 +92,24 @@ alias gis="git status"
 alias aac="git add . && git commit"
 alias gliol="git log --oneline"
 alias hree='hyprctl dispatcher exec "easyeffects --gapplication-service &"'
-alias ssd="doas systemctl suspend"
+alias ssd="sudo systemctl suspend"
 alias gss="hyprctl dispatcher exec 'gammastep -m wayland -O $argv'"
 alias rt="radeontop --color"
 alias radeontop="radeontop --color"
 # alias cl="wc -l"
-alias kk="doas systemctl stop kanata"
+alias kk="sudo systemctl stop kanata"
 alias dha="hyprctl --batch 'keyword animations:enabled 0'"
 alias eha="hyprctl --batch 'keyword animations:enabled 1'"
-alias dal="echo 0 | doas tee /sys/class/leds/*/brightness"
-alias stor="doas systemctl start tor"
-alias stoptor="doas systemctl stop tor"
+alias dal="echo 0 | sudo tee /sys/class/leds/*/brightness"
+alias stor="sudo systemctl start tor"
+alias stoptor="sudo systemctl stop tor"
 alias gpgm="git push github main"
 alias gpom="git push origin main"
 alias gpcm="git push codeberg main"
 alias ndwr="nmcli device wifi rescan"
 alias nwr="nmcli device wifi rescan"
-alias spi="doas pacman -S"
-alias spr="doas pacman -Rns"
+alias spi="sudo pacman -S"
+alias spr="sudo pacman -Rns"
 alias p="pacman"
 alias checkout="git checkout"
 alias branch="git branch"
@@ -117,7 +117,7 @@ alias dd1="dust -d 1"
 alias yas="paru -Sua"
 alias kl="pkill -f /usr/lib/librewolf/librewolf"
 alias hc="hyprctl clients"
-alias lda="doas udevadm info --attribute-walk"
+alias lda="sudo udevadm info --attribute-walk"
 alias ald="adb devices"
 alias hde="hyprctl dispatcher exec"
 alias gp="git push -u github main && git push -u origin main"
@@ -134,11 +134,10 @@ alias kq="pkill -f qbittorrent"
 alias kh="pkill -f '/usr/lib/jvm/java-21-openjdk//bin/java -XX:MaxRAM=4g --add-opens=javafx.controls/com.sun.javafx.scene.control.behavior=ALL-UNNAMED'"
 alias kel="pkill -f '/sbin/python3 /sbin/electrum-ltc'"
 alias search="pacman -Ss"
-alias r="paru --noconfirm -Rns"
-alias mount="doas mount -o uid=aljustiet,gid=aljustiet"
-alias umount="doas umount"
-alias pacman="doas pacman"
-alias djfk="doas journalctl -feu kanata"
+alias mount="sudo mount -o uid=aljustiet,gid=aljustiet"
+alias umount="sudo umount"
+alias pacman="sudo pacman"
+alias djfk="sudo journalctl -feu kanata"
 alias cb="cargo build"
 alias ndwl="nmcli device wifi list"
 alias ts="tailscale"
@@ -148,15 +147,15 @@ alias ect="crontab -e"
 alias ns="nvim ~/.ssh/config"
 alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
 alias rw="pkill -f waybar && hde waybar"
-alias dr="doas systemctl daemon-reload"
-alias ef="doas nvim /etc/fstab"
-alias ma="doas mount -a"
-alias uma="doas umount /mnt/hdd /mnt/usb"
+alias dr="sudo systemctl daemon-reload"
+alias ef="sudo nvim /etc/fstab"
+alias ma="sudo mount -a"
+alias uma="sudo umount /mnt/hdd /mnt/usb"
 alias fwr="expac -S '%r'"
 alias s=lsd
-alias dnvim="doas nvim"
-alias dn="doas nvim"
-alias em="doas nvim /etc/makepkg.conf"
+alias dnvim="sudo nvim"
+alias dn="sudo nvim"
+alias em="sudo nvim /etc/makepkg.conf"
 alias vpl="bat --pager='less -F -X -R +G' /var/log/pacman.log"
 alias bate="bat --pager='less -F -X -R +G'"
 alias gfp="git fetch && git pull"
@@ -176,7 +175,7 @@ function sr
 end
 
 function tokei
-  /usr/bin/tokei --sort code
+  command tokei --sort code
 end
 
 function nethogs
@@ -184,19 +183,19 @@ function nethogs
 end
 
 function dbss
-  doas btrfs subvolume show /
+  sudo btrfs subvolume show /
 end
 
 function dbsl
-  doas btrfs subvolume list /
+  sudo btrfs subvolume list /
 end
 
 function dbqs
-  doas btrfs qgroup show /
+  sudo btrfs qgroup show /
 end
 
 function dbfu
-  doas btrfs filesystem usage /
+  sudo btrfs filesystem usage /
 end
 
 function free
