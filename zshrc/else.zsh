@@ -241,7 +241,7 @@ alias gis="git status"
 alias aac="git add . && git commit"
 alias gic="git clone"
 ed() {
-    nvim $(date -u +%d-%m-%Y.md)
+    nvim ~/Documents/notes/$(date -u +%d-%m-%Y.md)
 }
 
 unalias -m gp 2>/dev/null
