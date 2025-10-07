@@ -240,6 +240,9 @@ alias eh="\$EDITOR ~/.config/helix/config.toml"
 alias gis="git status"
 alias aac="git add . && git commit"
 alias gic="git clone"
+ed() {
+    nvim $(date -u +%d-%m-%Y.md)
+}
 
 unalias -m gp 2>/dev/null
 gp() {
