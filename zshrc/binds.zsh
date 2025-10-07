@@ -21,8 +21,8 @@ bindkey -M vicmd W vi-forward-blank-word-end
 bindkey -M vicmd dl delete-word
 bindkey -M vicmd db backward-delete-word
 # bindkey
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^H' backward-kill-word
 #bindkey -M viins '\e\r' 'vi-open-line-below'
 bindkey -M viins "^[[27;5;13~" 'autosuggest-execute'
