@@ -15,7 +15,6 @@ source ~/.config/zshrc/transmission.zsh
 source ~/.config/zshrc/terminal.zsh
 source ~/.config/zshrc/yazi.zsh
 source ~/.config/zshrc/topgrade.zsh
-source ~/.config/zshrc/ufw.zsh
 source ~/.config/zshrc/timedatectl.zsh
 source ~/.config/zshrc/go.zsh
 source ~/.config/zshrc/path.zsh
