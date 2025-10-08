@@ -10,11 +10,8 @@ alias cfu="nvim ~/.config/newsboat/urls"
 alias nb=newsboat
 alias lc=leetcode
 alias rfs="flatpak run --command=sh"
-alias hs=hyprshade
 alias lpbd="expac --timefmt='%Y-%m-%d %T' '%l %n' | sort"
 alias nlf="nvim ~/.config/lf/lfrc"
-alias p="doas pacman"
-alias hwp="pacman -Qq | wc -l"
 alias e=\$EDITOR
 alias edit=\$EDITOR
 alias nano=\$EDITOR
@@ -25,9 +22,7 @@ alias rsn="pkill swaync && hde swaync"
 alias sc=systemctl
 alias jc=journalctl
 alias iao="cat /sys/class/power_supply/AC/online"
-alias ars="command doas mount -t tmpfs -o size=4G -m tmpfs"
-alias ts="doas timeshift"
-alias timeshift="doas timeshift"
+alias ars="command sudo mount -t tmpfs -o size=4G -m tmpfs"
 # alias am=appman
 alias ip="ip -c=always"
 alias shst="nohup swayimg ~/Documents/School/Timetable.png 2>/dev/null 1>/dev/null &"
@@ -45,8 +40,8 @@ alias cu=currencyConverter
 #df () {
 #  command df -x tmpfs -x efivarfs -h | rg -v -e "dev.*7\.2G"
 #}
-alias umount="doas umount"
-alias btrfs="doas btrfs"
+alias umount="sudo umount"
+alias btrfs="sudo btrfs"
 alias lofi="rmib 'https://www.youtube.com/watch?v=jfKfPfyJRdk'"
 
 alias z=cd
@@ -54,23 +49,17 @@ alias grep="grep --color=always"
 alias diff="diff --color=always"
 alias timg="timg -C -U --threads=16"
 
-alias hlo="hyprctl dispatch exit"
 alias tree="tree -C"
 
 alias stutus="systemctl --user status"
 alias nka="nvim ~/.config/kitty/kitty.conf"
 alias nt="notify-send 'Text' 'This is a text' "
 alias pk=pkill
-# rs() {
-#   pkill solaar
-#   hyprctl dispatcher exec "solaar -w hide"
-# }
 
 alias dbfu="sudo btrfs filesystem usage /"
 alias sl="sl -a -d -e -c -G -5"
 
 alias nethogs="nethogs -v 3 -b"
-alias yay=paru
 alias csap="makepkg -do --skippgpcheck" # clone source of AUR package
 alias dd1="dust -d1"
 
@@ -83,15 +72,10 @@ alias kg="killall gammastep"
 alias nf="nvim ~/.config/fish/config.fish"
 alias kee="pkill -f easyeffects"
 
-alias yas="paru -Sua"
-alias hc="hyprctl clients"
 alias rt="radeontop --color"
 
 alias dl="echo 0 | sudo tee /sys/class/leds/*/brightness"
 alias cm="command"
-alias np="doas nvim /etc/pacman.conf"
-alias npa="nvim ~/.config/paru/paru.conf"
-alias hde="hyprctl dispatcher exec"
 
 alias watch="watch --color --interval 1 --no-title"
 alias kl="pkill -f /usr/lib/librewolf/librewolf"
@@ -101,8 +85,8 @@ alias hree="niri msg action spawn -- 'sh' '-c' 'easyeffects --gapplication-servi
 #alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
 alias ssoa="adb shell /data/app/~~EOh7a9xbXguULq9tbHCr3A==/moe.shizuku.privileged.api-7CGqOIF4ejSauvhdJTP_Bw==/lib/arm64/libshizuku.so"
 alias tokei="tokei --sort code"
-alias ma="doas mount -a"
-alias uma="doas umount /mnt/hdd /mnt/usb"
+alias ma="sudo mount -a"
+alias uma="sudo umount /mnt/hdd /mnt/usb"
 
 ub() {
   unbuffer $@ | bat
@@ -111,25 +95,21 @@ ub() {
 # alias ub="unbuffer"
 alias zathura="zathura -l error"
 alias za="zathura -l error"
-alias mount="doas mount"
+alias mount="sudo mount"
 alias kt="pkill -f telegram-desktop"
 
-alias hi="hyprctl dispatcher exec hypridle"
-alias kh="pkill hypridle"
 alias ff="fastfetch"
 alias kw="pkill waybar"
 
-alias rw="hyprctl dispatcher exec waybar"
 alias kv="pkill -f 'vesktop.bin --enable-speech-dispatcher --ozone-platform-hint=auto'"
 alias kq="pkill -f qbittorrent"
 alias klb="pkill -f '/opt/LBRY/lbry --enable-crashpad'"
 
 # alias ts="tailscale"
 alias nza="nvim ~/.config/zathura/zathurarc"
-alias rh="pkill hypridle && hyprctl dispatcher exec hypridle"
 alias ks="pkill -f '/usr/lib/signal-desktop/signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'"
 
-alias lda="doas udevadm info --attribute-walk"
+alias lda="sudo udevadm info --attribute-walk"
 alias nn="nvim ~/.config/nvim/init.lua"
 
 
@@ -143,10 +123,6 @@ rib() {
 }
 
 # unalias gss
-
-# gss() {
-#   hyprctl dispatcher exec "gammastep -m wayland -O $1"
-# }
 
 sr() {
   wl-screenrec -f "$@" --codec avc --dri-device /dev/dri/renderD128
@@ -170,21 +146,8 @@ rmib() {
  nohup mpv --no-video --audio-display=no --input-ipc-server=/tmp/mpv-socket $@ 2>/dev/null 1>/dev/null &
 }
 
-# Pacman
-alias pacman="doas pacman"
-alias vpl="bat --pager='less -F -X -R +G' /var/log/pacman.log"
-alias i="doas pacman -S --noconfirm"
-alias r="doas pacman -Rns --noconfirm"
-alias sip="paru -Si" # Sync information about package
-alias dip="pacman -Qi" # Database information about package
-vpf() {
-  unbuffer pacman -Fl $1 | bat
-}
 clean() {
-  paru -Sc
-  pacman -Qttdq | pacman -Rns -
-  pacman -Qqd | pacman -Rsu -
-  flatpak remove --unused
+  sudo nh clean all
 }
 cap() {
   for package in "$@"; do
@@ -219,15 +182,15 @@ alias mc="mullvad connect"
 alias md="mullvad disconnect"
 
 # Systemd
-alias stytus="doas systemctl status"
-alias start="doas systemctl start"
+alias stytus="sudo systemctl status"
+alias start="sudo systemctl start"
 alias sturt="systemctl --user start"
-alias stop="doas systemctl stop"
+alias stop="sudo systemctl stop"
 alias stup="systemctl --user stop"
-alias restart="doas systemctl restart"
+alias restart="sudo systemctl restart"
 alias scu="systemctl --user"
-alias ds="doas systemctl"
-alias dr="doas systemctl daemon-reload"
+alias ds="sudo systemctl"
+alias dr="sudo systemctl daemon-reload"
 
 # Reloading
 alias rz="source ~/.zshrc"

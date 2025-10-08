@@ -1,1 +1,1 @@
-alias timedatectl="doas timedatectl"
+alias timedatectl="sudo timedatectl"

@@ -1,2 +1,2 @@
-alias bsl="doas btrfs subvolume list /"
-alias bqs="btrfs qgroup show /"
+alias bsl="sudo btrfs subvolume list /"
+alias bqs="sudo btrfs qgroup show /"
