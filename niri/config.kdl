@@ -9,12 +9,18 @@
 spawn-at-startup "dash" "-c" "wl-paste --type text --watch cliphist store"
 spawn-at-startup "dash" "-c" "wl-paste --type image --watch cliphist store"
 // spawn-at-startup "xwayland-satellite"
+spawn-at-startup "waybar"
+spawn-at-startup "batsignal"
 spawn-at-startup "solaar" "--window=hide"
 spawn-at-startup "foot" "--server"
 spawn-at-startup "gammastep"
 spawn-at-startup "dash" "-c" "pidof batsignal && batsignal"
 spawn-at-startup "kdeconnectd"
 spawn-at-startup "sh" "-c" "/home/aljustiet/documents/go/bin/niri-screen-time -daemon >/dev/null 2>&1"
+
+workspace "telegram"
+workspace "discord"
+workspace "mail"
 input {
     keyboard {
         xkb {
@@ -83,17 +89,25 @@ output "eDP-1" {
     //off
     mode "1920x1200"
     scale 1.6
-    position x=280 y=900
+    position x=200 y=900
     variable-refresh-rate
 }
 output "HDMI-A-1" {
-    mode "2560x1440"
+    mode "3840x2160"
+    scale 2.4
+    position x=0 y=0
+    focus-at-startup
+    variable-refresh-rate
+}
+output "HDMI-A-1" {
+    mode "1920x1080"
     scale 1.6
-    position x=-1600 y=300
+    position x=0 y=0
     focus-at-startup
     variable-refresh-rate
 }
 output "DP-2" {
+    off
     mode "3840x2160"
     scale 2.4
     position x=0 y=0
@@ -101,6 +115,7 @@ output "DP-2" {
     variable-refresh-rate
 }
 output "DP-1" {
+    off
     mode "3840x2160"
     scale 2.4
     position x=0 y=0
@@ -143,7 +158,7 @@ output "DP-1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 4
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -151,7 +166,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "never"
+    center-focused-column "on-overflow"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -191,7 +206,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 3
+        width 2
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -341,6 +356,21 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match app-id=r#"^com\.ayugram\.desktop$"#
+    open-on-workspace "telegram"
+}
+
+window-rule {
+    match app-id=r#"^tutanota-desktop$"#
+    open-on-workspace "mail"
+}
+
+window-rule {
+    match app-id=r#"^vesktop$"#
+    open-on-workspace "discord"
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -373,22 +403,28 @@ binds {
 
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
+    Mod+T { focus-workspace "telegram";}
+    Mod+M { focus-workspace "mail";}
+    Mod+D { focus-workspace "discord";}
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Ctrl+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
-    Super+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Super+K hotkey-overlay-title="Launch the browser: zen" { spawn "zen-browser"; }
+    Mod+R hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-show" "drun"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: footclient" { spawn "footclient"; }
+    Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+K hotkey-overlay-title="Launch the browser: zen" { spawn "zen"; }
     Ctrl+Shift+M hotkey-overlay-title="Show the clipboard history: rofi + cliphist" { spawn "dash" "-c" "cliphist list | rofi -dmenu -i | cliphist decode | wl-copy" ;}
-    Super+Space hotkey-overlay-title="Search for windows: rofi" { spawn "rofi" "-show" "window" ;}
-    Super+N hotkey-overlay-title="Toggle Notification panel: swaync" { spawn "swaync-client" "-t" "-sw" ;}
+    Mod+Space hotkey-overlay-title="Search for windows: rofi" { spawn "rofi" "-show" "window" ;}
+    Mod+N hotkey-overlay-title="Toggle Notification panel: swaync" { spawn "swaync-client" "-t" "-sw" ;}
     Ctrl+Apostrophe hotkey-overlay-title="Open Emoji List: bemoji" { spawn "bemoji" "--noline" "--type" "--clip" ;}
 
-    Super+H { focus-column-left; }
-    Super+A { focus-window-down; }
-    Super+E { focus-window-up; }
-    Super+I { focus-column-right; }
+    Mod+H { focus-column-left; }
+    Mod+A { focus-window-down; }
+    Mod+E { focus-window-up; }
+    Mod+I { focus-column-right; }
+    ALT+H { focus-column-left; }
+    ALT+I { focus-column-right; }
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
@@ -396,14 +432,16 @@ binds {
     Mod+O   { focus-workspace-down; }
     Mod+U   { focus-workspace-up; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.02-"; }
-    Shift+XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    Shift+XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    Shift+XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01+"; }
+    Shift+XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "dash" "-c" "brightnessctl --quiet s 2%-"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn "dash" "-c" "brightnessctl --quiet s 2%+"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "dash" "-c" "brightnessctl --quiet s 10%-"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "dash" "-c" "brightnessctl --quiet s 10%+"; }
+    Shift+XF86MonBrightnessDown allow-when-locked=true { spawn "dash" "-c" "brightnessctl --quiet s 1%-"; }
+    Shift+XF86MonBrightnessUp allow-when-locked=true { spawn "dash" "-c" "brightnessctl --quiet s 1%+"; }
 
     Mod+Q repeat=false { toggle-overview; }
 
@@ -548,7 +586,7 @@ binds {
     Mod+Period repeat=true { consume-window-into-column; }
     Mod+Comma repeat=true { expel-window-from-column; }
 
-    Mod+R { switch-preset-column-width; }
+    // Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
@@ -573,10 +611,12 @@ binds {
     // set-column-width "100" will make the column occupy 200 physical screen pixels.
     Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-column-width "-1%"; }
+    Mod+Shift+Equal { set-column-width "+1%"; }
 
     // Finer height adjustments when in column with other windows.
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
+    Mod+Alt+Minus { set-window-height "-10%"; }
+    Mod+Alt+Equal { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
@@ -623,7 +663,6 @@ environment {
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
     QT_QPA_PLATFORMTHEME "qt5ct"
     QT_IM_MODULES "wayland;fcitx;ibus"
-    XDG_DATA_DIRS "/home/aljustiet/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/"
     XCURSOR_SIZE "32"
     XDG_BACKEND "wayland"
     XDG_CURRENT_DESKTOP "Niri"
