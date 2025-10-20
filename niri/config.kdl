@@ -18,10 +18,18 @@ spawn-at-startup "dash" "-c" "pidof batsignal && batsignal"
 spawn-at-startup "kdeconnectd"
 spawn-at-startup "sh" "-c" "/home/aljustiet/documents/go/bin/niri-screen-time -daemon >/dev/null 2>&1"
 
-workspace "telegram"
-workspace "discord"
-workspace "mail"
-workspace "browser"
+workspace "telegram" {
+    open-on-output "HDMI-A-1"
+}
+workspace "discord" {
+    open-on-output "HDMI-A-1"
+}
+workspace "mail" {
+    open-on-output "HDMI-A-1"
+}
+workspace "browser" {
+    open-on-output "HDMI-A-1"
+}
 input {
     keyboard {
         xkb {
