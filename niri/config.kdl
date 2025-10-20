@@ -380,11 +380,6 @@ window-rule {
     open-on-workspace "discord"
 }
 
-window-rule {
-    match app-id=r#"^zen-beta$"#
-    open-on-workspace "browser"
-}
-
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -421,6 +416,7 @@ binds {
     Mod+M { focus-workspace "mail";}
     Mod+D { focus-workspace "discord";}
     Mod+S { focus-workspace "browser";}
+    Mod+Shift+S { move-column-to-workspace "browser";}
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
