@@ -1,6 +1,6 @@
 alias rebuild="nixos-rebuild switch --flake ~/nix --sudo"
 alias en="nvim ~/nix/configuration.nix"
-alias rh="home-manager switch --flake ~/nix/home-manager/"
+alias rh="home-manager switch --flake ~/nix/home/"
 alias r="nixos-rebuild switch --flake ~/nix --sudo"
 alias eh="nvim ~/nix/home-manager/home.nix"
 alias ef="nvim ~/nix/flake.nix"
