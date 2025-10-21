@@ -1,105 +1,122 @@
-@define-color base00 #181818;
-@define-color base01 #2b2e37;
-@define-color base02 #3b3e47;
-@define-color base03 #585858;
-@define-color base04 #b8b8b8;
-@define-color base05 #d8d8d8;
-@define-color base06 #e8e8e8;
-@define-color base07 #f8f8f8;
-@define-color base08 #ab4642;
-@define-color base09 #dc9656;
-@define-color base0A #f7ca88;
-@define-color base0B #a1b56c;
-@define-color base0C #86c1b9;
-@define-color base0D #7cafc2;
-@define-color base0E #ba8baf;
-@define-color base0F #a16946;
-
 * {
-  font-family: "GoMono Nerd Font";
-  transition: none;
-  box-shadow: none;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 10pt;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
+/* Reset all styles */
+* {
+  border: none;
+  border-radius: 3px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* The whole bar */
 #waybar {
-	font-family: 'Source Code Pro', sans-serif;
-	font-size: 1.2em;
-	font-weight: 400;
-  color: @base04;
-  background: @base01;
+  background-color: transparent;
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-radius: 0px;
+  margin: 0;
+}
+
+/* Each module */
+#clock,
+#wireplumber,
+#workspaces,
+#cpu,
+#memory,
+#custom-gpu,
+#custom-storage,
+#custom-storage2,
+#temperature,
+#backlight,
+#battery,
+#network,
+#custom-power-menu {
+  margin: 0;
+  padding: 0 10px;
+  color: #ffe6ff;
+  background-color: #0a0a1a;
+  border: 2px;
+  border-style: solid;
+  border-color: #8caaee;
+  border-radius: 7px;
 }
 
 #workspaces {
-  margin: 0 4px;
+  padding: 0 5px;
 }
 
 #workspaces button {
-  margin: 4px 0;
-  padding: 0 4px;
-  color: @base05;
+  padding: 0 5px;
+  margin: 0;
+  color: #7984a4;
+  background-color: transparent;
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each workspace name */
+  border: none;
+  border-radius: 0;
 }
 
-#workspaces button.visible {
-}
-
-#workspaces button.active {
-  border-radius: 4px;
-  background-color: @base02;
-}
-
-#workspaces button.urgent {
-  color: rgba(238, 46, 36, 1);
-}
-
-#tray {
-  margin: 4px 4px 4px 4px;
-  border-radius: 4px;
-  background-color: @base02;
-}
-
-#tray * {
-  padding: 0 6px;
-  border-left: 1px solid @base00;
-}
-
-#tray *:first-child {
-  border-left: none;
-}
-
-#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #custom-weather, #custom-mail, #clock, #temperature, #language{
-  margin: 4px 2px;
-  padding: 0 6px;
-  background-color: @base02;
-  border-radius: 4px;
-  min-width: 20px;
-}
-
-#pulseaudio.muted {
-  color: @base0F;
-}
-
-#pulseaudio.bluetooth {
-  color: @base0C;
-}
-
-#clock {
-  margin-left: 0px;
-  margin-right: 4px;
+#workspaces button.active,
+#workspaces button.focused {
+  color: #ffe6ff;
   background-color: transparent;
 }
 
+/* Fix predefined gtk background effect on hover  */
+#workspaces button:hover {
+  background: none;
+  /* Uncomment to also disable text highlighting */
+  /* text-shadow: none; */
+}
+
+#workspaces button.urgent,
 #temperature.critical {
-  color: @base0F;
+  color: #dd7878;
 }
 
-#window {
-  font-size: 0.9em;
-	font-weight: 400;
-	font-family: sans-serif;
+#battery {
+  color: #c0caf5;
 }
 
-#language {
-	font-size: 0.9em;
-	font-weight: 500;
-	letter-spacing: -1px;
+#battery.charging,
+#battery.full,
+#battery.plugged {
+  color: #26a65b;
+}
+
+#battery.critical:not(.charging) {
+  color: #f53c3c;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#custom-power-menu {
+  border-radius: 9.5px;
+  background-color: #1b242b;
+  border-radius: 7.5px;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+@keyframes blink {
+  to {
+    background-color: rgba(30, 34, 42, 0.5);
+    color: #abb2bf;
+  }
 }
