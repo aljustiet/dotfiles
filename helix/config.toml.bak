@@ -1,13 +1,17 @@
 theme = "gruvbox"
+#[editor]
+#gutters = []
 [editor.cursor-shape]
 normal = "block" 
 insert = "bar" 
 select = "underline"
 [keys.normal]
-h = "move_char_left"
+h = "move_char_left" # the same
 a = "move_visual_line_down"
 e = "move_visual_line_up"
 i = "move_char_right"
+w = "move_next_word_start" # the same
+W = "move_next_long_word_end"
 b = "move_prev_word_start" # the same
 B = "move_prev_long_word_start" # the same
 ";" = "command_mode"
@@ -268,10 +272,10 @@ C-j = "no_op"
 
 # Select/extend mode #
 [keys.select]
-h = "extend_char_left"
-a = "extend_line_down"
-e = "extend_line_up"
-i = "extend_char_right"
+h = "move_char_left"
+a = "move_visual_line_down"
+e = "move_visual_line_up"
+i = "move_char_right"
 
 ### View mode ###
 [keys.select.z]
