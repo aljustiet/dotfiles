@@ -488,7 +488,6 @@ require('lazy').setup({
     ft = 'lua',
     opts = {
       library = {
-        -- Load luvit types when the `vim.uv` word is found
         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
       },
     },
@@ -734,9 +733,9 @@ require('lazy').setup({
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
-      })
+      -- vim.list_extend(ensure_installed, {
+      --   'stylua', -- Used to format Lua code
+      -- })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
@@ -786,14 +785,14 @@ require('lazy').setup({
           }
         end
       end,
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      },
+      -- formatters_by_ft = {
+      --   lua = { 'stylua' },
+      --   -- Conform can also run multiple formatters sequentially
+      --   -- python = { "isort", "black" },
+      --   --
+      --   -- You can use 'stop_after_first' to run the first available formatter from the list
+      --   -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      -- },
     },
   },
 
@@ -1068,7 +1067,7 @@ keymap('n', 'L', 'W', opts)
 keymap('n', 'w', 'e', opts)
 keymap('n', 'W', 'E', opts)
 keymap('n', 'm', 'x', opts)
-keymap('n', ';', ':', opts)
+keymap('n', ';', ':', {})
 keymap('n', 'dl', 'de', opts)
 keymap('n', 'cl', 'ce', opts)
 keymap('n', 'ga', 'gj', opts)
@@ -1091,13 +1090,14 @@ keymap('v', 's', 'a', opts)
 
 keymap('o', 't', 'i', opts)
 keymap('v', 't', 'i', opts)
-vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>gi', { noremap = true, silent = true })
-vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-a>', 'ggVG', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-a>', '<Esc>ggVG', { noremap = true, silent = true })
-vim.keymap.set('v', '<C-a>', '<Esc>ggVG', { noremap = true, silent = true })
-
+vim.keymap.set('n', '<C-s>', ':w<CR>', opts)
+vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>gi', opts)
+vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv', opts)
+vim.keymap.set('n', '<C-a>', 'ggVG', opts)
+vim.keymap.set('i', '<C-a>', '<Esc>ggVG', opts)
+vim.keymap.set('v', '<C-a>', '<Esc>ggVG', opts)
+keymap('n', '<Tab>', ':tabnext<CR>', opts)
+keymap('n', '<Shift><Tab>', ':tabprevious<CR>', opts)
 
 -- File: ~/.config/nvim/init.lua
 
@@ -1116,7 +1116,7 @@ vim.keymap.set('v', '<C-a>', '<Esc>ggVG', { noremap = true, silent = true })
 --  silent = true,
 --  desc = 'Paste from clipboard (before cursor)',
 -- })
-
+vim.cmd('filetype plugin indent on')
 -- Autocommands
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = { '*.conf' },
@@ -1128,10 +1128,10 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   command = 'set filetype=lisp',
 })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua", "nix" },
+  pattern = { "lua", "nix", "markdown", "jsonc" },
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2
     vim.opt_local.expandtab = true
-  end,
+  end
 })
