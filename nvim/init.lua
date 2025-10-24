@@ -363,7 +363,7 @@ require('lazy').setup({
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
-        { 'd', name = 'Delete' },
+        { 'd',         name = 'Delete' },
       },
     },
   },
@@ -396,7 +396,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -504,7 +504,7 @@ require('lazy').setup({
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',    opts = {} },
 
       -- Allows extra capabilities provided by blink.cmp
       'saghen/blink.cmp',
@@ -909,19 +909,19 @@ require('lazy').setup({
       vim.o.background = 'light'
     end,
   },
---  opts = {
---    notify_on_switch = false,
---    softener = true,
---    auto_set_mode_heuristically = true
---  },
---  {
---    'andrewferrier/wrapping.nvim',
---    config = function()
---      require("wrapping").setup(opts)
---    end,
---    event = "VeryLazy",
---  },
---
+  --  opts = {
+  --    notify_on_switch = false,
+  --    softener = true,
+  --    auto_set_mode_heuristically = true
+  --  },
+  --  {
+  --    'andrewferrier/wrapping.nvim',
+  --    config = function()
+  --      require("wrapping").setup(opts)
+  --    end,
+  --    event = "VeryLazy",
+  --  },
+  --
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
