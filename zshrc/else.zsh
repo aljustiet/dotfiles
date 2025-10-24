@@ -207,10 +207,4 @@ ed() {
     nvim ~/Documents/notes/$(date -u +%d-%m-%Y.md)
 }
 
-unalias -m gp 2>/dev/null
-gp() {
-    for remote in $(git remote); do
-        git push $remote
-    done
-}
 alias s=sudo
