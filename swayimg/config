@@ -75,3 +75,11 @@ Shift+space = animation
 space = animation
 comma = next_frame
 period = prev_frame
+
+[keys.gallery]
+y = next_file
+g = prev_file
+
+[keys.slideshow]
+y = next_file
+g = prev_file
