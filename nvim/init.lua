@@ -1097,7 +1097,7 @@ vim.keymap.set('n', '<C-a>', 'ggVG', opts)
 vim.keymap.set('i', '<C-a>', '<Esc>ggVG', opts)
 vim.keymap.set('v', '<C-a>', '<Esc>ggVG', opts)
 keymap('n', '<Tab>', ':tabnext<CR>', opts)
-keymap('n', '<Shift><Tab>', ':tabprevious<CR>', opts)
+keymap('n', '<S-Tab>', ':tabprevious<CR>', opts)
 
 -- File: ~/.config/nvim/init.lua
 
