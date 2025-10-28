@@ -1,8 +1,8 @@
 mpv/watch_later
 newsboat/urls
 nvim.bak
-btop/
-htop/
+#btop/
+#htop/
 fish/fish_variables
 .bak
 helix/runtime
