@@ -155,14 +155,14 @@ binds {
 
     Mod+Q repeat=false { toggle-overview; }
 
-    Ctrl+Alt+A     { focus-monitor-down; }
-    Ctrl+Alt+E     { focus-monitor-up; }
+    Mod+Shift+A     { focus-monitor-down; }
+    Mod+Shift+E     { focus-monitor-up; }
 
     Mod+Shift+H { move-column-left; }
     Mod+Shift+I { move-column-right; }
 
-    Mod+Shift+A { move-window-down; }
-    Mod+Shift+E { move-window-up; }
+    //Mod+Shift+A { move-window-down; }
+    //Mod+Shift+E { move-window-up; }
 
     Ctrl+Space { spawn "rofi" "-show" "drun"; }
     Mod+R { spawn "rofi" "-show" "drun"; }
@@ -291,7 +291,7 @@ binds {
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
     // Mod+Shift+F { maximize-window-to-edges; }
-    Ctrl+Alt+F { fullscreen-window; }
+    Mod+Shift+F { fullscreen-window; }
 
     Mod+Ctrl+F { expand-column-to-available-width; }
 
