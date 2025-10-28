@@ -2,7 +2,7 @@ theme = Gruvbox Dark
 font-family = "JetBrains Mono Nerd Font"
 font-size = 16
 window-theme=ghostty
-command = /run/current-system/sw/bin/fish --interactive
+#command = /run/current-system/sw/bin/fish --interactive
 confirm-close-surface = false
 keybind = ctrl+enter=unbind
 #gtk-custom-css="/usr/share/themes/Colloid-Dark-Gruvbox/gtk-4.0/gtk.css"
