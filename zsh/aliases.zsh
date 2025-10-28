@@ -257,8 +257,3 @@ ed() {
 }
 
 unalias -m gp 2>/dev/null
-gp() {
-    for remote in $(git remote); do
-        git push $remote
-    done
-}
