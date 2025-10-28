@@ -255,5 +255,3 @@ alias gic="git clone"
 ed() {
     nvim ~/Documents/notes/$(date +%d-%m-%Y.md)
 }
-
-unalias -m gp 2>/dev/null
