@@ -204,7 +204,7 @@ alias gis="git status"
 alias aac="git add . && git commit"
 alias gic="git clone"
 ed() {
-    nvim ~/Documents/notes/$(date -u +%d-%m-%Y.md)
+    nvim ~/Documents/notes/$(date +%d-%m-%Y.md)
 }
 
 alias s=sudo
