@@ -169,7 +169,7 @@ binds {
 
     Mod+Return { spawn "footclient"; }
     Mod+Alt+L { spawn "swaylock"; }
-    Mod+K { spawn "zen"; }
+    Mod+K { spawn "zen-browser"; }
     Ctrl+Shift+M { spawn "dash" "-c" "cliphist list | rofi -dmenu -i | cliphist decode | wl-copy" ;}
     Mod+Space { spawn "rofi" "-show" "window" ;}
     Mod+N { spawn "swaync-client" "-t" "-sw" ;}
