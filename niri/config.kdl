@@ -181,9 +181,6 @@ binds {
     Mod+Shift+S { move-column-to-workspace "browser";}
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    
-
-    
     Mod+E { focus-window-up; }
     Mod+I { focus-column-right; }
     ALT+H { focus-column-left; }
