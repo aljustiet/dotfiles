@@ -8,7 +8,13 @@ spawn-at-startup "dash" "-c" "pidof batsignal && batsignal"
 spawn-at-startup "kdeconnectd"
 spawn-at-startup "sh" "-c" "/home/aljustiet/documents/go/bin/niri-screen-time -daemon >/dev/null 2>&1"
 
-workspace "social" {
+workspace "telegram" {
+    open-on-output "HDMI-A-1"
+}
+workspace "mail" {
+    open-on-output "HDMI-A-1"
+}
+workspace "discord" {
     open-on-output "HDMI-A-1"
 }
 workspace "browser" {
@@ -133,17 +139,17 @@ window-rule {
 
 window-rule {
     match app-id=r#"^com\.ayugram\.desktop$"#
-    open-on-workspace "social"
+    open-on-workspace "telegram"
 }
 
 window-rule {
     match app-id=r#"^tutanota-desktop$"#
-    open-on-workspace "social"
+    open-on-workspace "mail"
 }
 
 window-rule {
     match app-id=r#"^vesktop$"#
-    open-on-workspace "social"
+    open-on-workspace "discord"
 }
 
 binds {
@@ -174,8 +180,10 @@ binds {
     Mod+N { spawn "swaync-client" "-t" "-sw" ;}
     Ctrl+Apostrophe { spawn "bemoji" "--noline" "--type" "--clip" ;}
 
-    Mod+T { focus-workspace "social";}
-    Mod+Shift+T { move-column-to-workspace "social";}
+    Mod+T { focus-workspace "telegram";}
+    Mod+Shift+T { move-column-to-workspace "telegram";}
+    Mod+M { focus-workspace "mail";}
+    Mod+D { focus-workspace "discord";}
     Mod+S { focus-workspace "browser";}
     Mod+Shift+S { move-column-to-workspace "browser";}
     Mod+Shift+Slash { show-hotkey-overlay; }
