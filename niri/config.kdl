@@ -1,7 +1,6 @@
 spawn-at-startup "dash" "-c" "wl-paste --type text --watch cliphist store"
 spawn-at-startup "dash" "-c" "wl-paste --type image --watch cliphist store"
 spawn-at-startup "waybar"
-spawn-at-startup "batsignal"
 spawn-at-startup "solaar" "--window=hide"
 spawn-at-startup "foot" "--server"
 spawn-at-startup "gammastep"
@@ -24,7 +23,7 @@ input {
     }
 
     touchpad {
-        tap
+        //tap
         dwt
         scroll-factor 0.2
         natural-scroll
