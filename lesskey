@@ -1,5 +1,7 @@
 #command
 a forw-line
 e back-line
+o forw-screen
+u back-screen
 #env
 #LESS = -F -X -R
