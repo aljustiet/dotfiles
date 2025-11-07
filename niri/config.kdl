@@ -17,6 +17,9 @@ workspace "mail" {
 workspace "discord" {
     open-on-output "HDMI-A-1"
 }
+workspace "keepassxc" {
+    open-on-output "HDMI-A-1"
+}
 workspace "browser" {
     open-on-output "HDMI-A-1"
 }
@@ -151,6 +154,10 @@ window-rule {
     match app-id=r#"^vesktop$"#
     open-on-workspace "discord"
 }
+window-rule {
+    match app-id=r#"^org.keepassxc.KeePassXC$"#
+    open-on-workspace "keepassxc"
+}
 
 binds {
     Mod+H { focus-column-left; }
@@ -185,6 +192,7 @@ binds {
     Mod+M { focus-workspace "mail";}
     Mod+D { focus-workspace "discord";}
     Mod+S { focus-workspace "browser";}
+    Mod+X { focus-workspace "keepassxc";}
     Mod+Shift+S { move-column-to-workspace "browser";}
     Mod+Shift+Slash { show-hotkey-overlay; }
 
