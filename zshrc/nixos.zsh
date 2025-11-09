@@ -6,8 +6,8 @@ alias rb="nixos-rebuild boot --flake ~/nix --sudo --verbose |& tee ~/nix/logs/ni
 alias eh="nvim ~/nix/home/home.nix"
 alias ef="nvim ~/nix/flake.nix"
 uf() {
-    nix flake update --flake ~/nix
-    nix flake update --flake ~/nix/home
+    nix flake update --flake ~/nix --verbose
+    nix flake update --flake ~/nix/home --verbose
 }
 cg() {
     sudo nix-collect-garbage -d
