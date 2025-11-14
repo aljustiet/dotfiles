@@ -11,10 +11,10 @@ spawn-at-startup "sh" "-c" "/home/aljustiet/documents/go/bin/niri-screen-time -d
 workspace "telegram" {
     open-on-output "HDMI-A-1"
 }
-workspace "mail" {
+workspace "discord" {
     open-on-output "HDMI-A-1"
 }
-workspace "discord" {
+workspace "mail" {
     open-on-output "HDMI-A-1"
 }
 workspace "keepassxc" {

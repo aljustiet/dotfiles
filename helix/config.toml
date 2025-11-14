@@ -1,4 +1,4 @@
-theme = "gruvbox"
+theme = "gruvbox_light_hard"
 [editor.cursor-shape]
 normal = "block" 
 insert = "bar" 
