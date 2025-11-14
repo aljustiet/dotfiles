@@ -8,6 +8,7 @@ h = "move_char_left"
 a = "move_visual_line_down"
 e = "move_visual_line_up"
 i = "move_char_right"
+t = "insert_mode"
 
 [keys.select]
 h = "extend_char_left"
