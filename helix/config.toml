@@ -10,6 +10,9 @@ e = "move_visual_line_up"
 i = "move_char_right"
 t = "insert_mode"
 
+[keys.normal.g]
+i = "goto_line_end"
+
 [keys.select]
 h = "extend_char_left"
 a = "extend_line_down"
