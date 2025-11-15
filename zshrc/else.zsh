@@ -214,3 +214,9 @@ tdmk() {
     niri msg action spawn -- "tutanota-desktop" "--no-sandbox"
     niri msg action spawn -- "keepassxc"
 }
+ktdmk() {
+    pkill "AyuGram"
+    pkill "vesktop"
+    pkill "tutanota-desktop"
+    pkill "keepassxc"
+}
