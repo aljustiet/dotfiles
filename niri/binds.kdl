@@ -1,19 +1,14 @@
 binds {
-    Mod+H { focus-column-left; }
-    Mod+A { focus-window-down; }
-
+    Mod+O   { focus-workspace-down; }
+    Mod+U   { focus-workspace-up; }
     Mod+B { close-window; }
-
-    Mod+Q repeat=false { toggle-overview; }
-
     Mod+Shift+A     { focus-monitor-down; }
     Mod+Shift+E     { focus-monitor-up; }
+    Mod+H { focus-column-left; }
+    Mod+I { focus-column-right; }
 
-    Mod+Shift+H { move-column-left; }
-    Mod+Shift+I { move-column-right; }
-
-    //Mod+Shift+A { move-window-down; }
-    //Mod+Shift+E { move-window-up; }
+    Mod+A { focus-window-down; }
+    Mod+E { focus-window-up; }
 
     Ctrl+Space { spawn "rofi" "-show" "drun"; }
     Mod+R { spawn "rofi" "-show" "drun"; }
@@ -26,6 +21,13 @@ binds {
     Mod+N { spawn "swaync-client" "-t" "-sw" ;}
     Ctrl+Apostrophe { spawn "bemoji" "--noline" "--type" "--clip" ;}
 
+    Mod+Shift+P { power-off-monitors; }
+
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+I { move-column-right; }
+
+    Mod+Q repeat=false { toggle-overview; }
+
     Mod+T { focus-workspace "telegram";}
     Mod+Shift+T { move-column-to-workspace "telegram";}
     Mod+M { focus-workspace "mail";}
@@ -35,16 +37,13 @@ binds {
     Mod+Shift+S { move-column-to-workspace "browser";}
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+E { focus-window-up; }
-    Mod+I { focus-column-right; }
     ALT+H { focus-column-left; }
     ALT+I { focus-column-right; }
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
-    Mod+O   { focus-workspace-down; }
-    Mod+U   { focus-workspace-up; }
+    
 
     XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
@@ -57,10 +56,6 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "dash" "-c" "brightnessctl --quiet s 10%+"; }
     Shift+XF86MonBrightnessDown allow-when-locked=true { spawn "dash" "-c" "brightnessctl --quiet s 1%-"; }
     Shift+XF86MonBrightnessUp allow-when-locked=true { spawn "dash" "-c" "brightnessctl --quiet s 1%+"; }
-
-
-
-    
 
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
@@ -75,8 +70,6 @@ binds {
     Mod+Alt+H     { focus-monitor-left; }
     Mod+Alt+I     { focus-monitor-right; }
 
-    
-
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
@@ -88,7 +81,7 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    
+
     Mod+Alt+Page_Down { move-column-to-workspace-down; }
     Mod+Alt+Page_Up   { move-column-to-workspace-up; }
     Mod+Alt+O         { move-column-to-workspace-down; }
@@ -170,5 +163,4 @@ binds {
 
     Ctrl+Alt+Delete { quit; }
 
-    Mod+Shift+P { power-off-monitors; }
 }
