@@ -1,0 +1,38 @@
+spawn-at-startup "dash" "-c" "wl-paste --type text --watch cliphist store"
+spawn-at-startup "dash" "-c" "wl-paste --type image --watch cliphist store"
+spawn-at-startup "waybar"
+spawn-at-startup "solaar" "--window=hide"
+spawn-at-startup "foot" "--server"
+spawn-at-startup "gammastep"
+spawn-at-startup "dash" "-c" "pidof batsignal && batsignal"
+spawn-at-startup "kdeconnectd"
+spawn-at-startup "dash" "-c" "niri-screen-time -daemon >/dev/null 2>&1"
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+environment {
+    DISPLAY ":0"
+    QT_AUTO_SCREEN_SCALE_FACTOR "1"
+    QT_QPA_PLATFORM "wayland;xcb"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_QPA_PLATFORMTHEME "qt5ct"
+    QT_IM_MODULES "wayland;fcitx;ibus"
+    XCURSOR_SIZE "32"
+    XDG_BACKEND "wayland"
+    XDG_CURRENT_DESKTOP "Niri"
+    XDG_SESSION_TYPE "wayland"
+    XDG_SESSION_DESKTOP "Niri"
+    SDL_VIDEODRIVER "wayland,x11"
+    CLUTTER_BACKEND "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    BEMOJI_PICKER_CMD "rofi -dmenu"
+    MOZ_ENABLE_WAYLAND "1"
+    GDK_BACKEND "wayland,x11"
+    GDK_SCALE "2.4"
+}
+cursor {
+    xcursor-theme "Bibata-Modern-Classic"
+    xcursor-size 32
+    hide-when-typing
+    hide-after-inactive-ms 60000
+}
