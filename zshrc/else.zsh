@@ -208,3 +208,9 @@ ed() {
 }
 
 alias s=sudo
+tdmk() {
+    niri msg action spawn -- "AyuGram"
+    niri msg action spawn -- "vesktop"
+    niri msg action spawn -- "tutanota-desktop" "--no-sandbox"
+    niri msg action spawn -- "keepassxc"
+}
