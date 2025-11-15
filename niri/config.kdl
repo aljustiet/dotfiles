@@ -9,6 +9,7 @@ spawn-at-startup "kdeconnectd"
 spawn-at-startup "dash" "-c" "niri-screen-time -daemon >/dev/null 2>&1"
 
 include "input.kdl"
+include "outputs.kdl"
 
 workspace "telegram" {
     open-on-output "HDMI-A-1"
@@ -24,43 +25,6 @@ workspace "keepassxc" {
 }
 workspace "browser" {
     open-on-output "HDMI-A-1"
-}
-
-output "eDP-1" {
-    mode "1920x1200"
-    scale 1.6
-    position x=200 y=900
-    variable-refresh-rate
-}
-output "HDMI-A-1" {
-    mode "3840x2160"
-    scale 2.4
-    position x=0 y=0
-    focus-at-startup
-    variable-refresh-rate
-}
-output "HDMI-A-1" {
-    mode "1920x1080"
-    scale 1.6
-    position x=0 y=0
-    focus-at-startup
-    variable-refresh-rate
-}
-output "DP-2" {
-    off
-    mode "3840x2160"
-    scale 2.4
-    position x=0 y=0
-    focus-at-startup
-    variable-refresh-rate
-}
-output "DP-1" {
-    off
-    mode "3840x2160"
-    scale 2.4
-    position x=0 y=0
-    focus-at-startup
-    variable-refresh-rate
 }
 
 layout {
