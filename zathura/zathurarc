@@ -8,7 +8,7 @@ set statusbar-v-padding 0
 set page-padding 1
 set selection-clipboard clipboard
 set font "Roboto Regular"
-include reading-theme
+include light-theme
 set guioptions none
 # map <C-j> guioptions
 
