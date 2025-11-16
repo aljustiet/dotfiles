@@ -26,7 +26,7 @@ alias ars="command sudo mount -t tmpfs -o size=4G -m tmpfs"
 # alias am=appman
 alias ip="ip -c=always"
 alias shst="nohup swayimg ~/Documents/School/Timetable.png 2>/dev/null 1>/dev/null &"
-alias rs="rib scrcpy --fullscreen --keyboard=uhid --stay-awake --window-title Honor --no-mouse-hover --no-audio"
+alias rs="rib scrcpy --render-driver=opengl --video-encoder=c2.qti.avc.encoder --keyboard=uhid --stay-awake --window-title Honor --no-mouse-hover --no-audio --fullscreen"
 alias pkw="pkill wshowkeys"
 alias shk="wshowkeys -F \"GoMono Nerd Font 32\" -t 1 -a bottom"
 alias lkp="dbus-run-session startplasma-wayland"
@@ -216,7 +216,7 @@ tdmk() {
 }
 ktdmk() {
     pkill "AyuGram"
-    pkill "vesktop"
+    pkill "electron"
     pkill "tutanota-desktop"
     pkill "keepassxc"
 }
