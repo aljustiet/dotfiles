@@ -9,4 +9,6 @@ alias nw="niri msg windows"
 alias na='niri msg windows | grep "App ID:"'
 alias mm="niri msg action move-workspace-to-monitor"
 alias mi="niri msg action move-workspace-to-index"
+alias eb="nvim ~/.config/niri/binds.kdl"
+alias enc="nvim ~/.config/niri/config.kdl"
 #alias eo='niri msg output eDP-1 on

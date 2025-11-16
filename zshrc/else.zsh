@@ -1,10 +1,7 @@
-# Suffix aliases
-# alias -s sh=nvim
 alias -s txt=nvim
 alias -s html=nvim
 alias -s conf=nvim
 
-# Aliases
 alias cfn="nvim ~/.config/newsboat/config"
 alias cfu="nvim ~/.config/newsboat/urls"
 alias nb=newsboat
@@ -23,7 +20,6 @@ alias sc=systemctl
 alias jc=journalctl
 alias iao="cat /sys/class/power_supply/AC/online"
 alias ars="command sudo mount -t tmpfs -o size=4G -m tmpfs"
-# alias am=appman
 alias ip="ip -c=always"
 alias shst="nohup swayimg ~/Documents/School/Timetable.png 2>/dev/null 1>/dev/null &"
 alias rs="rib scrcpy --render-driver=opengl --video-encoder=c2.qti.avc.encoder --keyboard=uhid --stay-awake --window-title Honor --no-mouse-hover --no-audio --fullscreen"
@@ -37,9 +33,6 @@ alias td="termdown"
 alias op="rib zathura"
 alias oi="rib swayimg"
 alias cu=currencyConverter
-#df () {
-#  command df -x tmpfs -x efivarfs -h | rg -v -e "dev.*7\.2G"
-#}
 alias umount="sudo umount"
 alias btrfs="sudo btrfs"
 alias lofi="rmib 'https://www.youtube.com/watch?v=jfKfPfyJRdk'"
@@ -82,7 +75,6 @@ alias kl="pkill -f /usr/lib/librewolf/librewolf"
 alias kf="pkill -f /usr/lib/firefox/firefox"
 alias hree="niri msg action spawn -- 'sh' '-c' 'easyeffects --gapplication-service'"
 
-#alias ssoa="adb shell sh /storage/emulated/0/Android/data/moe.shizuku.privileged.api/start.sh"
 alias ssoa="adb shell /data/app/~~EOh7a9xbXguULq9tbHCr3A==/moe.shizuku.privileged.api-7CGqOIF4ejSauvhdJTP_Bw==/lib/arm64/libshizuku.so"
 alias tokei="tokei --sort code"
 alias ma="sudo mount -a"
@@ -92,7 +84,6 @@ ub() {
   unbuffer $@ | bat
 }
 
-# alias ub="unbuffer"
 alias zathura="zathura -l error"
 alias za="zathura -l error"
 alias mount="sudo mount"
@@ -105,24 +96,16 @@ alias kv="pkill -f 'vesktop.bin --enable-speech-dispatcher --ozone-platform-hint
 alias kq="pkill -f qbittorrent"
 alias klb="pkill -f '/opt/LBRY/lbry --enable-crashpad'"
 
-# alias ts="tailscale"
+alias ts="tailscale"
 alias nza="nvim ~/.config/zathura/zathurarc"
 alias ks="pkill -f '/usr/lib/signal-desktop/signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland'"
 
 alias lda="sudo udevadm info --attribute-walk"
 alias nn="nvim ~/.config/nvim/init.lua"
 
-
-
-# vnstat() {
-#   /usr/bin/vnstat -i enp51s0f4u2
-# }
-
 rib() {
   nohup $@ 2>/dev/null >/dev/null &
 }
-
-# unalias gss
 
 sr() {
   wl-screenrec -f "$@" --codec avc --dri-device /dev/dri/renderD128
@@ -165,23 +148,19 @@ cap() {
   done
 }
 
-# NetworkManager
 alias ndwc="nmcli device wifi connect"
 alias ndwr="nmcli device wifi rescan"
 alias ndwl="nmcli device wifi list"
 alias nwe="nmcli radio wifi on"
 alias nwd="nmcli radio wifi off"
 
-# Quick editing
 alias nmpm="nvim ~/.config/mpv/mpv.conf"
 alias nmpi="nvim ~/.config/mpv/input.conf"
 
-# Mullvad
 alias ms="mullvad status"
 alias mc="mullvad connect"
 alias md="mullvad disconnect"
 
-# Systemd
 alias stytus="sudo systemctl status"
 alias start="sudo systemctl start"
 alias sturt="systemctl --user start"
@@ -192,14 +171,11 @@ alias scu="systemctl --user"
 alias ds="sudo systemctl"
 alias dr="sudo systemctl daemon-reload"
 
-# Reloading
 alias rz="source ~/.zshrc"
 
-# Editing
 alias nz="\$EDITOR ~/.config/zsh/zshrc"
 alias eh="\$EDITOR ~/.config/helix/config.toml"
 
-# Git aliases
 alias gis="git status"
 alias aac="git add . && git commit"
 alias gic="git clone"
