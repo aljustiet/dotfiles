@@ -8,6 +8,14 @@ binds {
     Mod+A { focus-column-right; }
     Mod+I { focus-column-right; }
 
+    Mod+T { spawn "~/.config/niri/scripts/focus-telegram.sh";}
+    Mod+M { focus-workspace "mail";}
+    Mod+D { focus-workspace "discord";}
+    Mod+S { focus-workspace "browser";}
+    Mod+X { focus-workspace "keepassxc";}
+    Mod+Shift+T { move-column-to-workspace "telegram";}
+    Mod+Shift+S { move-column-to-workspace "browser";}
+
     Alt+F { maximize-column; }
     Mod+F { maximize-window-to-edges; }
     Mod+Shift+F { fullscreen-window; }
@@ -33,13 +41,6 @@ binds {
 
     Mod+Q repeat=false { toggle-overview; }
 
-    Mod+T { focus-workspace "telegram";}
-    Mod+Shift+T { move-column-to-workspace "telegram";}
-    Mod+M { focus-workspace "mail";}
-    Mod+D { focus-workspace "discord";}
-    Mod+S { focus-workspace "browser";}
-    Mod+X { focus-workspace "keepassxc";}
-    Mod+Shift+S { move-column-to-workspace "browser";}
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     ALT+H { focus-column-left; }
