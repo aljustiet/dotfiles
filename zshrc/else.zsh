@@ -182,4 +182,6 @@ ktdmk() {
 }
 
 alias cpo="wl-paste | oi -"
-alias cv="mpv '$(wl-paste)'"
+cv () {
+    mpv $(wl-paste)
+}
