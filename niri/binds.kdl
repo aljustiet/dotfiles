@@ -5,13 +5,14 @@ binds {
     Mod+Shift+A     { focus-monitor-down; }
     Mod+Shift+E     { focus-monitor-up; }
     Mod+H { focus-column-left; }
+    Mod+A { focus-column-right; }
     Mod+I { focus-column-right; }
 
     Alt+F { maximize-column; }
     Mod+F { maximize-window-to-edges; }
     Mod+Shift+F { fullscreen-window; }
 
-    Mod+A { focus-window-down; }
+    //Mod+I { focus-window-down; }
     Mod+E { focus-window-up; }
 
     Ctrl+Space { spawn "rofi" "-show" "drun"; }
@@ -47,7 +48,6 @@ binds {
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
-    
 
     XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
@@ -163,5 +163,4 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     Ctrl+Alt+Delete { quit; }
-
 }
