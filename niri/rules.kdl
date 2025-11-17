@@ -6,18 +6,22 @@ window-rule {
 window-rule {
     match app-id=r#"^com\.ayugram\.desktop$"#
     open-on-workspace "telegram"
+    open-fullscreen true
 }
 
 window-rule {
     match app-id=r#"^tutanota-desktop$"#
     open-on-workspace "mail"
+    open-fullscreen true
 }
 
 window-rule {
     match app-id=r#"^vesktop$"#
     open-on-workspace "discord"
+    open-fullscreen true
 }
 window-rule {
     match app-id=r#"^org.keepassxc.KeePassXC$"#
     open-on-workspace "keepassxc"
+    open-fullscreen true
 }
