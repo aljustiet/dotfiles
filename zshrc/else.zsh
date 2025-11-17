@@ -180,3 +180,5 @@ ktdmk() {
     pkill "tutanota-desktop"
     pkill "keepassxc"
 }
+
+alias cpo="wl-paste | oi -"
