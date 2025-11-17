@@ -176,8 +176,8 @@ tdmk() {
 
 ktdmk() {
     pkill "AyuGram"
-    pkill "electron"
-    pkill "tutanota-desktop"
+    kill $(pgrep -o -f Vesktop)
+    kill $(pgrep -o -f tutanota-desktop)
     pkill "keepassxc"
 }
 
