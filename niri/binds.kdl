@@ -1,4 +1,6 @@
 binds {
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
     Mod+O   { focus-workspace-down; }
     Mod+U   { focus-workspace-up; }
     Mod+B { close-window; }
@@ -8,11 +10,11 @@ binds {
     Mod+A { focus-column-right; }
     Mod+I { focus-column-right; }
 
-    Mod+T { spawn "~/.config/niri/scripts/focus-telegram.sh";}
-    Mod+M { focus-workspace "mail";}
-    Mod+D { focus-workspace "discord";}
-    Mod+S { focus-workspace "browser";}
-    Mod+X { focus-workspace "keepassxc";}
+    Mod+T { spawn "~/.config/niri/scripts/focus.sh" "telegram";}
+    Mod+M { spawn "~/.config/niri/scripts/focus.sh" "mail";}
+    Mod+D { spawn "~/.config/niri/scripts/focus.sh" "discord";}
+    Mod+X { spawn "~/.config/niri/scripts/focus.sh" "keepassxc";}
+    Mod+S { spawn "~/.config/niri/scripts/focus.sh" "browser";}
     Mod+Shift+T { move-column-to-workspace "telegram";}
     Mod+Shift+S { move-column-to-workspace "browser";}
 
@@ -160,8 +162,6 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
-
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     Ctrl+Alt+Delete { quit; }
 }
