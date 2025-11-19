@@ -86,9 +86,6 @@ binds {
     Mod+Shift+Alt+E     { move-column-to-monitor-up; }
     Mod+Shift+Alt+I     { move-column-to-monitor-right; }
 
-    Mod+Page_Down      { focus-workspace-down; }
-    Mod+Page_Up        { focus-workspace-up; }
-
     Mod+Alt+Page_Down { move-column-to-workspace-down; }
     Mod+Alt+Page_Up   { move-column-to-workspace-up; }
     Mod+Alt+O         { move-column-to-workspace-down; }
