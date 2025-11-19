@@ -6,3 +6,5 @@ fish/fish_variables
 .bak
 helix/runtime
 zshrc/.zcompdump*
+newsboat/cache.db
+newsboat/cache.db.lock
