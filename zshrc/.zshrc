@@ -21,6 +21,7 @@ source ~/.config/zshrc/path.zsh
 source ~/.config/zshrc/nixos.zsh
 source ~/.config/zshrc/doas.zsh
 source ~/.config/zshrc/network.zsh
+source ~/.config/zshrc/wayland.zsh
 #for file in ~/.config/zsh/**/*; do
 #    if [[ -f $file ]]; then
 #        source "$file"
