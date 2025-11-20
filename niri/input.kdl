@@ -1,5 +1,7 @@
 input {
     keyboard {
+        repeat-delay 600
+        repeat-rate 10
         xkb {
             layout "us,ru(mac)"
         }
@@ -7,7 +9,6 @@ input {
     }
 
     touchpad {
-        //tap
         dwt
         scroll-factor 0.2
         natural-scroll

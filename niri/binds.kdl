@@ -20,13 +20,13 @@ binds {
     Mod+F { maximize-window-to-edges; }
     Mod+Shift+F { fullscreen-window; }
 
-    Ctrl+Space { spawn "rofi" "-show" "drun"; }
-    Mod+R { spawn "rofi" "-show" "drun"; }
+    Ctrl+Space { spawn "rofi" "-show" "drun" "-show-icons"; }
+    Mod+R { spawn "rofi" "-show" "drun" "-show-icons" ; }
 
     Ctrl+Alt+L { spawn "swaylock"; }
     Mod+K { spawn "zen" "-P" "aljustiet"; }
     Ctrl+Shift+M { spawn "dash" "-c" "cliphist list | rofi -dmenu -i | cliphist decode | wl-copy" ;}
-    Mod+Space { spawn "rofi" "-show" "window" ;}
+    Mod+Space { spawn "rofi" "-show" "window" "-show-icons" ;}
     Mod+N { spawn "swaync-client" "-t" "-sw" ;}
     Ctrl+Apostrophe { spawn "bemoji" "--noline" "--type" "--clip" ;}
 
