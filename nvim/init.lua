@@ -8,78 +8,33 @@ vim.o.breakindent = true
 vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.o.signcolumn = 'no'
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+vim.o.splitright = true
+vim.o.splitbelow = true
+vim.o.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.o.inccommand = 'split'
+vim.o.cursorline = true
+vim.o.scrolloff = 10
+vim.o.confirm = true
 
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)
 
--- Keep signcolumn on by default
-vim.o.signcolumn = 'yes'
-
--- Decrease update time
-vim.o.updatetime = 250
-
--- Decrease mapped sequence wait time
-vim.o.timeoutlen = 300
-
--- Configure how new splits should be opened
-vim.o.splitright = true
-vim.o.splitbelow = true
-
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
---
---  Notice listchars is set using `vim.opt` instead of `vim.o`.
---  It is very similar to `vim.o` but offers an interface for conveniently interacting with tables.
---   See `:help lua-options`
---   and `:help lua-options-guide`
-vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
--- Preview substitutions live, as you type!
-vim.o.inccommand = 'split'
-
--- Show which line your cursor is on
-vim.o.cursorline = true
-
--- Minimal number of screen lines to keep above and below the cursor.
-vim.o.scrolloff = 10
-
--- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
--- instead raise a dialog asking if you wish to save the current file(s)
--- See `:help 'confirm'`
-vim.o.confirm = true
-
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- Diagnostic keymaps
-
--- This one was always correct, as it's a direct function reference.
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- CORRECTED: Wrap the call in a function to delay execution.
 vim.keymap.set('n', '[d', function()
   vim.diagnostic.goto_prev()
 end, { desc = 'Go to [P]revious [D]iagnostic message' })
 
--- CORRECTED: Wrap the call in a function to delay execution.
 vim.keymap.set('n', ']d', function()
   vim.diagnostic.goto_next()
 end, { desc = 'Go to [N]ext [D]iagnostic message' })
-
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
