@@ -2,9 +2,12 @@
 * {
 font: "JetBrainsMono Nerd Font 16";
 }
+window {
+    width: 40em;
+}
 element-icon {
     size: 50;
 }
 listview {
-    lines: 8;
+    lines: 10;
 }
