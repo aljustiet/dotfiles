@@ -1,4 +1,3 @@
-timeout 300 swaylock -f
-timeout 600 "niri msg action power-off-monitors"
-before-sleep swaylock -f
-lock swaylock -f
+timeout 300 "swaylock -f"
+timeout 600 "niri msg action power-off-monitors; playerctl pause; systemctl suspend" resume "niri msg action power-on-monitors"
+before-sleep "playerctl pause; swaylock -f"
