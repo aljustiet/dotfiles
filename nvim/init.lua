@@ -832,6 +832,7 @@ local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Key mappings
+keymap('n', 'gn', 'ga', opts)
 keymap('n', '.r', ':source ~/.config/nvim/init.lua<CR>', opts)
 keymap('n', '.y', '"+y', opts)
 keymap('v', '.y', '"+y', opts)
