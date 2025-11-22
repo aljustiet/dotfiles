@@ -1,6 +1,7 @@
 binds {
     Mod+Return { spawn "footclient"; }
     Mod+B { close-window; }
+    Mod+W { spawn "dash" "-c" "pkill waybar && waybar";}
 
     Mod+O   { focus-workspace-down; }
     Mod+U   { focus-workspace-up; }
@@ -9,6 +10,9 @@ binds {
     Mod+H { focus-column-left; }
     Mod+A { focus-column-right; }
     Mod+I { focus-column-right; }
+
+    Alt+H { focus-column-left; }
+    Alt+I { focus-column-right; }
 
     Mod+T { spawn "~/.config/niri/scripts/focus.sh" "telegram";}
     Mod+M { spawn "~/.config/niri/scripts/focus.sh" "mail";}
