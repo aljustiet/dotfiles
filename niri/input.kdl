@@ -1,7 +1,7 @@
 input {
     keyboard {
         repeat-delay 600
-        repeat-rate 10
+        repeat-rate 20
         xkb {
             layout "us,ru(mac)"
         }
