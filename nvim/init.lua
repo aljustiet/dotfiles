@@ -19,6 +19,7 @@ vim.o.inccommand = 'split'
 vim.o.cursorline = true
 vim.o.scrolloff = 10
 vim.o.confirm = true
+vim.o.backupcopy = 'yes'
 
 vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
@@ -812,76 +813,64 @@ require('lazy').setup({
   },
 })
 
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
 
--- Options
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.o.wrapscan = false
+vim.o.hlsearch = true
+vim.o.incsearch = true
+vim.o.showcmd = false
 
--- vim.opt.smartindent = true
+vim.keymap.set('n', 'gn', 'ga')
+vim.keymap.set('n', '.r', ':source ~/.config/nvim/init.lua<CR>')
+vim.keymap.set('n', '.y', '"+y')
+vim.keymap.set('v', '.y', '"+y')
 
-vim.opt.wrapscan = false
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.g.have_nerd_font = true
-vim.opt.showcmd = false
+vim.keymap.set('n', 'a', 'gj')
+vim.keymap.set('n', 'e', 'gk')
+vim.keymap.set('n', 'i', 'l')
+vim.keymap.set('n', 't', 'i')
+vim.keymap.set('n', 's', 'a')
+vim.keymap.set('n', 'T', 'I')
+vim.keymap.set('n', 'S', 'A')
+vim.keymap.set('n', 'l', 'w')
+vim.keymap.set('n', 'L', 'W')
+vim.keymap.set('n', 'w', 'e')
+vim.keymap.set('n', 'W', 'E')
+vim.keymap.set('n', 'm', 'x')
+vim.keymap.set('n', ';', ':', {})
+vim.keymap.set('n', 'dl', 'de')
+vim.keymap.set('n', 'cl', 'ce')
+vim.keymap.set('n', 'ga', 'gj')
+vim.keymap.set('n', 'ge', 'gk')
+vim.keymap.set('n', 'ca', 'cj')
+vim.keymap.set('n', 'ce', 'ck')
+vim.keymap.set('n', 'ci', 'cl')
 
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+vim.keymap.set('v', 'm', 'x')
+vim.keymap.set('v', 'i', 'l')
+vim.keymap.set('v', 'a', 'gj')
+vim.keymap.set('v', 'e', 'gk')
+vim.keymap.set('v', 'T', 'I')
+vim.keymap.set('v', 'S', 'A')
+vim.keymap.set('n', 'ya', 'yj')
+vim.keymap.set('n', 'ye', 'yk')
 
--- Key mappings
-keymap('n', 'gn', 'ga', opts)
-keymap('n', '.r', ':source ~/.config/nvim/init.lua<CR>', opts)
-keymap('n', '.y', '"+y', opts)
-keymap('v', '.y', '"+y', opts)
+vim.keymap.set('o', 's', 'a')
+vim.keymap.set('v', 's', 'a')
 
-keymap('n', 'a', 'gj', opts)
-keymap('n', 'e', 'gk', opts)
-keymap('n', 'i', 'l', opts)
-keymap('n', 't', 'i', opts)
-keymap('n', 's', 'a', opts)
-keymap('n', 'T', 'I', opts)
-keymap('n', 'S', 'A', opts)
-keymap('n', 'l', 'w', opts)
-keymap('n', 'L', 'W', opts)
-keymap('n', 'w', 'e', opts)
-keymap('n', 'W', 'E', opts)
-keymap('n', 'm', 'x', opts)
-keymap('n', ';', ':', {})
-keymap('n', 'dl', 'de', opts)
-keymap('n', 'cl', 'ce', opts)
-keymap('n', 'ga', 'gj', opts)
-keymap('n', 'ge', 'gk', opts)
-keymap('n', 'ca', 'cj', opts)
-keymap('n', 'ce', 'ck', opts)
-keymap('n', 'ci', 'cl', opts)
-
-keymap('v', 'm', 'x', opts)
-keymap('v', 'i', 'l', opts)
-keymap('v', 'a', 'gj', opts)
-keymap('v', 'e', 'gk', opts)
-keymap('v', 'T', 'I', opts)
-keymap('v', 'S', 'A', opts)
-keymap('n', 'ya', 'yj', opts)
-keymap('n', 'ye', 'yk', opts)
-
-keymap('o', 's', 'a', opts)
-keymap('v', 's', 'a', opts)
-
-keymap('o', 't', 'i', opts)
-keymap('v', 't', 'i', opts)
-vim.keymap.set('n', '<C-s>', ':w<CR>', opts)
-vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>gi', opts)
-vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv', opts)
-vim.keymap.set('n', '<C-a>', 'ggVG', opts)
-vim.keymap.set('i', '<C-a>', '<Esc>ggVG', opts)
-vim.keymap.set('v', '<C-a>', '<Esc>ggVG', opts)
-keymap('n', '<Tab>', ':tabnext<CR>', opts)
-keymap('n', '<S-Tab>', ':tabprevious<CR>', opts)
-
--- File: ~/.config/nvim/init.lua
+vim.keymap.set('o', 't', 'i')
+vim.keymap.set('v', 't', 'i')
+vim.keymap.set('n', '<C-s>', ':w<CR>')
+vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>gi')
+vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv')
+vim.keymap.set('n', '<C-a>', '0ggvG$')
+vim.keymap.set('i', '<C-a>', '<Esc>0ggvG$')
+vim.keymap.set('v', '<C-a>', '<Esc>0ggvG$')
+vim.keymap.set('n', '<Tab>', ':tabnext<CR>')
+vim.keymap.set('n', '<S-Tab>', ':tabprevious<CR>')
+vim.keymap.set('n', 'f', '/')
 
 -- Map Ctrl-C in Visual mode to copy to both clipboard and primary selection
 -- vim.keymap.set('v', '<C-c>', '"*y"+y', {
