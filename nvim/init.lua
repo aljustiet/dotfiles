@@ -64,7 +64,6 @@ vim.keymap.set('n', 'ce', 'ck')
 vim.keymap.set('n', 'ci', 'cl')
 vim.keymap.set('v', 'm', 'x')
 vim.keymap.set('v', 'i', 'l')
-
 vim.keymap.set('v', 'T', 'I')
 vim.keymap.set('v', 'S', 'A')
 vim.keymap.set('n', 'ya', 'yj')
@@ -124,6 +123,7 @@ rtp:prepend(lazypath)
 
 require('lazy').setup({
   'NMAC427/guess-indent.nvim',
+  'nvim-tree/nvim-tree.lua',
 
   {
     'lewis6991/gitsigns.nvim',
