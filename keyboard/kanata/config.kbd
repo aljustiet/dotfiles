@@ -18,11 +18,20 @@ tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 
 (defsrc
 f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
-grv  1     2    3    4    5    6     7    8    9    0    -    =    bspc
-tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
-caps a     s    d    f    g    h     j    k    l    ;    '    ret
-lsft z     x    c    v    b  n     m    ,    .    /    rsft up
-lctl lalt lmet         spc              rmet ralt   lft down rght
+grv 1 2 3 4 5 6 7 8 9 0 - = bspc
+tab q w e r t y u i o p [ ] \
+caps a s d f g h j k l ; ' ret
+lsft z x c v b n m , . / rsft up
+lctl lalt lmet spc rmet ralt lft down rght
+)
+
+(deflayer lmet_layer
+brdn brup _ _ _ _ prev pp next mute vold volu
+_ 1 2 3 4 5 6 7 8 9 0 _ _ _
+_ b l d w z @' f o u j ; = \
+_ n r t s g y h a e i , ret
+_ x m c v b k p . - _ _ _
+_ _ _ _ _ _ _ _ _
 )
 
 (defalias
@@ -261,15 +270,6 @@ _ @clft @mup @crght _    _    _    [    ]    _    _    _    _    _
 _ @mlft @mbck @mrght @mmid _    _   S-;    =    @%  @@    _     _
 _    _    _   C-c  C-v   _    _    _    _    _    _    _ up
 _    _    _              _             @anav _            lft down rght
-)
-
-(deflayer lmet_layer
-brdn brup _ _ _ _ prev pp next mute vold volu
-  _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
-tab q @C-l @C-d @C-w @C-z    @' f @C-o @C-u j @C-; @C-= \
-  _ n @C-r @C-t @C-s @alft @arght @C-h @C-a e i , ret
-@sft @C-m @C-x @C-c @C-v b @C-k @C-p . - /   @C-rsft up
-lalt  _    _               _            _  _      lft down rght
 )
 
 (deflayer galt_tweaks
