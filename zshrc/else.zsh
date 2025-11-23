@@ -186,3 +186,4 @@ cv () {
     mpv $(wl-paste)
 }
 alias nvc="niri msg action spawn -- 'zathura' '/home/aljustiet/Documents/books/social/emotional-intellect/nonviolent-communication/Nonviolent Communication 2015.pdf'"
+alias ct="wl-paste | nvim"
