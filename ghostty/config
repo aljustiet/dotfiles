@@ -1,6 +1,6 @@
 theme = Gruvbox Light Hard
 font-family = "JetBrains Mono Nerd Font"
-font-size = 16
+font-size = 24
 window-theme=ghostty
 #command = /run/current-system/sw/bin/fish --interactive
 confirm-close-surface = false
