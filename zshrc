@@ -123,7 +123,7 @@ alias pk=pkill
 #   hyprctl dispatcher exec "solaar -w hide"
 # }
 
-alias rk="sudo nohup kanata --quiet --nodelay --cfg ~/.dotfiles/Keyboard-Remapping/kanata/config.kbd >/dev/null 2>/dev/null &"
+alias rk="sudo nohup kanata --quiet --nodelay --cfg ~/.dotfiles/keyboard/kanata/config.kbd >/dev/null 2>/dev/null &"
 alias ls="ls --color"
 alias dbfu="doas btrfs filesystem usage /"
 alias sl="sl -a -d -e -c -G -5"
@@ -136,7 +136,7 @@ alias dd1="dust -d1"
 alias pacgraph="pacgraph --svg --top=blue --dep=red"
 alias gliol="git log --oneline"
 alias cpaif="cat /proc/acpi/ibm/fan"
-alias nk="nvim ~/.dotfiles/Keyboard-Remapping/kanata/config.kbd"
+alias nk="nvim ~/.dotfiles/keyboard/kanata/config.kbd"
 
 alias djfk="doas journalctl -feu kanata"
 alias kg="killall gammastep"
