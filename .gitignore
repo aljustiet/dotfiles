@@ -8,3 +8,4 @@ helix/runtime
 zshrc/.zcompdump*
 newsboat/cache.db
 newsboat/cache.db.lock
+.DS_Store
