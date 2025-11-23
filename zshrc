@@ -98,10 +98,10 @@ alias td="termdown"
 alias op="rib zathura"
 alias oi="rib swayimg"
 alias cu=currencyConverter
-df () {
-  command df -x tmpfs -x efivarfs -h | rg -v -e "dev.*7\.2G"
-}
-alias umount="doas umount"
+#df () {
+#  command df -x tmpfs -x efivarfs -h | rg -v -e "dev.*7\.2G"
+#}
+#alias umount="doas umount"
 alias btrfs="doas btrfs"
 alias lofi="rmib 'https://www.youtube.com/watch?v=jfKfPfyJRdk'"
 
@@ -172,7 +172,6 @@ ub() {
 # alias ub="unbuffer"
 alias zathura="zathura -l error"
 alias za="zathura -l error"
-alias mount="doas mount -o uid=aljustiet,gid=aljustiet"
 alias kt="pkill -f telegram-desktop"
 
 alias hi="hyprctl dispatcher exec hypridle"
@@ -335,3 +334,13 @@ bashcompinit
 autoload bashcompinit
 bashcompinit
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/sbin:$PATH"
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+# End Nix
+alias r="sudo darwin-rebuild switch --impure --flake ~/nix#mac"
