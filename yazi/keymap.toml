@@ -51,3 +51,12 @@ keymap = [
   { on = "<Esc>", run = "close", desc = "Cancel pick" },
   { on = "<Enter>", run = "close --submit", desc = "Submit the pick" },
 ]
+
+[spot]
+keymap = [
+  { on = "a", run = "arrow next", desc = "Next line" },
+  { on = "e", run = "arrow prev", desc = "Previous line" },
+  { on = "<Esc>", run = "close", desc = "Close the spot" },
+  { on = "~", run = "help", desc = "Open help" },
+  { on = ["c", "c"], run = "copy cell", desc = "Copy selected cell" },
+]
