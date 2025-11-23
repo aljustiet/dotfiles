@@ -13,7 +13,7 @@ brdn brup C-up A-spc @dictation C-M-d prev pp next vold volu mute
 tab  q     w    e    r    t    y     u    i    o    p    [    ]    \
 @ctresc a  s    d    f    g    h     j    k    l    ;    '    ret
 @lsl z     x    c    v    b    n     m    ,    .    /    rsft up
-@lctl @lmet @lmet         spc              @ngr @rctl lft down rght
+@lctl @lalt @lmet         spc              @ngr @rctl lft down rght
 )
 
 (defsrc
@@ -26,7 +26,7 @@ lctl lalt lmet         spc              rmet ralt   lft down rght
 )
 
 (defalias
-  lmet (multi lmet (layer-while-held command_tweaks))
+  lmet (multi lmet (layer-while-held lmet_layer))
   ngr (layer-while-held navigation_right)
 )
 
@@ -35,7 +35,6 @@ lctl lalt lmet         spc              rmet ralt   lft down rght
     "Apple Internal Keyboard / Trackpad"
     "Keychron K2"
   )
-;;override-release-on-activation yes
   concurrent-tap-hold true
   process-unmapped-keys no
   danger-enable-cmd yes
@@ -56,14 +55,10 @@ lctl lalt lmet         spc              rmet ralt   lft down rght
   (lsft lctl) (multi lctl lsft (layer-while-held shift_control_layer)) 200 first-release (nothing_layer)
   (lmet lalt) (multi lalt lmet) 200 first-release (nothing_layer)
   (lsft lmet) (multi lsft lmet (layer-while-held lmet_layer)) 200 all-released (nothing_layer)
-;; (lctl ralt) (multi lalt (layer-while-held navigation_keys_only)) 200 all-released (nothing_layer)
-;;(lsft lctl) (multi lctl @lsftl) 200 first_release (nothing_layer)
-;;(s d f) (macro b y e)     400 first-release (non-chord-layer)
 )
 
 (defalias
   ex S-1
-;; oneshot (multi rmet (one-shot-press 2000 (layer-while-held symbol_layer)))
   ' (fork ' - (lsft rsft))
   , (fork , / (lsft rsft))
   - (fork - ' (lsft rsft))
@@ -230,23 +225,6 @@ _    _    _    _    _    _    _    _    _    _    _    _ up
 _    _    _              _              _    _      lft down rght
 )
 
-;; (deflayer selection_layer
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _
-;;   _    _    _    _    _    _    _    _    _    _    _    _ up
-;;   _    _    _              _              _    _      lft down rght
-;; )
-
-(deflayer lmet_layer
-brdn brup _ _ _ _ prev pp next mute vold volu
-_    _    _    _    _    _    _    _    _    _    _    -    =    _
-_    b     l    d    w    z    @'    f    o    u    j  ;    =    _
-_    n     r    t    s    g    y     h    a    e    i  @,   _
-_    x     m    c    v    q    k     p    .    @-   @/ _ up
-@scl   _    _           _             _   _      lft down rght
-)
-
 (deflayer lmetq_layer
 brdn brup _ _ _ _ prev pp next mute vold volu
 _    _    _    _    _    _    _    _    _    _    _    -    =    _
@@ -263,17 +241,7 @@ _    x     m    c    v    q    k     p    .    @-   @/ _ up
   (lctl ]) (lalt =)
   (lctl [) (lalt -)
   (lctl home) (lalt home)
-;;(ralt h) (left)
-;;(ralt a) (down)
-;;(ralt e) (up)
-;;(ralt i) (right)
-;;(ralt u) (pgup)
-;;(ralt o) (pgdn)
-;;(ralt l) (pgup)
-;;(ralt d) (pgdn)
 )
-
-
 
 (defalias
     A-x (multi (unmod ctl) A-m )
@@ -295,15 +263,7 @@ _    _    _   C-c  C-v   _    _    _    _    _    _    _ up
 _    _    _              _             @anav _            lft down rght
 )
 
-;; (deflayer cmouse_actions
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _   C-bspc
-;;   _ @clft @mup @crght _    _    _    _    _    _    _    _    _    _
-;;   _ @mlft @mbck @mrght @mmid _    _   ;    =    @%   _    _     _
-;;   _    _    _    _    _    _    _    _    _    _    _    _ up
-;;   _    _    _              _              _ _            lft down rght
-;; )
-
-(deflayer command_tweaks
+(deflayer lmet_layer
 brdn brup _ _ _ _ prev pp next mute vold volu
   _    1    2    3    4    5    6    7    8    9    0  @C-- @C-= _
 tab q @C-l @C-d @C-w @C-z    @' f @C-o @C-u j @C-; @C-= \
@@ -371,14 +331,6 @@ tab     b    l    d    w    z    @'    f    o    u    j    ;    =    \
   C-. (multi (release-key alt) C-.)
 )
 
-;; (deflayer alt_tweaks
-;;   _ @A-1 @A-2 @A-3 @A-4 @A-5 @A-6 @A-7 @A-8 @A-9 @A-0   g    y    @dline
-;; @A-tab b    l    d    w    z    @'    f    o    u    j    ;    =    \
-;;   _    n    r    t    s @alft @arght  h   a    e i @,  _
-;;  @sft  q    x    c    v    m    k    p    .    @-    @/    _ up
-;; lalt  _    _               _            _    _      lft down rght
-;; )
-
 (deflayer salt_tweaks
 brdn brup _ _ _ _ prev pp next vold volu mute 
   _    1    2    3    4    5    6    7    8    9    0   _    _    @dline
@@ -414,14 +366,6 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   _    _    _              spc          _    _      lft down rght
 )
 
-;; (deflayer diagonally_down_movement_layer
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _
-;;   _    _    _    _    _    _    _    _    _    _    _    _ up
-;;   _    _    _              _              _    _      lft down rght
-;; )
-
 (deflayer shift_layer
 brdn brup _ _ _ _ prev pp next mute vold volu
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
@@ -439,14 +383,6 @@ brdn brup _ _ _ _ prev pp next mute vold volu
   _    _    _    _    _    _    _    _    _    _    _    _ up
   _    _  @lctl            _              _    _      lft down rght
 )
-
-;; (deflayer lc_layer
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-;;   _    _    _    _    _    _    _    _    _    _    _    _    _
-;;   _    _    _    _    _    _    _    _    _    _    _    _ up
-;;   _    _  @lwhsat          _              _    _      lft down rght
-;; )
 
 (deflayer c_v
 brdn brup _ _ _ _ prev pp next mute vold volu
@@ -494,8 +430,6 @@ brdn brup _ _ _ _ prev pp next mute vold volu
     al_up (multi (release-key ctl) up)
     al_rght (multi (release-key ctl) rght)
     t t
-;;  t (tap-hold 0 200 t (tap-hold-release-timeout 0 300 (layer-while-held navigation) (layer-while-held navigation) t))
-;;  ddwa S-;
     dd (multi (release-key alt) S-;)
     ddwa (multi lalt (fork h @dd (lalt)))
     C-S-tab (multi (release-key alt) C-S-tab)
@@ -505,28 +439,19 @@ brdn brup _ _ _ _ prev pp next mute vold volu
     pwm (multi (release-key met) S-5)
     dwm (multi (release-key met) S-2)
     prtsc (layer-while-held symbol_layer)
- ;; prtsc (multi prtsc (layer-while-held symbor_layer))
     swa (multi (release-key alt) ;)
     ewa (multi (release-key alt) =)
     pwa (multi (release-key alt) S-5)
     dwa (multi (release-key alt) S-2)
     dwc (multi (release-key ctl) S-2)
- ;; spc (tap-hold-press 600 200 spc (layer-while-held mouse_actions))
     spc spc
- ;; lalt (multi lalt (layer-while-held graphite-angle-kp))
- ;; oat (tap-hold-press-timeout   200 200 o @arr bspc)
- ;; ect (tap-hold-release-timeout 200 200 e @chr esc)
     t_key t
- ;; t (tap-dance)
- ;; t (tap-hold 200 200 @t_key (layer-while-held navigation_keys_only))
- ;; t (multi t (layer-while-held navigation_keys_only))
     nav_layer (multi (layer-while-held navigation_second))
     C-tab C-tab
     A-tab (multi (release-key ctl) A-tab)
     rctl (multi rctl (layer-while-held c_v))
     C-g C-g
     lctl (multi lctl (layer-while-held lctl_layer))
- ;; lsft (tap-dance 300 ((multi lsft (layer-while-held shift_layer)) (layer-toggle caps_layer)))
     lsft lsft
     sgvl (layer-toggle graphite_vim_layer)
       to (macro C-t C-v ret)
@@ -551,7 +476,6 @@ brdn brup _ _ _ _ prev pp next mute vold volu
    ctl_g (multi (release-key alt) C-g)
      sft (multi lsft (layer-while-held salt_tweaks))
      scl (multi lctl lalt (layer-while-held scrolling_layer))
- ;; ascl (multi (release-key alt) (layer-while-held scrolling_layer))
     ascl (layer-while-held scrolling_layer)
     lalt (multi lalt (layer-while-held lmet_layer))
     lmetq (multi lmet (layer-while-held lmetq_layer))
@@ -559,8 +483,6 @@ brdn brup _ _ _ _ prev pp next mute vold volu
     mbck (movemouse-down  16 8)
     mlft (movemouse-left  16 8)
    mrght (movemouse-right 16 8)
-;; addml (multi (movemouse-left 16 5) (layer-while-held diagonally_down_movement_layer))
-  ;; lrm (multi (release-key lctl) (movemouse-left 16 5) (movemouse-down 16 5))
     clft mlft
    crght mrgt
     mmid mmid
@@ -568,17 +490,13 @@ brdn brup _ _ _ _ prev pp next mute vold volu
        % S-5
      mau A-up
      mad A-down
-;;  alft (multi (release-key ctl) A-lft)
-;; arght (multi (release-key ctl) A-rght)
     alft lft
    arght rght
 )
 
 (defalias
   dline (multi (release-key alt) lsft home bspc)
-;;lcomb (tap-dance 300 ((multi lalt (layer-while-held alt_tweaks)) (multi lctl (layer-while-held graphite-angle-kp)) (one-shot-press 60000 lctl)))
   galtb (multi alt (layer-while-held galt_tweaks))
-  ;; lcomb (layer-while-held command_tweaks)
   bspw (layer-while-held mouse_actions)
   ctresc (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
   nav (tap-dance 200 ((one-shot-press 2000 (layer-while-held navigation_right)) (layer-switch vim_navigation) (layer-switch navigation) (multi ralt)))
