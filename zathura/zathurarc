@@ -1,29 +1,15 @@
-# -*- mode: conf-space -*-
-
-# Default settings: ~/src/zathura/zathura/config.c
-# Names of special keys: ~/src/girara/girara/commands.c
-# set sandbox none
-set statusbar-h-padding 0
+set statusbar-h-padding 8
 set statusbar-v-padding 0
 set page-padding 1
 set selection-clipboard clipboard
-set font "Roboto Regular"
-include light-theme
+set font "JetBrainsMono Nerd Font"
 set guioptions none
-# map <C-j> guioptions
-
 set recolor-reverse-video true
 set statusbar-home-tilde true
 set scroll-wrap false
 
-# My mappings
-
-# Navigation
-
-# Right, down, up, left
 map <Button3> quit
 map [fullscreen] <Button3> quit
-
 map h scroll left
 map a scroll down
 map e scroll up
@@ -48,9 +34,6 @@ map g goto top
 map G goto bottom
 map [fullscreen] g goto top
 map [fullscreen] G goto bottom
-# ------------------------------------------------
-
-# Changing mode
 map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
 map s toggle_statusbar
@@ -63,16 +46,12 @@ map [ zoom out
 map ] zoom in
 map [fullscreen] d toggle_page_mode
 map d toggle_page_mode
-
-# map <PageUp> scroll half-up
-# map <PageDown> scroll half-down
 map <BackSpace> scroll half-up
 map <Space> scroll half-down
 map r navigate previous
 map t navigate next
 map [fullscreen] r navigate previous
 map [fullscreen] t navigate next
-
 map b adjust_window best-fit
 map w adjust_window width
 map W adjust_window width
@@ -82,29 +61,24 @@ map z adjust_window best-fit
 map Z adjust_window best-fit
 map [fullscreen] z adjust_window best-fit
 map [fullscreen] Z adjust_window best-fit
-
 map H adjust_window best-fit
 map Y adjust_window width
 map [fullscreen] H adjust_window best-fit
 map [fullscreen] Y adjust_window width
-
 map j print
 map [fullscreen] j print
-
 map p       rotate rotate-ccw
 map ,       rotate rotate-cw
 map [fullscreen] p       rotate rotate-ccw
 map [fullscreen] ,       rotate rotate-cw
-
 map <C-f> search
 map <C-s> search forward
 map <C-r> search backward
 map [fullscreen] <C-f> search
 map [fullscreen] <C-s> search forward
 map [fullscreen] <C-r> search backward
-
 map <C-g> goto
-map ` reload
+map <grave> navigate previous
 map c recolor
 map [fullscreen] c recolor
 map u follow
@@ -113,7 +87,6 @@ map <Return> toggle_presentation
 map o toggle_index
 map [fullscreen] o toggle_index
 map Q quit
-
 map [index] h navigate_index collapse
 map [index] a navigate_index down
 map [index] e navigate_index up
@@ -124,13 +97,10 @@ map [index] <C-e> scroll full-up
 map [index] <C-a> scroll full-down
 map [index] g goto top
 map [index] G goto bottom
-
-# Index mode
 map [index] o toggle_index
 map [index] <Return> navigate_index select
 map [index] ] navigate_index expand
 map [index] [ navigate_index collapse
 map [index] <Tab> navigate_index toggle
-# Unfortunately, there is no "toggle-all":
 map [index] <ShiftTab> navigate_index expand-all
 map [index] <A-ShiftTab> navigate_index collapse-all
