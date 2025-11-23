@@ -1,4 +1,5 @@
 binds {
+    Mod+comma { spawn "gnome-clocks"; }
     Mod+J {spawn "zathura" "~/Documents/books/social/emotional-intellect/nonviolent-communication/Nonviolent Communication 2015.pdf";}
     Mod+Return { spawn "footclient"; }
     Mod+B { close-window; }
@@ -63,9 +64,6 @@ binds {
     Mod+Alt+U         { move-column-to-workspace-up; }
 
     Mod+Backspace { focus-workspace-previous; }
-
-    Mod+Period repeat=true { consume-window-into-column; }
-    Mod+Comma repeat=true { expel-window-from-column; }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
