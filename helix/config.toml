@@ -1,8 +1,10 @@
-theme = "gruvbox_light_hard"
+theme = "gruvbox_light"
+
 [editor.cursor-shape]
-normal = "block" 
-insert = "bar" 
+normal = "block"
+insert = "bar"
 select = "underline"
+
 [keys.normal]
 h = "move_char_left"
 a = "move_visual_line_down"
@@ -12,11 +14,11 @@ t = "insert_mode"
 ";" = "command_mode"
 C-s = ":w"
 
-[keys.insert]
-C-s = ["normal_mode", ":w", "insert_mode"]
-
 [keys.normal.g]
 i = "goto_line_end"
+
+[keys.insert]
+C-s = ["normal_mode", ":w", "insert_mode"]
 
 [keys.select]
 h = "extend_char_left"
