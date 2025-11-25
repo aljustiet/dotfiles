@@ -8,7 +8,6 @@ source ~/.config/zshrc/cd.zsh
 source ~/.config/zshrc/clipboard.zsh
 source ~/.config/zshrc/coreutils.zsh
 source ~/.config/zshrc/kanata.zsh
-source ~/.config/zshrc/language.zsh
 source ~/.config/zshrc/man.zsh
 source ~/.config/zshrc/niri.zsh
 source ~/.config/zshrc/transmission.zsh
