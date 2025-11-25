@@ -14,7 +14,7 @@ alias nmpm="nvim ~/.config/mpv/mpv.conf"
 alias nmpi="nvim ~/.config/mpv/input.conf"
 alias nz="\$EDITOR ~/.config/zsh/zshrc"
 alias eh="\$EDITOR ~/.config/helix/config.toml"
-alias nk="\$EDITOR ~/.dotfiles/keyboard/kanata/config.kbd"
+alias nk="\$EDITOR ~/.dotfiles/keyboard/kanata/thinkpad.kbd"
 
 alias s=sudo
 alias cm=command
