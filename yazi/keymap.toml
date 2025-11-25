@@ -10,7 +10,7 @@ keymap = [
   { on = "O", run = "open --interactive", desc = "Open selected files interactively" },
   { on = "d", run = "remove", desc = "Trash selected files" },
   { on = "D", run = "remove --permanently", desc = "Permanently delete selected files" },
-  { on = "c", run = "create", desc = "Create a file (ends with / for directories)" },
+  { on = "t", run = "create", desc = "Create a file (ends with / for directories)" },
   { on = "y", run = "yank", desc = "Yank selected files (copy)" },
   { on = "m", run = "yank --cut", desc = "Yank selected files (cut)" },
   { on = "p", run = "paste", desc = "Paste yanked files" },
@@ -42,6 +42,19 @@ keymap = [
   { on = [",", "s"], run = ["sort size --reverse=no", "linemode size"], desc = "Sort by size" },
   { on = [",", "S"], run = ["sort size --reverse=yes", "linemode size"], desc = "Sort by size (reverse)" },
   { on = ".", run = "hidden toggle", desc = "Toggle the visibility of hidden files" },
+  { on = ["c", "c"], run = "copy path", desc = "Copy the file path" },
+  { on = ["c", "d"], run = "copy dirname", desc = "Copy the directory path" },
+  { on = ["c", "f"], run = "copy filename", desc = "Copy the filename" },
+  { on = ["c", "n"], run = "copy name_without_ext", desc = "Copy the filename without extension" },
+  { on = "s", run = "search --via=fd", desc = "Search files by name via fd" },
+  { on = "S", run = "search --via=rg", desc = "Search files by content via ripgrep" },
+  { on = "<C-s>", run = "escape --search", desc = "Cancel the ongoing search" },
+  { on = ["l", "s"], run = "linemode size", desc = "Linemode: size" },
+  { on = ["l", "p"], run = "linemode permissions", desc = "Linemode: permissions" },
+  { on = ["l", "b"], run = "linemode btime", desc = "Linemode: btime" },
+  { on = ["l", "m"], run = "linemode mtime", desc = "Linemode: mtime" },
+  { on = ["l", "o"], run = "linemode owner", desc = "Linemode: owner" },
+  { on = ["l", "n"], run = "linemode none", desc = "Linemode: none" },
 ]
 
 [pick]
@@ -59,4 +72,15 @@ keymap = [
   { on = "<Esc>", run = "close", desc = "Close the spot" },
   { on = "~", run = "help", desc = "Open help" },
   { on = ["c", "c"], run = "copy cell", desc = "Copy selected cell" },
+]
+
+[input]
+keymap = [
+  { on = "t", run = "insert", desc = "Enter insert mode" },
+  { on = "T", run = ["move first-char", "insert"], desc = "Move to the BOL, and enter insert mode" },
+  { on = "s", run = "insert --append", desc = "Enter append mode" },
+  { on = "S", run = ["move eol", "insert --append"], desc = "Move to the EOL, and enter append mode" },
+  { on = "<Enter>", run = "close --submit", desc = "Submit input" },
+  { on = "<Esc>", run = "escape", desc = "Back to normal mode, or cancel input" },
+  { on = "<Backspace>", run = "backspace", desc = "Delete the character before the cursor" },
 ]
