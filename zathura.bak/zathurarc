@@ -1,0 +1,106 @@
+set statusbar-h-padding 8
+set statusbar-v-padding 0
+set page-padding 1
+set selection-clipboard clipboard
+set font "JetBrainsMono Nerd Font"
+set guioptions none
+set recolor-reverse-video true
+set statusbar-home-tilde true
+set scroll-wrap false
+
+map <Button3> quit
+map [fullscreen] <Button3> quit
+map h scroll left
+map a scroll down
+map e scroll up
+map i scroll right
+map <Left> scroll left
+map <Right> scroll left
+map [fullscreen] <Left> scroll left
+map [fullscreen] <Right> scroll left
+map [fullscreen] h scroll left
+map [fullscreen] a scroll down
+map [fullscreen] e scroll up
+map [fullscreen] i scroll right # Half page down and up
+map [fullscreen] A scroll half-down
+map [fullscreen] E scroll half-up
+map A scroll half-down
+map E scroll half-up
+map <C-e> scroll full-up
+map <C-a> scroll full-down
+map [fullscreen] <C-e> scroll full-up
+map [fullscreen] <C-a> scroll full-down# Top and bottom
+map g goto top
+map G goto bottom
+map [fullscreen] g goto top
+map [fullscreen] G goto bottom
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+map s toggle_statusbar
+map [fullscreen] ; feedkeys :
+map ; feedkeys :
+map [fullscreen] s toggle_statusbar
+map [fullscreen] [ zoom out
+map [fullscreen] ] zoom in
+map [ zoom out
+map ] zoom in
+map [fullscreen] d toggle_page_mode
+map d toggle_page_mode
+map <BackSpace> scroll half-up
+map <Space> scroll half-down
+map r navigate previous
+map t navigate next
+map [fullscreen] r navigate previous
+map [fullscreen] t navigate next
+map b adjust_window best-fit
+map w adjust_window width
+map W adjust_window width
+map [fullscreen] w adjust_window width
+map [fullscreen] W adjust_window width
+map z adjust_window best-fit
+map Z adjust_window best-fit
+map [fullscreen] z adjust_window best-fit
+map [fullscreen] Z adjust_window best-fit
+map H adjust_window best-fit
+map Y adjust_window width
+map [fullscreen] H adjust_window best-fit
+map [fullscreen] Y adjust_window width
+map j print
+map [fullscreen] j print
+map p       rotate rotate-ccw
+map ,       rotate rotate-cw
+map [fullscreen] p       rotate rotate-ccw
+map [fullscreen] ,       rotate rotate-cw
+map <C-f> search
+map <C-s> search forward
+map <C-r> search backward
+map [fullscreen] <C-f> search
+map [fullscreen] <C-s> search forward
+map [fullscreen] <C-r> search backward
+map <C-g> goto
+map <grave> navigate previous
+map c recolor
+map [fullscreen] c recolor
+map u follow
+map [fullscreen] u follow
+map <Return> toggle_presentation
+map o toggle_index
+map [fullscreen] o toggle_index
+map Q quit
+map [index] h navigate_index collapse
+map [index] a navigate_index down
+map [index] e navigate_index up
+map [index] i navigate_index expand
+map [index] A scroll half-down
+map [index] E scroll half-up
+map [index] <C-e> scroll full-up
+map [index] <C-a> scroll full-down
+map [index] g goto top
+map [index] G goto bottom
+map [index] o toggle_index
+map [index] <Return> navigate_index select
+map [index] ] navigate_index expand
+map [index] [ navigate_index collapse
+map [index] <Tab> navigate_index toggle
+map [index] <ShiftTab> navigate_index expand-all
+map [index] <A-ShiftTab> navigate_index collapse-all
