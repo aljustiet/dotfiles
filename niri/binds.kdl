@@ -12,6 +12,8 @@ binds {
     Mod+H { focus-column-left; }
     Mod+A { focus-column-right; }
     Mod+I { focus-column-right; }
+    Mod+Left { focus-column-left; }
+    Mod+Right { focus-column-right; }
 
     Alt+H { focus-column-left; }
     Alt+I { focus-column-right; }
@@ -34,7 +36,7 @@ binds {
     Ctrl+Shift+M { spawn "dash" "-c" "cliphist list | rofi -dmenu -i | cliphist decode | wl-copy" ;}
     Mod+Space { spawn "rofi" "-show" "window" "-show-icons" ;}
     Mod+N { spawn "swaync-client" "-t" "-sw" ;}
-    Ctrl+Apostrophe { spawn "bemoji" "--noline" "--type" "--clip" ;}
+    Ctrl+Apostrophe { spawn "bemoji" "--noline" "--clip" ;}
 
     Mod+Shift+P { power-off-monitors; }
 
@@ -44,9 +46,6 @@ binds {
     Mod+Q repeat=false { toggle-overview; }
 
     Mod+Shift+Slash { show-hotkey-overlay; }
-
-    Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
 
     XF86AudioPlay allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
