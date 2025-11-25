@@ -1,138 +1,71 @@
 (defcfg
-process-unmapped-keys yes
-linux-dev-names-include (
-"AT Translated Set 2 keyboard"
-"ThinkPad Extra Buttons"
-"Video Bus"
-"Power Button"
-)
-concurrent-tap-hold true
-danger-enable-cmd yes
-log-layer-changes no
-)
-
-(defsrc
-power
-esc     " 󰍴" " 󰐕" 󱒃 󰀝 󰍡 󰏲 󰏵  home end ins del
-grv 1 2 3 4 5 6 7 8 9 0 - = bspc
-tab q w e r t y u i o p [ ] \
-caps a s d f g h j k l ; ' ret
-lsft z x c v b n m , . / rsft pgup up pgdn
-lctl lmet lalt spc ralt prtsc rctl lft down rght
-)
-
-(deflayer graphite-angle
-@zzz
-_ " 󰍴" " 󰐕" 󰒮 󰒭 _ _ _ _ 󰐎    _ _ _ _
-@lay 1 2 3 4 5 6 7 8 9 0 [ ] _
-_ b l d w z @' f o u j ; = _
-@ec n r t s g y h a e i @, _
-_ x m c v q k p . @- @/ _ _ _ _
-lalt _ lctl _ @nav _ _ _ _ _
-)
-
-(deflayer qwerty
-@zzz
-_ " 󰍴" " 󰐕" 󰒮 󰒭 _ _ _ _ 󰐎    _ _ _ _
-@lay _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _
-@ec _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-lalt _ lctl _ @nav _ _ _ _ _
-)
-
-(deflayer default
-_
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-@lay _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _
-)
-
-(defalias
-nav (layer-while-held navigation)
-lay (tap-hold-press 200 200 grv (layer-toggle layers))
-gak (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle))
-ru (multi (cmd niri msg action switch-layout 1) (cmd fcitx5-remote -s keyboard-us) (layer-switch qwerty))
-ara (multi (layer-switch graphite-angle) (cmd fcitx5-remote -s keyboard-ara))
-def (multi (cmd fcitx5-remote -s keyboard-us) (layer-switch default))
-jp (multi (layer-switch graphite-angle)(cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s mozc))
-ec (tap-hold-press 200 200 esc (layer-while-held mouse_actions))
-)
-
-(defalias
-zzz (cmd systemctl suspend)
-)
-
-(defalias
-email (macro a l j u s t i e t S-2 t u t a m a i l . c o m)
-)
-
-(deflocalkeys-linux
-󰐎 164
-󰒭 163
-󰒮 165
-" 󰍴" 224
-" 󰐕" 225
-󱒃 227
-󰀝 238
-󰍡 444
-󰏲 445
-󰏵 446
- 156
- 248
- 114
- 115
- 113
-)
-
-(defalias
-' (fork ' - (lsft rsft))
-, (fork , / (lsft rsft))
-- (fork - ' (lsft rsft))
-/ (fork / , (lsft rsft))
+  process-unmapped-keys yes
+  concurrent-tap-hold true
+  danger-enable-cmd yes
+  log-layer-changes no
+  linux-dev-names-include (
+    "AT Translated Set 2 keyboard"
+    "ThinkPad Extra Buttons"
+    "Video Bus"
+    "Power Button"
+  )
 )
 
 (defvar
-tap-timeout 200
-hold-timeout 200
-tap-dance-timeout 200
-
-tt $tap-timeout
-ht $hold-timeout
-tdt $tap-dance-timeout
+  tt 200
+  ht 200
 )
 
-(deflayer layers
-_
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ @gak @ru @jp @ara _ _ _ _ _ @def _ _ @nl
-_ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ lrld _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _
+(deflocalkeys-linux
+  󰐎 164
+  󰒭 163
+  󰒮 165
+  " 󰍴" 224
+  " 󰐕" 225
+  󱒃 227
+  󰀝 238
+  󰍡 444
+  󰏲 445
+  󰏵 446
+   156
+   248
+   114
+   115
+   113      ;; Mute
 )
 
-(deflayer navigation
-power
-_ C-A-f1 C-A-f2 C-A-f3 C-A-f4 C-A-f5 C-A-f6 _ _ _ _ _ _ _ _ _ _
-_ f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 _
-_ _ _ _ _ _ _ pgup pgdn _ _ _ _ _
-_ _ _ _ _ _ _ lft down up rght _ _
-_ _ _ _ _ _ _ home end _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _
+(defsrc
+  power
+  esc                   " 󰍴" " 󰐕" 󱒃    󰀝    󰍡    󰏲    󰏵        home end  ins  del
+  grv   1    2    3    4    5      6    7    8    9    0     -    =    bspc
+  tab   q    w    e    r    t      y    u    i    o    p     [    ]    \
+  caps  a    s    d    f    g      h    j    k    l    ;     '    ret
+  lsft  z    x    c    v    b      n    m    ,    .    /     rsft pgup up   pgdn
+  lctl  lmet lalt spc  ralt prtsc  rctl lft  down rght
 )
 
-(deflayer nothing_layer
-XX
-XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX
-@lay XX XX XX XX XX XX XX XX XX XX XX XX XX
-XX XX XX XX XX XX XX XX XX XX XX XX XX XX
-XX XX XX XX XX XX XX XX XX XX XX XX XX XX
-XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX
-XX XX XX XX XX XX XX XX XX
+(defalias
+  zzz (cmd systemctl suspend)
+
+  lay (tap-hold-press $tt $ht grv (layer-toggle layers))
+  ec  (tap-hold-press $tt $ht esc (layer-while-held mouse_actions))
+  nav (layer-while-held navigation)
+  nl  (layer-switch nothing_layer)
+
+  gak (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s keyboard-us)  (layer-switch graphite-angle))
+  ru (multi (cmd niri msg action switch-layout 1) (cmd fcitx5-remote -s keyboard-us)  (layer-switch qwerty))
+  jp  (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s mozc)         (layer-switch graphite-angle))
+  ara (multi (cmd fcitx5-remote -s keyboard-ara)   (layer-switch graphite-angle))
+
+  ' (fork ' - (lsft rsft))
+  , (fork , / (lsft rsft))
+  - (fork - ' (lsft rsft))
+  / (fork / , (lsft rsft))
+
+  mup   (movemouse-up 16 8)
+  mbck  (movemouse-down 16 8)
+  mlft  (movemouse-left 16 8)
+  mrght (movemouse-right 16 8)
 )
 
 (defoverrides
@@ -140,20 +73,91 @@ XX XX XX XX XX XX XX XX XX
   (lctl ]) (lctl =)
 )
 
-(deflayer mouse_actions
-power
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-_ caps _ _ _ _ _ _ _ _ _ _ _ C-bspc
-_ mlft @mup mrgt _ _ _ [ ] S-6 _ _ _ _
-_ @mlft @mbck @mrght mmid \ S-\ S-; kp* S-5 S-2 _ _
-_ _ _ C-c C-v _ _ _ _ _ _ _ _ _ _
-_ _ _ _ _ _ _ _ _ _
+(deflayer graphite-angle
+  @zzz
+  _     " 󰍴" " 󰐕" 󰒮    󰒭    _      _    _    _    󰐎                 _    _    _    _
+  @lay  1    2    3    4    5      6    7    8    9    0     [    ]    _
+  _     b    l    d    w    z      @'   f    o    u    j     ;    =    _
+  @ec   n    r    t    s    g      y    h    a    e    i     @,   _
+  _     x    m    c    v    q      k    p    .    @-   @/    _    _    _    _
+  lalt  _    lctl _    @nav _      _    _    _    _
 )
 
-(defalias
-mup (movemouse-up 16 8)
-mbck (movemouse-down 16 8)
-mlft (movemouse-left 16 8)
-mrght (movemouse-right 16 8)
-nl (layer-switch nothing_layer)
+(deflayermap (qwerty)
+  _ _
+  power @zzz
+  grv   @lay
+  caps  @ec
+  lctl  lalt
+  lalt  lctl
+  ralt  @nav
+)
+
+(deflayermap (layers)
+  _ _
+  1     @gak
+  2     @ru
+  3     @jp
+  4     @ara
+  bspc  @nl
+  s     lrld
+)
+
+(deflayermap (navigation)
+  _ _
+      C-A-f1
+      C-A-f2
+      C-A-f3
+      C-A-f4
+  " 󰍴" C-A-f5
+  " 󰐕" C-A-f6
+  1     f1
+  2     f2
+  3     f3
+  4     f4
+  5     f5
+  6     f6
+  7     f7
+  8     f8
+  9     f9
+  0     f10
+  -     f11
+  =     f12
+  u     pgup
+  i     pgdn
+  j     lft
+  k     down
+  l     up
+  ;     rght
+  m     home
+  ,     end
+)
+
+(deflayermap (mouse_actions)
+  _ _
+  1     caps
+  bspc  C-bspc
+  q     mlft
+  w     @mup
+  e     mrgt
+  u     [
+  i     ]
+  o     S-6
+  a     @mlft
+  s     @mbck
+  d     @mrght
+  f     mmid
+  g     \
+  h     S-\
+  j     S-;
+  k     kp*
+  l     S-5
+  ;     S-2
+  c     C-c
+  v     C-v
+)
+
+(deflayermap (nothing_layer)
+  grv @lay
+  _   XX
 )
