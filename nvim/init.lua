@@ -32,17 +32,49 @@ vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)
 
+local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
+
+map({ 'n', 'v', 'o' }, 't', 'i', opts)
+map({ 'n', 'v', 'o' }, 'T', 'I', opts)
+
+map({ 'n', 'v', 'o' }, 's', 'a', opts)
+map({ 'n', 'v', 'o' }, 'S', 'A', opts)
+
+map({ 'n', 'v', 'o' }, 'a', 'gj', opts)
+map({ 'n', 'v', 'o' }, 'e', 'gk', opts)
+map({ 'n', 'v', 'o' }, 'i', 'l', opts)
+
+map({ 'n', 'v', 'o' }, 'l', 'w', opts)
+map({ 'n', 'v', 'o' }, 'L', 'W', opts)
+
+map({ 'n', 'v', 'o' }, 'w', 'e', opts)
+map({ 'n', 'v', 'o' }, 'W', 'E', opts)
+
+map({ 'n', 'v' }, 'm', 'x', opts)
+
+map('n', '<C-s>', ':w<CR>', opts)
+map('i', '<C-s>', '<Esc>:w<CR>gi', opts)
+map('v', '<C-s>', '<Esc>:w<CR>gv', opts)
+map('n', ';', ':', opts)
+map('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
+
+--map('n', '<S-Tab>', ':tabprevious<CR>', opts)
+--map('n', '<Tab>', ':tabnext<CR>', opts)
 vim.keymap.set('n', '<C-s>', ':w<CR>')
 vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>gi')
 vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv')
 vim.keymap.set('n', ';', ':')
 
+vim.keymap.set('n', 'gn', 'ga')
 vim.keymap.set('n', '.r', ':source ~/.config/nvim/init.lua<CR>')
 vim.keymap.set('n', '.y', '"+y')
 vim.keymap.set('v', '.y', '"+y')
 vim.keymap.set('n', '<C-a>', '0ggvG$')
 vim.keymap.set('i', '<C-a>', '<Esc>0ggvG$')
 vim.keymap.set('v', '<C-a>', '<Esc>0ggvG$')
+--vim.keymap.set('n', '<Tab>', ':tabnext<CR>')
+vim.keymap.set('n', '<S-Tab>', ':tabprevious<CR>')
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -87,7 +119,20 @@ require('lazy').setup({
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
+      local actions = require 'telescope.actions'
       require('telescope').setup {
+        defaults = {
+          mappings = {
+            i = {
+              ['<C-a>'] = actions.move_selection_next,
+              ['<C-e>'] = actions.move_selection_previous,
+            },
+            n = {
+              ['a'] = actions.move_selection_next,
+              ['e'] = actions.move_selection_previous,
+            },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
