@@ -12,3 +12,5 @@ auto-format = true
 name = "scss"
 formatter = { command = "prettier", args = ["--parser", "scss"] }
 auto-format = true
+
+

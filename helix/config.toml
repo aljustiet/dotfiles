@@ -17,6 +17,8 @@ S = "insert_at_line_end"
 ";" = "command_mode"
 C-s = ":w"
 y = "yank_to_clipboard"
+p = "paste_clipboard_after"
+P = "paste_clipboard_before"
 
 [keys.normal.g]
 i = "goto_line_end"
@@ -30,3 +32,6 @@ a = "extend_line_down"
 e = "extend_line_up"
 i = "extend_char_right"
 y = "yank_to_clipboard"
+
+[keys.select.g]
+i = "goto_line_end"
