@@ -2,7 +2,7 @@
   process-unmapped-keys yes
   concurrent-tap-hold true
   danger-enable-cmd yes
-  log-layer-changes no
+  ;;log-layer-changes no
   linux-dev-names-include (
     "AT Translated Set 2 keyboard"
     "ThinkPad Extra Buttons"
@@ -54,6 +54,7 @@
 
   gak (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s keyboard-us)  (layer-switch graphite-angle))
   ru (multi (cmd niri msg action switch-layout 1) (cmd fcitx5-remote -s keyboard-us)  (layer-switch qwerty))
+  qwe (multi (cmd fcitx5-remote -s keyboard-us)  (layer-switch qwerty))
   jp  (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s mozc)         (layer-switch graphite-angle))
   ara (multi (cmd fcitx5-remote -s keyboard-ara)   (layer-switch graphite-angle))
 
@@ -89,7 +90,7 @@
   grv   @lay
   caps  @ec
   lctl  lalt
-  lalt  lctl
+  lalt  (multi lctl (layer-while-held graphite-angle))
   ralt  @nav
 )
 
@@ -99,6 +100,7 @@
   2     @ru
   3     @jp
   4     @ara
+  0     @qwe
   bspc  @nl
   s     lrld
 )
@@ -123,14 +125,17 @@
   0     f10
   -     f11
   =     f12
-  u     pgup
+  o     pgup
   i     pgdn
+
   j     lft
   k     down
   l     up
   ;     rght
+
   m     home
   ,     end
+  /     end
 )
 
 (deflayermap (mouse_actions)
