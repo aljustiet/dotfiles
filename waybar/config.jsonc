@@ -1,24 +1,24 @@
 {
-	"layer": "bottom",
 	"position": "top",
-	"margin-top": 4,
-	"margin-bottom": 0,
-	"margin-left": 10,
-	"margin-right": 10,
-	"spacing": 1,
-
-
-  "modules-left": ["clock", "wireplumber", "backlight"],
-  "modules-center": ["niri/workspaces"],
+	"margin": 2,
+	"spacing": 4,
+	"reload_style_on_change": true,
+	"modules-left": [
+		"clock",
+		"wireplumber",
+		"backlight"
+	],
+	"modules-center": [
+		"niri/workspaces"
+	],
 	"modules-right": [
-		"tray",
-		"network",
-		"battery",
-		"cpu",
 		"memory",
+		"cpu",
+		"battery",
+		"network",
+		"tray",
 		"custom/power"
 	],
-
 	"clock": {
 		"interval": 1,
 		"format": "{:%H:%M:%S}",
@@ -39,10 +39,13 @@
 		"justify": "center"
 	},
 	"wireplumber": {
-		"on-click": "pavucontrol",
-		"on-click-right": "amixer sset Master toggle 1>/dev/null",
-		"on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.05-",
-		"on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.05+",
+		"on-click": "playerctl play-pause",
+		"on-click-middle": "pwvucontrol",
+		"on-click-right": "amixer -q sset Master toggle",
+		"on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.01-",
+		"on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.01+",
+		"on-click-backward": "playerctl previous",
+		"on-click-forward": "playerctl next",
 		"format": "{icon} {volume}%",
 		"format-source": " ",
 		"format-source-muted": " ",
@@ -63,7 +66,6 @@
 		"icon-size": 15,
 		"spacing": 10
 	},
-
 	"niri/workspaces": {
 		"all-outputs": true,
 		"format": "<sub>{icon}</sub>",
@@ -72,29 +74,24 @@
 			"2": "",
 			"3": "",
 			"4": "",
-      "5": "󰇧"
-      
+			"5": "󰇧"
 		},
 		"sort-by-number": true,
 		"active-only": false,
 		"hide-active": false,
 		"justify": "center"
 	},
-
 	"cpu": {
-		"format": "💻 {usage}% {max_frequency:0.1f}GHz",
-		"on-click": "ghostty -e btop",
-		"interval": 3,
-		//"max-length": 14,
-		//"min-length": 14,
-		"justify": "center",
-		"tooltip": false
+		"format": " {load}",
+		"on-click": "footclient htop",
+		"interval": 1,
+		"justify": "center"
 	},
 	"memory": {
-		"format": "{used:0.1f}G",
-		"interval": 3,
+		"interval": 1,
+		"format": " {used}G 󰋊 {swapUsed}G",
+		"format-icons": "󰍛",
 		"justify": "center",
-		"tooltip": false
 	},
 	"temperature": {
 		"thermal-zone": 1,
@@ -104,7 +101,9 @@
 		"critical-threshold": 80,
 		"format-critical": " {temperatureC}°C",
 		"format": "{icon} {temperatureC}°C",
-		"format-icons": [""],
+		"format-icons": [
+			""
+		],
 		//"max-length": 20,
 		//"min-length": 7,
 		"tooltip": false
@@ -112,7 +111,11 @@
 	"backlight": {
 		"device": "intel_backlight",
 		"format": "{icon}{percent}%",
-		"format-icons": ["󰃞 ", "󰃟 ", "󰃠 "],
+		"format-icons": [
+			"󰃞 ",
+			"󰃟 ",
+			"󰃠 "
+		],
 		"on-scroll-down": "brightnessctl s 5%-",
 		"on-scroll-up": "brightnessctl s +5%",
 		"justify": "center",
@@ -128,7 +131,13 @@
 		"format": "{capacity}",
 		"format-charging": "{capacity}",
 		"format-plugged": "{capacity}",
-		"format-icons": [" ", " ", " ", " ", " "],
+		"format-icons": [
+			" ",
+			" ",
+			" ",
+			" ",
+			" "
+		],
 		"justify": "center"
 	},
 	"custom/power": {
