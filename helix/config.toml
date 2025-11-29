@@ -16,6 +16,7 @@ s = "append_mode"
 S = "insert_at_line_end"
 ";" = "command_mode"
 C-s = ":w"
+y = "yank_to_clipboard"
 
 [keys.normal.g]
 i = "goto_line_end"
