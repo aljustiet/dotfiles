@@ -1,5 +1,8 @@
 theme = "gruvbox_light"
 
+[editor]
+default-yank-register = "+"
+
 [editor.cursor-shape]
 normal = "block"
 insert = "bar"
@@ -16,9 +19,7 @@ s = "append_mode"
 S = "insert_at_line_end"
 ";" = "command_mode"
 C-s = ":w"
-y = "yank_to_clipboard"
-p = "paste_clipboard_after"
-P = "paste_clipboard_before"
+z = "find_till_char"
 
 [keys.normal.g]
 i = "goto_line_end"
@@ -31,7 +32,6 @@ h = "extend_char_left"
 a = "extend_line_down"
 e = "extend_line_up"
 i = "extend_char_right"
-y = "yank_to_clipboard"
 
 [keys.select.g]
 i = "goto_line_end"
