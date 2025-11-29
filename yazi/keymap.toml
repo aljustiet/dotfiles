@@ -86,4 +86,8 @@ keymap = [
   { on = "<Backspace>", run = "backspace", desc = "Delete the character before the cursor" },
   { on = "h", run = "move -1", desc = "Move back a character" },
   { on = "i", run = "move 1", desc = "Move forward a character" },
+  { on = "0", run = "move bol", desc = "Move to the BOL" },
+  { on = "$", run = "move eol", desc = "Move to the EOL" },
+  { on = ["g", "h"], run = "move bol", desc = "Move to the BOL" },
+  { on = ["g", "i"], run = "move eol", desc = "Move to the EOL" },
 ]
