@@ -3,6 +3,10 @@ theme = "gruvbox_light"
 [editor]
 default-yank-register = "+"
 
+[editor.soft-wrap]
+enable = true
+wrap-indicator = ""
+
 [editor.cursor-shape]
 normal = "block"
 insert = "bar"
