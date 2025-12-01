@@ -5,6 +5,8 @@ binds {
     Mod+B { close-window; }
     Mod+W { spawn "dash" "-c" "pkill waybar && waybar";}
 
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
     Mod+O   { focus-workspace-down; }
     Mod+U   { focus-workspace-up; }
     Mod+Shift+A     { focus-monitor-down; }
