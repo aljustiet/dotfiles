@@ -27,6 +27,7 @@ alias tree="tree -C"
 alias watch="watch --color --interval 1 --no-title"
 alias rz="source ~/.zshrc"
 alias ff="fastfetch"
+alias mf="microfetch"
 alias sl="sl -a -d -e -c -G -5"
 alias tokei="tokei --sort code"
 
