@@ -1,5 +1,4 @@
-spawn-at-startup "dash" "-c" "wl-paste --type text --watch cliphist store"
-spawn-at-startup "dash" "-c" "wl-paste --type image --watch cliphist store"
+spawn-at-startup "dash" "-c" "wl-paste --watch cliphist store"
 //spawn-at-startup "swayidle"
 spawn-at-startup "waybar"
 spawn-at-startup "solaar" "--window=hide"
