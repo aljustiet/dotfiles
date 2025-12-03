@@ -5,6 +5,7 @@ alias r="nixos-rebuild switch --flake ~/nix --sudo --max-jobs 16"
 alias rb="nixos-rebuild boot --flake ~/nix --sudo --max-jobs 16"
 alias eh="nvim ~/nix/home/home.nix"
 alias ef="nvim ~/nix/flake.nix"
+alias ns="nix shell"
 uf() {
     nix flake update --flake ~/nix --verbose
     nix flake update --flake ~/nix/home --verbose
