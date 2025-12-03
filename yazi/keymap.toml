@@ -36,6 +36,8 @@ keymap = [
   { on = [",", "B"], run = ["sort btime --reverse=yes", "linemode btime"], desc = "Sort by birth time (reverse)" },
   { on = [",", "m"], run = ["sort mtime --reverse=no", "linemode mtime"], desc = "Sort by modified time" },
   { on = [",", "M"], run = ["sort mtime --reverse=yes", "linemode mtime"], desc = "Sort by modified time (reverse)" },
+  { on = [",", "e"], run = "sort extension --reverse=no", desc = "Sort by extension" },
+  { on = [",", "E"], run = "sort extension --reverse=yes", desc = "Sort by extension (reverse)" },
   { on = "<Tab>", run = "spot", desc = "Spot hovered file" },
   { on = "<Enter>", run = "open", desc = "Open selected files" },
   { on = "<S-Enter>", run = "open --interactive", desc = "Open selected files interactively" },
