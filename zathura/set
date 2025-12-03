@@ -1,0 +1,11 @@
+set statusbar-h-padding 8
+set statusbar-v-padding 0
+set page-padding 1
+set selection-clipboard clipboard
+set font "JetBrainsMono Nerd Font"
+set guioptions none
+set recolor-reverse-video true
+set statusbar-home-tilde true
+set scroll-wrap false
+set zoom-min 1
+set zoom-max 9999
