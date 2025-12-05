@@ -171,14 +171,12 @@ ed() {
 tdmk() {
     niri msg action spawn -- "AyuGram"
     niri msg action spawn -- "vesktop"
-    niri msg action spawn -- "tutanota-desktop" "--no-sandbox"
     niri msg action spawn -- "keepassxc"
 }
 
 ktdmk() {
     pkill "AyuGram"
     kill $(pgrep -o -f Vesktop)
-    kill $(pgrep -o -f tutanota-desktop)
     pkill "keepassxc"
 }
 
@@ -188,3 +186,6 @@ cv () {
 }
 alias nvc="niri msg action spawn -- 'zathura' '/home/aljustiet/Documents/books/social/emotional-intellect/nonviolent-communication/Nonviolent Communication 2015.pdf'"
 alias ct="wl-paste | nvim"
+cfs () {
+    echo level $1 | sudo tee /proc/acpi/ibm/fan
+}
