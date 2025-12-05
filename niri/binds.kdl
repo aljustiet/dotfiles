@@ -1,4 +1,5 @@
 binds {
+    Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
     Mod+comma { spawn "gnome-clocks"; }
     Mod+J {spawn "zathura" "~/Documents/books/social/emotional-intellect/nonviolent-communication/Nonviolent Communication 2015.pdf";}
     Mod+Return { spawn "footclient"; }
