@@ -7,8 +7,8 @@ alias eh="nvim ~/nix/home/home.nix"
 alias ef="nvim ~/nix/flake.nix"
 alias ns="nix shell"
 uf() {
-    nix flake update --flake ~/nix --verbose
-    nix flake update --flake ~/nix/home --verbose
+    nix flake update --flake ~/nix
+    nix flake update --flake ~/nix/home
 }
 cg() {
     sudo nix-collect-garbage -d
