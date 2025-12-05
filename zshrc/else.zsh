@@ -49,7 +49,6 @@ alias pm=pulsemixer
 alias am=alsamixer
 alias rt="radeontop --color"
 alias iao="cat /sys/class/power_supply/AC/online"
-alias cpaif="cat /proc/acpi/ibm/fan"
 alias sps="swapon --show"
 alias dl="echo 0 | sudo tee /sys/class/leds/*/brightness"
 alias lda="sudo udevadm info --attribute-walk"
@@ -189,3 +188,4 @@ alias ct="wl-paste | nvim"
 cfs () {
     echo level $1 | sudo tee /proc/acpi/ibm/fan
 }
+alias sfs="cat /proc/acpi/ibm/fan"
