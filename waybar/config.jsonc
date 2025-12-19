@@ -14,6 +14,7 @@
 	"modules-right": [
 		"memory",
 		"cpu",
+    "temperature",
 		"battery",
 		"network",
 		"tray",
@@ -94,18 +95,14 @@
 		"justify": "center",
 	},
 	"temperature": {
-		"thermal-zone": 1,
-		"interval": 3,
-		"hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon/hwmon6",
-		"input-filename": "temp1_input",
+    "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
+		"interval": 1,
 		"critical-threshold": 80,
 		"format-critical": " {temperatureC}°C",
 		"format": "{icon} {temperatureC}°C",
 		"format-icons": [
 			""
 		],
-		//"max-length": 20,
-		//"min-length": 7,
 		"tooltip": false
 	},
 	"backlight": {
