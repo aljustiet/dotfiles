@@ -5,6 +5,7 @@ binds {
     Mod+Return { spawn "footclient"; }
     Mod+B { close-window; }
     Mod+W { spawn "dash" "-c" "pkill waybar && waybar";}
+    Mod+L { toggle-window-floating; }
 
     Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }

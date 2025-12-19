@@ -24,7 +24,7 @@ environment {
     XDG_CURRENT_DESKTOP "Niri"
     XDG_SESSION_TYPE "wayland"
     XDG_SESSION_DESKTOP "Niri"
-    SDL_VIDEODRIVER "wayland,x11"
+    //SDL_VIDEODRIVER "wayland,x11"
     CLUTTER_BACKEND "wayland"
     ELECTRON_OZONE_PLATFORM_HINT "wayland"
     BEMOJI_PICKER_CMD "rofi -dmenu -i -case-smart"
