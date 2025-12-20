@@ -25,3 +25,8 @@ window-rule {
     open-on-workspace "keepassxc"
     open-fullscreen true
 }
+
+window-rule {
+    match app-id="google-chrome-unstable"
+    opacity 1.0
+}
