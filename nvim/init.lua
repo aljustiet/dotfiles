@@ -8,6 +8,7 @@ vim.o.breakindent = true
 vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
+vim.o.signcolumn = 'auto'
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.splitright = true
@@ -66,9 +67,6 @@ vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv')
 vim.keymap.set('n', ';', ':')
 
 vim.keymap.set('n', 'gn', 'ga')
-vim.keymap.set('n', '.r', ':source ~/.config/nvim/init.lua<CR>')
-vim.keymap.set('n', '.y', '"+y')
-vim.keymap.set('v', '.y', '"+y')
 vim.keymap.set('n', '<C-a>', '0ggvG$')
 vim.keymap.set('i', '<C-a>', '<Esc>0ggvG$')
 vim.keymap.set('v', '<C-a>', '<Esc>0ggvG$')
