@@ -31,7 +31,7 @@
    248
    114
    115
-   113      ;; Mute
+   113
 )
 
 (defsrc
@@ -107,12 +107,12 @@
 
 (deflayermap (navigation)
   _ _
-      C-A-f1
-      C-A-f2
-      C-A-f3
-      C-A-f4
-  " 󰍴" C-A-f5
-  " 󰐕" C-A-f6
+  f1   C-A-f1
+  f2   C-A-f2
+  f3   C-A-f3
+  f4   C-A-f4
+  f5    C-A-f5
+  f6    C-A-f6
   1     f1
   2     f2
   3     f3
