@@ -6,7 +6,6 @@ size = 1720,960
 [viewer]
 window = #000000FF
 transparency = #000000FF
-antialiasing = none
 scale = fit
 # resize_reset = no
 #slideshow = no
