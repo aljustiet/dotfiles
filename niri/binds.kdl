@@ -35,8 +35,8 @@ binds {
     Mod+R { spawn "rofi" "-show" "drun" "-show-icons" ; }
 
     Ctrl+Alt+L { spawn "swaylock"; }
-    Mod+K { spawn "zen" "-P" "aljustiet"; }
-    Ctrl+Shift+M { spawn "dash" "-c" "cliphist list | rofi -dmenu -i | cliphist decode | wl-copy" ;}
+    Mod+K { spawn "google-chrome-beta"; }
+    Ctrl+Shift+M { spawn "dash" "-c" "rofi -modi clipboard:~/git/cliphist/contrib/cliphist-rofi-img -show clipboard -show-icons" ;}
     Mod+Space { spawn "rofi" "-show" "window" "-show-icons" ;}
     Mod+N { spawn "swaync-client" "-t" "-sw" ;}
     Ctrl+Apostrophe { spawn "bemoji" "--noline" "--clip" ;}
