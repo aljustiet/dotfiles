@@ -30,3 +30,4 @@ export BATSIGNAL_CONFIG=/home/aljustiet/.config/batsignal
 export SYSTEMD_PAGER="bat"
 export SYSTEMD_PAGERSECURE="false"
 export TERMINAL="foot"
+export NIXPKGS_ALLOW_UNFREE=1
