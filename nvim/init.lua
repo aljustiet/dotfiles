@@ -344,6 +344,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         json = { 'biome' },
         jsonc = { 'biome' },
+        nix = { 'alejandra' },
       },
     },
   },
