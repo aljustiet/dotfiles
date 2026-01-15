@@ -1,17 +1,6 @@
-#export ZDOTDIR=$HOME/.config/zsh
-export LANG=C.UTF-8
-
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
-# Path
-
-
-# Environment variables
-#export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E'
-#export TIMEFMT=$'=============\nUser\t%*U\nSystem\t%*S\nTotal\t%*E'
-#export TIMEFMT=$'Kernel:\t    %S\nUser:\t    %U\nTotal:\t    %E\nPercentage: %P'
-# Add this to your ~/.zshrc file
 export TIMEFMT=$'-----------------------------------
   Total:\t%E
   Program:\t%U
