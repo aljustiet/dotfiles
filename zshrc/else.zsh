@@ -189,4 +189,4 @@ cfs () {
     echo level $1 | sudo tee /proc/acpi/ibm/fan
 }
 alias sfs="cat /proc/acpi/ibm/fan"
-alias ge="gemini-cli"
+alias ge="gemini"
