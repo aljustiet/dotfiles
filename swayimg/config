@@ -31,10 +31,9 @@ info_timeout = 0
 status_timeout = 5
 
 [keys.viewer]
-#Home = scale fit
-#Shift+h = scale fit
-#w = scale width
-w = zoom fit
+t = zoom optimal
+w = zoom width
+
 bracketright = zoom +10
 bracketleft = zoom -10
 Shift+bracketright = zoom 50
@@ -61,16 +60,9 @@ Shift+i = step_right 50
 n = antialiasing
 Shift+n = antialiasing prev
 
-y = next_file
-g = prev_file
-p = rotate_left
-Shift+p = rotate_right
-Shift+k = prev_dir
-k = next_dir 
-
+x = next_file
+p = prev_file
 o = info
-
-Shift+space = animation
 
 space = animation
 comma = next_frame
