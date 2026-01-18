@@ -68,7 +68,7 @@ Shift+p = rotate_right
 Shift+k = prev_dir
 k = next_dir 
 
-apostrophe = info
+o = info
 
 Shift+space = animation
 
