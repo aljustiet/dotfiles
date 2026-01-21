@@ -31,7 +31,7 @@ info_timeout = 0
 status_timeout = 5
 
 [keys.viewer]
-t = zoom optimal
+d = zoom optimal
 w = zoom width
 
 bracketright = zoom +10
