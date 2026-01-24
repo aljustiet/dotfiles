@@ -190,3 +190,4 @@ cfs () {
 }
 alias sfs="cat /proc/acpi/ibm/fan"
 alias ge="gemini"
+alias wcc="warp-cli connect"
