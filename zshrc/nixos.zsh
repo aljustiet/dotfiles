@@ -10,7 +10,6 @@ ns() {
 }
 uf() {
     nix flake update --flake ~/nix
-    nix flake update --flake ~/nix/home
 }
 cg() {
     sudo nix-collect-garbage -d

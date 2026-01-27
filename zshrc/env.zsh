@@ -1,11 +1,11 @@
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
-export TIMEFMT=$'-----------------------------------
-  Total:\t%E
-  Program:\t%U
-  Kernel:\t%S
-  CPU Total:\t%E'
+#export TIMEFMT=$'-----------------------------------
+#  Total:\t%E
+#  Program:\t%U
+#  Kernel:\t%S
+#  CPU Total:\t%E'
 export HYPRSHOTGUN_SCREENSHOTS=/home/aljustiet/Pictures/Screenshots
 export TERM=xterm-256color
 export LESS="--ignore-case --quit-if-one-screen --no-init --RAW-CONTROL-CHARS"
