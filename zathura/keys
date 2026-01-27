@@ -1,12 +1,15 @@
+map A down
+map E up
+map a scroll half-down
+map e scroll half-up
+map [fullscreen] A scroll down
+map [fullscreen] E scroll up
+map [fullscreen] a scroll half-down
+map [fullscreen] e scroll half-up
 map h scroll left
-map a scroll down
-map e scroll up
-map i scroll right
-
 map [fullscreen] h scroll left
-map [fullscreen] a scroll down
-map [fullscreen] e scroll up
 map [fullscreen] i scroll right
+map i scroll right
 
 map <Left> left
 map <Right> right
@@ -15,15 +18,11 @@ map [fullscreen] <Right> scroll right
 
 map r previous
 map t next
-map A half-down
-map E half-up
 map g top
 map G bottom
 
 map [fullscreen] r navigate previous
 map [fullscreen] t navigate next
-map [fullscreen] A scroll half-down
-map [fullscreen] E scroll half-up
 map [fullscreen] <C-a> scroll full-down
 map [fullscreen] <C-e> scroll full-up
 map [fullscreen] g goto top
