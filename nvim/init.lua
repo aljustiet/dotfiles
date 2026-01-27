@@ -1,14 +1,19 @@
+vim.o.foldcolumn = '0'
+vim.o.signcolumn = 'no'
+vim.o.relativenumber = false
+vim.o.number = false
+vim.o.cmdheight = 0
+vim.o.laststatus = 0
+vim.o.ruler = false
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
-vim.o.number = true
 vim.o.mouse = 'a'
 vim.o.showmode = false
 vim.o.breakindent = true
 vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.o.signcolumn = 'auto'
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.splitright = true
@@ -35,6 +40,7 @@ end)
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+map({ 'n', 'v', 'o' }, '<C-b>', ':q<CR>', opts)
 map({ 'n', 'v', 'o' }, 't', 'i', opts)
 map({ 'n', 'v', 'o' }, 'T', 'I', opts)
 
@@ -119,6 +125,7 @@ require('lazy').setup({
       local actions = require 'telescope.actions'
       require('telescope').setup {
         defaults = {
+          initial_mode = 'normal',
           mappings = {
             i = {
               ['<C-a>'] = actions.move_selection_next,
@@ -128,6 +135,11 @@ require('lazy').setup({
               ['a'] = actions.move_selection_next,
               ['e'] = actions.move_selection_previous,
             },
+          },
+        },
+        pickers = {
+          oldfiles = {
+            limit = 100,
           },
         },
         extensions = {
@@ -141,35 +153,35 @@ require('lazy').setup({
       pcall(require('telescope').load_extension, 'ui-select')
 
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-      vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>so', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>sh', builtin.help_tags)
+      vim.keymap.set('n', '<leader>sk', builtin.keymaps)
+      vim.keymap.set('n', '<leader>sf', builtin.find_files)
+      vim.keymap.set('n', '<C-p>', builtin.find_files)
+      vim.keymap.set('n', '<leader>ss', builtin.builtin)
+      vim.keymap.set('n', '<leader>sw', builtin.grep_string)
+      vim.keymap.set('n', '<leader>sg', builtin.live_grep)
+      vim.keymap.set('n', '<leader>sd', builtin.diagnostics)
+      vim.keymap.set('n', '<leader>sr', builtin.resume)
+      vim.keymap.set('n', '<leader>so', builtin.oldfiles)
+      vim.keymap.set('n', '<C-h>', builtin.oldfiles)
+      vim.keymap.set('n', '<leader><leader>', builtin.buffers)
 
       vim.keymap.set('n', '<leader>/', function()
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
           previewer = false,
         })
-      end, { desc = '[/] Fuzzily search in current buffer' })
+      end)
 
       vim.keymap.set('n', '<leader>s/', function()
         builtin.live_grep {
           grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
         }
-      end, { desc = '[S]earch [/] in Open Files' })
+      end)
 
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[S]earch [N]eovim files' })
+      end)
     end,
   },
 
