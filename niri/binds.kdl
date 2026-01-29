@@ -36,7 +36,7 @@ binds {
 
     Ctrl+Alt+L { spawn "swaylock"; }
     Mod+P { spawn "zen" "-P" "aljustiet"; }
-    Mod+K { spawn "google-chrome-beta"; }
+    Mod+K { spawn "google-chrome-beta" "--profile-directory=Default"; }
     Ctrl+Shift+M { spawn "dash" "-c" "rofi -modi clipboard:~/git/cliphist/contrib/cliphist-rofi-img -show clipboard -show-icons" ;}
     Mod+Space { spawn "rofi" "-show" "window" "-show-icons" ;}
     Mod+N { spawn "swaync-client" "-t" "-sw" ;}

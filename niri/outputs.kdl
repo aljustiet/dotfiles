@@ -11,8 +11,6 @@ output "HDMI-A-1" {
     focus-at-startup
 }
 output "DP-2" {
-    off
-    mode "3840x2160"
     scale 2.4
     position x=0 y=0
     focus-at-startup

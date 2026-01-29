@@ -2,10 +2,10 @@ map A down
 map E up
 map a scroll half-down
 map e scroll half-up
-map [fullscreen] A scroll down
-map [fullscreen] E scroll up
-map [fullscreen] a scroll half-down
-map [fullscreen] e scroll half-up
+map [fullscreen] A scroll half-down
+map [fullscreen] E scroll half-up
+map [fullscreen] a scroll down
+map [fullscreen] e scroll up
 map h scroll left
 map [fullscreen] h scroll left
 map [fullscreen] i scroll right
@@ -67,7 +67,6 @@ map Q quit
 
 map [fullscreen] f toggle_fullscreen
 map [fullscreen] s toggle_statusbar
-map [fullscreen] d toggle_page_mode
 map [fullscreen] c recolor
 map [fullscreen] u follow
 map [fullscreen] o toggle_index

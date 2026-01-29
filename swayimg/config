@@ -31,7 +31,7 @@ info_timeout = 0
 status_timeout = 5
 
 [keys.viewer]
-d = zoom optimal
+d = zoom height
 w = zoom width
 
 bracketright = zoom +10
@@ -62,7 +62,7 @@ Shift+n = antialiasing prev
 
 x = next_file
 p = prev_file
-o = info
+o = info off,viewer
 
 space = animation
 comma = next_frame

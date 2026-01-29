@@ -2,8 +2,12 @@
 keymap = [
   { on = "h", run = "leave", desc = "Back to the parent directory" },
   { on = "i", run = "enter", desc = "Enter the child directory" },
+  { on = "<Left>", run = "leave", desc = "Back to the parent directory" },
+  { on = "<Right>", run = "enter", desc = "Back to the parent directory" },
   { on = "a", run = "arrow next", desc = "Next file" },
   { on = "e", run = "arrow prev", desc = "Previous file" },
+  { on = "<Up>", run = "arrow prev", desc = "Previous file" },
+  { on = "<Down>", run = "arrow next", desc = "Next file" },
   { on = "q", run = "quit", desc = "Quit the process" },
   { on = "r", run = "rename --cursor=before_ext", desc = "Rename selected file(s)" },
   { on = "o", run = "open", desc = "Open selected files" },

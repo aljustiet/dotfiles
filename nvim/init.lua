@@ -125,7 +125,7 @@ require('lazy').setup({
       local actions = require 'telescope.actions'
       require('telescope').setup {
         defaults = {
-          initial_mode = 'normal',
+          --initial_mode = 'normal',
           mappings = {
             i = {
               ['<C-a>'] = actions.move_selection_next,
@@ -156,14 +156,14 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sh', builtin.help_tags)
       vim.keymap.set('n', '<leader>sk', builtin.keymaps)
       vim.keymap.set('n', '<leader>sf', builtin.find_files)
-      vim.keymap.set('n', '<C-p>', builtin.find_files)
+      vim.keymap.set({ 'n', 'v', 'o' }, '<C-p>', builtin.find_files)
       vim.keymap.set('n', '<leader>ss', builtin.builtin)
       vim.keymap.set('n', '<leader>sw', builtin.grep_string)
       vim.keymap.set('n', '<leader>sg', builtin.live_grep)
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics)
       vim.keymap.set('n', '<leader>sr', builtin.resume)
       vim.keymap.set('n', '<leader>so', builtin.oldfiles)
-      vim.keymap.set('n', '<C-h>', builtin.oldfiles)
+      vim.keymap.set({ 'n', 'v', 'o' }, '<C-h>', builtin.oldfiles)
       vim.keymap.set('n', '<leader><leader>', builtin.buffers)
 
       vim.keymap.set('n', '<leader>/', function()
