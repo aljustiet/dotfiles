@@ -193,3 +193,4 @@ alias ge="gemini"
 alias wcc="warp-cli connect"
 alias wd="warp-cli disconnect"
 alias oc="opencode"
+alias k=kanata
