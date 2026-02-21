@@ -5,6 +5,8 @@
 
 set default-bg "#d2c9b0"
 set default-fg "#262626"
+set recolor false
+set recolor-reverse-video false
 set inputbar-bg "#dcd2bd"
 set inputbar-fg "#262626"
 set statusbar-bg "#f6f0e1"

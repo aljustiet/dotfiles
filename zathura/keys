@@ -1,7 +1,7 @@
 map A down
 map E up
-map a scroll half-down
-map e scroll half-up
+map a scroll down
+map e scroll up
 map [fullscreen] A scroll half-down
 map [fullscreen] E scroll half-up
 map [fullscreen] a scroll down
@@ -57,7 +57,7 @@ map [fullscreen] j print
 
 map f toggle_fullscreen
 map s toggle_statusbar
-map c recolor
+map c recolor dark-theme
 map u follow
 map o toggle_index
 map <Return> toggle_presentation
@@ -67,7 +67,7 @@ map Q quit
 
 map [fullscreen] f toggle_fullscreen
 map [fullscreen] s toggle_statusbar
-map [fullscreen] c recolor
+map [fullscreen] c recolor dark-theme
 map [fullscreen] u follow
 map [fullscreen] o toggle_index
 map [fullscreen] ; feedkeys :

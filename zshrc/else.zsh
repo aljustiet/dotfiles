@@ -164,7 +164,7 @@ cap() {
 }
 
 ed() {
-    nvim ~/notes/"$(date +%Y-%m-%d.md)"
+    nvim ~/notes/"$(date +%Y%m%d.md)"
 }
 
 tdmk() {

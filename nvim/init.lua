@@ -105,6 +105,7 @@ rtp:prepend(lazypath)
 
 require('lazy').setup({
   'NMAC427/guess-indent.nvim',
+  'joshuadanpeterson/typewriter.nvim',
 
   {
     'nvim-telescope/telescope.nvim',
@@ -357,6 +358,7 @@ require('lazy').setup({
         json = { 'biome' },
         jsonc = { 'biome' },
         nix = { 'alejandra' },
+        kdl = { 'kdlfmt' },
       },
     },
   },

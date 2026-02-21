@@ -52,11 +52,12 @@
   nav (layer-while-held navigation)
   nl  (layer-switch nothing_layer)
 
-  gak (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s keyboard-us)  (layer-switch graphite-angle))
-  ru (multi (cmd niri msg action switch-layout 1) (cmd fcitx5-remote -s keyboard-us)  (layer-switch qwerty))
+  gak (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle))
+  ru (multi (cmd niri msg action switch-layout 1) (cmd fcitx5-remote -s keyboard-us) (layer-switch qwerty))
   qwe (multi (cmd fcitx5-remote -s keyboard-us)  (layer-switch qwerty))
-  jp  (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s mozc)         (layer-switch graphite-angle))
-  ara (multi (cmd fcitx5-remote -s keyboard-ara)   (layer-switch graphite-angle))
+  jp  (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s mozc) (layer-switch graphite-angle))
+  ch (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s rime) (layer-switch graphite-angle))
+  ara (multi (cmd fcitx5-remote -s keyboard-ara) (layer-switch graphite-angle))
 
   ' (fork ' - (lsft rsft))
   , (fork , / (lsft rsft))
@@ -98,8 +99,9 @@
   _ _
   1     @gak
   2     @ru
-  3     @jp
-  4     @ara
+  3     @ch
+  4     @jp
+  5     @ara
   0     @qwe
   bspc  @nl
   s     lrld
