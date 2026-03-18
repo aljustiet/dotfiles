@@ -4,10 +4,8 @@
   danger-enable-cmd yes
   log-layer-changes no
   linux-dev-names-include (
-    "AT Translated Set 2 keyboard"
-    "ThinkPad Extra Buttons"
-    "Video Bus"
-    "Power Button"
+    "Keychron Keychron K2"
+    "Keychron K2"
   )
 )
 
@@ -31,17 +29,25 @@
    248
    114
    115
-   113      ;; Mute
+   113
 )
 
 (defsrc
-  power
-  esc                   " 󰍴" " 󰐕" 󱒃    󰀝    󰍡    󰏲    󰏵        home end  ins  del
-  grv   1    2    3    4    5      6    7    8    9    0     -    =    bspc
-  tab   q    w    e    r    t      y    u    i    o    p     [    ]    \
-  caps  a    s    d    f    g      h    j    k    l    ;     '    ret
-  lsft  z    x    c    v    b      n    m    ,    .    /     rsft pgup up   pgdn
-  lctl  lmet lalt spc  ralt prtsc  rctl lft  down rght
+  esc   f1   f2   f3   f4   f5     f6   f7   f8   f9   f10 f11 f12  del
+  grv   1    2    3    4    5      6    7    8    9    0     -    =    bspc pgup
+  tab   q    w    e    r    t      y    u    i    o    p     [    ]    \    pgdn
+  caps  a    s    d    f    g      h    j    k    l    ;     '    ret       home
+  lsft  z    x    c    v    b      n    m    ,    .    /     rsft    up   end
+  lctl  lalt lmet spc rmet fn rctl                         lft  down rght
+)
+
+(deflayer graphite-angle
+  _     " 󰍴" " 󰐕" 󰒮    󰒭    _      _    _    _    󰐎                 _
+  @lay  1    2    3    4    5      6    7    8    9    0     [    ]    _ pgup
+  _     b    l    d    w    z      @'   f    o    u    j     ;    =    _ pgdn
+  @ec   n    r    t    s    g      y    h    a    e    i     @,   _ home
+  _     x    m    c    v    q      k    p    .    @-   @/    _ _ end
+  lalt lmet lctl _    @nav prtsc _ _    _    _
 )
 
 (defalias
@@ -71,16 +77,6 @@
 (defoverrides
   (lctl [) (lctl -)
   (lctl ]) (lctl =)
-)
-
-(deflayer graphite-angle
-  @zzz
-  _     " 󰍴" " 󰐕" 󰒮    󰒭    _      _    _    _    󰐎                 _    _    _    _
-  @lay  1    2    3    4    5      6    7    8    9    0     [    ]    _
-  _     b    l    d    w    z      @'   f    o    u    j     ;    =    _
-  @ec   n    r    t    s    g      y    h    a    e    i     @,   _
-  _     x    m    c    v    q      k    p    .    @-   @/    _    _    _    _
-  lalt  _    lctl _    @nav _      _    _    _    _
 )
 
 (deflayermap (qwerty)
@@ -130,7 +126,7 @@
   l     up
   ;     rght
   m     home
-  ,     end
+  /     end
 )
 
 (deflayermap (mouse_actions)
