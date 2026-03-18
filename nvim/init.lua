@@ -3,7 +3,7 @@ vim.o.signcolumn = 'no'
 vim.o.relativenumber = false
 vim.o.number = false
 vim.o.cmdheight = 0
-vim.o.laststatus = 0
+vim.o.laststatus = 2
 vim.o.ruler = false
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -84,14 +84,13 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.hl.on_yank()
   end,
 })
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
   local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
   if vim.v.shell_error ~= 0 then
@@ -414,12 +413,7 @@ require('lazy').setup({
     'ellisonleao/gruvbox.nvim',
     priority = 1000,
     config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('gruvbox').setup {
-        styles = {
-          comments = { italic = false },
-        },
-      }
+      require('gruvbox').setup {}
       vim.cmd.colorscheme 'gruvbox'
       vim.o.background = 'light'
     end,
