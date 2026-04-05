@@ -1,5 +1,5 @@
 vim.o.foldcolumn = '0'
-vim.o.signcolumn = 'no'
+vim.o.signcolumn = 'auto'
 vim.o.relativenumber = false
 vim.o.number = false
 vim.o.cmdheight = 0
@@ -65,13 +65,6 @@ map('v', '<C-s>', '<Esc>:w<CR>gv', opts)
 map('n', ';', ':', opts)
 map('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
 
---map('n', '<S-Tab>', ':tabprevious<CR>', opts)
---map('n', '<Tab>', ':tabnext<CR>', opts)
-vim.keymap.set('n', '<C-s>', ':w<CR>')
-vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>gi')
-vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>gv')
-vim.keymap.set('n', ';', ':')
-
 vim.keymap.set('n', 'gn', 'ga')
 vim.keymap.set('n', '<C-a>', '0ggvG$')
 vim.keymap.set('i', '<C-a>', '<Esc>0ggvG$')
@@ -104,7 +97,6 @@ rtp:prepend(lazypath)
 
 require('lazy').setup({
   'NMAC427/guess-indent.nvim',
-  'joshuadanpeterson/typewriter.nvim',
 
   {
     'nvim-telescope/telescope.nvim',
