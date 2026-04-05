@@ -1,3 +1,5 @@
 alias bsl="sudo btrfs subvolume list /"
 alias bqs="sudo btrfs qgroup show /"
 alias b="sudo btrfs"
+alias cso="sudo cryptsetup open"
+alias csc="sudo cryptsetup close"
