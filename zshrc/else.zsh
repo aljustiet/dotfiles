@@ -194,3 +194,4 @@ alias wcc="warp-cli connect"
 alias wd="warp-cli disconnect"
 alias oc="opencode"
 alias k=kanata
+alias a=alejandra
