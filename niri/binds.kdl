@@ -27,7 +27,7 @@ binds {
     Mod+M { spawn "~/.config/niri/scripts/focus.sh" "mail";}
     Mod+D { spawn "~/.config/niri/scripts/focus.sh" "discord";}
     Mod+X { spawn "~/.config/niri/scripts/focus.sh" "keepassxc";}
-    Mod+S { spawn "~/.config/niri/scripts/focus.sh" "browser";}
+    Mod+S { spawn "systemctl" "suspend";}
 
     Alt+F { maximize-column; }
     Mod+F { maximize-window-to-edges; }
