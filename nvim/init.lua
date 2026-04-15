@@ -1,8 +1,8 @@
 vim.o.foldcolumn = '0'
 vim.o.signcolumn = 'auto'
 vim.o.relativenumber = false
-vim.o.number = false
-vim.o.cmdheight = 0
+vim.o.number = true
+--vim.o.cmdheight = 0
 vim.o.laststatus = 2
 vim.o.ruler = false
 vim.g.mapleader = ' '
@@ -62,9 +62,9 @@ map({ 'n', 'v' }, 'm', 'x', opts)
 map('n', '<C-s>', ':w<CR>', opts)
 map('i', '<C-s>', '<Esc>:w<CR>gi', opts)
 map('v', '<C-s>', '<Esc>:w<CR>gv', opts)
-map('n', ';', ':', opts)
 map('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
 
+vim.keymap.set('n', ';', ':')
 vim.keymap.set('n', 'gn', 'ga')
 vim.keymap.set('n', '<C-a>', '0ggvG$')
 vim.keymap.set('i', '<C-a>', '<Esc>0ggvG$')
@@ -407,7 +407,7 @@ require('lazy').setup({
     config = function()
       require('gruvbox').setup {}
       vim.cmd.colorscheme 'gruvbox'
-      vim.o.background = 'light'
+      vim.o.background = 'dark'
     end,
   },
   {
