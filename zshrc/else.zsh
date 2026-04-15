@@ -23,7 +23,6 @@ alias pk=pkill
 alias grep="grep --color=always"
 alias diff="diff --color=always"
 alias ip="ip -c=always"
-alias tree="tree -C"
 alias watch="watch --color --interval 1 --no-title"
 alias rz="source ~/.zshrc"
 alias ff="fastfetch"
