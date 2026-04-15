@@ -10,3 +10,4 @@ newsboat/cache.db
 newsboat/cache.db.lock
 .DS_Store
 foot/theme
+fish/conf.d
