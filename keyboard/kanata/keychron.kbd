@@ -2,7 +2,7 @@
   process-unmapped-keys yes
   concurrent-tap-hold true
   danger-enable-cmd yes
-  log-layer-changes no
+;;  log-layer-changes no
   linux-dev-names-include (
     "Keychron Keychron K2"
     "Keychron K2"
@@ -84,8 +84,8 @@
   power @zzz
   grv   @lay
   caps  @ec
-  lctl  lalt
-  lalt  lctl
+  lctl  (multi lalt (layer-while-held graphite-angle))
+  lmet  (multi lctl (layer-while-held graphite-angle))
   ralt  @nav
 )
 

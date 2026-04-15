@@ -90,7 +90,7 @@
   power @zzz
   grv   @lay
   caps  @ec
-  lctl  lalt
+  lctl  (multi lalt (layer-while-held graphite-angle))
   lalt  (multi lctl (layer-while-held graphite-angle))
   ralt  @nav
 )
