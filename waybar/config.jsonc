@@ -14,7 +14,8 @@
 	"modules-right": [
 		"memory",
 		"cpu",
-    "temperature",
+    "temperature#cpu",
+    "temperature#nvme",
 		"battery",
 		"network",
 		"tray",
@@ -90,21 +91,26 @@
 	},
 	"memory": {
 		"interval": 1,
-		"format": " {used}G 󰋊 {swapUsed}G",
-		"format-icons": "󰍛",
-		"justify": "center",
+		"format": " {used}G  {swapUsed}G",
+		"justify": "center"
 	},
-	"temperature": {
+	"temperature#cpu": {
     "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
 		"interval": 1,
 		"critical-threshold": 80,
 		"format-critical": " {temperatureC}°C",
 		"format": "{icon} {temperatureC}°C",
 		"format-icons": [
-			""
+			""
 		],
 		"tooltip": false
 	},
+  "temperature#nvme": {
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp3_input",
+        "critical-threshold": 70,
+        "format-critical": " {temperatureC}°C",
+        "format": " {temperatureC}°C"
+  },
 	"backlight": {
 		"device": "intel_backlight",
 		"format": "{icon}{percent}%",
@@ -138,7 +144,7 @@
 		"justify": "center"
 	},
 	"custom/power": {
-		"format": " ",
+		"format": "",
 		"tooltip": false,
 		"on-click": "wlogout",
 		"justify": "center"

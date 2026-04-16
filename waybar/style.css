@@ -20,7 +20,7 @@
 #backlight,
 #battery,
 #network,
-#custom-power-menu {
+#custom-power {
   margin: 0;
   padding: 0 10px;
   color: #2d3748;
@@ -78,7 +78,7 @@
 #memory,
 #network,
 #battery,
-#custom-power-menu {
+#custom-power {
   color: #1a202c;
   font-weight: 600;
 }
@@ -98,7 +98,7 @@
   animation-direction: alternate;
 }
 
-#custom-power-menu {
+#custom-power {
   border-radius: 9.5px;
   background-color: #edf2f7;
   border-radius: 7.5px;
