@@ -1,0 +1,33 @@
+include=/home/aljustiet/.config/foot/theme
+shell=zsh
+font=JetBrainsMono Nerd Font:style=Regular:size=16
+font-bold=JetBrainsMono Nerd Font:style=Bold:size=16
+font-italic=JetBrainsMono Nerd Font:style=Italic:size=16
+font-bold-italic=JetBrainsMono Nerd Font:style=Bold Italic:size=16
+
+[bell]
+urgent=yes
+notify=yes
+visual=yes
+
+[scrollback]
+lines=1024
+
+[url]
+launch=xdg-open ${url}
+
+[key-bindings]
+scrollback-up-line=Control+e
+scrollback-down-line=Control+a
+scrollback-up-page=Alt+e Page_Up
+scrollback-up-half-page=Alt+Shift+e Shift+Page_Up
+scrollback-down-page=Alt+a Page_Down
+scrollback-down-half-page=Alt+Shift+a Shift+Page_Down
+scrollback-home=Home
+scrollback-end=End
+#search-start=Control+f
+show-urls-copy=Control+Shift+e
+
+[search-bindings]
+find-prev=Control+r
+find-next=Control+t
