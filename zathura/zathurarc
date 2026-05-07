@@ -1,3 +1,135 @@
-include set
-include keys
-include reading-theme
+set statusbar-h-padding 8
+set statusbar-v-padding 0
+set page-padding 1
+set selection-clipboard clipboard
+set font "JetBrainsMono Nerd Font"
+set guioptions none
+set statusbar-home-tilde true
+set scroll-wrap false
+set zoom-min 1
+set zoom-max 9999
+
+set default-bg "#3b3b3b"
+set default-fg "#ffffff"
+set recolor true
+set recolor-reverse-video false
+set recolor-lightcolor "#3b3b3b"
+set recolor-darkcolor "#ffffff"
+
+set inputbar-bg "#3b3b3b"
+set inputbar-fg "#ffffff"
+set statusbar-bg "#3b3b3b"
+set statusbar-fg "#ffffff"
+
+set completion-bg "#3b3b3b"
+set completion-fg "#ffffff"
+set completion-group-bg "#3b3b3b"
+set completion-group-fg "#ffffff"
+set completion-highlight-bg "#ffffff"
+set completion-highlight-fg "#3b3b3b"
+
+set notification-bg "#3b3b3b"
+set notification-fg "#ffffff"
+set notification-error-bg "#ffffff"
+set notification-error-fg "#3b3b3b"
+set notification-warning-bg "#ffffff"
+set notification-warning-fg "#3b3b3b"
+
+set index-bg "#3b3b3b"
+set index-fg "#ffffff"
+set index-active-bg "#ffffff"
+set index-active-fg "#3b3b3b"
+
+map A down
+map E up
+map a scroll down
+map e scroll up
+map h scroll left
+map i scroll right
+
+map <Left> left
+map <Right> right
+
+map r previous
+map t next
+map g top
+map G bottom
+
+map [ zoom out
+map ] zoom in
+map <C--> zoom out
+map <C-=> zoom in
+
+map w adjust_window width
+map d adjust_window best-fit
+
+map p rotate rotate-ccw
+map , rotate rotate-cw
+
+map <C-f> search
+map <C-s> search forward
+map <C-t> search backward
+map <C-g> goto
+map j print
+
+map f toggle_fullscreen
+map s toggle_statusbar
+map c recolor
+map u follow
+map o toggle_index
+map <Return> toggle_presentation
+map ; feedkeys :
+map <Button3> quit
+map Q quit
+
+map [fullscreen] A scroll half-down
+map [fullscreen] E scroll half-up
+map [fullscreen] a scroll down
+map [fullscreen] e scroll up
+map [fullscreen] h scroll left
+map [fullscreen] i scroll right
+map [fullscreen] <Left> scroll left
+map [fullscreen] <Right> scroll right
+map [fullscreen] r navigate previous
+map [fullscreen] t navigate next
+map [fullscreen] <C-a> scroll full-down
+map [fullscreen] <C-e> scroll full-up
+map [fullscreen] g goto top
+map [fullscreen] G goto bottom
+map [fullscreen] [ zoom out
+map [fullscreen] ] zoom in
+map [fullscreen] <C--> zoom out
+map [fullscreen] <C-=> zoom in
+map [fullscreen] w adjust_window width
+map [fullscreen] d adjust_window best-fit
+map [fullscreen] p rotate rotate-ccw
+map [fullscreen] , rotate rotate-cw
+map [fullscreen] <C-f> search
+map [fullscreen] <C-s> search forward
+map [fullscreen] <C-r> search backward
+map [fullscreen] j print
+map [fullscreen] f toggle_fullscreen
+map [fullscreen] s toggle_statusbar
+map [fullscreen] c recolor
+map [fullscreen] u follow
+map [fullscreen] o toggle_index
+map [fullscreen] ; feedkeys :
+map [fullscreen] <Button3> quit
+
+map [index] h navigate_index collapse
+map [index] a navigate_index down
+map [index] e navigate_index up
+map [index] i navigate_index expand
+map [index] [ navigate_index collapse
+map [index] ] navigate_index expand
+map [index] <Return> navigate_index select
+map [index] <Tab> navigate_index toggle
+map [index] <ShiftTab> navigate_index expand-all
+map [index] <A-ShiftTab> navigate_index collapse-all
+map [index] A half-down
+map [index] E half-up
+map [index] <C-a> full-down
+map [index] <C-e> full-up
+map [index] g top
+map [index] G bottom
+map [index] o toggle_index
