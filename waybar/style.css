@@ -1,116 +1,35 @@
 * {
   font-family: "JetBrainsMono Nerd Font";
-  font-size: 13pt;
-  font-weight: 600;
-}
-
-#waybar {
-  background-color: transparent;
-}
-
-#clock,
-#wireplumber,
-#workspaces,
-#cpu,
-#memory,
-#custom-gpu,
-#custom-storage,
-#custom-storage2,
-#temperature,
-#backlight,
-#battery,
-#network,
-#custom-power {
-  margin: 0;
-  padding: 0 10px;
-  color: #2d3748;
-  background-color: #f7fafc;
-  border: 1.5px;
-  border-style: solid;
-  border-color: #e2e8f0;
-  border-radius: 7px;
-}
-
-#workspaces {
-  padding: 0 5px;
+  font-size: 16;
+  font-weight: 500;
 }
 
 #workspaces button {
-  padding: 0 5px;
-  margin: 0;
-  color: #4a5568;
-  background-color: transparent;
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each workspace name */
-  border: none;
-  border-radius: 0;
+  padding: 4 0;
 }
 
-#workspaces button.active,
-#workspaces button.focused {
-  color: #1a202c;
-  background-color: transparent;
-  font-weight: 700;
+#clock {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 24;
+  font-weight: 400;
 }
 
-/* Fix predefined gtk background effect on hover  */
-#workspaces button:hover {
-  background: none;
-  /* Uncomment to also disable text highlighting */
-  /* text-shadow: none; */
+#tray {
+  padding-bottom: 12;
 }
 
-#workspaces button.urgent,
-#temperature.critical {
-  color: #dd7878;
+#battery.text {
+  margin-bottom: 8;
 }
 
-#battery {
-  color: #2d3748;
+#pulseaudio.text {
+  margin-bottom: 8;
 }
 
-/* Make all icons and numbers darker */
-#clock,
-#wireplumber,
-#backlight,
-#cpu,
-#memory,
-#network,
-#battery,
-#custom-power {
-  color: #1a202c;
-  font-weight: 600;
+#temperature.cpu {
+  margin-bottom: 8;
 }
 
-#battery.charging,
-#battery.full,
-#battery.plugged {
-  color: #26a65b;
-}
-
-#battery.critical:not(.charging) {
-  color: #f53c3c;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-#custom-power {
-  border-radius: 9.5px;
-  background-color: #edf2f7;
-  border-radius: 7.5px;
-}
-
-label:focus {
-  background-color: #e2e8f0;
-}
-
-@keyframes blink {
-  to {
-    background-color: rgba(30, 34, 42, 0.5);
-    color: #3b4252;
-  }
+#temperature.nvme {
+  margin-bottom: 8;
 }

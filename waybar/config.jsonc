@@ -1,159 +1,82 @@
 {
-	"position": "top",
-	"margin": 2,
-	"spacing": 4,
-	"reload_style_on_change": true,
-	"modules-left": [
-		"clock",
-		"wireplumber",
-		"backlight"
-	],
-	"modules-center": [
-		"niri/workspaces"
-	],
-	"modules-right": [
-		"memory",
-		"cpu",
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "right",
+
+  "modules-left": [
+    "niri/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "cpu",
     "temperature#cpu",
     "temperature#nvme",
-		"battery",
-		"network",
-		"tray",
-		"custom/power"
-	],
-	"clock": {
-		"interval": 1,
-		"format": "{:%H:%M:%S}",
-		"tooltip-format": "<tt><small>{calendar}</small></tt>",
-		"calendar": {
-			"mode": "month",
-			"mode-mon-col": 3,
-			"weeks-pos": "right",
-			"on-scroll": 1,
-			"format": {
-				"months": "<span color='#eebebe'><b>{}</b></span>",
-				"days": "<span color='#ffe6ff'><b>{}</b></span>",
-				"weeks": "<span color='#c6a0f6'><b>W{}</b></span>",
-				"weekdays": "<span color='#eebebe'><b>{}</b></span>",
-				"today": "<span color='#ed8796'><b><u>{}</u></b></span>"
-			}
-		},
-		"justify": "center"
-	},
-	"wireplumber": {
-		"on-click": "playerctl play-pause",
-		"on-click-middle": "pwvucontrol",
-		"on-click-right": "amixer -q sset Master toggle",
-		"on-scroll-down": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.01-",
-		"on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.01+",
-		"on-click-backward": "playerctl previous",
-		"on-click-forward": "playerctl next",
-		"format": "{icon} {volume}%",
-		"format-source": " ",
-		"format-source-muted": " ",
-		"format-muted": "<span foreground='#fab387'>  MUT</span>",
-		"format-icons": {
-			"headphone": " ",
-			"hands-free": " ",
-			"headset": " ",
-			"phone": " ",
-			"portable": " ",
-			"car": " ",
-			"default": " "
-			//"default": [" ", " ", " "]
-		},
-		"justify": "center"
-	},
-	"tray": {
-		"icon-size": 15,
-		"spacing": 10
-	},
-	"niri/workspaces": {
-		"all-outputs": true,
-		"format": "<sub>{icon}</sub>",
-		"format-icons": {
-			"1": "",
-			"2": "",
-			"3": "",
-			"4": "",
-			"5": "󰇧"
-		},
-		"sort-by-number": true,
-		"active-only": false,
-		"hide-active": false,
-		"justify": "center"
-	},
-	"cpu": {
-		"format": " {load}",
-		"on-click": "footclient htop",
-		"interval": 1,
-		"justify": "center"
-	},
-	"memory": {
-		"interval": 1,
-		"format": " {used}G  {swapUsed}G",
-		"justify": "center"
-	},
-	"temperature#cpu": {
-    "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
-		"interval": 1,
-		"critical-threshold": 80,
-		"format-critical": " {temperatureC}°C",
-		"format": "{icon} {temperatureC}°C",
-		"format-icons": [
-			""
-		],
-		"tooltip": false
-	},
-  "temperature#nvme": {
-        "hwmon-path": "/sys/class/hwmon/hwmon2/temp3_input",
-        "critical-threshold": 70,
-        "format-critical": " {temperatureC}°C",
-        "format": " {temperatureC}°C"
+    "pulseaudio#icon",
+    "pulseaudio#text",
+    "battery#icon",
+    "battery#text",
+    "tray"
+  ],
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    },
+    "justify": "center"
   },
-	"backlight": {
-		"device": "intel_backlight",
-		"format": "{icon}{percent}%",
-		"format-icons": [
-			"󰃞 ",
-			"󰃟 ",
-			"󰃠 "
-		],
-		"on-scroll-down": "brightnessctl s 5%-",
-		"on-scroll-up": "brightnessctl s +5%",
-		"justify": "center",
-		"tooltip": false
-	},
-	"battery": {
-		"interval": 30,
-		"states": {
-			"good": 95,
-			"warning": 30,
-			"critical": 15
-		},
-		"format": "{capacity}",
-		"format-charging": "{capacity}",
-		"format-plugged": "{capacity}",
-		"format-icons": [
-			" ",
-			" ",
-			" ",
-			" ",
-			" "
-		],
-		"justify": "center"
-	},
-	"custom/power": {
-		"format": "",
-		"tooltip": false,
-		"on-click": "wlogout",
-		"justify": "center"
-	},
-	"network": {
-		"format-wifi": " ",
-		"format-ethernet": "󰈀",
-		"tooltip-format": "{ifname} via {gwaddr}",
-		"format-linked": "󰛵",
-		"format-disconnected": "⚠"
-	}
+
+  "clock": {
+    "format": "{:%H\n%M\n%S}",
+    "tooltip-format": "{:%d.%m.%Y %A}",
+    "interval": 1,
+  },
+
+  "pulseaudio#icon": {
+    "format": "{icon}",
+    "format-muted": "󰖁",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    }
+  },
+
+  "pulseaudio#text": {
+    "format": "{volume}",
+    "format-muted": "0"
+  },
+
+  "battery#text": {
+    "format": "{capacity}"
+  },
+
+  "battery#icon": {
+    "format": "{icon}",
+    "format-charging": "⚡",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+
+  "tray": {
+    "icon-size": 20,
+    "spacing": 8
+  },
+  "temperature#cpu": {
+    "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
+    "interval": 1,
+    "format": "󰻠 󰔄\n{temperatureC}",
+    "justify": "center"
+  },
+  "temperature#nvme": {
+    "hwmon-path": "/sys/class/hwmon/hwmon2/temp3_input",
+    "critical-threshold": 70,
+    "interval": 1,
+    "format": "\n{temperatureC}",
+    "justify": "center"
+  },
+  "cpu": {
+    "format": "󰻠\n{load}",
+    "justify": "center"
+  },
 }
