@@ -10,9 +10,6 @@
     "clock"
   ],
   "modules-right": [
-    "cpu",
-    "temperature#cpu",
-    "temperature#nvme",
     "pulseaudio#icon",
     "pulseaudio#text",
     "battery#icon",
@@ -29,15 +26,19 @@
     "justify": "center"
   },
 
-  "clock": {
-    "format": "{:%H\n%M\n%S}",
-    "tooltip-format": "{:%d.%m.%Y %A}",
+  "cpu": {
     "interval": 1,
+  },
+
+  "clock": {
+    "format": "{:%H\n%M}",
+    "tooltip-format": "{:%d.%m.%Y %A}",
   },
 
   "pulseaudio#icon": {
     "format": "{icon}",
     "format-muted": "󰖁",
+    "on-click-right": "amixer -q sset Master toggle",
     "format-icons": {
       "default": ["󰕿", "󰖀", "󰕾"]
     }
