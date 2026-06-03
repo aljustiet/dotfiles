@@ -10,6 +10,9 @@
     "clock"
   ],
   "modules-right": [
+    "cpu",
+    "temperature#cpu",
+    "temperature#nvme",
     "pulseaudio#icon",
     "pulseaudio#text",
     "battery#icon",
@@ -31,8 +34,9 @@
   },
 
   "clock": {
-    "format": "{:%H\n%M}",
+    "format": "{:%H\n%M\n%S}",
     "tooltip-format": "{:%d.%m.%Y %A}",
+    "interval": 1,
   },
 
   "pulseaudio#icon": {
