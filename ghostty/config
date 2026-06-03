@@ -1,16 +1,16 @@
-theme = Gruvbox Light
+theme = Gruvbox Dark
 font-size = 16
-window-theme=ghostty
-window-decoration = false
-shell-integration=none
-background-blur=0
-background-opacity=1
-auto-update=off
-gtk-single-instance = true
+#window-theme=ghostty
+#window-decoration = false
+#shell-integration=none
+#background-blur=0
+#background-opacity=1
+#auto-update=off
+#gtk-single-instance = true
 #scrollback-limit=10
 #command = /run/current-system/sw/bin/fish --interactive
-confirm-close-surface = false
-keybind = ctrl+enter=unbind
+#confirm-close-surface = false
+#keybind = ctrl+enter=unbind
 #gtk-custom-css="/usr/share/themes/Colloid-Dark-Gruvbox/gtk-4.0/gtk.css"
 
 #keybind = ctrl+v=paste_from_clipboard
