@@ -1,0 +1,167 @@
+(defcfg
+  process-unmapped-keys yes
+  concurrent-tap-hold true
+  danger-enable-cmd yes
+  ;;log-layer-changes no
+  linux-dev-names-include (
+    "foostan Corne v4"
+  )
+)
+
+(defvar
+  tt 200
+  ht 200
+)
+
+(deflocalkeys-linux
+  󰐎 164
+  󰒭 163
+  󰒮 165
+  " 󰍴" 224
+  " 󰐕" 225
+  󱒃 227
+  󰀝 238
+  󰍡 444
+  󰏲 445
+  󰏵 446
+   156
+   248
+   114
+   115
+   113
+)
+
+(defsrc
+  power
+  esc   f1   f2   f3   f4   f5     f6   f7   f8   f9   f10  f11  f12  home end  ins  del
+  grv   1    2    3    4    5      6    7    8    9    0     -    =    bspc
+  tab   q    w    e    r    t      y    u    i    o    p     [    ]    \
+  caps  a    s    d    f    g      h    j    k    l    ;     '    ret
+  lsft  z    x    c    v    b      n    m    ,    .    /     rsft pgup up   pgdn
+  lctl  lmet lalt spc  ralt prtsc  rctl lft  down rght
+)
+
+(defalias
+  zzz (cmd systemctl suspend)
+
+  lay (tap-hold-press $tt $ht grv (layer-toggle layers))
+  ec  (tap-hold-press $tt $ht esc (layer-while-held mouse_actions))
+  nav (layer-while-held navigation)
+  nl  (layer-switch nothing_layer)
+
+  gak (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s keyboard-us) (layer-switch graphite-angle))
+  ru (multi (cmd niri msg action switch-layout 1) (cmd fcitx5-remote -s keyboard-us) (layer-switch qwerty))
+  qwe (multi (cmd fcitx5-remote -s keyboard-us)  (layer-switch qwerty))
+  jp  (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s mozc) (layer-switch graphite-angle))
+  ch (multi (cmd niri msg action switch-layout 0) (cmd fcitx5-remote -s rime) (layer-switch graphite-angle))
+  ara (multi (cmd fcitx5-remote -s keyboard-ara) (layer-switch graphite-angle))
+
+  ' (fork ' - (lsft rsft))
+  , (fork , / (lsft rsft))
+  - (fork - ' (lsft rsft))
+  / (fork / , (lsft rsft))
+
+  mup   (movemouse-up 16 8)
+  mbck  (movemouse-down 16 8)
+  mlft  (movemouse-left 16 8)
+  mrght (movemouse-right 16 8)
+)
+
+(defoverrides
+  (lctl [) (lctl -)
+  (lctl ]) (lctl =)
+)
+
+(deflayer graphite-angle
+  @zzz
+  _     " 󰍴" " 󰐕" 󰒮    󰒭    _      _    _    _    󰐎                 _    _    _    _
+  @lay  1    2    3    4    5      6    7    8    9    0     [    ]    _
+  _     b    l    d    w    z      @'   f    o    u    j     ;    =    _
+  @ec   n    r    t    s    g      y    h    a    e    i     @,   _
+  _     x    m    c    v    q      k    p    .    @-   @/    _    _    _    _
+  lalt  _    lctl _    @nav _      _    _    _    _
+)
+
+(deflayermap (qwerty)
+  _ _
+  power @zzz
+  grv   @lay
+  caps  @ec
+  lctl  (multi lalt (layer-while-held graphite-angle))
+  lalt  (multi lctl (layer-while-held graphite-angle))
+  ralt  @nav
+)
+
+(deflayermap (layers)
+  _ _
+  1     @gak
+  2     @ru
+  3     @ch
+  4     @jp
+  5     @ara
+  0     @qwe
+  bspc  @nl
+  s     lrld
+)
+
+(deflayermap (navigation)
+  _ _
+  f1   C-A-f1
+  f2   C-A-f2
+  f3   C-A-f3
+  f4   C-A-f4
+  f5    C-A-f5
+  f6    C-A-f6
+  1     f1
+  2     f2
+  3     f3
+  4     f4
+  5     f5
+  6     f6
+  7     f7
+  8     f8
+  9     f9
+  0     f10
+  -     f11
+  =     f12
+  o     pgup
+  i     pgdn
+
+  j     lft
+  k     down
+  l     up
+  ;     rght
+
+  m     home
+  ,     end
+  /     end
+)
+
+(deflayermap (mouse_actions)
+  _ _
+  1     caps
+  bspc  C-bspc
+  q     mlft
+  w     @mup
+  e     mrgt
+  u     [
+  i     ]
+  o     S-6
+  a     @mlft
+  s     @mbck
+  d     @mrght
+  f     mmid
+  g     \
+  h     S-\
+  j     S-;
+  k     kp*
+  l     S-5
+  ;     S-2
+  c     C-c
+  v     C-v
+)
+
+(deflayermap (nothing_layer)
+  grv @lay
+  _   XX
+)
