@@ -1,4 +1,6 @@
 binds {
+    XF86Launch5 { spawn-sh "niri msg action switch-layout 1"; }
+    XF86Tools { spawn-sh "niri msg action switch-layout 0"; }
     Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
     Mod+comma { spawn "gnome-clocks"; }
     Mod+J {spawn "zathura" "~/Documents/books/social/emotional-intellect/nonviolent-communication/Nonviolent Communication 2015.pdf";}
@@ -23,7 +25,7 @@ binds {
     Alt+H { focus-column-left; }
     Alt+I { focus-column-right; }
 
-    Mod+T { spawn "~/.config/niri/scripts/focus.sh" "telegram";}
+    //Mod+T { spawn "~/.config/niri/scripts/focus.sh" "telegram";}
     Mod+M { spawn "~/.config/niri/scripts/focus.sh" "mail";}
     Mod+D { spawn "~/.config/niri/scripts/focus.sh" "discord";}
     Mod+X { spawn "~/.config/niri/scripts/focus.sh" "keepassxc";}
@@ -39,8 +41,8 @@ binds {
 
     Ctrl+Alt+L { spawn "swaylock"; }
     Mod+P { spawn "zen-twilight" "-P" "aljustiet"; }
-    Mod+K { spawn "google-chrome-beta" "--profile-directory=Default"; }
-    Ctrl+Shift+M { spawn "dash" "-c" "rofi -modi clipboard:~/git/cliphist/contrib/cliphist-rofi-img -show clipboard -show-icons" ;}
+    Mod+K { spawn "helium" "--password-store=basic"; }
+    Ctrl+M { spawn "dash" "-c" "rofi -modi clipboard:~/git/cliphist/contrib/cliphist-rofi-img -show clipboard -show-icons" ;}
     Mod+Space { spawn "rofi" "-show" "window" "-show-icons" ;}
     Mod+N { spawn "swaync-client" "-t" "-sw" ;}
     Ctrl+Apostrophe { spawn "bemoji" "--noline" "--clip" ;}
@@ -50,7 +52,7 @@ binds {
     Mod+Shift+H { move-column-left; }
     Mod+Shift+I { move-column-right; }
 
-    Mod+Q repeat=false { toggle-overview; }
+    Mod+T repeat=false { toggle-overview; }
 
     Mod+Shift+Slash { show-hotkey-overlay; }
 
