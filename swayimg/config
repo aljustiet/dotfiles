@@ -4,6 +4,7 @@ mode = viewer
 size = 1720,960
 
 [viewer]
+antialiasing = none mks13
 window = #000000FF
 transparency = #000000FF
 scale = fit
@@ -46,7 +47,7 @@ Shift+s = flip_horizontal
 r = rotate_left
 Shift+r = rotate_right
 f = fullscreen
-escape = fullscreen
+escape = exit
 q = exit
 h = step_left
 a = step_down
