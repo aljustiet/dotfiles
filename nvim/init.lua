@@ -40,6 +40,7 @@ end)
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+map({ 'n', 'v', 'o' }, 'f', '/')
 map({ 'n', 'v', 'o' }, '<C-c>', ':q<CR>', opts)
 map('i', '<C-c>', '<Esc>:q<CR>', opts)
 map({ 'n', 'v', 'o' }, '<C-b>', ':q<CR>', opts)
