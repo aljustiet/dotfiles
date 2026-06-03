@@ -40,6 +40,8 @@ end)
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+map({ 'n', 'v', 'o' }, '<C-c>', ':q<CR>', opts)
+map('i', '<C-c>', '<Esc>:q<CR>', opts)
 map({ 'n', 'v', 'o' }, '<C-b>', ':q<CR>', opts)
 map({ 'n', 'v', 'o' }, 't', 'i', opts)
 map({ 'n', 'v', 'o' }, 'T', 'I', opts)
@@ -407,7 +409,7 @@ require('lazy').setup({
     config = function()
       require('gruvbox').setup {}
       vim.cmd.colorscheme 'gruvbox'
-      vim.o.background = 'light'
+      vim.o.background = 'dark'
     end,
   },
   {
