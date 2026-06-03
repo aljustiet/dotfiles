@@ -1,3 +1,6 @@
+# Zathura Configuration
+
+# Settings
 set statusbar-h-padding 8
 set statusbar-v-padding 0
 set page-padding 1
@@ -9,69 +12,71 @@ set scroll-wrap false
 set zoom-min 1
 set zoom-max 9999
 
+# --- COLOR VARIABLES ---
+# default-bg: The main background color
+# default-fg: The main text/font color
+# recolor-lightcolor: Maps to the "page" background in PDFs
+# recolor-darkcolor: Maps to the "ink/text" in PDFs
+
 set default-bg "#3b3b3b"
-set default-fg "#ffffff"
+set default-fg "#e0e0e0"
+
 set recolor true
 set recolor-reverse-video false
 set recolor-lightcolor "#3b3b3b"
-set recolor-darkcolor "#ffffff"
+set recolor-darkcolor "#e0e0e0"
 
+# UI Colors (Matching the theme)
 set inputbar-bg "#3b3b3b"
-set inputbar-fg "#ffffff"
+set inputbar-fg "#e0e0e0"
 set statusbar-bg "#3b3b3b"
-set statusbar-fg "#ffffff"
+set statusbar-fg "#e0e0e0"
 
 set completion-bg "#3b3b3b"
-set completion-fg "#ffffff"
+set completion-fg "#e0e0e0"
 set completion-group-bg "#3b3b3b"
-set completion-group-fg "#ffffff"
-set completion-highlight-bg "#ffffff"
+set completion-group-fg "#e0e0e0"
+set completion-highlight-bg "#e0e0e0"
 set completion-highlight-fg "#3b3b3b"
 
 set notification-bg "#3b3b3b"
-set notification-fg "#ffffff"
-set notification-error-bg "#ffffff"
+set notification-fg "#e0e0e0"
+set notification-error-bg "#e0e0e0"
 set notification-error-fg "#3b3b3b"
-set notification-warning-bg "#ffffff"
+set notification-warning-bg "#e0e0e0"
 set notification-warning-fg "#3b3b3b"
 
 set index-bg "#3b3b3b"
-set index-fg "#ffffff"
-set index-active-bg "#ffffff"
+set index-fg "#e0e0e0"
+set index-active-bg "#e0e0e0"
 set index-active-fg "#3b3b3b"
 
+# Keyboard Shortcuts
 map A down
 map E up
 map a scroll down
 map e scroll up
 map h scroll left
 map i scroll right
-
 map <Left> left
 map <Right> right
-
 map r previous
 map t next
 map g top
 map G bottom
-
 map [ zoom out
 map ] zoom in
 map <C--> zoom out
 map <C-=> zoom in
-
 map w adjust_window width
 map d adjust_window best-fit
-
 map p rotate rotate-ccw
 map , rotate rotate-cw
-
 map <C-f> search
 map <C-s> search forward
 map <C-t> search backward
 map <C-g> goto
 map j print
-
 map f toggle_fullscreen
 map s toggle_statusbar
 map c recolor
@@ -82,6 +87,7 @@ map ; feedkeys :
 map <Button3> quit
 map Q quit
 
+# Fullscreen Shortcuts
 map [fullscreen] A scroll half-down
 map [fullscreen] E scroll half-up
 map [fullscreen] a scroll down
@@ -116,6 +122,7 @@ map [fullscreen] o toggle_index
 map [fullscreen] ; feedkeys :
 map [fullscreen] <Button3> quit
 
+# Index Shortcuts
 map [index] h navigate_index collapse
 map [index] a navigate_index down
 map [index] e navigate_index up
