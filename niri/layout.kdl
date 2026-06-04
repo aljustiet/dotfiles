@@ -1,7 +1,5 @@
 layout {
     gaps 4
-    background-color "#3b3b3b"
-    //center-focused-column "on-overflow"
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
