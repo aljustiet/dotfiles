@@ -1,0 +1,3 @@
+workspace "telegram" {
+    open-on-output "HDMI-A-1"
+}
