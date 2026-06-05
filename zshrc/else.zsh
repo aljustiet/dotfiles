@@ -146,6 +146,7 @@ rcu() {
 
 clean() {
   sudo nh clean all
+  notify-send Clean Done
 }
 
 cap() {
