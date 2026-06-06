@@ -30,7 +30,7 @@ alias mf="microfetch"
 alias sl="sl -a -d -e -c -G -5"
 alias tokei="tokei --sort code"
 
-alias sc=systemctl
+alias sc="sudo systemctl"
 alias jc=journalctl
 alias ssp="systemctl suspend"
 alias ds="sudo systemctl"
