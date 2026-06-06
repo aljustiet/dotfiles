@@ -1,5 +1,5 @@
 source ~/.config/zshrc/zshrc
-source ~/.config/zshrc/else.zsh
+source ~/.config/zshrc/others.zsh
 source ~/.config/zshrc/env.zsh
 source ~/.config/zshrc/binds.zsh
 source ~/.config/zshrc/filesystem.zsh
