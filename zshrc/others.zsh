@@ -196,3 +196,4 @@ alias wd="warp-cli disconnect"
 alias oc="opencode"
 alias k=kanata
 alias a=alejandra
+alias h="sudo htop"
