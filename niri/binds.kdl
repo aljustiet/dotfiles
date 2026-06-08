@@ -5,9 +5,7 @@ binds {
     Mod+comma { spawn "gnome-clocks"; }
     Mod+J {spawn "zathura" "~/Documents/books/social/emotional-intellect/nonviolent-communication/Nonviolent Communication 2015.pdf";}
     Mod+Return { spawn "footclient"; }
-    Mod+B { close-window; }
-    Mod+W { spawn "dash" "-c" "pkill waybar && waybar";}
-    Mod+L { toggle-window-floating; }
+    Mod+D { close-window; }
 
     Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
@@ -26,7 +24,6 @@ binds {
     Alt+I { focus-column-right; }
 
     //Mod+T { spawn "~/.config/niri/scripts/focus.sh" "telegram";}
-    Mod+D { spawn "~/.config/niri/scripts/focus.sh" "telegram";}
     Mod+S { spawn "systemctl" "suspend";}
     Mod+C { power-off-monitors;}
 
