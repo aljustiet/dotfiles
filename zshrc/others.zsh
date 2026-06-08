@@ -95,7 +95,6 @@ alias mc="mullvad connect"
 alias md="mullvad disconnect"
 
 alias nb=newsboat
-alias lc=leetcode
 alias td="termdown"
 alias cu=currencyConverter
 alias nt="notify-send 'Text' 'This is a text' "
