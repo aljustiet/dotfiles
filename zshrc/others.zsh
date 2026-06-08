@@ -1,4 +1,5 @@
 alias -s txt=nvim html=nvim conf=nvim
+alias t=nmas
 
 alias e=\$EDITOR
 alias edit=\$EDITOR
