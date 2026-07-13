@@ -3,14 +3,8 @@ if [ "$(tty)" = "/dev/tty1" ]; then
 fi
 ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump"
 
-if [[ -n ${ZSH_COMPDUMP}(#qN.mh+20) ]]; then
-  autoload -Uz compinit
-  compinit -C
-else
-  autoload -Uz compinit
-  compinit -i
-  touch "$ZSH_COMPDUMP"
-fi
+autoload -Uz compinit
+compinit
 
 if [[ ! -f "$ZSH_COMPDUMP.zwc" || "$ZSH_COMPDUMP" -nt "$ZSH_COMPDUMP.zwc" ]]; then
   zcompile "$ZSH_COMPDUMP"
