@@ -118,7 +118,7 @@ require('lazy').setup({
         end,
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
     config = function()
       local actions = require 'telescope.actions'
@@ -200,7 +200,7 @@ require('lazy').setup({
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',    opts = {} },
 
       'saghen/blink.cmp',
     },
@@ -414,7 +414,12 @@ require('lazy').setup({
     config = function()
       require('gruvbox').setup {}
       vim.cmd.colorscheme 'gruvbox'
-      vim.o.background = 'light'
+      local current_hour = os.date('*t').hour
+      if current_hour >= 19 or current_hour < 5 then
+        vim.o.background = 'dark'
+      else
+        vim.o.background = 'light'
+      end
     end,
   },
   {
