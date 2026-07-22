@@ -1,28 +1,23 @@
-source ~/.config/zshrc/zshrc
-source ~/.config/zshrc/others.zsh
-source ~/.config/zshrc/env.zsh
-source ~/.config/zshrc/binds.zsh
-source ~/.config/zshrc/filesystem.zsh
-source ~/.config/zshrc/autosuggestations.zsh
-source ~/.config/zshrc/cd.zsh
-source ~/.config/zshrc/clipboard.zsh
-source ~/.config/zshrc/coreutils.zsh
-source ~/.config/zshrc/kanata.zsh
-source ~/.config/zshrc/man.zsh
-source ~/.config/zshrc/niri.zsh
-source ~/.config/zshrc/transmission.zsh
-source ~/.config/zshrc/terminal.zsh
-source ~/.config/zshrc/yazi.zsh
-source ~/.config/zshrc/topgrade.zsh
-source ~/.config/zshrc/timedatectl.zsh
-source ~/.config/zshrc/go.zsh
-source ~/.config/zshrc/path.zsh
-source ~/.config/zshrc/nixos.zsh
-source ~/.config/zshrc/doas.zsh
-source ~/.config/zshrc/network.zsh
-source ~/.config/zshrc/wayland.zsh
-#for file in ~/.config/zsh/**/*; do
-#    if [[ -f $file ]]; then
-#        source "$file"
-#    fi
-#done
+source ~/.dotfiles/zshrc/zshrc
+source ~/.dotfiles/zshrc/others.zsh
+source ~/.dotfiles/zshrc/env.zsh
+source ~/.dotfiles/zshrc/binds.zsh
+source ~/.dotfiles/zshrc/filesystem.zsh
+source ~/.dotfiles/zshrc/autosuggestations.zsh
+source ~/.dotfiles/zshrc/cd.zsh
+source ~/.dotfiles/zshrc/clipboard.zsh
+source ~/.dotfiles/zshrc/coreutils.zsh
+source ~/.dotfiles/zshrc/kanata.zsh
+source ~/.dotfiles/zshrc/man.zsh
+source ~/.dotfiles/zshrc/niri.zsh
+source ~/.dotfiles/zshrc/transmission.zsh
+source ~/.dotfiles/zshrc/terminal.zsh
+source ~/.dotfiles/zshrc/yazi.zsh
+source ~/.dotfiles/zshrc/topgrade.zsh
+source ~/.dotfiles/zshrc/timedatectl.zsh
+source ~/.dotfiles/zshrc/go.zsh
+source ~/.dotfiles/zshrc/path.zsh
+source ~/.dotfiles/zshrc/nixos.zsh
+source ~/.dotfiles/zshrc/doas.zsh
+source ~/.dotfiles/zshrc/network.zsh
+source ~/.dotfiles/zshrc/wayland.zsh
