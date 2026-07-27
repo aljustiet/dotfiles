@@ -3,11 +3,11 @@ window-rule {
     open-floating true
 }
 
-window-rule {
-    match app-id=r#"^com\.ayugram\.desktop$"#
-    open-on-workspace "telegram"
-    open-fullscreen true
-}
+//window-rule {
+//    match app-id=r#"^com\.ayugram\.desktop$"#
+//    open-on-workspace "telegram"
+//    open-fullscreen true
+//}
 
 window-rule {
     match app-id=r#"^tutanota-desktop$"#
