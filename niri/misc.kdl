@@ -1,14 +1,12 @@
+spawn-at-startup "/usr/libexec/geoclue-2.0/demos/agent"
 spawn-at-startup "dash" "-c" "wl-paste --type text --watch cliphist store"
 spawn-at-startup "dash" "-c" "wl-paste --type image --watch cliphist store"
 //spawn-at-startup "swayidle"
-spawn-at-startup "AyuGram"
-spawn-at-startup "waybar"
 spawn-at-startup "solaar" "--window=hide"
 spawn-at-startup "foot" "--server"
-spawn-at-startup "gammastep"
-spawn-at-startup "dash" "-c" "pidof batsignal && batsignal"
 spawn-at-startup "kdeconnectd"
 spawn-at-startup "easyeffects" "--gapplication-service"
+spawn-at-startup "noctalia"
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
