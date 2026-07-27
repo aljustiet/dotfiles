@@ -76,5 +76,5 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
-    Ctrl+Alt+Delete { quit; }
+    super+Shift+M { quit; }
 }
