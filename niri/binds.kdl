@@ -6,7 +6,8 @@ binds {
     Mod+J {spawn "zathura" "~/Documents/books/social/emotional-intellect/nonviolent-communication/Nonviolent Communication 2015.pdf";}
     Mod+Return { spawn "footclient"; }
     Mod+D { close-window; }
-    Mod+W { spawn "~/sh/waybar.sh";}
+    Mod+B { close-window; }
+    Mod+W { toggle-window-floating;}
 
     Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
