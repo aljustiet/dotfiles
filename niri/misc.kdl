@@ -28,7 +28,7 @@ environment {
     MOZ_ENABLE_WAYLAND "1"
     GDK_BACKEND "wayland,x11"
     GDK_SCALE "2.4"
-    QT_QPA_PLATFORMTHEME "xdgdesktopportal"
+    QT_QPA_PLATFORMTHEME "xdgdesktopportal:qt5ct:qt6ct"
 }
 cursor {
     xcursor-theme "Bibata-Modern-Classic"
