@@ -34,7 +34,7 @@ binds {
     Mod+R { spawn "rofi" "-show" "drun" "-show-icons" ; }
 
     Ctrl+Alt+L { spawn "swaylock"; }
-    Mod+P { spawn "zen-twilight" "-P" "aljustiet"; }
+    Mod+P { spawn "zen-browser" "-P" "aziz"; }
     Mod+K { spawn "helium" "--password-store=basic"; }
     Ctrl+M { spawn "dash" "-c" "rofi -modi clipboard:~/git/cliphist/contrib/cliphist-rofi-img -show clipboard -show-icons" ;}
     Mod+Space { spawn "rofi" "-show" "window" "-show-icons" ;}
