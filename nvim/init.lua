@@ -430,19 +430,15 @@ require('lazy').setup({
     config = function()
       local ts = require('nvim-treesitter')
 
-      -- 1. Initialize treesitter
       ts.setup({})
 
-      -- 2. List the parsers you want to install
       local ensure_installed = {
         'bash', 'c', 'diff', 'html', 'lua', 'luadoc',
         'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc',
       }
 
-      -- 3. Auto-install any missing parsers
       ts.install(ensure_installed)
 
-      -- 4. Enable Neovim's native highlighting and indentation
       vim.api.nvim_create_autocmd('FileType', {
         pattern = { '*' },
         callback = function(args)
